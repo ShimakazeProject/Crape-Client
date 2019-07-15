@@ -1,0 +1,540 @@
+﻿<dmskin:DMSkinWindow x:Name="Window"
+        x:Class="Crape_Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:attached="clr-namespace:DMSkin.Attached;assembly=DMSkin"
+        xmlns:dmskin="clr-namespace:DMSkin;assembly=DMSkin"
+        xmlns:local="clr-namespace:Crape_Client"
+        mc:Ignorable="d"
+        Style="{DynamicResource AduWindowStyle}"
+        Title="MainWindow" Height="600" Width="1200"
+        SystemButtonSize="40"
+        FitSystemWindow="True"
+        Icon="Resource\Crape.ico"
+        Background="#2B2833"
+        Loaded="DMSkinWindow_Loaded" WindowStartupLocation="CenterScreen" 
+                     ResizeMode="CanResizeWithGrip" MinHeight="300" MinWidth="800" 
+                     MaxWidth="1200" SizeChanged="WindowSizeChanged">
+    <Border CornerRadius="4" Background="#302C3A" Name="mainback">
+        <Grid>
+            <!--#region 欢迎界面-->
+            <Border x:Name="Normal" Margin="200,0,0,0" Visibility="Hidden">
+                <!--Visibility="Hidden"-->
+                <ScrollViewer  Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10">
+                    <Grid >
+
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+            <!--#endregion-->
+            <!--#region 菜单列-->
+            <Canvas HorizontalAlignment="Left" Width="200">
+                <Border Grid.Column="0" Grid.Row="0" BorderBrush="#2B2833" BorderThickness="0,0,1,0" Width="200" Height="60">
+                    <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#fff" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+                </Border>
+                <ScrollViewer Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10" Canvas.Top="75" Width="200">
+                    <StackPanel Width="180" Canvas.Top="70">
+                        <Expander Style="{StaticResource AduExpander}" Header="作战" Foreground="#FFF">
+                            <StackPanel>
+                                <RadioButton Foreground="#FFF" x:Name="rbmCombat"
+                                                 Style="{StaticResource AduRadioButtonMenu}"
+                                                 Command="{Binding NavPageCommand}"
+                                                 Content="战役" GroupName="Menu"
+                                                 attached:Icon.Height="16"
+                                                 attached:Icon.Width="16"
+                                                 Checked="Combat_check"
+                                                 Unchecked="Combat_check"
+                                                 IsChecked="False"/>
+                                <RadioButton Foreground="#FFF" x:Name="rbmEncounter"
+                                                 Style="{StaticResource AduRadioButtonMenu}"
+                                                 Content="遭遇战" GroupName="Menu"
+                                                 attached:Icon.Height="18"
+                                                 attached:Icon.Width="16"
+                                                 Checked="Encounter_check"
+                                                 Unchecked="Encounter_check"
+                                                 IsChecked="False" />
+                                <RadioButton Foreground="#FFF" x:Name="rbmLoadSaves"
+                                                 Style="{StaticResource AduRadioButtonMenu}"
+                                                 Content="载入" GroupName="Menu"
+                                                 attached:Icon.Height="18"
+                                                 attached:Icon.Width="16"
+                                                 Checked="Loadings_check"
+                                                 Unchecked="Loadings_check"
+                                                 IsChecked="False" />
+                            </StackPanel>
+                        </Expander>
+                        <Expander Style="{StaticResource AduExpander}" Header="网络">
+                            <StackPanel>
+                                <RadioButton
+                                    Style="{StaticResource AduRadioButtonMenu}"
+                                    Command="{Binding NavPageCommand}"
+                                    Content="网际网络"
+                                    GroupName="Menu"
+                                    attached:Icon.Height="16"
+                                    attached:Icon.Width="16"
+                                    IsChecked="False" />
+                                <RadioButton
+                                    Style="{StaticResource AduRadioButtonMenu}"
+                                    Content="局域网"
+                                    GroupName="Menu"
+                                    attached:Icon.Height="18"
+                                    attached:Icon.Width="16"
+                                    IsChecked="False" />
+                            </StackPanel>
+                        </Expander>
+                        <RadioButton x:Name="rbmSettings"
+                                    Style="{StaticResource ToggleButtonStyle}"
+                                    Content="设置" Foreground="#FFF"
+                                    GroupName="Menu"
+                                    attached:Icon.Height="16"
+                                    attached:Icon.Width="16"
+                                         Checked="Settings_check"
+                                         Unchecked="Settings_check"
+                                    IsChecked="False" />
+                        <RadioButton x:Name="rbmNormal"
+                                         Style="{StaticResource AduRadioButtonMenu}"
+                                         Content="欢迎界面" Foreground="#FFF"
+                                         GroupName="Menu"
+                                         attached:Icon.Height="16"
+                                         attached:Icon.Width="16"
+                                         Checked="Normal_check"
+                                         Unchecked="Normal_check"
+                                         Visibility="Hidden"
+                                         IsChecked="True" />
+                    </StackPanel>
+                </ScrollViewer>
+                <RadioButton Style="{StaticResource ExitRadioButtonMenu}"
+                                         Content="退出"
+                                         Foreground="#FFF"
+                                         attached:Icon.Height="18"
+                                         attached:Icon.Width="16"
+                                         IsChecked="False" 
+                                         Checked="Exit" VerticalAlignment="Top" Canvas.Bottom="10"  Width="180" Canvas.Left="10" Canvas.Top="500"/>
+
+            </Canvas>
+            <!--#endregion-->
+            
+            <!--#region 战役-->
+            <Border x:Name="Mission" Margin="200,0,0,0">
+                <Border.Visibility>Hidden</Border.Visibility>
+                <ScrollViewer  Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Grid Height="520" Width="970" >
+                        <TextBlock Text="战役" Height="32" FontSize="24" Foreground="#fff" Margin="10,0,0,0" VerticalAlignment="Top"/>
+
+                        <DataGrid x:Name="dgMessionSeleted" 
+                            HorizontalAlignment="Left" Height="470" VerticalAlignment="Top" Width="300" Margin="0,40,0,0"
+                                  AlternationCount="2" Style="{StaticResource AduDataGrid}" 
+                                  SelectionChanged="MessionSeleted">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="#" Width="32" MinWidth="32" MaxWidth="32">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Source="{Binding Ico}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="战役名" Width="260" Binding="{Binding Name}" FontSize="20"/>
+                                <DataGridTextColumn Header="简报" Width="260" Binding="{Binding OriginalName}" Visibility="Collapsed"/>
+                            </DataGrid.Columns>
+
+
+
+                        </DataGrid>
+
+
+                        <Canvas Margin="305,40,0,0" Height="470" VerticalAlignment="Top">
+                            <TextBlock TextWrapping="Wrap" x:Name="MissionSummary" 
+                                   FontSize="18" Foreground="#ffa6a6a6" Background="#33000000" Width="665" Height="270"/>
+
+                            <Button Content="开始" Margin="30,400,0,0"
+                                Style="{StaticResource ButtonText}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="185" Background="Black"/>
+                            <Label Content="简单" Width="64" Canvas.Left="111" Foreground="#FFF" Canvas.Top="274"/>
+                            <Label Content="中等" Width="64" Canvas.Left="263" Foreground="#FFF" Canvas.Top="274"/>
+                            <Label Content="困难" Width="64" Canvas.Left="412" Foreground="#FFF" Canvas.Top="274"/>
+                            <DockPanel Height="30" LastChildFill="False" Width="450" Canvas.Top="300" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" HorizontalAlignment="Center" Canvas.Left="111">
+                                <RadioButton GroupName="MessionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" />
+                                <RadioButton GroupName="MessionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" IsChecked="True"/>
+                                <RadioButton GroupName="MessionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                            </DockPanel>
+
+                        </Canvas>
+
+
+
+
+
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+            <!--#endregion-->
+            <!--#region 遭遇战-->
+            <Border x:Name="遭遇战" Margin="200,0,0,0" Visibility="Hidden">
+                <!-- Visibility="Hidden" -->
+                <ScrollViewer Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10">
+                    <Canvas>
+                        <TextBlock Text="遭遇战" FontSize="24" Foreground="#fff" Margin="10,0,10,621"></TextBlock>
+                        <Grid Canvas.Top="40" Height="480" Width="972">
+                            <Canvas>
+                                <StackPanel Margin="10,0,319,0">
+                                    <TextBlock FontSize="18"
+                                             Height="25" TextWrapping="Wrap" 
+                                             Foreground="#FFA6A6A6"
+                                             Text="Player" 
+                                             Margin="0,5,-1,0"
+                                             VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"/>
+                                    <TextBox 
+                                             Height="25" TextWrapping="Wrap" 
+                                             Foreground="#FFA6A6A6"
+                                             Text="New_Player"
+                                             Margin="0,5,-1,0"
+                                             VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"/>
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFFFFFFF"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                </StackPanel>
+                                <StackPanel Margin="145,0,185,0" >
+                                    <TextBlock FontSize="18"
+                                             Height="25" TextWrapping="Wrap" 
+                                             Foreground="#FFA6A6A6"
+                                             Text="Side"
+                                             Margin="0,5,-1,0"
+                                             VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"/>
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFFFFFFF"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                                </StackPanel>
+                                <StackPanel Margin="279,0,126,0" >
+                                    <TextBlock FontSize="18"
+                                             Height="25" TextWrapping="Wrap" 
+                                             Foreground="#FFA6A6A6"
+                                             Text="Color"
+                                             Margin="0,5,-1,0"
+                                             VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFFFFFFF"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                </StackPanel>
+                                <StackPanel Margin="336,0,68,0" >
+                                    <TextBlock FontSize="18"
+                                             Height="25" TextWrapping="Wrap" 
+                                             Foreground="#FFA6A6A6"
+                                             Text="Team"
+                                             Margin="0,5,-1,0"
+                                             VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFFFFFFF"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                </StackPanel>
+                                <StackPanel Margin="395,0,10,0" >
+                                    <TextBlock FontSize="18"
+                                             Height="25" TextWrapping="Wrap" 
+                                             Foreground="#FFA6A6A6"
+                                             Text="Location"
+                                             Margin="0,5,-1,0"
+                                             VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFFFFFFF"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                    <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                                              Foreground="#FFA6A6A6"
+                                              Margin="0,5,-1,0"
+                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
+                                              />
+                                </StackPanel>
+                                <DataGrid x:Name="dgMapList"
+                                    HorizontalAlignment="Left" Style="{StaticResource ResourceKey=AduDataGrid}"
+                                          SelectionMode="Single"
+                                      Height="480" VerticalAlignment="Top" Width="222" Canvas.Left="750" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="#" Width="16" Binding="{Binding Ico}"/>
+                                        <DataGridTextColumn Header="地图"  Foreground="#FFa6a6a6" Width="260" Binding="{Binding Name}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </Canvas>
+
+                            <GroupBox Header="地图预览" Margin="10,280,527,0"
+                                      Style="{StaticResource AduGroupBox}">
+                                <Image Source="{x:Null}"/>
+                            </GroupBox>
+
+                        </Grid>
+                    </Canvas>
+                </ScrollViewer>
+            </Border>
+            <!--#endregion-->
+            <!--#region 载入-->
+            <Border x:Name="LoadSaveGame" Margin="200,0,0,0" Visibility="Hidden">
+                <!--Visibility="Hidden"-->
+                <ScrollViewer  Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10">
+                    <Grid>
+                        <TextBlock Text="载入存档" FontSize="24" Foreground="#fff" Margin="10,0,0,0" Height="32" VerticalAlignment="Top"></TextBlock>
+                        <DataGrid x:Name="dgLoadList"
+                            HorizontalAlignment="Left" Height="480" Style="{StaticResource AduDataGrid}"
+                                  VerticalAlignment="Top" Width="695" Margin="25,35,0,0" Background="{x:Null}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=Name}" Header="存档名" Width="250"/>
+                                <DataGridTextColumn Binding="{Binding Path=Date}" Header="时间与日期" Width="150" />
+                                <DataGridTextColumn Binding="{Binding Path=FileN}" Header="文件名" Visibility="Collapsed"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+            <!--#endregion-->
+
+            <!--#region 设置-->
+            <Border x:Name="Settings" Margin="200,0,0,0">
+                <Border.Visibility>Hidden</Border.Visibility>
+                <!--Visibility="Hidden"-->
+                <Grid>
+                    <ScrollViewer Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10" Margin="0,0,0,-305">
+                        <Grid>
+                            <TextBlock Text="设置" FontSize="24" Foreground="#fff" Margin="10,0,871,621"></TextBlock>
+                            <Canvas Margin="0,40,0,0">
+                                <GroupBox Header="显示设置" FontSize="18" Foreground="#fff" Height="202" Width="480" Style="{StaticResource AduGroupBox}" Canvas.Top="10">
+                                    <GroupBox Style="{StaticResource GroupBoxStyle}" FontSize="14">
+                                        <Canvas>
+                                            <Label Content="分辨率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="15" Canvas.Top="10"/>
+                                            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="80" Canvas.Top="10" Style="{StaticResource AduComboBox}"/>
+                                            <Label Content="画质" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="15" Canvas.Top="37"/>
+                                            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="80" Canvas.Top="37" Style="{StaticResource AduComboBox}"/>
+                                            <Label Content="渲染器" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="15" Canvas.Top="64"/>
+                                            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="80" Canvas.Top="64" Style="{StaticResource AduComboBox}"/>
+                                            <Label Content="客户端分辨率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="235" Canvas.Top="10"/>
+                                            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="322" Canvas.Top="10" Style="{StaticResource AduComboBox}"/>
+                                            <Label Content="客户端主题" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="235" Canvas.Top="62"/>
+                                            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="322" Canvas.Top="64" Style="{StaticResource AduComboBox}"/>
+                                            <CheckBox Content="窗口化" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="95"/>
+                                            <CheckBox Content="无边框" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="40" Canvas.Top="116"/>
+                                            <CheckBox Content="视频内存缓存" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="137"/>
+                                        </Canvas>
+                                    </GroupBox>
+                                </GroupBox>
+                                <GroupBox x:Name="gbSoundSettings" Header="声音设置" FontSize="18" Foreground="#fff" Height="303" Width="480" Style="{StaticResource AduGroupBox}" Canvas.Left="485" Canvas.Top="10">
+                                    <GroupBox Style="{StaticResource GroupBoxStyle}" FontSize="14">
+                                        <Canvas Margin="0,0,0,45">
+                                            <Label Content="音乐音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="16" />
+                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="135" Canvas.Top="22" />
+                                            <Label Content="音效音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="49" Canvas.Left="10" />
+                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="135" Canvas.Top="55" />
+                                            <Label Content="语言音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="82" Canvas.Left="10"/>
+                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="135" Canvas.Top="88" />
+                                            <Label Content="客户端音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="168" Canvas.Left="10"/>
+                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="135" Canvas.Top="171"/>
+                                            <CheckBox Content="随机播放游戏音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="115" />
+                                            <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="204" />
+                                            <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="229" Canvas.Left="10"/>
+                                        </Canvas>
+                                    </GroupBox>
+                                </GroupBox>
+
+
+                                <GroupBox Header="游戏设置" FontSize="18" Foreground="#fff" Height="260" Width="480" Style="{StaticResource AduGroupBox}" Canvas.Top="217">
+                                    <GroupBox Style="{StaticResource GroupBoxStyle}" FontSize="14">
+                                        <Canvas>
+                                            <Label Content="卷动速率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="10"/>
+                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="105" Canvas.Top="10"/>
+                                            <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="54"/>
+                                            <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="75"/>
+                                            <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="98"/>
+                                            <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="119"/>
+                                            <Label Content="游戏者名" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="160"/>
+                                            <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285" Canvas.Left="105" Canvas.Top="163" Background="#50000000" Foreground="#FFFFF596" SelectionBrush="#FF38FF18" BorderBrush="{x:Null}"/>
+                                        </Canvas>
+                                    </GroupBox>
+                                </GroupBox>
+
+
+
+                            </Canvas>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+            <!--#endregion-->
+
+
+
+
+
+
+        </Grid>
+    </Border>
+</dmskin:DMSkinWindow>
