@@ -12,6 +12,7 @@ namespace Crape_Client
         public string Name { get; set; }
         public string OriginalName { get; set; }
 
+
     }
     public class MapList//地图列表用
     {

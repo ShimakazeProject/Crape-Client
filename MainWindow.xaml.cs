@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Program;
+using RA2.Ini;
 
 namespace Crape_Client
 {
@@ -40,7 +41,8 @@ namespace Crape_Client
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side0.png"),
                         Name = side0[i],
-                        OriginalName = name[i] });
+                        OriginalName = name[i],
+                         });
                 }
             }
             catch(FileNotFoundException)
@@ -54,7 +56,7 @@ namespace Crape_Client
                         Ico = null,
                         Name = side0[i],
                         OriginalName = name[i]
-                    });
+                   , });
                 }
             }
             try
@@ -66,7 +68,7 @@ namespace Crape_Client
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side1.png"),
                         Name = side1[i],
-                        OriginalName = name[i] });
+                        OriginalName = name[i], });
                 }
             }
             catch (FileNotFoundException)
@@ -80,7 +82,7 @@ namespace Crape_Client
                         Ico = null,
                         Name = side1[i],
                         OriginalName = name[i]
-                    });
+                   , });
                 }
             }
             try
@@ -92,7 +94,7 @@ namespace Crape_Client
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side2.png"),
                         Name = side1[i],
-                        OriginalName = name[i] });
+                        OriginalName = name[i], });
                 }
             }
             catch (FileNotFoundException)
@@ -106,7 +108,7 @@ namespace Crape_Client
                         Ico = null,
                         Name = side1[i],
                         OriginalName = name[i]
-                    });
+                   , });
                 }
             }
             try
@@ -118,7 +120,7 @@ namespace Crape_Client
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side3.png"),
                         Name = side1[i],
-                        OriginalName = name[i] });
+                        OriginalName = name[i], });
                 }
             }
             catch (FileNotFoundException)
@@ -132,7 +134,7 @@ namespace Crape_Client
                         Ico = null,
                         Name = side1[i],
                         OriginalName = name[i]
-                    });
+                   , });
                 }
             }
             try
@@ -141,7 +143,7 @@ namespace Crape_Client
                 string[] name = IniAnalyze.MissionSideName.side4.ToArray();
                 for (uint i = 0; i < side1.Length; i++)
                 {
-                    dgMessionSeleted.Items.Add(new Mession { Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side4.png"), Name = side1[i], OriginalName = name[i] });
+                    dgMessionSeleted.Items.Add(new Mession { Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side4.png"), Name = side1[i], OriginalName = name[i], });
                 }
             }
             catch (FileNotFoundException)
@@ -152,7 +154,7 @@ namespace Crape_Client
                 {
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = null,
-                        Name = side1[i], OriginalName = name[i] });
+                        Name = side1[i], OriginalName = name[i], });
                 }
             }
             try
@@ -163,7 +165,7 @@ namespace Crape_Client
                 {
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side5.png"),
-                        Name = side5[i], OriginalName = name[i] });
+                        Name = side5[i], OriginalName = name[i], });
                 }
             }
             catch (FileNotFoundException)
@@ -174,7 +176,7 @@ namespace Crape_Client
                 {
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = null,
-                        Name = side5[i], OriginalName = name[i] });
+                        Name = side5[i], OriginalName = name[i], });
                 }
             }
             try
@@ -185,7 +187,7 @@ namespace Crape_Client
                 {
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side6.png"),
-                        Name = side6[i], OriginalName = name[i] });
+                        Name = side6[i], OriginalName = name[i], });
                 }
             }
             catch (FileNotFoundException)
@@ -196,7 +198,7 @@ namespace Crape_Client
                 {
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = null,
-                        Name = side6[i], OriginalName = name[i] });
+                        Name = side6[i], OriginalName = name[i], });
                 }
             }
             try
@@ -207,7 +209,7 @@ namespace Crape_Client
                 {
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side7.png"),
-                        Name = side7[i], OriginalName = name[i] });
+                        Name = side7[i], OriginalName = name[i], });
                 }
             }
             catch (FileNotFoundException)
@@ -218,7 +220,7 @@ namespace Crape_Client
                 {
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = null,
-                        Name = side7[i], OriginalName = name[i] });
+                        Name = side7[i], OriginalName = name[i], });
                 }
             }
             try
@@ -227,7 +229,7 @@ namespace Crape_Client
                 string[] name = IniAnalyze.MissionSideName.side8.ToArray();
                 for (uint i = 0; i < side8.Length; i++)
                 {
-                    dgMessionSeleted.Items.Add(new Mession { Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side8.png"), Name = side8[i], OriginalName = name[i] });
+                    dgMessionSeleted.Items.Add(new Mession { Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side8.png"), Name = side8[i], OriginalName = name[i], });
                 }
             }
             catch (FileNotFoundException)
@@ -238,7 +240,7 @@ namespace Crape_Client
                 {
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = null,
-                        Name = side8[i], OriginalName = name[i] });
+                        Name = side8[i], OriginalName = name[i], });
                 }
             }
             try
@@ -247,7 +249,9 @@ namespace Crape_Client
                 string[] name = IniAnalyze.MissionSideName.side9.ToArray();
                 for (uint i = 0; i < side9.Length; i++)
                 {
-                    dgMessionSeleted.Items.Add(new Mession { Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side9.png"), Name = side9[i], OriginalName = name[i] });
+                    dgMessionSeleted.Items.Add(new Mession {
+                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side9.png"),
+                        Name = side9[i], OriginalName = name[i], });
                 }
             }
             catch (FileNotFoundException)
@@ -258,16 +262,10 @@ namespace Crape_Client
                 {
                     dgMessionSeleted.Items.Add(new Mession {
                         Ico = null,
-                        Name = side9[i], OriginalName = name[i] });
+                        Name = side9[i], OriginalName = name[i], });
                 }
             }
             #endregion
-            /*
-            dgMessionSeleted.Items.Add(new Mession { Ico = null, Name = "Hello" });
-            dgMessionSeleted.Items.Add(new Mession { Ico = null, Name = "guten Tag" });
-            dgMessionSeleted.Items.Add(new Mession { Ico = null, Name = "Bonjour" });
-            dgMessionSeleted.Items.Add(new Mession { Ico = null, Name = "こんにちわ" });
-            //*/
         }
 
         private void MessionSeleted(object sender, SelectionChangedEventArgs e)
@@ -289,6 +287,19 @@ namespace Crape_Client
 
             }
         }
+        private void MissionRun(object sender, RoutedEventArgs e)
+        {
+            Mession Mession = dgMessionSeleted.SelectedItem as Mession;
+            if (Mession != null && Mession is Mession)
+            {
+
+                MessageBox.Show(
+                    "任务: \"" + Mession.Name +
+                    "\"\n任务文件名: " + Mession.OriginalName,
+                    "信息", MessageBoxButton.OK
+                    );
+            }
+        }
         #endregion
 
         #region 方法们
@@ -299,20 +310,51 @@ namespace Crape_Client
             dgMapList.Items.Add(new MapList { Ico = null, Name = "Bonjour" });
             dgMapList.Items.Add(new MapList { Ico = null, Name = "こんにちわ" });
         }
-        void LoadSave()// 加载地图列表
+        void LoadSave()// 加载存档列表
         {
-            dgLoadList.Items.Add(new Cls_SaveFiles { Name = "Hello", Date = "时间", FileN = "文件名" });
-            dgLoadList.Items.Add(new Cls_SaveFiles { Name = "guten Tag", Date = "时间", FileN = "文件名" });
-            dgLoadList.Items.Add(new Cls_SaveFiles { Name = "Bonjour", Date = "时间", FileN = "文件名" });
-            dgLoadList.Items.Add(new Cls_SaveFiles { Name = "こんにちわ", Date = "时间", FileN = "文件名" });
+            // AppDomain.CurrentDomain.BaseDirectory
+            DirectoryInfo folder = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "Saved Games");
+            try
+            {
+                foreach (FileInfo file in folder.GetFiles("*.sav"))
+                {
+                    //Console.WriteLine(file.FullName);
+                    dgLoadList.Items.Add(new Cls_SaveFiles {
+                        Name = GameSaveFile.LoadSaveName(File.ReadAllBytes(file.FullName)),
+                        Date = file.LastWriteTime.ToString(),
+                        FileN = file.Name
+                    });// FullName?
+                }
+            }
+            catch (DirectoryNotFoundException)
+            {
+                dgLoadList.Items.Add(new {
+                    Name = "没有发现可用存档", Data = "Null", FileN = "" });
+            }
         }
+        private void LoadSave(object sender, MouseButtonEventArgs e)
+        {
+            Spawn spawn = new Spawn();
+            Cls_SaveFiles LoadSaveName = dgLoadList.SelectedItem as Cls_SaveFiles;
+            if (LoadSaveName != null && LoadSaveName is Cls_SaveFiles)
+            {
+                spawn.Settings.LoadSaveGame = true;
+                spawn.Settings.SaveGameName = LoadSaveName.FileN;
+                spawn.Settings.GameSpeed = 1;
+                spawn.Settings.Firestorm = false;
+                spawn.Settings.SidebarHack = false;
+                spawn.Write();
+            }
 
+        }
 
         #endregion
 
-        private void DMSkinWindow_Loaded(object sender, RoutedEventArgs e)
-        {
 
+
+
+
+        private void DMSkinWindow_Loaded(object sender, RoutedEventArgs e){
         }
 
         private void Exit(object sender, RoutedEventArgs e) /* 退出 */ { Environment.Exit(0); }

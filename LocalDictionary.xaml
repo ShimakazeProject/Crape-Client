@@ -34,7 +34,7 @@
         </Setter>
     </Style>
 
-    
+    <!--没背景的悬停颜色附加的按钮-->
     <Style x:Key="ButtonText" TargetType="Button" >
         <Setter Setter.Property="FrameworkElement.FocusVisualStyle" Setter.Value="{x:Null}" />
         <Setter Setter.Property="UIElement.SnapsToDevicePixels" Setter.Value="True" />
@@ -226,4 +226,5 @@
         </Setter>
     </Style>
 
+    
 </ResourceDictionary>

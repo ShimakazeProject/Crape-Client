@@ -142,14 +142,12 @@
 
 
                         </DataGrid>
-
-
                         <Canvas Margin="305,40,0,0" Height="470" VerticalAlignment="Top">
                             <TextBlock TextWrapping="Wrap" x:Name="MissionSummary" 
                                    FontSize="18" Foreground="#ffa6a6a6" Background="#33000000" Width="665" Height="270"/>
-
                             <Button Content="开始" Margin="30,400,0,0"
-                                Style="{StaticResource ButtonText}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="185" Background="Black"/>
+                                    Style="{StaticResource ButtonText}" Height="30" VerticalAlignment="Top" 
+                                    HorizontalAlignment="Left" Width="185" Background="Black" Click="MissionRun"/>
                             <Label Content="简单" Width="64" Canvas.Left="111" Foreground="#FFF" Canvas.Top="274"/>
                             <Label Content="中等" Width="64" Canvas.Left="263" Foreground="#FFF" Canvas.Top="274"/>
                             <Label Content="困难" Width="64" Canvas.Left="412" Foreground="#FFF" Canvas.Top="274"/>
@@ -160,8 +158,6 @@
                             </DockPanel>
 
                         </Canvas>
-
-
 
 
 
@@ -447,7 +443,7 @@
                         <TextBlock Text="载入存档" FontSize="24" Foreground="#fff" Margin="10,0,0,0" Height="32" VerticalAlignment="Top"></TextBlock>
                         <DataGrid x:Name="dgLoadList"
                             HorizontalAlignment="Left" Height="480" Style="{StaticResource AduDataGrid}"
-                                  VerticalAlignment="Top" Width="695" Margin="25,35,0,0" Background="{x:Null}">
+                                  VerticalAlignment="Top" Width="695" Margin="25,35,0,0" Background="{x:Null}" MouseDoubleClick="LoadSave">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding Path=Name}" Header="存档名" Width="250"/>
                                 <DataGridTextColumn Binding="{Binding Path=Date}" Header="时间与日期" Width="150" />
