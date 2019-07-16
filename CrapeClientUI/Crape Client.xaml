@@ -109,8 +109,7 @@
                                          attached:Icon.Height="18"
                                          attached:Icon.Width="16"
                                          IsChecked="False" 
-                                         Checked="Exit" VerticalAlignment="Top" Canvas.Bottom="10"  Width="180" Canvas.Left="10" Canvas.Top="500"/>
-
+                                         Checked="Exit" VerticalAlignment="Top" Canvas.Bottom="10"  Width="180" Canvas.Left="10"/>
             </Canvas>
             <!--#endregion-->
             
