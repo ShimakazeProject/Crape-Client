@@ -122,24 +122,43 @@ namespace RA2.Ini
                 sw.Write("Port=" + Convert.ToString(Settings.Port) + "\r\n");
 
             if (Settings.LoadSaveGame == true) sw.Write("LoadSaveGame=1\r\n");
+
             if (Settings.ShortGame == true) sw.Write("ShortGame=1\r\n");
+
             if (Settings.Creates == true) sw.Write("Creates=1\r\n");
+
             if (Settings.AlliesAllowed == true) sw.Write("AlliesAllowed=1\r\n");
+
             if (Settings.MultiEngineer == true) sw.Write("MultiEngineer=1\r\n");
+
             if (Settings.MCVRedeploy == true) sw.Write("MCVRedeploy=1\r\n");
+            if (Settings.MCVRedeploy == false) sw.Write("MCVRedeploy=0\r\n");
             if (Settings.FogOfWar == true) sw.Write("FogOfWar=1\r\n");
+            if (Settings.FogOfWar == false) sw.Write("FogOfWar=0\r\n");
             if (Settings.BridgeDestroy == true) sw.Write("BridgeDestroy=1\r\n");
+
             if (Settings.AutoDeployMCV == true) sw.Write("AutoDeployMCV=1\r\n");
+
             if (Settings.SkipScoreScreen == true) sw.Write("SkipScoreScreen=1\r\n");
+
             if (Settings.IsSinglePlayer == true) sw.Write("IsSinglePlayer=1\r\n");
+
             if (Settings.Firestorm == true) sw.Write("Firestorm=1\r\n");
+            if (Settings.Firestorm == false) sw.Write("Firestorm=0\r\n");
             if (Settings.BuildOffAlly == true) sw.Write("BuildOffAlly=1\r\n");
+            if (Settings.BuildOffAlly == false) sw.Write("BuildOffAlly=0\r\n");
             if (Settings.IsSpectator == true) sw.Write("IsSpectator=1\r\n");
+            if (Settings.IsSpectator == false) sw.Write("IsSpectator=0\r\n");
             if (Settings.Bases == true) sw.Write("Bases=1\r\n");
+            if (Settings.Bases == false) sw.Write("Bases=0\r\n");
             if (Settings.SidebarHack == true) sw.Write("SidebarHack=1\r\n");
+            if (Settings.SidebarHack == false) sw.Write("SidebarHack=0\r\n");
             if (Settings.Host == true) sw.Write("Host=1\r\n");
+            if (Settings.Host == false) sw.Write("Host=0\r\n");
             if (Settings.Superweapons == true) sw.Write("Superweapons=1\r\n");
+            if (Settings.Superweapons == false) sw.Write("Superweapons=0\r\n");
             if (Settings.AttackNeutralUnits == true) sw.Write("AttackNeutralUnits=1\r\n");
+            if (Settings.AttackNeutralUnits == false) sw.Write("AttackNeutralUnits=0\r\n");
             sw.Write("\r\n\r\n\r\n");
             #endregion
 
@@ -553,6 +572,8 @@ namespace RA2.Ini
             public Byte? HouseAllySeven;
         }
         #endregion
+
+
     }
 }
 /* 意义不明配置项(键):

@@ -338,12 +338,14 @@ namespace Crape_Client
             Cls_SaveFiles LoadSaveName = dgLoadList.SelectedItem as Cls_SaveFiles;
             if (LoadSaveName != null && LoadSaveName is Cls_SaveFiles)
             {
+                //*
                 spawn.Settings.LoadSaveGame = true;
                 spawn.Settings.SaveGameName = LoadSaveName.FileN;
                 spawn.Settings.GameSpeed = 1;
                 spawn.Settings.Firestorm = false;
                 spawn.Settings.SidebarHack = false;
                 spawn.Write();
+                //*/
             }
 
         }
