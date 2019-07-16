@@ -292,7 +292,6 @@ namespace Crape_Client
             Mession Mession = dgMessionSeleted.SelectedItem as Mession;
             if (Mession != null && Mession is Mession)
             {
-
                 MessageBox.Show(
                     "任务: \"" + Mession.Name +
                     "\"\n任务文件名: " + Mession.OriginalName,
@@ -345,6 +344,8 @@ namespace Crape_Client
                 spawn.Settings.Firestorm = false;
                 spawn.Settings.SidebarHack = false;
                 spawn.Write();
+
+
                 //*/
             }
 

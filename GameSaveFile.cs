@@ -13,15 +13,12 @@ namespace Crape_Client
         public static string LoadSaveName(byte[] File)
         {
             byte[] NameBytes = File.Skip(0x9c0).Take(0x40).ToArray();
-            List<byte> Bytes = NameBytes.ToList();
-            for (uint i = 0;i<0xFF;i++)
-            {
-                Bytes.Remove(0xFF);
-            }
 
-            string str = Encoding.Unicode.GetString(NameBytes);
-            Debug.WriteLine(str);
-            return str;
+            string NameString = Encoding.Unicode.GetString(NameBytes);
+            string ZeroString = Encoding.Unicode.GetString(new byte[] { 0x00, 0x00 });
+            NameString = NameString.Replace(ZeroString, null);
+            Debug.WriteLine(NameString);
+            return NameString;
         }
 
     }

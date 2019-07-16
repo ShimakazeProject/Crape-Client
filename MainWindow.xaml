@@ -9,14 +9,13 @@
         xmlns:local="clr-namespace:Crape_Client"
         mc:Ignorable="d"
         Style="{DynamicResource AduWindowStyle}"
-        Title="MainWindow" Height="600" Width="1200"
+        Title="Crape Client" Height="600" Width="1200"
         SystemButtonSize="40"
         FitSystemWindow="True"
         Icon="Resource\Crape.ico"
         Background="#2B2833"
         Loaded="DMSkinWindow_Loaded" WindowStartupLocation="CenterScreen" 
-                     ResizeMode="CanResizeWithGrip" MinHeight="300" MinWidth="800" 
-                     MaxWidth="1200" SizeChanged="WindowSizeChanged">
+                     ResizeMode="NoResize" >
     <Border CornerRadius="4" Background="#302C3A" Name="mainback">
         <Grid>
             <!--#region 欢迎界面-->
@@ -443,10 +442,10 @@
                         <TextBlock Text="载入存档" FontSize="24" Foreground="#fff" Margin="10,0,0,0" Height="32" VerticalAlignment="Top"></TextBlock>
                         <DataGrid x:Name="dgLoadList"
                             HorizontalAlignment="Left" Height="480" Style="{StaticResource AduDataGrid}"
-                                  VerticalAlignment="Top" Width="695" Margin="25,35,0,0" Background="{x:Null}" MouseDoubleClick="LoadSave">
+                                  VerticalAlignment="Top" Width="915" Margin="25,35,0,0" Background="{x:Null}" MouseDoubleClick="LoadSave">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding Path=Name}" Header="存档名" Width="250"/>
-                                <DataGridTextColumn Binding="{Binding Path=Date}" Header="时间与日期" Width="150" />
+                                <DataGridTextColumn Binding="{Binding Path=Name}" Header="存档名" Width="600"/>
+                                <DataGridTextColumn Binding="{Binding Path=Date}" Header="时间与日期"/>
                                 <DataGridTextColumn Binding="{Binding Path=FileN}" Header="文件名" Visibility="Collapsed"/>
                             </DataGrid.Columns>
                         </DataGrid>
