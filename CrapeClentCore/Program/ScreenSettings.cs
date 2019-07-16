@@ -6,19 +6,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
-using NLog;
+using Crape_Client;
+
 namespace Program
 {
     public partial class Screen
     {
-        //保存当前屏幕分辨率
-        static Rectangle rect = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
-        static int i = rect.Height; //高（像素）
+        #region screenInfo
+        static Rectangle rect = System.Windows.Forms.Screen.PrimaryScreen.Bounds;//保存当前屏幕分辨率
         static int j = rect.Width; //宽（像素）
+        static int i = rect.Height; //高（像素）
         static int b = System.Windows.Forms.Screen.PrimaryScreen.BitsPerPixel;//BitsPerPixel
-        private static Logger logger = LogManager.GetCurrentClassLogger();
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-        public struct DEVMODE
+        #endregion
+        #region dll
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]public struct DEVMODE
         {
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
             public string dmDeviceName;
@@ -49,24 +50,25 @@ namespace Program
             public int dmDisplayFlags;
             public int dmDisplayFrequency;
         }
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        static extern int ChangeDisplaySettings([In] ref DEVMODE lpDevMode, int dwFlags);
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        static extern bool EnumDisplaySettings(string lpszDeviceName, Int32 iModeNum, ref DEVMODE lpDevMode);
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]static extern int ChangeDisplaySettings([In] ref DEVMODE lpDevMode, int dwFlags);
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]static extern bool EnumDisplaySettings(string lpszDeviceName, Int32 iModeNum, ref DEVMODE lpDevMode);
+        #endregion
         public static void ChangeRes()
         {
             DEVMODE DevM = new DEVMODE();
             DevM.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
-            bool mybool;
-            mybool = EnumDisplaySettings(null, 0, ref DevM);
-            DevM.dmPelsWidth = j;//宽
-            DevM.dmPelsHeight = i;//高
+            EnumDisplaySettings(null, 0, ref DevM);
+            DevM.dmPelsWidth = j;
+            DevM.dmPelsHeight = i;
             DevM.dmDisplayFrequency = 0;//刷新频率
             DevM.dmBitsPerPel = 16;//颜色象素
             int result = ChangeDisplaySettings(ref DevM, 0);
             if (result != 0)
             {
-                logger.Error("SetBitsPerPixel API-ChangeDisplaySettings Returned:" + result.ToString());
+                Nlog.logger.Error("SetBitsPerPixel     ChangeDisplaySettings Returned:" + result.ToString() 
+                    + "\r\n\t Width:" + j.ToString() 
+                    + "\r\n\tHeight:" + i.ToString() 
+                    + "\r\n\t  Bits:" + b.ToString());
             }
             //long result = ChangeDisplaySettings(ref DevM, 0);
         }
@@ -74,16 +76,18 @@ namespace Program
         {
             DEVMODE DevM = new DEVMODE();
             DevM.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
-            bool mybool;
-            mybool = EnumDisplaySettings(null, 0, ref DevM);
-            DevM.dmPelsWidth = j;//恢复宽
-            DevM.dmPelsHeight = i;//恢复高
+            EnumDisplaySettings(null, 0, ref DevM);
+            DevM.dmPelsWidth = j;
+            DevM.dmPelsHeight = i;
             DevM.dmDisplayFrequency = 0;//刷新频率
             DevM.dmBitsPerPel = b;//颜色象素
             long result = ChangeDisplaySettings(ref DevM, 0);
             if (result != 0)
             {
-                logger.Error("RestoreBitsPerPixel API-ChangeDisplaySettings Returned:" + result.ToString());
+                Nlog.logger.Error("RestoreBitsPerPixel ChangeDisplaySettings Returned:" + result.ToString()
+                    + "\r\n\t Width:" + j.ToString()
+                    + "\r\n\tHeight:" + i.ToString()
+                    + "\r\n\t  Bits:" + b.ToString());
             }
         }
     }

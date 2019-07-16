@@ -9,7 +9,7 @@ namespace Program
     public class IniAnalyze
     {
         #region 任务分析
-        public static void MessionAnalyze()
+        public static void MissionAnalyze()
         {
             IniEdit iniEdit = new IniEdit(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Configs\Missions.ini");
             List<string> SectionList = iniEdit.ReadSections();

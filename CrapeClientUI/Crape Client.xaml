@@ -121,10 +121,10 @@
                     <Grid Height="520" Width="970" >
                         <TextBlock Text="战役" Height="32" FontSize="24" Foreground="#fff" Margin="10,0,0,0" VerticalAlignment="Top"/>
 
-                        <DataGrid x:Name="dgMessionSeleted" 
+                        <DataGrid x:Name="dgMissionSeleted" 
                             HorizontalAlignment="Left" Height="470" VerticalAlignment="Top" Width="300" Margin="0,40,0,0"
                                   AlternationCount="2" Style="{StaticResource AduDataGrid}" 
-                                  SelectionChanged="MessionSeleted">
+                                  SelectionChanged="MissionSeleted">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Header="#" Width="32" MinWidth="32" MaxWidth="32">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -150,9 +150,9 @@
                             <Label Content="中等" Width="64" Canvas.Left="263" Foreground="#FFF" Canvas.Top="274"/>
                             <Label Content="困难" Width="64" Canvas.Left="412" Foreground="#FFF" Canvas.Top="274"/>
                             <DockPanel Height="30" LastChildFill="False" Width="450" Canvas.Top="300" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" HorizontalAlignment="Center" Canvas.Left="111">
-                                <RadioButton GroupName="MessionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" />
-                                <RadioButton GroupName="MessionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" IsChecked="True"/>
-                                <RadioButton GroupName="MessionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                <RadioButton GroupName="MissionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" />
+                                <RadioButton GroupName="MissionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" IsChecked="True"/>
+                                <RadioButton GroupName="MissionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
                             </DockPanel>
 
                         </Canvas>

@@ -129,15 +129,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="CrapeClentCore\GameSaveFile.cs" />
+    <Compile Include="CrapeClentCore\Crape_Client\GameSaveFile.cs" />
     <Compile Include="CrapeClentCore\Program\Program.cs" />
-    <Compile Include="CrapeClentCore\List.cs" />
+    <Compile Include="CrapeClentCore\Crape_Client\List.cs" />
     <Compile Include="CrapeClientUI\Crape Client.xaml.cs">
       <DependentUpon>Crape Client.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrapeClentCore\Crape_Client\NLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -155,7 +156,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Nlog.config" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
