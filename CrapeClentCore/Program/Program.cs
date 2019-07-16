@@ -18,20 +18,19 @@ namespace Program
         }
         public static void RunSyringe()// 运行游戏
         {
-            IniEdit Configs = new IniEdit(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Configs\Config.conf");
+            IniEdit Configs = new IniEdit(
+                AppDomain.CurrentDomain.BaseDirectory + @"Resource\Configs\Config.conf");
             IniEdit ra2md = new IniEdit(AppDomain.CurrentDomain.BaseDirectory + @"ra2md.ini");
             bool Windowed = IsWindowed(ra2md.IniReadValue("Video", "Windowed"));
-            if (Windowed) 
-                Screen.ChangeRes();
-
-
             string gamemd = Configs.IniReadValue("GameSettings", "GameName");
             string command = Configs.IniReadValue("GameSettings", "Command");
 
+            if (Windowed)// 是否窗口化
+                Screen.ChangeRes();//设置色深为16
             System.Diagnostics.Process proc = System.Diagnostics.Process.Start(
                     AppDomain.CurrentDomain.BaseDirectory + gamemd + command);
-            if (Windowed)
-                Screen.DisChangeRes();
+            if (Windowed)// 还原
+                Screen.DisChangeRes();//还原色深
             if (proc != null)
             {
                 

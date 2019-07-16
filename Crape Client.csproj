@@ -121,23 +121,19 @@
     <Compile Include="CrapeClentCore\Program\IniEdit.cs" />
     <Compile Include="CrapeClentCore\Spawn.cs" />
     <Compile Include="CrapeClentCore\Program\StringTools.cs" />
-    <Page Include="LocalDictionary.xaml">
+    <Page Include="CrapeClientUI\LocalDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CrapeClientUI\MainWindow.xaml">
+    <Page Include="CrapeClientUI\Crape Client.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="CrapeClentCore\GameSaveFile.cs" />
     <Compile Include="CrapeClentCore\Program\Program.cs" />
     <Compile Include="CrapeClentCore\List.cs" />
-    <Compile Include="CrapeClientUI\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="CrapeClientUI\Crape Client.xaml.cs">
+      <DependentUpon>Crape Client.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
