@@ -142,7 +142,7 @@ namespace RA2.Ini
             if (Settings.SkipScoreScreen == true) sw.Write("SkipScoreScreen=1\r\n");
 
             if (Settings.IsSinglePlayer == true) sw.Write("IsSinglePlayer=1\r\n");
-
+            if (Settings.IsSinglePlayer == false) sw.Write("IsSinglePlayer=0\r\n");
             if (Settings.Firestorm == true) sw.Write("Firestorm=1\r\n");
             if (Settings.Firestorm == false) sw.Write("Firestorm=0\r\n");
             if (Settings.BuildOffAlly == true) sw.Write("BuildOffAlly=1\r\n");

@@ -295,6 +295,7 @@ namespace Crape_Client
                 spawn.Settings.BuildOffAlly = true;
                 spawn.Settings.DifficultyModeHuman = 0;
                 spawn.Settings.DifficultyModeComputer = 2;
+                spawn.Write();
                 Program.Program.RunSyringe();
             }
         }
