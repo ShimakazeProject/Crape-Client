@@ -116,15 +116,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Analyze.cs" />
-    <Compile Include="ScreenSettings.cs" />
-    <Compile Include="IniEdit.cs" />
-    <Compile Include="Spawn.cs" />
+    <Compile Include="CrapeClentCore\Program\Analyze.cs" />
+    <Compile Include="CrapeClentCore\Program\ScreenSettings.cs" />
+    <Compile Include="CrapeClentCore\Program\IniEdit.cs" />
+    <Compile Include="CrapeClentCore\Spawn.cs" />
+    <Compile Include="CrapeClentCore\Program\StringTools.cs" />
     <Page Include="LocalDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="CrapeClientUI\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -132,10 +133,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GameSaveFile.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="List.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="CrapeClentCore\GameSaveFile.cs" />
+    <Compile Include="CrapeClentCore\Program\Program.cs" />
+    <Compile Include="CrapeClentCore\List.cs" />
+    <Compile Include="CrapeClientUI\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

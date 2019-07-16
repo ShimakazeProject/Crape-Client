@@ -331,7 +331,7 @@ namespace Crape_Client
                     Name = "没有发现可用存档", Data = "Null", FileN = "" });
             }
         }
-        private void LoadSave(object sender, MouseButtonEventArgs e)
+        private void LoadSave(object sender, MouseButtonEventArgs e)// 双击列表项
         {
             Spawn spawn = new Spawn();
             Cls_SaveFiles LoadSaveName = dgLoadList.SelectedItem as Cls_SaveFiles;
@@ -344,7 +344,7 @@ namespace Crape_Client
                 spawn.Settings.Firestorm = false;
                 spawn.Settings.SidebarHack = false;
                 spawn.Write();
-
+                Program.Program.RunSyringe();
 
                 //*/
             }

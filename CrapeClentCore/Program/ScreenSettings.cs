@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 using NLog;
-namespace ScreenSettings
+namespace Program
 {
-    public partial class ScreenSet
+    public partial class Screen
     {
         //保存当前屏幕分辨率
         static Rectangle rect = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
-        int i = rect.Height; //高（像素）
-        int j = rect.Width; //宽（像素）
-        int b = System.Windows.Forms.Screen.PrimaryScreen.BitsPerPixel;//BitsPerPixel
+        static int i = rect.Height; //高（像素）
+        static int j = rect.Width; //宽（像素）
+        static int b = System.Windows.Forms.Screen.PrimaryScreen.BitsPerPixel;//BitsPerPixel
         private static Logger logger = LogManager.GetCurrentClassLogger();
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         public struct DEVMODE
@@ -53,7 +53,7 @@ namespace ScreenSettings
         static extern int ChangeDisplaySettings([In] ref DEVMODE lpDevMode, int dwFlags);
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         static extern bool EnumDisplaySettings(string lpszDeviceName, Int32 iModeNum, ref DEVMODE lpDevMode);
-        public void ChangeRes()
+        public static void ChangeRes()
         {
             DEVMODE DevM = new DEVMODE();
             DevM.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
@@ -70,7 +70,7 @@ namespace ScreenSettings
             }
             //long result = ChangeDisplaySettings(ref DevM, 0);
         }
-        public void DisChangeRes()
+        public static void DisChangeRes()
         {
             DEVMODE DevM = new DEVMODE();
             DevM.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
