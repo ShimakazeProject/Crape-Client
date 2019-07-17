@@ -92,6 +92,22 @@ namespace Program
         }
 
         #endregion
+
+    }
+    public class IniTools
+    {
+
+        public static bool BoolCheck(string Value)
+        {
+            string str = StringTools.SubString(Value, 1);
+            if (str == "1")
+                return true;
+            else if (str.ToUpper() == "T")
+                return true;
+            else if (str.ToUpper() == "Y")
+                return true;
+            else return false;
+        }
     }
 
 }

@@ -119,6 +119,7 @@
     <Compile Include="CrapeClentCore\Program\Analyze.cs" />
     <Compile Include="CrapeClentCore\Program\ScreenSettings.cs" />
     <Compile Include="CrapeClentCore\Program\IniEdit.cs" />
+    <Compile Include="CrapeClentCore\Ra2md.cs" />
     <Compile Include="CrapeClentCore\Spawn.cs" />
     <Compile Include="CrapeClentCore\Program\StringTools.cs" />
     <Page Include="CrapeClientUI\LocalDictionary.xaml">

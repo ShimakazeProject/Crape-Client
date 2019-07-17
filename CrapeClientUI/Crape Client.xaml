@@ -112,7 +112,7 @@
                                          Checked="Exit" VerticalAlignment="Top" Canvas.Bottom="10"  Width="180" Canvas.Left="10"/>
             </Canvas>
             <!--#endregion-->
-            
+
             <!--#region 战役-->
             <Border x:Name="Mission" Margin="200,0,0,0">
                 <Border.Visibility>Hidden</Border.Visibility>
@@ -148,7 +148,7 @@
                             <Label Content="简单" Width="64" Canvas.Left="111" Foreground="#FFF" Canvas.Top="274"/>
                             <Label Content="中等" Width="64" Canvas.Left="263" Foreground="#FFF" Canvas.Top="274"/>
                             <Label Content="困难" Width="64" Canvas.Left="412" Foreground="#FFF" Canvas.Top="274"/>
-                            <DockPanel Height="30" LastChildFill="False" Width="450" Canvas.Top="300" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" HorizontalAlignment="Center" Canvas.Left="111">
+                            <DockPanel Height="30" LastChildFill="False" Width="450" Canvas.Top="300" Background="#66535353" HorizontalAlignment="Center" Canvas.Left="111">
                                 <RadioButton GroupName="MissionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" />
                                 <RadioButton GroupName="MissionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" IsChecked="True"/>
                                 <RadioButton GroupName="MissionHard" Width="150" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
@@ -454,12 +454,11 @@
 
             <!--#region 设置-->
             <Border x:Name="Settings" Margin="200,0,0,0">
-                <Border.Visibility>Hidden</Border.Visibility>
                 <!--Visibility="Hidden"-->
                 <Grid>
                     <ScrollViewer Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10" Margin="0,0,0,-305">
                         <Grid>
-                            <TextBlock Text="设置" FontSize="24" Foreground="#fff" Margin="10,0,871,621"></TextBlock>
+                            <TextBlock Text="设置" FontSize="24" Height="32" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" ></TextBlock>
                             <Canvas Margin="0,40,0,0">
                                 <GroupBox Header="显示设置" FontSize="18" Foreground="#fff" Height="202" Width="480" Style="{StaticResource AduGroupBox}" Canvas.Top="10">
                                     <GroupBox Style="{StaticResource GroupBoxStyle}" FontSize="14">
@@ -482,18 +481,68 @@
                                 </GroupBox>
                                 <GroupBox x:Name="gbSoundSettings" Header="声音设置" FontSize="18" Foreground="#fff" Height="303" Width="480" Style="{StaticResource AduGroupBox}" Canvas.Left="485" Canvas.Top="10">
                                     <GroupBox Style="{StaticResource GroupBoxStyle}" FontSize="14">
-                                        <Canvas Margin="0,0,0,45">
+                                        <Canvas>
+
                                             <Label Content="音乐音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="16" />
-                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="135" Canvas.Top="22" />
+                                            <DockPanel Height="32" LastChildFill="False" Width="177" Canvas.Left="105" Canvas.Top="14" Background="#66535353">
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet0"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet1"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet2"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet3"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet4"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet5"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet6"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet7"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet8"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSet9"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="MusicSetx" IsChecked="True"/>
+                                            </DockPanel>
                                             <Label Content="音效音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="49" Canvas.Left="10" />
-                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="135" Canvas.Top="55" />
+
+                                            <DockPanel Background="#66535353" Height="32" LastChildFill="False" Width="177" Canvas.Left="105" Canvas.Top="46">
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet0"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet1"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet2"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet3"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet4"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet5"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet6"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet7"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet8"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSet9"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="ScoreSetX" IsChecked="True"/>
+                                            </DockPanel>
                                             <Label Content="语言音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="82" Canvas.Left="10"/>
-                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="135" Canvas.Top="88" />
-                                            <Label Content="客户端音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="168" Canvas.Left="10"/>
-                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="135" Canvas.Top="171"/>
+                                            <DockPanel Background="#66535353" Height="32" LastChildFill="False" Width="177" Canvas.Left="105" Canvas.Top="78">
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet0"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet1"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet2"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet3"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet4"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet5"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet6"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet7"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet8"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSet9"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" Checked="VoiceSetX" IsChecked="True"/>
+                                            </DockPanel>
+                                            <Label Content="客户端音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="157" Canvas.Left="10"/>
+                                            <DockPanel Background="#66535353" Height="32" LastChildFill="False" Width="177" Canvas.Left="105" Canvas.Top="153">
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" IsChecked="True"/>
+                                            </DockPanel>
                                             <CheckBox Content="随机播放游戏音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="115" />
-                                            <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="204" />
-                                            <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="229" Canvas.Left="10"/>
+                                            <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="190" />
+                                            <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="210" Canvas.Left="10"/>
                                         </Canvas>
                                     </GroupBox>
                                 </GroupBox>
@@ -502,14 +551,23 @@
                                 <GroupBox Header="游戏设置" FontSize="18" Foreground="#fff" Height="260" Width="480" Style="{StaticResource AduGroupBox}" Canvas.Top="217">
                                     <GroupBox Style="{StaticResource GroupBoxStyle}" FontSize="14">
                                         <Canvas>
+
                                             <Label Content="卷动速率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="10"/>
-                                            <Slider HorizontalAlignment="Left" VerticalAlignment="Top" Width="285" Canvas.Left="105" Canvas.Top="10"/>
                                             <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="54"/>
                                             <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="75"/>
                                             <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="98"/>
                                             <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="119"/>
                                             <Label Content="游戏者名" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="160"/>
                                             <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285" Canvas.Left="105" Canvas.Top="163" Background="#50000000" Foreground="#FFFFF596" SelectionBrush="#FF38FF18" BorderBrush="{x:Null}"/>
+                                            <DockPanel Background="#66535353" Height="32" LastChildFill="False" Width="260" Canvas.Left="105" Canvas.Top="14">
+                                                <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
+                                                <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" IsChecked="True"/>
+                                            </DockPanel>
                                         </Canvas>
                                     </GroupBox>
                                 </GroupBox>

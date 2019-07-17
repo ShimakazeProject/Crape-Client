@@ -454,9 +454,148 @@ namespace Crape_Client
             }
             catch { return; }
         }
-
+        #region 设置
+        #region BGM大小
+        private void MusicSet0(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0);
+        }
+        private void MusicSet1(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0.1);
+        }
+        private void MusicSet2(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0.2);
+        }
+        private void MusicSet3(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0.3);
+        }
+        private void MusicSet4(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0.4);
+        }
+        private void MusicSet5(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0.5);
+        }
+        private void MusicSet6(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0.6);
+        }
+        private void MusicSet7(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0.7);
+        }
+        private void MusicSet8(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0.8);
+        }
+        private void MusicSet9(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(0.9);
+        }
+        private void MusicSetX(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.SoundVolume(1);
+        }
+        #endregion
+        #region 音效大小
+        private void ScoreSet0(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0);
+        }
+        private void ScoreSet1(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0.1);
+        }
+        private void ScoreSet2(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0.2);
+        }
+        private void ScoreSet3(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0.3);
+        }
+        private void ScoreSet4(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0.4);
+        }
+        private void ScoreSet5(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0.5);
+        }
+        private void ScoreSet6(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0.6);
+        }
+        private void ScoreSet7(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0.7);
+        }
+        private void ScoreSet8(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0.8);
+        }
+        private void ScoreSet9(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(0.9);
+        }
+        private void ScoreSetX(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.ScoreVolume(1);
+        }
+        #endregion
+        #region 语音大小
+        private void VoiceSet0(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0);
+        }
+        private void VoiceSet1(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0.1);
+        }
+        private void VoiceSet2(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0.2);
+        }
+        private void VoiceSet3(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0.3);
+        }
+        private void VoiceSet4(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0.4);
+        }
+        private void VoiceSet5(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0.5);
+        }
+        private void VoiceSet6(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0.6);
+        }
+        private void VoiceSet7(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0.7);
+        }
+        private void VoiceSet8(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0.8);
+        }
+        private void VoiceSet9(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(0.9);
+        }
+        private void VoiceSetX(object sender, RoutedEventArgs e)
+        {
+            Ra2md.Audio.VoiceVolume(1);
+        }
+        #endregion
 
     }
 
 
 }
+#endregion

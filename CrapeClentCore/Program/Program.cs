@@ -21,7 +21,7 @@ namespace Program
             IniEdit Configs = new IniEdit(
                 AppDomain.CurrentDomain.BaseDirectory + @"Resource\Configs\Config.conf");
             IniEdit ra2md = new IniEdit(AppDomain.CurrentDomain.BaseDirectory + @"ra2md.ini");
-            bool Windowed = IsWindowed(ra2md.IniReadValue("Video", "Windowed"));
+            bool Windowed = IniTools.BoolCheck(ra2md.IniReadValue("Video", "Windowed"));
             string gamemd = Configs.IniReadValue("GameSettings", "GameName");
             string command = Configs.IniReadValue("GameSettings", "Command");
 
@@ -61,16 +61,6 @@ namespace Program
                 }
             }
         }
-        static bool IsWindowed(string Value)
-        {
-            string str = StringTools.SubString(Value,1);
-            if (str == "1")
-                return true;
-            else if (str.ToUpper() == "T")
-                return true;
-            else if (str.ToUpper() == "Y")
-                return true;
-            else return false;
-        }
+
     }
 }
