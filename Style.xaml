@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Crape Client;component/CrapeClientUI/Style/CheckBoxEX.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Crape Client;component/CrapeClientUI/Style/ComboBoxEX.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Crape Client;component/CrapeClientUI/Style/GroupBoxEX.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Crape Client;component/CrapeClientUI/Style/ButtonEX.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

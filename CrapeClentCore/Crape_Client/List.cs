@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Crape_Client
 {
-    public class Mission//任务列表用
+    public class MissionList//任务列表用
     {
         public byte[] Ico { get; set; }
         public string Name { get; set; }

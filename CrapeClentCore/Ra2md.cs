@@ -28,16 +28,16 @@ namespace RA2.Ini
         {
             ra2md.IniWriteValue(Section, Key, Value);
         }
-        public static bool oBool(string Section, string Key)
+        public static bool Obool(string Section, string Key)
         {
             string Value = ra2md.IniReadValue(Section, Key);
             return IniTools.BoolCheck(Value);
         }
-        public static int oInt(string Section, string Key)
+        public static int Oint(string Section, string Key)
         {
             return Convert.ToInt32(ra2md.IniReadValue(Section, Key));
         }
-        public static string oString(string Section, string Key)
+        public static string Ostring(string Section, string Key)
         {
             return ra2md.IniReadValue(Section, Key);
         }

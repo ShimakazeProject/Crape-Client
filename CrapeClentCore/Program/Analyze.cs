@@ -15,7 +15,8 @@ namespace Program
             List<string> SectionList = iniEdit.ReadSections();
             string[] str = SectionList.ToArray();
             if (str.Length < 1) return;
-
+            MissionSideAnalyze.Initialization();
+            MissionSideName.Initialization();
             // System.Windows.MessageBox.Show(Convert.ToString(str.Length));
             for (uint i = 0; i < str.Length; i++)
             {
@@ -69,17 +70,17 @@ namespace Program
         }
         public class MissionSideAnalyze
         {
-            public static List<string> side0 = new List<string>();
-            public static List<string> side1 = new List<string>();
-            public static List<string> side2 = new List<string>();
-            public static List<string> side3 = new List<string>();
-            public static List<string> side4 = new List<string>();
-            public static List<string> side5 = new List<string>();
-            public static List<string> side6 = new List<string>();
-            public static List<string> side7 = new List<string>();
-            public static List<string> side8 = new List<string>();
-            public static List<string> side9 = new List<string>();
-            public static void Clear()
+            public static List<string> side0;
+            public static List<string> side1;
+            public static List<string> side2;
+            public static List<string> side3;
+            public static List<string> side4;
+            public static List<string> side5;
+            public static List<string> side6;
+            public static List<string> side7;
+            public static List<string> side8;
+            public static List<string> side9;
+            public static void Initialization()
             {
                 side0 = new List<string>();
                 side1 = new List<string>();
@@ -95,17 +96,17 @@ namespace Program
         }
         public class MissionSideName
         {
-            public static List<string> side0 = new List<string>();
-            public static List<string> side1 = new List<string>();
-            public static List<string> side2 = new List<string>();
-            public static List<string> side3 = new List<string>();
-            public static List<string> side4 = new List<string>();
-            public static List<string> side5 = new List<string>();
-            public static List<string> side6 = new List<string>();
-            public static List<string> side7 = new List<string>();
-            public static List<string> side8 = new List<string>();
-            public static List<string> side9 = new List<string>();
-            public static void Clear()
+            public static List<string> side0;
+            public static List<string> side1;
+            public static List<string> side2;
+            public static List<string> side3;
+            public static List<string> side4;
+            public static List<string> side5;
+            public static List<string> side6;
+            public static List<string> side7;
+            public static List<string> side8;
+            public static List<string> side9;
+            public static void Initialization()
             {
                 side0 = new List<string>();
                 side1 = new List<string>();
