@@ -184,10 +184,12 @@ namespace RA2.Ini
 
         public class Options
         {
-            public static void DetailLevel(int Value)
-            {
-                IniIO.I("Options", "DetailLevel", Value);
-            }
+            public static void DetailLevel(int Value) { IniIO.I("Options", "DetailLevel", Value); }
+            public static void UnitActionLines(bool Value) { IniIO.I("Options", "UnitActionLines", Value); }
+            public static void ScrollMethod(bool Value) { IniIO.I("Options", "ScrollMethod", Value); }
+            public static void ShowHidden(bool Value) { IniIO.I("Options", "ShowHidden", Value); }
+            public static void ToolTips(bool Value) { IniIO.I("Options", "ToolTips", Value); }
+
         }
     }
 }

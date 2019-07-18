@@ -494,7 +494,7 @@
                                             <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="322" Canvas.Top="64" Style="{StaticResource AduComboBox}"/>
                                             <CheckBox x:Name="cbNoFrame" Content="无边框" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="40" Canvas.Top="116" Checked="IsNoFrame" Unchecked="IsNoFrame" IsEnabled="False"/>
                                             <CheckBox x:Name="cbWindowed" Content="窗口化" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="95" Checked="IsWindowed" Unchecked="IsWindowed"/>
-                                            <CheckBox Content="视频内存缓存" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="137"/>
+                                            <CheckBox x:Name="cbVideoBackBuffer" Content="视频内存缓存" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="137" Unchecked="VideoBackBuffer" Checked="VideoBackBuffer" />
                                         </Canvas>
                                     </GroupBox>
                                 </GroupBox>
@@ -559,7 +559,7 @@
                                                 <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
                                                 <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" IsChecked="True"/>
                                             </DockPanel>
-                                            <CheckBox Content="随机播放游戏音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="115" />
+                                            <CheckBox x:Name="cbShuffleMusic" Content="随机播放游戏音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="115" Checked="IsShuffle" Unchecked="IsShuffle"/>
                                             <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="190" />
                                             <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="210" Canvas.Left="10"/>
                                         </Canvas>
@@ -572,12 +572,26 @@
                                         <Canvas>
 
                                             <Label Content="卷动速率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="10"/>
-                                            <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="54"/>
-                                            <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="75"/>
-                                            <CheckBox Content="播放客户端音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="98"/>
-                                            <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="119"/>
+                                            <CheckBox x:Name="cbScrollMethod" 
+                                                      Checked="ScrollMethod"
+                                                      Unchecked="ScrollMethod"
+                                                      Content="Scroll Coasting" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="54"/>
+                                            <CheckBox x:Name="cbUnitActionLines" 
+                                                      Checked="UnitActionLines"
+                                                      Unchecked="UnitActionLines"
+                                                      Content="显示目标线" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="75"/>
+                                            <CheckBox x:Name="cbShowHidden" 
+                                                      Checked="ShowHidden"
+                                                      Unchecked="ShowHidden"
+                                                      Content="提示隐藏对象" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="98"/>
+                                            <CheckBox x:Name="cbToolTips"
+                                                      Checked="ToolTips"
+                                                      Unchecked="ToolTips"
+                                                      Content="工具提示" Style="{StaticResource AduCheckBox}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="35" Canvas.Top="119"/>
                                             <Label Content="游戏者名" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="160"/>
-                                            <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285" Canvas.Left="105" Canvas.Top="163" Background="#50000000" Foreground="#FFFFF596" SelectionBrush="#FF38FF18" BorderBrush="{x:Null}"/>
+                                            <TextBox x:Name="tbHandle"
+                                                     TextChanged="Handle"
+                                                     Text="TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Canvas.Left="105" Canvas.Top="163" Background="#50000000" Foreground="#FFFFF596" SelectionBrush="#FF38FF18" BorderBrush="{x:Null}"/>
                                             <DockPanel Background="#66535353" Height="32" LastChildFill="False" Width="260" Canvas.Left="105" Canvas.Top="14">
                                                 <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
                                                 <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>

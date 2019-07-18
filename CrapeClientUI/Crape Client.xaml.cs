@@ -632,8 +632,59 @@ namespace Crape_Client
                 Ra2md.Video.NoWindowFrame(false);
             else return;
         }
+        private void VideoBackBuffer(object sender, RoutedEventArgs e)// 视频内存缓存
+        {
+            if (cbVideoBackBuffer.IsChecked == true)
+                Ra2md.Video.VideoBackBuffer(true);
+            else if (cbVideoBackBuffer.IsChecked == false)
+                Ra2md.Video.VideoBackBuffer(false);
+            else return;
+        }
+        private void IsShuffle(object sender, RoutedEventArgs e)// 随机音乐
+        {
+            if (cbShuffleMusic.IsChecked == true)
+                Ra2md.Audio.IsScoreShuffle(true);
+            else if (cbShuffleMusic.IsChecked == false)
+                Ra2md.Audio.IsScoreShuffle(false);
+            else return;
+        }
+        private void UnitActionLines(object sender, RoutedEventArgs e)// 显示目标线
+        {
+            if (cbUnitActionLines.IsChecked == true)
+                Ra2md.Options.UnitActionLines(true);
+            else if (cbUnitActionLines.IsChecked == false)
+                Ra2md.Options.UnitActionLines(false);
+            else return;
+        }
+        private void ShowHidden(object sender, RoutedEventArgs e)
+        {
+            if (cbShowHidden.IsChecked == true)
+                Ra2md.Options.ShowHidden(true);
+            else if (cbShowHidden.IsChecked == false)
+                Ra2md.Options.ShowHidden(false);
+            else return;
+        }
+        private void ScrollMethod(object sender, RoutedEventArgs e)
+        {
+            if (cbScrollMethod.IsChecked == true)
+                Ra2md.Options.ScrollMethod(true);
+            else if (cbScrollMethod.IsChecked == false)
+                Ra2md.Options.ScrollMethod(false);
+            else return;
+        }
+        private void ToolTips(object sender, RoutedEventArgs e)
+        {
+            if (cbToolTips.IsChecked == true)
+                Ra2md.Options.ToolTips(true);
+            else if (cbToolTips.IsChecked == false)
+                Ra2md.Options.ToolTips(false);
+            else return;
+        }
 
-
+        private void Handle(object sender, TextChangedEventArgs e)
+        {
+            Ra2md.MultiPlayer.Handle(tbHandle.Text);
+        }
     }
 
 
