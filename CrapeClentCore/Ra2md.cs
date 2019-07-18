@@ -182,5 +182,12 @@ namespace RA2.Ini
 
         }
 
+        public class Options
+        {
+            public static void DetailLevel(int Value)
+            {
+                IniIO.I("Options", "DetailLevel", Value);
+            }
+        }
     }
 }

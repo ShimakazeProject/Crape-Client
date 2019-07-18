@@ -363,7 +363,6 @@ namespace Crape_Client
 
         private void DMSkinWindow_Loaded(object sender, RoutedEventArgs e){
         }
-
         private void Exit(object sender, RoutedEventArgs e) /* 退出 */ { Environment.Exit(0); }
         private void Combat_check(object sender, RoutedEventArgs e) // 战役
         {
@@ -380,7 +379,6 @@ namespace Crape_Client
                 dgMissionSeleted.Items.Clear();
             }
         }
-
         private void Encounter_check(object sender, RoutedEventArgs e)//遭遇战
         {
             if (rbmEncounter.IsChecked == true)
@@ -436,7 +434,6 @@ namespace Crape_Client
                 return;
             }
         }
-
         private void WindowSizeChanged(object sender, SizeChangedEventArgs e)
         {
             try
@@ -593,6 +590,49 @@ namespace Crape_Client
             Ra2md.Audio.VoiceVolume(1);
         }
         #endregion
+
+        private void SetScreen(object sender, EventArgs e)/* 分辨率设置 */{
+            try
+            {
+                string[] scr = cbScreen.SelectedItem.ToString().Split(':');
+                scr = scr[1].Split('x');
+                Ra2md.Video.ScreenWidth(Convert.ToInt32(scr[0]));
+                Ra2md.Video.ScreenHeight(Convert.ToInt32(scr[1]));
+            }
+            catch(NullReferenceException)
+            {
+                return;
+            }
+        }
+
+        private void SeletDetailLevel(object sender, EventArgs e)// 画质等级
+        {
+            if (cbDetailLevel.SelectedIndex < 3 && cbDetailLevel.SelectedIndex >= 0)
+                Ra2md.Options.DetailLevel(cbDetailLevel.SelectedIndex);
+        }
+        private void IsWindowed(object sender, RoutedEventArgs e)// 窗口化
+        {
+            if (cbWindowed.IsChecked == true)
+            {
+                Ra2md.Video.Windowed(true);
+                cbNoFrame.IsEnabled = true;
+            }
+            else if (cbWindowed.IsChecked == false)
+            {
+                Ra2md.Video.Windowed(false);
+                cbNoFrame.IsEnabled = false;
+            }
+            else return;
+        }
+        private void IsNoFrame(object sender, RoutedEventArgs e)// 无边框
+        {
+            if (cbNoFrame.IsChecked == true)
+                Ra2md.Video.NoWindowFrame(true);
+            else if (cbNoFrame.IsChecked == false)
+                Ra2md.Video.NoWindowFrame(false);
+            else return;
+        }
+
 
     }
 
