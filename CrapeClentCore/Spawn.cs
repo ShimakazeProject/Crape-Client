@@ -178,9 +178,10 @@ namespace RA2.Ini
             if (SpawnLocations.Multi5 != null) sw.Write("Multi5=" + Convert.ToString(SpawnLocations.Multi5) + "\r\n");
             if (SpawnLocations.Multi6 != null) sw.Write("Multi6=" + Convert.ToString(SpawnLocations.Multi6) + "\r\n");
             if (SpawnLocations.Multi7 != null) sw.Write("Multi7=" + Convert.ToString(SpawnLocations.Multi7) + "\r\n");
+            if (SpawnLocations.Multi8 != null) sw.Write("Multi8=" + Convert.ToString(SpawnLocations.Multi8) + "\r\n");
             sw.Write("\r\n\r\n\r\n");
             // Countries
-            if (HouseCountries.Multi1 != null &&
+            if (HouseCountries.Multi8 != null &&
                 HouseCountries.Multi2 != null &&
                 HouseCountries.Multi3 != null &&
                 HouseCountries.Multi4 != null &&
@@ -188,16 +189,16 @@ namespace RA2.Ini
                 HouseCountries.Multi6 != null &&
                 HouseCountries.Multi7 != null)
                 sw.Write("[HouseCountries]\r\n");
-            if (HouseCountries.Multi1 != null) sw.Write("Multi1=" + Convert.ToString(HouseCountries.Multi1) + "\r\n");
             if (HouseCountries.Multi2 != null) sw.Write("Multi2=" + Convert.ToString(HouseCountries.Multi2) + "\r\n");
             if (HouseCountries.Multi3 != null) sw.Write("Multi3=" + Convert.ToString(HouseCountries.Multi3) + "\r\n");
             if (HouseCountries.Multi4 != null) sw.Write("Multi4=" + Convert.ToString(HouseCountries.Multi4) + "\r\n");
             if (HouseCountries.Multi5 != null) sw.Write("Multi5=" + Convert.ToString(HouseCountries.Multi5) + "\r\n");
             if (HouseCountries.Multi6 != null) sw.Write("Multi6=" + Convert.ToString(HouseCountries.Multi6) + "\r\n");
             if (HouseCountries.Multi7 != null) sw.Write("Multi7=" + Convert.ToString(HouseCountries.Multi7) + "\r\n");
+            if (HouseCountries.Multi8 != null) sw.Write("Multi8=" + Convert.ToString(HouseCountries.Multi8) + "\r\n");
             sw.Write("\r\n\r\n\r\n");
             // Colors
-            if (HouseColors.Multi1 != null &&
+            if (HouseColors.Multi8 != null &&
                 HouseColors.Multi2 != null &&
                 HouseColors.Multi3 != null &&
                 HouseColors.Multi4 != null &&
@@ -205,16 +206,16 @@ namespace RA2.Ini
                 HouseColors.Multi6 != null &&
                 HouseColors.Multi7 != null)
                 sw.Write("[HouseColors]\r\n");
-            if (HouseColors.Multi1 != null) sw.Write("Multi1=" + Convert.ToString(HouseColors.Multi1) + "\r\n");
             if (HouseColors.Multi2 != null) sw.Write("Multi2=" + Convert.ToString(HouseColors.Multi2) + "\r\n");
             if (HouseColors.Multi3 != null) sw.Write("Multi3=" + Convert.ToString(HouseColors.Multi3) + "\r\n");
             if (HouseColors.Multi4 != null) sw.Write("Multi4=" + Convert.ToString(HouseColors.Multi4) + "\r\n");
             if (HouseColors.Multi5 != null) sw.Write("Multi5=" + Convert.ToString(HouseColors.Multi5) + "\r\n");
             if (HouseColors.Multi6 != null) sw.Write("Multi6=" + Convert.ToString(HouseColors.Multi6) + "\r\n");
             if (HouseColors.Multi7 != null) sw.Write("Multi7=" + Convert.ToString(HouseColors.Multi7) + "\r\n");
+            if (HouseColors.Multi8 != null) sw.Write("Multi8=" + Convert.ToString(HouseColors.Multi8) + "\r\n");
             sw.Write("\r\n\r\n\r\n");
             // Handicaps
-            if (HouseHandicaps.Multi1 != null &&
+            if (HouseHandicaps.Multi8 != null &&
                 HouseHandicaps.Multi2 != null &&
                 HouseHandicaps.Multi3 != null &&
                 HouseHandicaps.Multi4 != null &&
@@ -222,13 +223,13 @@ namespace RA2.Ini
                 HouseHandicaps.Multi6 != null &&
                 HouseHandicaps.Multi7 != null)
                 sw.Write("[HouseHandicaps]\r\n");
-            if (HouseHandicaps.Multi1 != null) sw.Write("Multi1=" + Convert.ToString(HouseHandicaps.Multi1) + "\r\n");
             if (HouseHandicaps.Multi2 != null) sw.Write("Multi2=" + Convert.ToString(HouseHandicaps.Multi2) + "\r\n");
             if (HouseHandicaps.Multi3 != null) sw.Write("Multi3=" + Convert.ToString(HouseHandicaps.Multi3) + "\r\n");
             if (HouseHandicaps.Multi4 != null) sw.Write("Multi4=" + Convert.ToString(HouseHandicaps.Multi4) + "\r\n");
             if (HouseHandicaps.Multi5 != null) sw.Write("Multi5=" + Convert.ToString(HouseHandicaps.Multi5) + "\r\n");
             if (HouseHandicaps.Multi6 != null) sw.Write("Multi6=" + Convert.ToString(HouseHandicaps.Multi6) + "\r\n");
             if (HouseHandicaps.Multi7 != null) sw.Write("Multi7=" + Convert.ToString(HouseHandicaps.Multi7) + "\r\n");
+            if (HouseHandicaps.Multi8 != null) sw.Write("Multi8=" + Convert.ToString(HouseHandicaps.Multi8) + "\r\n");
             sw.Write("\r\n\r\n\r\n");
             #endregion
 
@@ -486,9 +487,9 @@ namespace RA2.Ini
 
         }
         /// <summary>
-        /// AI 初始地点设置
+        /// 玩家初始地点设置
         /// </summary>
-        public class SpawnLocationsA // AI spawn set
+        public class SpawnLocationsA // spawn set
         {
             public Byte? Multi1;
             public Byte? Multi2;
@@ -497,45 +498,46 @@ namespace RA2.Ini
             public Byte? Multi5;
             public Byte? Multi6;
             public Byte? Multi7;
+            public Byte? Multi8;
         }
         /// <summary>
         /// AI 国家设定
         /// </summary>
         public class HouseCountriesA // AI countrie set
         {
-            public Byte? Multi1;
             public Byte? Multi2;
             public Byte? Multi3;
             public Byte? Multi4;
             public Byte? Multi5;
             public Byte? Multi6;
             public Byte? Multi7;
+            public Byte? Multi8;
         }
         /// <summary>
         /// AI 颜色设置
         /// </summary>
         public class HouseColorsA // AI colour set
         {
-            public Byte? Multi1;
             public Byte? Multi2;
             public Byte? Multi3;
             public Byte? Multi4;
             public Byte? Multi5;
             public Byte? Multi6;
             public Byte? Multi7;
+            public Byte? Multi8;
         }
         /// <summary>
         /// AI 困难设置
         /// </summary>
         public class HouseHandicapsA // AI Handicaps
         {
-            public Byte? Multi1;
             public Byte? Multi2;
             public Byte? Multi3;
             public Byte? Multi4;
             public Byte? Multi5;
             public Byte? Multi6;
             public Byte? Multi7;
+            public Byte? Multi8;
         }
         public class TunnelA // servers config
         {

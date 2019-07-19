@@ -21,43 +21,48 @@
                                              Text="Player" 
                                              Margin="0,5,-1,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"/>
-                            <TextBox 
-                                             Height="25" TextWrapping="Wrap" 
-                                             Foreground="#FFA6A6A6"
-                                             Text="New_Player"
-                                             Margin="0,5,-1,0"
-                                             VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"/>
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <TextBox x:Name="HostName"
+                                     Height="25" TextWrapping="Wrap" 
+                                     Foreground="#FFA6A6A6" Margin="0,5,-1,0"
+                                     VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"/>
+                            <ComboBox x:Name="O1n"
+                                      Height="25" Style="{StaticResource AduComboBox}"
+                                      Foreground="#FFA6A6A6"
+                                      Margin="0,5,-1,0"
+                                      VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
+                                              />
+                            <ComboBox x:Name="O2n"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O3n"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
-                                              Foreground="#FFA6A6A6"
-                                              Margin="0,5,-1,0"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
-                                              />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O4n"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFFFFFFF"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O5n"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O6n"
+                                       Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O7n"
+                                       Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
@@ -70,42 +75,50 @@
                                              Text="Side"
                                              Margin="0,5,-1,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"/>
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="HostSide"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O1s"
+                                       Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O2s"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O3s"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O4s"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFFFFFFF"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O5s"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O6s"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O7s"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
@@ -118,42 +131,50 @@
                                              Text="Color"
                                              Margin="0,5,-1,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="HostColor"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O1c"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O2c"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O3c"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O4c"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFFFFFFF"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O5c"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O6c"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O7c"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
@@ -166,42 +187,49 @@
                                              Text="Team"
                                              Margin="0,5,-1,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="HostTeam"
+                                      Height="25" Style="{StaticResource AduComboBox}"
+                                      Foreground="#FFA6A6A6"
+                                      Margin="0,5,-1,0"
+                                      VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
+                            <ComboBox x:Name="O1t"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O2t"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O3t"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
-                                              Foreground="#FFA6A6A6"
-                                              Margin="0,5,-1,0"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
-                                              />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O4t"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFFFFFFF"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O5t"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O6t"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O7t"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
@@ -214,42 +242,50 @@
                                              Text="Location"
                                              Margin="0,5,-1,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="HostLoc"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O1l"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O2l"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O3l"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O4l"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFFFFFFF"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O5l"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O6l"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
-                            <ComboBox Height="25" Style="{StaticResource AduComboBox}"
+                            <ComboBox x:Name="O7l"
+                                      Height="25" Style="{StaticResource AduComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
@@ -266,7 +302,7 @@
                 </Canvas>
                 <Canvas Canvas.Left="697" Background="#FF3E3939" Width="200" Height="525" Canvas.Top="5">
                     <GroupBox Header="初始资金" Foreground="#FFF" Width="100" Style="{StaticResource AduGroupBox}">
-                        <ComboBox Style="{StaticResource ComboBoxEX}" >
+                        <ComboBox x:Name="Credits" Style="{StaticResource ComboBoxEX}" >
                             <ComboBoxItem Content="50000" FontSize="12"/>
                             <ComboBoxItem Content="40000" FontSize="12"/>
                             <ComboBoxItem Content="30000" FontSize="12"/>
@@ -277,7 +313,7 @@
                         </ComboBox>
                     </GroupBox>
                     <GroupBox Header="科技等级" Foreground="#FFF" Width="100" Style="{StaticResource AduGroupBox}" Canvas.Left="100">
-                        <ComboBox Style="{StaticResource ComboBoxEX}" >
+                        <ComboBox x:Name="TechLevel" Style="{StaticResource ComboBoxEX}" >
                             <ComboBoxItem Content="10" FontSize="12"/>
                             <ComboBoxItem Content="9" FontSize="12"/>
                             <ComboBoxItem Content="8" FontSize="12"/>
@@ -288,7 +324,7 @@
                         </ComboBox>
                     </GroupBox>
                     <GroupBox Header="初始部队" Foreground="#FFF" Width="100" Style="{StaticResource AduGroupBox}" Canvas.Top="60">
-                        <ComboBox Style="{StaticResource ComboBoxEX}" >
+                        <ComboBox x:Name="UnitCount" Style="{StaticResource ComboBoxEX}" >
                             <ComboBoxItem Content="0" FontSize="12"/>
                             <ComboBoxItem Content="1" FontSize="12"/>
                             <ComboBoxItem Content="10" FontSize="12"/>
@@ -300,7 +336,7 @@
                         </ComboBox>
                     </GroupBox>
                     <GroupBox Header="游戏速度" Foreground="#FFF" Width="100" Style="{StaticResource AduGroupBox}" Canvas.Left="100" Canvas.Top="60">
-                        <ComboBox x:Name="GameSpeedSet" Style="{StaticResource ComboBoxEX}">
+                        <ComboBox x:Name="GameSpeed" Style="{StaticResource ComboBoxEX}">
                             <ComboBoxItem Content="6 - 最快" FontSize="12"/>
                             <ComboBoxItem Content="5 - 较快" FontSize="12"/>
                             <ComboBoxItem Content="4 - 快速" FontSize="12"/>
@@ -310,22 +346,23 @@
                             <ComboBoxItem Content="0 - 最慢" FontSize="12"/>
                         </ComboBox>
                     </GroupBox>
-                    <CheckBox Content="快速游戏" Style="{StaticResource CheckBoxEX}" Canvas.Top="125"/>
-                    <CheckBox Content="MCV重新部署" Style="{StaticResource CheckBoxEX}" Canvas.Top="150"/>
-                    <CheckBox Content="Stolen Tech Units" Style="{StaticResource CheckBoxEX}" Canvas.Top="175"/>
-                    <CheckBox Content="No Naval Combat" Style="{StaticResource CheckBoxEX}" Canvas.Top="200"/>
-                    <CheckBox Content="Metal AI Boost" Style="{StaticResource CheckBoxEX}" Canvas.Top="225"/>
-                    <CheckBox Content="Immune Oil Derricks" Style="{StaticResource CheckBoxEX}" Canvas.Top="250"/>
-                    <CheckBox Content="No Spawn Previews" Style="{StaticResource CheckBoxEX}" Canvas.Top="275"/>
-                    <CheckBox Content="萌友基地旁建造" Style="{StaticResource CheckBoxEX}" Canvas.Top="300"/>
-                    <CheckBox Content="炒鸡武器" Style="{StaticResource CheckBoxEX}" Canvas.Top="325"/>
-                    <CheckBox Content="允许变更结萌" Style="{StaticResource CheckBoxEX}" Canvas.Top="350"/>
-                    <CheckBox Content="Crates Appear" Style="{StaticResource CheckBoxEX}" Canvas.Top="375"/>
-                    <CheckBox Content="Limited MCV" Style="{StaticResource CheckBoxEX}" Canvas.Top="400"/>
-                    <CheckBox Content="Permanent Radar" Style="{StaticResource CheckBoxEX}" Canvas.Top="425"/>
-                    <CheckBox Content="ConYard Start" Style="{StaticResource CheckBoxEX}" Canvas.Top="450"/>
+                    <CheckBox x:Name="ShortGame" Content="快速游戏" Style="{StaticResource CheckBoxEX}" Canvas.Top="125"/>
+                    <CheckBox x:Name="MCVRedeploy" Content="MCV重新部署" Style="{StaticResource CheckBoxEX}" Canvas.Top="150"/>
+                    <CheckBox x:Name="BuildOffAlly" Content="萌友基地旁建造" Style="{StaticResource CheckBoxEX}" Canvas.Top="175"/>
+                    <CheckBox x:Name="Superweapons" Content="炒鸡武器" Style="{StaticResource CheckBoxEX}" Canvas.Top="200"/>
+                    <CheckBox x:Name="AlliesAllowed" Content="允许变更结萌" Style="{StaticResource CheckBoxEX}" Canvas.Top="225"/>
+                    <CheckBox x:Name="Creates" Content="升级工具箱" Style="{StaticResource CheckBoxEX}" Canvas.Top="250"/>
+                    <CheckBox x:Name="StolenTechUnits" Content="Stolen Tech Units" Style="{StaticResource CheckBoxEX}" Canvas.Top="275"/>
+                    <CheckBox x:Name="NoNavalCombat" Content="No Naval Combat" Style="{StaticResource CheckBoxEX}" Canvas.Top="300"/>
+                    <CheckBox x:Name="MetalAIBoost" Content="Metal AI Boost" Style="{StaticResource CheckBoxEX}" Canvas.Top="325"/>
+                    <CheckBox x:Name="ImmuneOilDerricks" Content="Immune Oil Derricks" Style="{StaticResource CheckBoxEX}" Canvas.Top="350"/>
+                    <CheckBox x:Name="NoSpawnPreviews" Content="No Spawn Previews" Style="{StaticResource CheckBoxEX}" Canvas.Top="375"/>
+                    <CheckBox x:Name="LimitedMCV" Content="Limited MCV" Style="{StaticResource CheckBoxEX}" Canvas.Top="400"/>
+                    <CheckBox x:Name="PermanentRadar" Content="Permanent Radar" Style="{StaticResource CheckBoxEX}" Canvas.Top="425"/>
+                    <CheckBox x:Name="ConYardStart" Content="ConYard Start" Style="{StaticResource CheckBoxEX}" Canvas.Top="450"/>
+
                     <Button Content="开始游戏" Canvas.Left="10" Canvas.Top="485" Width="180" 
-                            Style="{StaticResource ButtonText}" Background="#FFA48686"/>
+                            Style="{StaticResource ButtonText}" Background="#FFA48686" Click="RunGame"/>
                 </Canvas>
                 <DataGrid x:Name="dgMapList"
                                     HorizontalAlignment="Left" Style="{StaticResource ResourceKey=AduDataGrid}"
