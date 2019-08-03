@@ -12,7 +12,7 @@
                 <ResourceDictionary Source="pack://application:,,,/DMSkin.AduDesign;component/Styles/AduWindow.xaml"/>
                 <!--  引用目标设计库的Style  -->
                 <ResourceDictionary Source="pack://application:,,,/DMSkin.AduDesign;component/Style.xaml"/>
-                
+
                 <ResourceDictionary Source="pack://application:,,,/Crape Client;component/Style.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

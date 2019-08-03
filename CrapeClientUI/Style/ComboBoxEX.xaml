@@ -102,7 +102,7 @@
                                         VerticalScrollBarVisibility="Auto">
                                         <!--  StackPanel 用于显示子级，方法是将 IsItemsHost 设置为 True  -->
                                         <StackPanel
-                                            Background="White"
+                                            Background="#60777777"
                                             IsItemsHost="True"
                                             KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>

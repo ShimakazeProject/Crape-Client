@@ -21,228 +21,133 @@ namespace Crape_Client.CrapeClientUI
     /// </summary>
     public partial class Skirmish : Page
     {
+
         Spawn spawn = new Spawn();
 
-        int MaxPlayerNum = 7;
+
+
+
+        // int MaxPlayerNum = 7;
 
         public Skirmish()
         {
             InitializeComponent();
-            Initialization();
+
+
+            
+
+            List<AIplayer> namelist = new List<AIplayer>{
+                new AIplayer{ Id=-1, Text = "无"}
+                ,new AIplayer{ Id=2, Text = "简单"}
+                ,new AIplayer{ Id=1, Text = "中等"}
+                ,new AIplayer{ Id=0, Text = "困难"}
+            };
+            List<Side> sidelist = new List<Side>{
+                new Side{ Id=-1, Text = "随机" },
+                new Side{ Id=-2, Text = "随机萌军" },
+                new Side{ Id=-3, Text = "随机酥联" },
+                new Side{ Id=0, Text = "美国" },
+                new Side{ Id=1, Text = "韩国" },
+                new Side{ Id=2, Text = "法国" },
+                new Side{ Id=3, Text = "德国" },
+                new Side{ Id=4, Text = "英国" },
+                new Side{ Id=5, Text = "伊拉克" },
+                new Side{ Id=6, Text = "利比亚" },
+                new Side{ Id=7, Text = "古巴" },
+                new Side{ Id=8, Text = "俄罗斯" },
+                new Side{ Id=9, Text = "尤理" }
+            };
+            List<Color> colorlist = new List<Color>{
+                new Color { Id = 0, Text = "黄色", Clr="#FFFF00" },
+                new Color { Id = 1, Text = "红色", Clr="#ff0000" },
+                new Color { Id = 2, Text = "蓝色", Clr="#0000ff" },
+                new Color { Id = 3, Text = "绿色", Clr="#00ff00" },
+                new Color { Id = 4, Text = "橙色", Clr="#ff9900" },
+                new Color { Id = 5, Text = "青色", Clr="#00ffff" },
+                new Color { Id = 6, Text = "紫色", Clr="#9900ff" },
+                new Color { Id = 7, Text = "粉色", Clr="#ff00ff" }
+            };
+
+            // AI玩家
+            O1n.ItemsSource = namelist;
+            O2n.ItemsSource = namelist;
+            O3n.ItemsSource = namelist;
+            O4n.ItemsSource = namelist;
+            O5n.ItemsSource = namelist;
+            O6n.ItemsSource = namelist;
+            O7n.ItemsSource = namelist;
+            O1n.SelectedIndex = 0;
+            O2n.SelectedIndex = 0;
+            O3n.SelectedIndex = 0;
+            O4n.SelectedIndex = 0;
+            O5n.SelectedIndex = 0;
+            O6n.SelectedIndex = 0;
+            O7n.SelectedIndex = 0;
+
+            // 阵营
+            HostSide.ItemsSource = sidelist;
+            O1s.ItemsSource = sidelist;
+            O2s.ItemsSource = sidelist;
+            O3s.ItemsSource = sidelist;
+            O4s.ItemsSource = sidelist;
+            O5s.ItemsSource = sidelist;
+            O6s.ItemsSource = sidelist;
+            O7s.ItemsSource = sidelist;
+            HostSide.SelectedIndex = 0;
+            O1s.SelectedIndex = 0;
+            O2s.SelectedIndex = 0;
+            O3s.SelectedIndex = 0;
+            O4s.SelectedIndex = 0;
+            O5s.SelectedIndex = 0;
+            O6s.SelectedIndex = 0;
+            O7s.SelectedIndex = 0;
+
+
+
+            HostColor.ItemsSource = colorlist;
+            O1c.ItemsSource = colorlist;
+            O2c.ItemsSource = colorlist;
+            O3c.ItemsSource = colorlist;
+            O4c.ItemsSource = colorlist;
+            O5c.ItemsSource = colorlist;
+            O6c.ItemsSource = colorlist;
+            O7c.ItemsSource = colorlist;
+
+
+
+
         }
-        void Initialization()
+        class AIplayer
         {
-            #region 玩家框初始化
-            InitNameCB(O1n);
-            InitNameCB(O2n);
-            InitNameCB(O3n);
-            InitNameCB(O4n);
-            InitNameCB(O5n);
-            InitNameCB(O6n);
-            InitNameCB(O7n);
-
-            InitSideCB(HostSide);
-            InitSideCB(O1s);
-            InitSideCB(O2s);
-            InitSideCB(O3s);
-            InitSideCB(O4s);
-            InitSideCB(O5s);
-            InitSideCB(O6s);
-            InitSideCB(O7s);
-
-            InitColCB(HostColor);
-            InitColCB(O1c);
-            InitColCB(O2c);
-            InitColCB(O3c);
-            InitColCB(O4c);
-            InitColCB(O5c);
-            InitColCB(O6c);
-            InitColCB(O7c);
-
-            InitLocCB(HostLoc);
-            InitLocCB(O1l);
-            InitLocCB(O2l);
-            InitLocCB(O3l);
-            InitLocCB(O4l);
-            InitLocCB(O5l);
-            InitLocCB(O6l);
-            InitLocCB(O7l);
-
-            InitTeamCB(HostTeam);
-            InitTeamCB(O1t);
-            InitTeamCB(O2t);
-            InitTeamCB(O3t);
-            InitTeamCB(O4t);
-            InitTeamCB(O5t);
-            InitTeamCB(O6t);
-            InitTeamCB(O7t);
-            #endregion
-            Credits.SelectedIndex = 0;
-            TechLevel.SelectedIndex = 0;
-            UnitCount.SelectedIndex = 0;
-            GameSpeed.SelectedIndex = 0;
+            public int Id { get; set; }
+            public string Text { get; set; }
         }
-        void InitNameCB(ComboBox comboBox)
+        class Side
         {
-            comboBox.Items.Add("---");
-            comboBox.Items.Add("困难AI");
-            comboBox.Items.Add("中等AI");
-            comboBox.Items.Add("简单AI");
-            comboBox.SelectedIndex = 0;
+            public int Id { get; set; }
+            public string Text { get; set; }
         }
-        void InitSideCB(ComboBox comboBox)
+        class Color
         {
-            comboBox.Items.Add("---");
-            comboBox.Items.Add("Side0");
-            comboBox.Items.Add("Side1");
-            comboBox.Items.Add("Side2");
-            comboBox.SelectedIndex = 0;
+            public int Id { get; set; }
+            public string Text { get; set; }
+            public string Clr { get; set; }
         }
-        void InitColCB(ComboBox comboBox)
+
+
+
+
+
+
+
+        private void O1n_DropDownClosed(object sender, EventArgs e)
         {
-            comboBox.Items.Add("---");
-            comboBox.Items.Add("Color1");
-            comboBox.Items.Add("Color2");
-            comboBox.SelectedIndex = 0;
+            AIplayer aIplayer = O1n.SelectedItem as AIplayer;
+            MessageBox.Show(
+                "Id：" + aIplayer.Id + "\n\n" +
+                "Text：" + aIplayer.Text + "\n\n" +
+                "SelectedIndex: " + O1n.SelectedIndex.ToString());
         }
-        void InitLocCB(ComboBox comboBox)
-        {
-            comboBox.Items.Add("-");
-            comboBox.Items.Add("1");
-            comboBox.Items.Add("2");
-            comboBox.Items.Add("3");
-            comboBox.Items.Add("4");
-            comboBox.Items.Add("5");
-            comboBox.Items.Add("6");
-            comboBox.Items.Add("7");
-            comboBox.Items.Add("8");
-            comboBox.SelectedIndex = 0;
-        }
-        void InitTeamCB(ComboBox comboBox)
-        {
-            comboBox.Items.Add("-");
-            comboBox.Items.Add("A");
-            comboBox.Items.Add("B");
-            comboBox.Items.Add("C");
-            comboBox.Items.Add("D");
-            comboBox.SelectedIndex = 0;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private void RunGame(object sender, RoutedEventArgs e)
-        {
-
-            spawn.Settings.Credits = Convert.ToUInt32(this.Credits.SelectionBoxItemStringFormat);
-            spawn.Settings.TechLevel = Convert.ToByte(this.TechLevel.SelectionBoxItemStringFormat);
-            spawn.Settings.UnitCount = Convert.ToByte(this.GameSpeed.SelectionBoxItemStringFormat);
-            spawn.Settings.GameSpeed = Convert.ToByte(this.GameSpeed.SelectionBoxItemStringFormat);
-            spawn.Settings.ShortGame = ShortGame.IsChecked;
-            spawn.Settings.MCVRedeploy = MCVRedeploy.IsChecked;
-            spawn.Settings.BuildOffAlly = BuildOffAlly.IsChecked;
-            spawn.Settings.Superweapons = Superweapons.IsChecked;
-            spawn.Settings.AlliesAllowed = ShortGame.IsChecked;
-            spawn.Settings.Creates = Creates.IsChecked;
-            spawn.Settings.Name = this.HostName.Text;
-            spawn.Settings.Side = ComboBoxSelectedIndex2Byte(HostSide);
-            spawn.Settings.Color= ComboBoxSelectedIndex2Byte(HostColor);
-            AIplayerset();
-            SpawnUnifiedSet();
-
-            spawn.Write();
-            Program.Program.RunSyringe();
-        }
-        void AIplayerset()
-        {
-            spawn.HouseCountries.Multi2 = ComboBoxSelectedIndex2Byte(O1s, O1n);
-            spawn.HouseCountries.Multi3 = ComboBoxSelectedIndex2Byte(O2s, O1n);
-            spawn.HouseCountries.Multi4 = ComboBoxSelectedIndex2Byte(O3s, O1n);
-            spawn.HouseCountries.Multi5 = ComboBoxSelectedIndex2Byte(O4s, O1n);
-            spawn.HouseCountries.Multi6 = ComboBoxSelectedIndex2Byte(O5s, O1n);
-            spawn.HouseCountries.Multi7 = ComboBoxSelectedIndex2Byte(O6s, O1n);
-            spawn.HouseCountries.Multi8 = ComboBoxSelectedIndex2Byte(O7s, O1n);
-
-            spawn.HouseHandicaps.Multi2 = AIPlayerComboBoxSelectedIndex2Byte(O1n);
-            spawn.HouseHandicaps.Multi3 = AIPlayerComboBoxSelectedIndex2Byte(O2n);
-            spawn.HouseHandicaps.Multi4 = AIPlayerComboBoxSelectedIndex2Byte(O3n);
-            spawn.HouseHandicaps.Multi5 = AIPlayerComboBoxSelectedIndex2Byte(O4n);
-            spawn.HouseHandicaps.Multi6 = AIPlayerComboBoxSelectedIndex2Byte(O5n);
-            spawn.HouseHandicaps.Multi7 = AIPlayerComboBoxSelectedIndex2Byte(O6n);
-            spawn.HouseHandicaps.Multi8 = AIPlayerComboBoxSelectedIndex2Byte(O7n);
-
-            spawn.HouseColors.Multi2 = ComboBoxSelectedIndex2Byte(O1c, O1n);
-            spawn.HouseColors.Multi3 = ComboBoxSelectedIndex2Byte(O2c, O1n);
-            spawn.HouseColors.Multi4 = ComboBoxSelectedIndex2Byte(O3c, O1n);
-            spawn.HouseColors.Multi5 = ComboBoxSelectedIndex2Byte(O4c, O1n);
-            spawn.HouseColors.Multi6 = ComboBoxSelectedIndex2Byte(O5c, O1n);
-            spawn.HouseColors.Multi7 = ComboBoxSelectedIndex2Byte(O6c, O1n);
-            spawn.HouseColors.Multi8 = ComboBoxSelectedIndex2Byte(O7c, O1n);
-        }
-        void SpawnUnifiedSet()
-        {
-            spawn.SpawnLocations.Multi1 = ComboBox2byte(HostLoc);
-            spawn.SpawnLocations.Multi2 = ComboBox2byte(O1l, O1n);
-            spawn.SpawnLocations.Multi3 = ComboBox2byte(O2l, O1n);
-            spawn.SpawnLocations.Multi4 = ComboBox2byte(O3l, O1n);
-            spawn.SpawnLocations.Multi5 = ComboBox2byte(O4l, O1n);
-            spawn.SpawnLocations.Multi6 = ComboBox2byte(O5l, O1n);
-            spawn.SpawnLocations.Multi7 = ComboBox2byte(O6l, O1n);
-            spawn.SpawnLocations.Multi8 = ComboBox2byte(O7l, O1n);
-        }
-
-        byte? ComboBoxSelectedIndex2Byte(ComboBox comboBox, ComboBox Master)
-        {
-            if (Master.SelectedIndex == 0) return null;
-            if (comboBox.SelectedIndex == -1) return null;
-            else return (byte)comboBox.SelectedIndex;
-        }
-        byte? ComboBoxSelectedIndex2Byte(ComboBox comboBox)
-        {
-            if (comboBox.SelectedIndex == -1) return null;
-            else return (byte)comboBox.SelectedIndex;
-        }
-
-        byte? AIPlayerComboBoxSelectedIndex2Byte(ComboBox comboBox)
-        {
-            if (comboBox.SelectedIndex == -1) return null;
-            else if (comboBox.SelectedIndex == 0) return null;
-            else return Convert.ToByte(comboBox.SelectedIndex - 1);
-        }
-        byte? ComboBox2byte(ComboBox comboBox, ComboBox Master)
-        {
-            if (Master.SelectedIndex == 0) return null;
-            Random rd = new Random();
-            if (comboBox.SelectedItem == null) return null;
-            if (comboBox.SelectedIndex==0) return (byte)rd.Next(0, MaxPlayerNum);
-            else
-            {
-                int a = Convert.ToInt32(comboBox.SelectedItem.ToString());
-                return Convert.ToByte(a - 1);
-            }
-        }
-        byte? ComboBox2byte(ComboBox comboBox)
-        {
-            Random rd = new Random();
-            if (comboBox.SelectedItem == null) return null;
-            if (comboBox.SelectedIndex == 0) return (byte)rd.Next(0, MaxPlayerNum);
-            else
-            {
-                int a = Convert.ToInt32(comboBox.SelectedItem.ToString());
-                return Convert.ToByte(a - 1);
-            }
-        }
-
-
     }
+
 }

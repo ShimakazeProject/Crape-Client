@@ -117,6 +117,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CrapeClentCore\Program\Analyze.cs" />
+    <Compile Include="CrapeClentCore\Program\Class1.cs" />
+    <Compile Include="CrapeClentCore\Program\Initialize.cs" />
     <Compile Include="CrapeClentCore\Program\ScreenSettings.cs" />
     <Compile Include="CrapeClentCore\Program\IniEdit.cs" />
     <Compile Include="CrapeClentCore\Ra2md.cs" />
