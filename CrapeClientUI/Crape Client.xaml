@@ -9,24 +9,50 @@
                      xmlns:local="clr-namespace:Crape_Client"
                      mc:Ignorable="d"
                      Style="{DynamicResource AduWindowStyle}"
-                     Title="Crape Client" Height="600" Width="1200"
+                     Title="Crape Client" Height="600" Width="1000"
                      SystemButtonSize="40"
                      FitSystemWindow="True"
                      Background="#2B2833"
-                     WindowStartupLocation="CenterScreen" 
-                     ResizeMode="NoResize" Icon="/Crape Client;component/Resource/Crape.ico" >
+                     WindowStartupLocation="CenterScreen" Icon="/Crape Client;component/Resource/Crape.ico" ResizeMode="NoResize" >
     <Border CornerRadius="4" Background="#302C3A" Name="mainback">
         <Grid>
-            <Viewbox Margin="0,0,994,0">
-                <!--#region 菜单列-->
-                <Canvas HorizontalAlignment="Left" Width="215" Height="597" VerticalAlignment="Top" Margin="-5,0,0,0">
-                    <!-- Logo -->
-                    <Border Canvas.Top="0" BorderBrush="#2B2833" BorderThickness="0,0,1,0" Width="200" Height="60">
-                        <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#fff" 
-                               FontSize="24" HorizontalAlignment="Center" 
-                               VerticalAlignment="Center" TextDecorations="{x:Null}" />
-                    </Border>
-                    <!-- 废弃
+            <!--#region 菜单列-->
+            <Canvas HorizontalAlignment="Left" Width="200" Height="600" VerticalAlignment="Top" Margin="0">
+                <Path Stroke="Transparent" StrokeThickness="1">
+                    <Path.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#CC150738"  Offset="0"></GradientStop>
+                            <GradientStop Color="#CC150738"  Offset="0.2"></GradientStop>
+                            <GradientStop Color="#9929223A"  Offset="0.5"></GradientStop>
+                            <GradientStop Color="#442B2833"  Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.Data>
+                        <PathGeometry>
+                            <!--定义PathGeometry的Figuress-->
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure IsClosed="True" StartPoint="0,0">
+                                        <PathFigure.Segments>
+                                            <LineSegment Point="1000,0" />
+                                            <LineSegment Point="1000,600"/>
+                                            <LineSegment Point="0,600"/>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+
+                <!-- Logo -->
+                <Border Canvas.Top="0" Width="200" Height="60">
+                    <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#FFEAEAEA" 
+                               FontSize="26" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" />
+                </Border>
+                <!-- 废弃
                 <Expander Style="{StaticResource AduExpander}" Header="作战" Foreground="#FFF" Canvas.Top="60">
                     <StackPanel>
                         <RadioButton Foreground="#FFF"
@@ -72,21 +98,21 @@
                                     IsChecked="False" />
                     </StackPanel>
                 </Expander>-->
-                    <RadioButton Foreground="#FFF" Canvas.Top="60" Canvas.Left="-32"
+                <RadioButton Foreground="#FFF" Canvas.Top="60" Canvas.Left="-32"
                              Style="{StaticResource MainMenuBattleButton}"
                              Command="{Binding NavPageCommand}"
                              Content="战役" DataContext="Campaign"
                              GroupName="Menu" 
                              Checked="Combat" IsChecked="False"/>
-                    <RadioButton Foreground="#FFF" Canvas.Top="110" Canvas.Left="-32"
+                <RadioButton Foreground="#FFF" Canvas.Top="110" Canvas.Left="-32"
                              Style="{StaticResource MainMenuSkirmishButton}"
                              Content="遭遇战" DataContext="Skirmish"
                              GroupName="Menu" Checked="Skirmish" IsChecked="False" />
-                    <RadioButton Foreground="#FFF" Canvas.Top="160" Canvas.Left="-32"
+                <RadioButton Foreground="#FFF" Canvas.Top="160" Canvas.Left="-32"
                              Style="{StaticResource MainMenuLoadButton}"
                              Content="载入" DataContext="Loading"
                              GroupName="Menu" Checked="Loadings" IsChecked="False" />
-                    <RadioButton x:Name="rbmSettings"
+                <RadioButton x:Name="rbmSettings"
                              Style="{StaticResource MainMenuSettingsButton}"
                              Content="设置"  DataContext="Settings"
                              Foreground="#FFF"
@@ -96,22 +122,18 @@
                              Checked="Settings_check"
                              Unchecked="Settings_check"
                              IsChecked="False" />
-                    <RadioButton Style="{StaticResource MainMenuExitButton}"
+                <RadioButton Style="{StaticResource MainMenuExitButton}"
                              Content="退出" DataContext="Exit"
                              Foreground="#FFF"
                              attached:Icon.Height="18"
                              attached:Icon.Width="16"
                              IsChecked="False" 
                              Checked="Exit" VerticalAlignment="Top" Canvas.Bottom="10" Canvas.Left="-32"/>
-                </Canvas>
-                <!--#endregion-->
-            </Viewbox>
-            <Viewbox Margin="200,-30,0,0">
-                <Frame x:Name="ClientFrame" Width="974" 
-                           NavigationUIVisibility="Hidden"
-                           Source="/Crape Client;component/CrapeClientUI/Welcome.xaml" 
-                           HorizontalAlignment="Left" Margin="5" Height="550"/>
-            </Viewbox>
+            </Canvas>
+            <!--#endregion-->
+            <Frame x:Name="ClientFrame" 
+                   NavigationUIVisibility="Hidden"
+                   Source="/Crape Client;component/CrapeClientUI/Welcome.xaml" Margin="200,0,5,-40"/>
 
         </Grid>
     </Border>
