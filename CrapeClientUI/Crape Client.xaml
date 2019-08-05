@@ -47,11 +47,15 @@
                 </Path>
 
                 <!-- Logo -->
-                <Border Canvas.Top="0" Width="200" Height="60">
+                <Grid Canvas.Top="0" Width="200" Height="60">
+                    <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#50EAEAEA" 
+                               FontSize="26" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" Margin="15,13,10,10"/>
                     <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#FFEAEAEA" 
                                FontSize="26" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" />
-                </Border>
+
+                </Grid>
                 <!-- 废弃
                 <Expander Style="{StaticResource AduExpander}" Header="作战" Foreground="#FFF" Canvas.Top="60">
                     <StackPanel>
