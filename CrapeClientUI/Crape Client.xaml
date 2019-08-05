@@ -17,16 +17,19 @@
                      ResizeMode="NoResize" Icon="/Crape Client;component/Resource/Crape.ico" >
     <Border CornerRadius="4" Background="#302C3A" Name="mainback">
         <Grid>
-            <!--#region 菜单列-->
-            <Canvas HorizontalAlignment="Left" Width="200" Height="542">
-                <Border Canvas.Top="0" BorderBrush="#2B2833" BorderThickness="0,0,1,0" Width="200" Height="60">
-                    <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#fff" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-                </Border>
-                <ScrollViewer Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10" Canvas.Top="75" Width="200">
-                    <StackPanel Width="180" Canvas.Top="70">
-                        <Expander Style="{StaticResource AduExpander}" Header="作战" Foreground="#FFF">
-                            <StackPanel>
-                                <RadioButton Foreground="#FFF"
+            <Viewbox Margin="0,0,994,0">
+                <!--#region 菜单列-->
+                <Canvas HorizontalAlignment="Left" Width="215" Height="597" VerticalAlignment="Top" Margin="-5,0,0,0">
+                    <!-- Logo -->
+                    <Border Canvas.Top="0" BorderBrush="#2B2833" BorderThickness="0,0,1,0" Width="200" Height="60">
+                        <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#fff" 
+                               FontSize="24" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" TextDecorations="{x:Null}" />
+                    </Border>
+                    <!-- 废弃
+                <Expander Style="{StaticResource AduExpander}" Header="作战" Foreground="#FFF" Canvas.Top="60">
+                    <StackPanel>
+                        <RadioButton Foreground="#FFF"
                                              Style="{StaticResource AduRadioButtonMenu}"
                                              Command="{Binding NavPageCommand}"
                                              Content="战役" GroupName="Menu"
@@ -34,25 +37,25 @@
                                              attached:Icon.Width="16"
                                              Checked="Combat"
                                              IsChecked="False"/>
-                                <RadioButton Foreground="#FFF"
+                        <RadioButton Foreground="#FFF"
                                              Style="{StaticResource AduRadioButtonMenu}"
                                              Content="遭遇战" GroupName="Menu"
                                              attached:Icon.Height="18"
                                              attached:Icon.Width="16"
                                              Checked="Skirmish"
                                              IsChecked="False" />
-                                <RadioButton Foreground="#FFF"
+                        <RadioButton Foreground="#FFF"
                                              Style="{StaticResource AduRadioButtonMenu}"
                                              Content="载入" GroupName="Menu"
                                              attached:Icon.Height="18"
                                              attached:Icon.Width="16"
                                              Checked="Loadings"
                                              IsChecked="False" />
-                            </StackPanel>
-                        </Expander>
-                        <Expander Style="{StaticResource AduExpander}" Header="网络">
-                            <StackPanel>
-                                <RadioButton
+                    </StackPanel>
+                </Expander>
+                <Expander Style="{StaticResource AduExpander}" Header="网络" Canvas.Top="90">
+                    <StackPanel>
+                        <RadioButton
                                     Style="{StaticResource AduRadioButtonMenu}"
                                     Command="{Binding NavPageCommand}"
                                     Content="网际网络"
@@ -60,43 +63,55 @@
                                     attached:Icon.Height="16"
                                     attached:Icon.Width="16"
                                     IsChecked="False" />
-                                <RadioButton
+                        <RadioButton
                                     Style="{StaticResource AduRadioButtonMenu}"
                                     Content="局域网"
                                     GroupName="Menu"
                                     attached:Icon.Height="18"
                                     attached:Icon.Width="16"
                                     IsChecked="False" />
-                            </StackPanel>
-                        </Expander>
-                        <RadioButton x:Name="rbmSettings"
-                                    Style="{StaticResource ToggleButtonStyle}"
-                                    Content="设置" Foreground="#FFF"
-                                    GroupName="Menu"
-                                    attached:Icon.Height="16"
-                                    attached:Icon.Width="16"
-                                         Checked="Settings_check"
-                                         Unchecked="Settings_check"
-                                    IsChecked="False" />
                     </StackPanel>
-                </ScrollViewer>
-                <RadioButton Style="{StaticResource ExitRadioButtonMenu}"
-                                         Content="退出"
-                                         Foreground="#FFF"
-                                         attached:Icon.Height="18"
-                                         attached:Icon.Width="16"
-                                         IsChecked="False" 
-                                         Checked="Exit" VerticalAlignment="Top" Canvas.Bottom="10"  Width="180" Canvas.Left="10"/>
-            </Canvas>
-            <!--#endregion-->
-
-            <Canvas>
+                </Expander>-->
+                    <RadioButton Foreground="#FFF" Canvas.Top="60" Canvas.Left="-32"
+                             Style="{StaticResource MainMenuBattleButton}"
+                             Command="{Binding NavPageCommand}"
+                             Content="战役" DataContext="Campaign"
+                             GroupName="Menu" 
+                             Checked="Combat" IsChecked="False"/>
+                    <RadioButton Foreground="#FFF" Canvas.Top="110" Canvas.Left="-32"
+                             Style="{StaticResource MainMenuSkirmishButton}"
+                             Content="遭遇战" DataContext="Skirmish"
+                             GroupName="Menu" Checked="Skirmish" IsChecked="False" />
+                    <RadioButton Foreground="#FFF" Canvas.Top="160" Canvas.Left="-32"
+                             Style="{StaticResource MainMenuLoadButton}"
+                             Content="载入" DataContext="Loading"
+                             GroupName="Menu" Checked="Loadings" IsChecked="False" />
+                    <RadioButton x:Name="rbmSettings"
+                             Style="{StaticResource MainMenuSettingsButton}"
+                             Content="设置"  DataContext="Settings"
+                             Foreground="#FFF"
+                             Canvas.Top="210"
+                             Canvas.Left="-32"
+                             GroupName="Menu" 
+                             Checked="Settings_check"
+                             Unchecked="Settings_check"
+                             IsChecked="False" />
+                    <RadioButton Style="{StaticResource MainMenuExitButton}"
+                             Content="退出" DataContext="Exit"
+                             Foreground="#FFF"
+                             attached:Icon.Height="18"
+                             attached:Icon.Width="16"
+                             IsChecked="False" 
+                             Checked="Exit" VerticalAlignment="Top" Canvas.Bottom="10" Canvas.Left="-32"/>
+                </Canvas>
+                <!--#endregion-->
+            </Viewbox>
+            <Viewbox Margin="200,-30,0,0">
                 <Frame x:Name="ClientFrame" Width="974" 
-                       NavigationUIVisibility="Hidden"
-                       Canvas.Left="220" Canvas.Top="5"
-                       Source="/Crape Client;component/CrapeClientUI/Welcome.xaml" 
-                       HorizontalAlignment="Left"/>
-            </Canvas>
+                           NavigationUIVisibility="Hidden"
+                           Source="/Crape Client;component/CrapeClientUI/Welcome.xaml" 
+                           HorizontalAlignment="Left" Margin="5" Height="550"/>
+            </Viewbox>
 
         </Grid>
     </Border>

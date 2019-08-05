@@ -67,6 +67,24 @@ namespace Crape_Client.CrapeClientUI
                 new Color { Id = 6, Text = "紫色", Clr="#9900ff" },
                 new Color { Id = 7, Text = "粉色", Clr="#ff00ff" }
             };
+            List<string> teamlist = new List<string>{
+                "-"
+                ,"A"
+                ,"B"
+                ,"C"
+                ,"D"
+            };
+            List<string> locallist = new List<string>{
+                "?"
+                ,"1"
+                ,"2"
+                ,"3"
+                ,"4"
+                ,"5"
+                ,"6"
+                ,"7"
+                ,"8"
+            };
 
             // AI玩家
             O1n.ItemsSource = namelist;
@@ -102,8 +120,6 @@ namespace Crape_Client.CrapeClientUI
             O6s.SelectedIndex = 0;
             O7s.SelectedIndex = 0;
 
-
-
             HostColor.ItemsSource = colorlist;
             O1c.ItemsSource = colorlist;
             O2c.ItemsSource = colorlist;
@@ -113,9 +129,23 @@ namespace Crape_Client.CrapeClientUI
             O6c.ItemsSource = colorlist;
             O7c.ItemsSource = colorlist;
 
+            HostLoc.ItemsSource = locallist;
+            O1l.ItemsSource = locallist;
+            O2l.ItemsSource = locallist;
+            O3l.ItemsSource = locallist;
+            O4l.ItemsSource = locallist;
+            O5l.ItemsSource = locallist;
+            O6l.ItemsSource = locallist;
+            O7l.ItemsSource = locallist;
 
-
-
+            HostTeam.ItemsSource = teamlist;
+            O1t.ItemsSource = teamlist;
+            O2t.ItemsSource = teamlist;
+            O3t.ItemsSource = teamlist;
+            O4t.ItemsSource = teamlist;
+            O5t.ItemsSource = teamlist;
+            O6t.ItemsSource = teamlist;
+            O7t.ItemsSource = teamlist;
         }
         class AIplayer
         {
@@ -126,6 +156,7 @@ namespace Crape_Client.CrapeClientUI
         {
             public int Id { get; set; }
             public string Text { get; set; }
+            public string Ico { get; set; }
         }
         class Color
         {
@@ -133,7 +164,7 @@ namespace Crape_Client.CrapeClientUI
             public string Text { get; set; }
             public string Clr { get; set; }
         }
-
+        
 
 
 

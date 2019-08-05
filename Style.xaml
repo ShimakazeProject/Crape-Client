@@ -4,5 +4,7 @@
         <ResourceDictionary Source="pack://application:,,,/Crape Client;component/CrapeClientUI/Style/ComboBoxEX.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Crape Client;component/CrapeClientUI/Style/GroupBoxEX.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Crape Client;component/CrapeClientUI/Style/ButtonEX.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Crape Client;component/CrapeClientUI/Style/MainMenuButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
