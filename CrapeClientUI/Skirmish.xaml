@@ -5,14 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Crape_Client.CrapeClientUI"
       mc:Ignorable="d"
-      Title="Skirmish" Height="575" Width="905" VerticalAlignment="Top" HorizontalAlignment="Left">
+      Title="Skirmish" Height="600" Width="800" VerticalAlignment="Top" HorizontalAlignment="Left">
     <!--#region 遭遇战-->
     <Border x:Name="遭遇战">
         <Canvas>
             <TextBlock Text="遭遇战" FontSize="24" Foreground="#fff" Margin="10,0,10,621"></TextBlock>
             <Canvas Canvas.Top="40" Canvas.Left="5">
                 <!--玩家选择框-->
-                <Canvas Canvas.Top="5" Height="525" Width="453" Canvas.Left="232">
+                <Canvas Canvas.Top="5" Height="525" Width="453" Canvas.Left="185">
                     <Canvas Height="275" Width="455" HorizontalAlignment="Left" VerticalAlignment="Top">
                         <StackPanel Margin="10,0,319,0">
                             <TextBlock FontSize="18"
@@ -26,7 +26,7 @@
                                      Foreground="#FFA6A6A6" Margin="0,5,-1,0"
                                      VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"/>
                             <ComboBox x:Name="O1n"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                       Foreground="#FFA6A6A6"
                                       Margin="0,5,-1,0"
                                       VerticalAlignment="Top" Background="{x:Null}" 
@@ -36,7 +36,7 @@
                                       HorizontalAlignment="Right" Width="125" DropDownClosed="O1n_DropDownClosed">
                             </ComboBox>
                             <ComboBox x:Name="O2n"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -46,7 +46,7 @@
                                       HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O3n"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -56,7 +56,7 @@
                                       HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O4n"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFFFFFFF"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -65,7 +65,7 @@
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O5n"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -74,7 +74,7 @@
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O6n"
-                                       Height="25" Style="{StaticResource ComboBoxEX}"
+                                       Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -83,7 +83,7 @@
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O7n"
-                                       Height="25" Style="{StaticResource ComboBoxEX}"
+                                       Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -100,7 +100,7 @@
                                              Margin="0,5,-1,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"/>
                             <ComboBox x:Name="HostSide"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -109,7 +109,7 @@
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O1s"
-                                       Height="25" Style="{StaticResource ComboBoxEX}"
+                                       Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -118,7 +118,7 @@
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O2s"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -128,7 +128,7 @@
                                       HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O3s"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -138,7 +138,7 @@
                                       HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O4s"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFFFFFFF"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -147,7 +147,7 @@
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O5s"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -156,7 +156,7 @@
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O6s"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -165,7 +165,7 @@
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="125"
                                               />
                             <ComboBox x:Name="O7s"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -182,10 +182,10 @@
                                              Margin="0,5,-1,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="HostColor"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Margin="0,5,-1,0" 
                                       SelectedValuePath="Id" 
-                                      Text="{Binding Color}"
+                                      Text="{Binding Text}"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
@@ -197,7 +197,7 @@
                             </ComboBox>
 
                             <ComboBox x:Name="O1c"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="{Binding Clr}"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -214,7 +214,7 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <ComboBox x:Name="O2c"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="{Binding Clr}"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -231,7 +231,7 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <ComboBox x:Name="O3c"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="{Binding Clr}"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -248,7 +248,7 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <ComboBox x:Name="O4c"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="{Binding Clr}"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -265,7 +265,7 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <ComboBox x:Name="O5c"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="{Binding Clr}"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -282,7 +282,7 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <ComboBox x:Name="O6c"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="{Binding Clr}"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -299,7 +299,7 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                             <ComboBox x:Name="O7c"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="{Binding Clr}"
                                               Margin="0,5,-1,0"
                                       SelectedValuePath="Id" 
@@ -324,48 +324,48 @@
                                              Margin="0,5,-1,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="HostTeam"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                       Foreground="#FFA6A6A6"
                                       Margin="0,5,-1,0"
                                       VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="O1t"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O2t"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O3t"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O4t"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFFFFFFF"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O5t"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O6t"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O7t"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
@@ -379,49 +379,49 @@
                                              Margin="0,5,-1,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="HostLoc"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O1l"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O2l"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O3l"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O4l"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFFFFFFF"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O5l"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O6l"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O7l"
-                                      Height="25" Style="{StaticResource ComboBoxEX}"
+                                      Height="25" Style="{StaticResource ComboBox}"
                                               Foreground="#FFA6A6A6"
                                               Margin="0,5,-1,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
@@ -436,9 +436,9 @@
                         </GroupBox>
                     </Canvas>
                 </Canvas>
-                <Canvas Canvas.Left="697" Background="#FF3E3939" Width="200" Height="525" Canvas.Top="5">
+                <Canvas Canvas.Left="643" Background="#FF3E3939" Width="200" Height="525" Canvas.Top="5">
                     <GroupBox Header="初始资金" Foreground="#FFF" Width="100" Style="{StaticResource AduGroupBox}">
-                        <ComboBox x:Name="Credits" Style="{StaticResource ComboBoxEX}" >
+                        <ComboBox x:Name="Credits" Style="{StaticResource ComboBox}" >
                             <ComboBoxItem Content="50000" FontSize="12"/>
                             <ComboBoxItem Content="40000" FontSize="12"/>
                             <ComboBoxItem Content="30000" FontSize="12"/>
@@ -449,7 +449,7 @@
                         </ComboBox>
                     </GroupBox>
                     <GroupBox Header="科技等级" Foreground="#FFF" Width="100" Style="{StaticResource AduGroupBox}" Canvas.Left="100">
-                        <ComboBox x:Name="TechLevel" Style="{StaticResource ComboBoxEX}" >
+                        <ComboBox x:Name="TechLevel" Style="{StaticResource ComboBox}" >
                             <ComboBoxItem Content="10" FontSize="12"/>
                             <ComboBoxItem Content="9" FontSize="12"/>
                             <ComboBoxItem Content="8" FontSize="12"/>
@@ -460,7 +460,7 @@
                         </ComboBox>
                     </GroupBox>
                     <GroupBox Header="初始部队" Foreground="#FFF" Width="100" Style="{StaticResource AduGroupBox}" Canvas.Top="60">
-                        <ComboBox x:Name="UnitCount" Style="{StaticResource ComboBoxEX}" >
+                        <ComboBox x:Name="UnitCount" Style="{StaticResource ComboBox}" >
                             <ComboBoxItem Content="0" FontSize="12"/>
                             <ComboBoxItem Content="1" FontSize="12"/>
                             <ComboBoxItem Content="10" FontSize="12"/>
@@ -472,7 +472,7 @@
                         </ComboBox>
                     </GroupBox>
                     <GroupBox Header="游戏速度" Foreground="#FFF" Width="100" Style="{StaticResource AduGroupBox}" Canvas.Left="100" Canvas.Top="60">
-                        <ComboBox x:Name="GameSpeed" Style="{StaticResource ComboBoxEX}">
+                        <ComboBox x:Name="GameSpeed" Style="{StaticResource ComboBox}">
                             <ComboBoxItem Content="6 - 最快" FontSize="12"/>
                             <ComboBoxItem Content="5 - 较快" FontSize="12"/>
                             <ComboBoxItem Content="4 - 快速" FontSize="12"/>
@@ -482,20 +482,20 @@
                             <ComboBoxItem Content="0 - 最慢" FontSize="12"/>
                         </ComboBox>
                     </GroupBox>
-                    <CheckBox x:Name="ShortGame" Content="快速游戏" Style="{StaticResource CheckBoxEX}" Canvas.Top="125"/>
-                    <CheckBox x:Name="MCVRedeploy" Content="MCV重新部署" Style="{StaticResource CheckBoxEX}" Canvas.Top="150"/>
-                    <CheckBox x:Name="BuildOffAlly" Content="萌友基地旁建造" Style="{StaticResource CheckBoxEX}" Canvas.Top="175"/>
-                    <CheckBox x:Name="Superweapons" Content="炒鸡武器" Style="{StaticResource CheckBoxEX}" Canvas.Top="200"/>
-                    <CheckBox x:Name="AlliesAllowed" Content="允许变更结萌" Style="{StaticResource CheckBoxEX}" Canvas.Top="225"/>
-                    <CheckBox x:Name="Creates" Content="升级工具箱" Style="{StaticResource CheckBoxEX}" Canvas.Top="250"/>
-                    <CheckBox x:Name="StolenTechUnits" Content="Stolen Tech Units" Style="{StaticResource CheckBoxEX}" Canvas.Top="275"/>
-                    <CheckBox x:Name="NoNavalCombat" Content="No Naval Combat" Style="{StaticResource CheckBoxEX}" Canvas.Top="300"/>
-                    <CheckBox x:Name="MetalAIBoost" Content="Metal AI Boost" Style="{StaticResource CheckBoxEX}" Canvas.Top="325"/>
-                    <CheckBox x:Name="ImmuneOilDerricks" Content="Immune Oil Derricks" Style="{StaticResource CheckBoxEX}" Canvas.Top="350"/>
-                    <CheckBox x:Name="NoSpawnPreviews" Content="No Spawn Previews" Style="{StaticResource CheckBoxEX}" Canvas.Top="375"/>
-                    <CheckBox x:Name="LimitedMCV" Content="Limited MCV" Style="{StaticResource CheckBoxEX}" Canvas.Top="400"/>
-                    <CheckBox x:Name="PermanentRadar" Content="Permanent Radar" Style="{StaticResource CheckBoxEX}" Canvas.Top="425"/>
-                    <CheckBox x:Name="ConYardStart" Content="ConYard Start" Style="{StaticResource CheckBoxEX}" Canvas.Top="450"/>
+                    <CheckBox x:Name="ShortGame" Content="快速游戏" Style="{StaticResource CheckBox}" Canvas.Top="125"/>
+                    <CheckBox x:Name="MCVRedeploy" Content="MCV重新部署" Style="{StaticResource CheckBox}" Canvas.Top="150"/>
+                    <CheckBox x:Name="BuildOffAlly" Content="萌友基地旁建造" Style="{StaticResource CheckBox}" Canvas.Top="175"/>
+                    <CheckBox x:Name="Superweapons" Content="炒鸡武器" Style="{StaticResource CheckBox}" Canvas.Top="200"/>
+                    <CheckBox x:Name="AlliesAllowed" Content="允许变更结萌" Style="{StaticResource CheckBox}" Canvas.Top="225"/>
+                    <CheckBox x:Name="Creates" Content="升级工具箱" Style="{StaticResource CheckBox}" Canvas.Top="250"/>
+                    <CheckBox x:Name="StolenTechUnits" Content="Stolen Tech Units" Style="{StaticResource CheckBox}" Canvas.Top="275"/>
+                    <CheckBox x:Name="NoNavalCombat" Content="No Naval Combat" Style="{StaticResource CheckBox}" Canvas.Top="300"/>
+                    <CheckBox x:Name="MetalAIBoost" Content="Metal AI Boost" Style="{StaticResource CheckBox}" Canvas.Top="325"/>
+                    <CheckBox x:Name="ImmuneOilDerricks" Content="Immune Oil Derricks" Style="{StaticResource CheckBox}" Canvas.Top="350"/>
+                    <CheckBox x:Name="NoSpawnPreviews" Content="No Spawn Previews" Style="{StaticResource CheckBox}" Canvas.Top="375"/>
+                    <CheckBox x:Name="LimitedMCV" Content="Limited MCV" Style="{StaticResource CheckBox}" Canvas.Top="400"/>
+                    <CheckBox x:Name="PermanentRadar" Content="Permanent Radar" Style="{StaticResource CheckBox}" Canvas.Top="425"/>
+                    <CheckBox x:Name="ConYardStart" Content="ConYard Start" Style="{StaticResource CheckBox}" Canvas.Top="450"/>
 
                     <Button Content="开始游戏" Canvas.Left="10" Canvas.Top="485" Width="180" 
                             Style="{StaticResource ButtonText}" Background="#FFA48686"/>
@@ -503,7 +503,7 @@
                 <DataGrid x:Name="dgMapList"
                                     HorizontalAlignment="Left" Style="{StaticResource ResourceKey=AduDataGrid}"
                                           SelectionMode="Single"
-                                      Height="525" VerticalAlignment="Top" Width="222" Canvas.Top="5" Background="#FF3E3939" >
+                                      Height="550" VerticalAlignment="Top" Width="180" Canvas.Top="5" Background="#FF3E3939" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="#" Width="16" Binding="{Binding Ico}"/>
                         <DataGridTextColumn Header="地图"  Foreground="#FFa6a6a6" Width="260" Binding="{Binding Name}"/>

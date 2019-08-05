@@ -4,8 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Crape_Client.CrapeClientUI"
-      mc:Ignorable="d" Width="610"
-      Title="Settings" Height="555">
+      mc:Ignorable="d" Width="800"
+      Title="Settings" Height="600">
     <!--#region 设置-->
     <Border>
         <Grid>
@@ -13,15 +13,15 @@
                 <Grid>
                     <TextBlock Text="设置" FontSize="24" Height="32" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" ></TextBlock>
                     <Canvas Margin="0,40,0,0">
-                        <GroupBox Header="显示设置" Foreground="#fff" Height="202" Width="190" Style="{StaticResource GroupBoxEX}" Canvas.Top="10" Canvas.Left="10">
+                        <GroupBox Header="显示设置" Foreground="#fff" Height="202" Width="190" Style="{StaticResource TitleBox_GroupBox}" Canvas.Top="10" Canvas.Left="10">
                             <Canvas>
                                 <Label Content="分辨率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="15" Canvas.Top="10"/>
                                 <ComboBox x:Name="cbScreen"
                                           HorizontalAlignment="Left" 
-                                          VerticalAlignment="Top" 
+                                          VerticalAlignment="Top" Text="1920*1080"
                                           Width="100" Height="24" 
                                           Canvas.Left="80" Canvas.Top="10" 
-                                          Style="{StaticResource ComboBoxEX}" 
+                                          Style="{StaticResource ComboBox}" 
                                           DropDownClosed="SetScreen">
                                     <ComboBoxItem Content="800x600"/>
                                     <ComboBoxItem Content="1024x768"/>
@@ -44,7 +44,7 @@
                                           VerticalAlignment="Top" 
                                           Width="100" Height="24" 
                                           Canvas.Left="80" Canvas.Top="37" 
-                                          Style="{StaticResource ComboBoxEX}" 
+                                          Style="{StaticResource ComboBox}" 
                                           DropDownClosed="SeletDetailLevel">
                                     <ComboBoxItem Content="Low"/>
                                     <ComboBoxItem Content="Medium"/>
@@ -55,17 +55,17 @@
                                           VerticalAlignment="Top" 
                                           Width="100" Height="24" 
                                           Canvas.Left="80" Canvas.Top="64" 
-                                          Style="{StaticResource ComboBoxEX}"/>
+                                          Style="{StaticResource ComboBox}"/>
                                 <!--
                                 <Label Content="客户端分辨率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="235" Canvas.Top="10"/>
                                 <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="322" Canvas.Top="10" Style="{StaticResource AduComboBox}"/>
                                 -->
-                                <CheckBox x:Name="cbNoFrame" Content="无边框" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="40" Canvas.Top="116" Checked="IsNoFrame" Unchecked="IsNoFrame" IsEnabled="False"/>
-                                <CheckBox x:Name="cbWindowed" Content="窗口化" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="95" Checked="IsWindowed" Unchecked="IsWindowed"/>
-                                <CheckBox x:Name="cbVideoBackBuffer" Content="视频内存缓存" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="137" Unchecked="VideoBackBuffer" Checked="VideoBackBuffer" />
+                                <CheckBox x:Name="cbNoFrame" Content="无边框" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="40" Canvas.Top="116" Checked="IsNoFrame" Unchecked="IsNoFrame" IsEnabled="False"/>
+                                <CheckBox x:Name="cbWindowed" Content="窗口化" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="95" Checked="IsWindowed" Unchecked="IsWindowed"/>
+                                <CheckBox x:Name="cbVideoBackBuffer" Content="视频内存缓存" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="137" Unchecked="VideoBackBuffer" Checked="VideoBackBuffer" />
                             </Canvas>
                         </GroupBox>
-                        <GroupBox x:Name="gbSoundSettings" Header="声音设置" Foreground="#fff" Height="280" Width="300" Style="{StaticResource GroupBoxEX}" Canvas.Left="10" Canvas.Top="217">
+                        <GroupBox x:Name="gbSoundSettings" Header="声音设置" Foreground="#fff" Height="280" Width="300" Style="{StaticResource TitleBox_GroupBox}" Canvas.Left="10" Canvas.Top="217">
                             <Canvas>
                                 <Label Content="音乐音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="16" />
                                 <DockPanel Height="32" LastChildFill="False" Width="177" Canvas.Left="105" Canvas.Top="14" Background="#66535353">
@@ -124,34 +124,35 @@
                                     <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
                                     <RadioButton Width="16" Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top" IsChecked="True"/>
                                 </DockPanel>
-                                <CheckBox x:Name="cbShuffleMusic" Content="随机播放游戏音乐" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="115" Checked="IsShuffle" Unchecked="IsShuffle"/>
-                                <CheckBox Content="播放客户端音乐" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="190" />
-                                <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="210" Canvas.Left="10"/>
+                                <CheckBox x:Name="cbShuffleMusic" Content="随机播放游戏音乐" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="115" Checked="IsShuffle" Unchecked="IsShuffle"/>
+                                <CheckBox Content="播放客户端音乐" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="190" />
+                                <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="210" Canvas.Left="10"/>
                             </Canvas>
                         </GroupBox>
-                        <GroupBox Header="游戏设置" Foreground="#fff" Height="183" Width="375" Style="{StaticResource GroupBoxEX}" Canvas.Top="10" Canvas.Left="205">
+                        <GroupBox Header="游戏设置" Foreground="#fff" Height="183" Width="375" Style="{StaticResource TitleBox_GroupBox}" Canvas.Top="10" Canvas.Left="205">
                             <Canvas>
                                 <Label Content="卷动速率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="15" Canvas.Top="14"/>
                                 <CheckBox x:Name="cbScrollMethod" 
                                                       Checked="ScrollMethod"
                                                       Unchecked="ScrollMethod"
-                                                      Content="惯性滚动" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="58"/>
+                                                      Content="惯性滚动" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="58"/>
                                 <CheckBox x:Name="cbUnitActionLines" 
                                                       Checked="UnitActionLines"
                                                       Unchecked="UnitActionLines"
-                                                      Content="显示目标线" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="79"/>
+                                                      Content="显示目标线" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="79"/>
                                 <CheckBox x:Name="cbShowHidden" 
                                                       Checked="ShowHidden"
                                                       Unchecked="ShowHidden"
-                                                      Content="提示隐藏对象" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="190" Canvas.Top="58"/>
+                                                      Content="提示隐藏对象" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="190" Canvas.Top="58"/>
                                 <CheckBox x:Name="cbToolTips"
                                                       Checked="ToolTips"
                                                       Unchecked="ToolTips"
-                                                      Content="工具提示" Style="{StaticResource CheckBoxEX}" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="190" Canvas.Top="79"/>
+                                                      Content="工具提示" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="190" Canvas.Top="79"/>
                                 <Label Content="游戏者名" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="15" Canvas.Top="104"/>
-                                <TextBox x:Name="tbHandle"
-                                                     TextChanged="Handle"
-                                                     Text="TextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Canvas.Left="95" Canvas.Top="107" Background="#50000000" Foreground="#FFFFF596" SelectionBrush="#FF38FF18" BorderBrush="{x:Null}"/>
+                                <TextBox x:Name="tbHandle" TextChanged="Handle" Text="TextBox"
+                                         HorizontalAlignment="Left" 
+                                         Height="23" TextWrapping="Wrap" VerticalAlignment="Top" 
+                                         Width="260" Canvas.Left="95" Canvas.Top="107"/>
                                 <DockPanel Background="#66535353" Height="32" LastChildFill="False" Width="260" Canvas.Left="95" Canvas.Top="18">
                                     <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>
                                     <RadioButton Height="24" Style="{StaticResource SliderRadioButton}" VerticalAlignment="Top"/>

@@ -1,11 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Crape_Client.CrapeClientUI.Style">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/DMSkin.AduDesign;component/Styles/Base.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
-    <!--分组框优化-->
-    <Style x:Key="GroupBoxEX" TargetType="{x:Type GroupBox}">
+                    xmlns:local="clr-namespace:Crape_Client.CrapeClientUI">
+    
+    <Style x:Key="TitleBox_GroupBox" TargetType="{x:Type GroupBox}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FontSize" Value="14"/>
