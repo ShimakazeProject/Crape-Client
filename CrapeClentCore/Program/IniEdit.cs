@@ -52,8 +52,12 @@ namespace Program
         public string IniReadValue(string Section, string Key)
         {
             StringBuilder temp = new StringBuilder(500);
-            int i = GetPrivateProfileString(Section, Key, "", temp, 500, this.inipath);
-            return temp.ToString();
+            try
+            {
+                int i = GetPrivateProfileString(Section, Key, "", temp, 500, this.inipath);
+                return temp.ToString();
+            }
+            catch(FormatException){ return ""; }
         }
         /// <summary>
         /// 读取section

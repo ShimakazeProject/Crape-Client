@@ -50,13 +50,30 @@
 
                 <!-- Logo -->
                 <Grid Canvas.Top="0" Width="200" Height="60">
+                    <TextBlock Text="Crape Client" FontWeight="Bold" 
+                               FontSize="26" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" Height="38" Margin="20,20,20,-25" RenderTransformOrigin="0.5,0.5" FontStyle="Italic" >
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Transparent" Offset="0.5"/>
+                                <GradientStop Color="#50000000" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform />
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
                     <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#50EAEAEA" 
                                FontSize="26" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" Margin="15,13,10,10"/>
                     <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#FFEAEAEA" 
                                FontSize="26" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" />
-
                 </Grid>
                 <!-- 废弃
                 <Expander Style="{StaticResource AduExpander}" Header="作战" Foreground="#FFF" Canvas.Top="60">

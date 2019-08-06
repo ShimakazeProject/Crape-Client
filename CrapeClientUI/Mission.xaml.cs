@@ -25,289 +25,69 @@ namespace Crape_Client.CrapeClientUI
     {
         public Mission()
         {
+            IniAnalyze.MissionAnalyze();// 初始化列表
             InitializeComponent();
-            Initialization();
+            sDifficulty.Value = Ra2md.Options.Difficulty();
+            #region 列表
+            string[] side;
+            string[] name;
+            side = IniAnalyze.MissionSideAnalyze.side0.ToArray();
+            name = IniAnalyze.MissionSideName.side0.ToArray();
+            Initialization(side, name,0);
+            side = IniAnalyze.MissionSideAnalyze.side1.ToArray();
+            name = IniAnalyze.MissionSideName.side1.ToArray();
+            Initialization(side, name, 1);
+            side = IniAnalyze.MissionSideAnalyze.side2.ToArray();
+            name = IniAnalyze.MissionSideName.side2.ToArray();
+            Initialization(side, name, 2);
+            side = IniAnalyze.MissionSideAnalyze.side3.ToArray();
+            name = IniAnalyze.MissionSideName.side3.ToArray();
+            Initialization(side, name, 3);
+            side = IniAnalyze.MissionSideAnalyze.side4.ToArray();
+            name = IniAnalyze.MissionSideName.side4.ToArray();
+            Initialization(side, name, 4);
+            side = IniAnalyze.MissionSideAnalyze.side5.ToArray();
+            name = IniAnalyze.MissionSideName.side5.ToArray();
+            Initialization(side, name, 5);
+            side = IniAnalyze.MissionSideAnalyze.side6.ToArray();
+            name = IniAnalyze.MissionSideName.side6.ToArray();
+            Initialization(side, name, 6);
+            side = IniAnalyze.MissionSideAnalyze.side7.ToArray();
+            name = IniAnalyze.MissionSideName.side7.ToArray();
+            Initialization(side, name, 7);
+            side = IniAnalyze.MissionSideAnalyze.side8.ToArray();
+            name = IniAnalyze.MissionSideName.side8.ToArray();
+            Initialization(side, name, 8);
+            side = IniAnalyze.MissionSideAnalyze.side9.ToArray();
+            name = IniAnalyze.MissionSideName.side9.ToArray();
+            Initialization(side, name, 9);
+            #endregion
+
         }
         #region 任务列表
-        void Initialization()// 加载任务列表
+        void Initialization(string[] side, string[] name,int sidenum)// 加载任务列表
         {
-            IniAnalyze.MissionAnalyze();
-            #region 生成列表
-            try
+            for (uint i = 0; i < side.Length; i++)
             {
-                string[] side0 = IniAnalyze.MissionSideAnalyze.side0.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side0.ToArray();
-                for (uint i = 0; i < side0.Length; i++)
+                try
                 {
                     dgMissionSeleted.Items.Add(new MissionList
                     {
-                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side0.png"),
-                        Name = side0[i],
+                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side"+sidenum.ToString()+".png"),
+                        Name = side[i],
                         OriginalName = name[i],
                     });
                 }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side0 = IniAnalyze.MissionSideAnalyze.side0.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side0.ToArray();
-                for (uint i = 0; i < side0.Length; i++)
+                catch (FileNotFoundException)
                 {
                     dgMissionSeleted.Items.Add(new MissionList
                     {
                         Ico = null,
-                        Name = side0[i],
+                        Name = side[i],
                         OriginalName = name[i]
-                   ,
                     });
                 }
             }
-            try
-            {
-                string[] side1 = IniAnalyze.MissionSideAnalyze.side1.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side1.ToArray();
-                for (uint i = 0; i < side1.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side1.png"),
-                        Name = side1[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side1 = IniAnalyze.MissionSideAnalyze.side1.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side1.ToArray();
-                for (uint i = 0; i < side1.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = null,
-                        Name = side1[i],
-                        OriginalName = name[i]
-                   ,
-                    });
-                }
-            }
-            try
-            {
-                string[] side1 = IniAnalyze.MissionSideAnalyze.side2.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side2.ToArray();
-                for (uint i = 0; i < side1.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side2.png"),
-                        Name = side1[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side1 = IniAnalyze.MissionSideAnalyze.side2.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side2.ToArray();
-                for (uint i = 0; i < side1.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = null,
-                        Name = side1[i],
-                        OriginalName = name[i]
-                   ,
-                    });
-                }
-            }
-            try
-            {
-                string[] side1 = IniAnalyze.MissionSideAnalyze.side3.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side3.ToArray();
-                for (uint i = 0; i < side1.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side3.png"),
-                        Name = side1[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side1 = IniAnalyze.MissionSideAnalyze.side3.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side3.ToArray();
-                for (uint i = 0; i < side1.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = null,
-                        Name = side1[i],
-                        OriginalName = name[i]
-                   ,
-                    });
-                }
-            }
-            try
-            {
-                string[] side1 = IniAnalyze.MissionSideAnalyze.side4.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side4.ToArray();
-                for (uint i = 0; i < side1.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList { Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side4.png"), Name = side1[i], OriginalName = name[i], });
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side1 = IniAnalyze.MissionSideAnalyze.side4.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side4.ToArray();
-                for (uint i = 0; i < side1.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = null,
-                        Name = side1[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            try
-            {
-                string[] side5 = IniAnalyze.MissionSideAnalyze.side5.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side5.ToArray();
-                for (uint i = 0; i < side5.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side5.png"),
-                        Name = side5[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side5 = IniAnalyze.MissionSideAnalyze.side5.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side5.ToArray();
-                for (uint i = 0; i < side5.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = null,
-                        Name = side5[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            try
-            {
-                string[] side6 = IniAnalyze.MissionSideAnalyze.side6.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side6.ToArray();
-                for (uint i = 0; i < side6.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side6.png"),
-                        Name = side6[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side6 = IniAnalyze.MissionSideAnalyze.side6.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side6.ToArray();
-                for (uint i = 0; i < side6.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = null,
-                        Name = side6[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            try
-            {
-                string[] side7 = IniAnalyze.MissionSideAnalyze.side7.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side7.ToArray();
-                for (uint i = 0; i < side7.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side7.png"),
-                        Name = side7[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side7 = IniAnalyze.MissionSideAnalyze.side7.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side7.ToArray();
-                for (uint i = 0; i < side7.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = null,
-                        Name = side7[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            try
-            {
-                string[] side8 = IniAnalyze.MissionSideAnalyze.side8.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side8.ToArray();
-                for (uint i = 0; i < side8.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList { Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side8.png"), Name = side8[i], OriginalName = name[i], });
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side8 = IniAnalyze.MissionSideAnalyze.side8.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side8.ToArray();
-                for (uint i = 0; i < side8.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = null,
-                        Name = side8[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            try
-            {
-                string[] side9 = IniAnalyze.MissionSideAnalyze.side9.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side9.ToArray();
-                for (uint i = 0; i < side9.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side9.png"),
-                        Name = side9[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            catch (FileNotFoundException)
-            {
-                string[] side9 = IniAnalyze.MissionSideAnalyze.side9.ToArray();
-                string[] name = IniAnalyze.MissionSideName.side9.ToArray();
-                for (uint i = 0; i < side9.Length; i++)
-                {
-                    dgMissionSeleted.Items.Add(new MissionList
-                    {
-                        Ico = null,
-                        Name = side9[i],
-                        OriginalName = name[i],
-                    });
-                }
-            }
-            #endregion
         }
         IniEdit Missions = new IniEdit(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Configs\Missions.ini");
         private void MissionSeleted(object sender, SelectionChangedEventArgs e)
@@ -327,12 +107,20 @@ namespace Crape_Client.CrapeClientUI
             {
                 Spawn spawn = new Spawn();
                 spawn.Settings.Scenario = mission.Name;
-                spawn.Settings.GameSpeed = 6;
-                spawn.Settings.Firestorm = false;
-                spawn.Settings.IsSinglePlayer = true;
-                spawn.Settings.SidebarHack = false;
+                spawn.Settings.GameSpeed = 2; // 任务速度恒等于4
+                spawn.Settings.IsSinglePlayer = true; // 这不废话嘛
                 spawn.Settings.Side = Convert.ToByte(Missions.IniReadValue(mission.OriginalName, "Side"));
-                spawn.Settings.BuildOffAlly = true;
+                spawn.Settings.Firestorm = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "Firestorm"));
+                spawn.Settings.SidebarHack = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "SidebarHack"));
+                spawn.Settings.BuildOffAlly = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "BuildOffAlly"));
+                // 反正我是留了..能不能用就不知道了
+                spawn.Settings.MultiEngineer = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "MultiEngineer"));
+                spawn.Settings.MCVRedeploy = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "MCVRedeploy"));
+                spawn.Settings.FogOfWar = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "FogOfWar"));
+                spawn.Settings.BridgeDestroy = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "BridgeDestroy"));
+                spawn.Settings.SkipScoreScreen = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "SkipScoreScreen"));
+                spawn.Settings.AttackNeutralUnits = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "AttackNeutralUnits"));
+
                 spawn.Settings.DifficultyModeHuman = 0;
                 spawn.Settings.DifficultyModeComputer = 2;
                 spawn.Write();
@@ -340,5 +128,12 @@ namespace Crape_Client.CrapeClientUI
             }
         }
         #endregion
+
+        private void Difficulty(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int Value = (int)sDifficulty.Value;
+            Ra2md.Options.Difficulty(Value);
+            sDifficulty.Value = Value;
+        }
     }
 }

@@ -11,5 +11,6 @@
         <ResourceDictionary Source="CrapeClientUI/Style/TextBox.xaml" />
         <ResourceDictionary Source="CrapeClientUI/Style/CheckBox.xaml" />
         <ResourceDictionary Source="CrapeClientUI/Style/Slider.xaml" />
+        <ResourceDictionary Source="CrapeClientUI/Style/DataGrid.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

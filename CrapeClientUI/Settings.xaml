@@ -66,30 +66,41 @@
                                 <CheckBox x:Name="cbVideoBackBuffer" Content="视频内存缓存" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="137" Unchecked="VideoBackBuffer" Checked="VideoBackBuffer" />
                             </Canvas>
                         </GroupBox>
+                        <!-- 音量控制 -->
                         <GroupBox x:Name="gbSoundSettings" Header="声音设置" Foreground="#fff" Height="280" Width="300" Style="{StaticResource TitleBox_GroupBox}" Canvas.Left="10" Canvas.Top="217">
                             <Canvas>
                                 <Label Content="音乐音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="16" />
                                 <Slider HorizontalAlignment="Left" Style="{StaticResource Slider_CustomStyle}"
-                                        VerticalAlignment="Top" Width="200" Value="0.5" x:Name="sSoundSetting"
+                                        VerticalAlignment="Top" Width="200" x:Name="sSoundSetting"
                                         Maximum="1" LargeChange="0.3" Canvas.Left="90" Canvas.Top="14"
                                         ValueChanged="MusicSet"/>
                                 <Label Content="音效音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="49" Canvas.Left="10" />
                                 <Slider HorizontalAlignment="Left" Style="{StaticResource Slider_CustomStyle}"
-                                        VerticalAlignment="Top" Width="200" Value="0.5" x:Name="sScoreSetting"
+                                        VerticalAlignment="Top" Width="200" x:Name="sScoreSetting"
                                         Maximum="1" LargeChange="0.3" Canvas.Left="90" Canvas.Top="47"
                                         ValueChanged="ScoreSet"/>
                                 <Label Content="语音音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="82" Canvas.Left="10"/>
                                 <Slider HorizontalAlignment="Left" Style="{StaticResource Slider_CustomStyle}"
-                                        VerticalAlignment="Top" Width="200" Value="0.6" x:Name="sVoiceSetting"
+                                        VerticalAlignment="Top" Width="200" x:Name="sVoiceSetting"
                                         Maximum="1" LargeChange="0.3" Canvas.Left="90" Canvas.Top="80"
                                         ValueChanged="VoiceSet"/>
-                                <Label Content="客户端音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="157" Canvas.Left="10"/>
-                                <Slider HorizontalAlignment="Left" Style="{StaticResource Slider_CustomStyle}"
-                                        VerticalAlignment="Top" Width="200" Value="1"
-                                        Maximum="1" LargeChange="0.3" Canvas.Left="90" Canvas.Top="155"/>
-                                <CheckBox x:Name="cbShuffleMusic" Content="随机播放游戏音乐" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="115" Checked="IsShuffle" Unchecked="IsShuffle"/>
-                                <CheckBox Content="播放客户端音乐" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="190" />
-                                <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="210" Canvas.Left="10"/>
+                                <CheckBox x:Name="cbShuffleMusic" Content="随机播放游戏音乐" Style="{StaticResource CheckBox}"
+                                          HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="115"
+                                          Checked="IsShuffle" Unchecked="IsShuffle"/>
+
+                                <Canvas Visibility="Hidden"
+                                        Canvas.Top="155" Canvas.Left="10"
+                                        Height="80" Width="280">
+                                    <Label Content="客户端音量" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Top="2"/>
+                                    <Slider HorizontalAlignment="Left" Style="{StaticResource Slider_CustomStyle}"
+                                        VerticalAlignment="Top" Width="200"
+                                        Maximum="1" LargeChange="0.3" Canvas.Left="80"/>
+                                    <CheckBox Content="播放客户端音乐" Style="{StaticResource CheckBox}" 
+                                              HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="40" />
+                                    <CheckBox Content="不要在大厅播放音乐" Style="{StaticResource CheckBox}"
+                                              HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="60" />
+                                </Canvas>
+                                
                             </Canvas>
                         </GroupBox>
                         <GroupBox Header="游戏设置" Foreground="#fff" Height="183" Width="375" Style="{StaticResource TitleBox_GroupBox}" Canvas.Top="10" Canvas.Left="205">
@@ -117,8 +128,9 @@
                                          Height="23" TextWrapping="Wrap" VerticalAlignment="Top" 
                                          Width="260" Canvas.Left="95" Canvas.Top="107"/>
                                 <Slider x:Name="sScrollRate" HorizontalAlignment="Left" Style="{StaticResource Slider_CustomStyle}"
-                                        VerticalAlignment="Top" Width="210" Value="6" SmallChange="1"
-                                        Maximum="6" LargeChange="3" Canvas.Left="95" Canvas.Top="14" ValueChanged="ScrollRate"/>
+                                        VerticalAlignment="Top" Width="210" SmallChange="1"
+                                        Maximum="6" LargeChange="3" Canvas.Left="95" Canvas.Top="14" 
+                                        ValueChanged="ScrollRate"/>
 
                             </Canvas>
                         </GroupBox>

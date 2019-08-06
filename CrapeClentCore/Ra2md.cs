@@ -30,20 +30,36 @@ namespace RA2.Ini
         }
         public static bool Obool(string Section, string Key)
         {
-            string Value = ra2md.IniReadValue(Section, Key);
-            return IniTools.BoolCheck(Value);
+            try
+            {
+                string Value = ra2md.IniReadValue(Section, Key);
+                return IniTools.BoolCheck(Value);
+
+            }
+            catch (FormatException) { return false; }
         }
         public static int Oint(string Section, string Key)
         {
-            return Convert.ToInt32(ra2md.IniReadValue(Section, Key));
+            try
+            {
+                return Convert.ToInt32(ra2md.IniReadValue(Section, Key));
+            }
+            catch (FormatException) { return -1; }
         }
         public static double Odouble(string Section, string Key)
         {
-            return Convert.ToDouble(ra2md.IniReadValue(Section, Key));
+            try
+            {
+                return Convert.ToDouble(ra2md.IniReadValue(Section, Key));
+            }
+            catch (FormatException) { return -1; }
         }
         public static string Ostring(string Section, string Key)
         {
+            try { 
             return ra2md.IniReadValue(Section, Key);
+            }
+            catch (FormatException) { return ""; }
         }
 
 
@@ -272,13 +288,14 @@ namespace RA2.Ini
             public static void ShowHidden(bool Value) { IniIO.I("Options", "ShowHidden", Value); }
             public static void ToolTips(bool Value) { IniIO.I("Options", "ToolTips", Value); }
             public static void ScrollRate(int Value) { IniIO.I("Options", "ScrollRate", Value); }
-
+            public static void Difficulty(int Value) { IniIO.I("Options", "Difficulty", Value); }
             public static int DetailLevel() { return IniIO.Oint("Options", "DetailLevel"); }
             public static bool UnitActionLines() { return IniIO.Obool("Options", "UnitActionLines"); }
             public static bool ScrollMethod() { return IniIO.Obool("Options", "ScrollMethod"); }
             public static bool ShowHidden() { return IniIO.Obool("Options", "ShowHidden"); }
             public static bool ToolTips() { return IniIO.Obool("Options", "ToolTips"); }
             public static int ScrollRate() { return IniIO.Oint("Options", "ScrollRate"); }
+            public static int Difficulty() { return IniIO.Oint("Options", "Difficulty"); }
         }
     }
 }
