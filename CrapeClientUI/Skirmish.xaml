@@ -241,8 +241,8 @@
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Rectangle Fill="{Binding Clr}" Width="16" Height="10"></Rectangle>
-                                            <TextBlock Text="{Binding Text}" Foreground="{Binding Clr}"></TextBlock>
+                                            <Rectangle Fill="{Binding Clr}" Width="16" Height="10"/>
+                                            <TextBlock Text="{Binding Text}" Foreground="{Binding Clr}"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>

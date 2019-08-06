@@ -6,5 +6,20 @@
         <Setter Property="Background" Value="#50000000"/>
         <Setter Property="SelectionBrush" Value="#7F02D6CD"/>
         <Setter Property="Foreground" Value="#FFDCDCDC"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="OuterBorder" BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="1,1,1,1" CornerRadius="4,4,4,4">
+                        <Border x:Name="InnerBorder" Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,1"
+                                CornerRadius="0,0,0,0">
+                            <ScrollViewer SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                          x:Name="PART_ContentHost"/>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

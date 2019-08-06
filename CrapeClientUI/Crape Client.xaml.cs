@@ -27,8 +27,8 @@ namespace Crape_Client
         {
             Nlog.NLogInit();
             InitializeComponent();
-
         }
+
 
 
         private void Exit(object sender, RoutedEventArgs e) /* 退出 */ { Environment.Exit(0); }
@@ -39,7 +39,10 @@ namespace Crape_Client
             ClientFrame.Source = new Uri("/Crape Client;component/CrapeClientUI/Skirmish.xaml", UriKind.Relative); }
         private void Loadings(object sender, RoutedEventArgs e)/* 载入 LoadSaveGames */{
             ClientFrame.Source = new Uri("/Crape Client;component/CrapeClientUI/LoadSaveGames.xaml", UriKind.Relative); }
-        private void Settings_check(object sender, RoutedEventArgs e)/* 设置 */{
+        private void Settings(object sender, RoutedEventArgs e)/* 设置 */{
             ClientFrame.Source = new Uri("/Crape Client;component/CrapeClientUI/Settings.xaml", UriKind.Relative); }
+        private void Website(object sender, RoutedEventArgs e)/* 浏览器 */{
+            ClientFrame.Source = new Uri("https://www.baidu.com/");
+        }
     }
 }

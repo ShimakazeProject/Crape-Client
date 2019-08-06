@@ -24,148 +24,42 @@ namespace Crape_Client.CrapeClientUI
         public Settings()
         {
             InitializeComponent();
+
+            cbScreen.Text = Ra2md.Video.ScreenWidth().ToString() + 'x' + Ra2md.Video.ScreenHeight().ToString();
+            sSoundSetting.Value = Ra2md.Audio.SoundVolume();
+            sScoreSetting.Value = Ra2md.Audio.ScoreVolume();
+            sVoiceSetting.Value = Ra2md.Audio.VoiceVolume();
+            cbDetailLevel.SelectedIndex = Ra2md.Options.DetailLevel();
+            cbWindowed.IsChecked = Ra2md.Video.Windowed();
+            cbNoFrame.IsChecked = Ra2md.Video.NoWindowFrame();
+            cbVideoBackBuffer.IsChecked = Ra2md.Video.VideoBackBuffer();
+            cbShuffleMusic.IsChecked = Ra2md.Audio.IsScoreShuffle();
+            cbUnitActionLines.IsChecked = Ra2md.Options.UnitActionLines();
+            cbShowHidden.IsChecked = Ra2md.Options.ShowHidden();
+            cbScrollMethod.IsChecked = Ra2md.Options.ScrollMethod();
+            cbToolTips.IsChecked = Ra2md.Options.ToolTips();
+            tbHandle.Text = Ra2md.MultiPlayer.Handle();
+            sScrollRate.Value = 6 - Ra2md.Options.ScrollRate();
         }
         #region 设置
-        #region BGM大小
-        private void MusicSet0(object sender, RoutedEventArgs e)
+        private void MusicSet(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            Ra2md.Audio.SoundVolume(0);
+            double Value = Convert.ToDouble(sSoundSetting.Value.ToString("#0.0"));
+            Ra2md.Audio.SoundVolume(Value);
+            sSoundSetting.Value = Value;
         }
-        private void MusicSet1(object sender, RoutedEventArgs e)
+        private void ScoreSet(object sender, RoutedEventArgs e)
         {
-            Ra2md.Audio.SoundVolume(0.1);
+            double Value = Convert.ToDouble(sScoreSetting.Value.ToString("#0.0"));
+            Ra2md.Audio.ScoreVolume(Value);
+            sScoreSetting.Value = Value;
         }
-        private void MusicSet2(object sender, RoutedEventArgs e)
+        private void VoiceSet(object sender, RoutedEventArgs e)
         {
-            Ra2md.Audio.SoundVolume(0.2);
+            double Value = Convert.ToDouble(sVoiceSetting.Value.ToString("#0.0"));
+            Ra2md.Audio.VoiceVolume(Value);
+            sVoiceSetting.Value = Value;
         }
-        private void MusicSet3(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.SoundVolume(0.3);
-        }
-        private void MusicSet4(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.SoundVolume(0.4);
-        }
-        private void MusicSet5(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.SoundVolume(0.5);
-        }
-        private void MusicSet6(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.SoundVolume(0.6);
-        }
-        private void MusicSet7(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.SoundVolume(0.7);
-        }
-        private void MusicSet8(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.SoundVolume(0.8);
-        }
-        private void MusicSet9(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.SoundVolume(0.9);
-        }
-        private void MusicSetX(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.SoundVolume(1);
-        }
-        #endregion
-        #region 音效大小
-        private void ScoreSet0(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0);
-        }
-        private void ScoreSet1(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0.1);
-        }
-        private void ScoreSet2(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0.2);
-        }
-        private void ScoreSet3(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0.3);
-        }
-        private void ScoreSet4(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0.4);
-        }
-        private void ScoreSet5(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0.5);
-        }
-        private void ScoreSet6(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0.6);
-        }
-        private void ScoreSet7(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0.7);
-        }
-        private void ScoreSet8(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0.8);
-        }
-        private void ScoreSet9(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(0.9);
-        }
-        private void ScoreSetX(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.ScoreVolume(1);
-        }
-        #endregion
-        #region 语音大小
-        private void VoiceSet0(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0);
-        }
-        private void VoiceSet1(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0.1);
-        }
-        private void VoiceSet2(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0.2);
-        }
-        private void VoiceSet3(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0.3);
-        }
-        private void VoiceSet4(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0.4);
-        }
-        private void VoiceSet5(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0.5);
-        }
-        private void VoiceSet6(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0.6);
-        }
-        private void VoiceSet7(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0.7);
-        }
-        private void VoiceSet8(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0.8);
-        }
-        private void VoiceSet9(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(0.9);
-        }
-        private void VoiceSetX(object sender, RoutedEventArgs e)
-        {
-            Ra2md.Audio.VoiceVolume(1);
-        }
-        #endregion
-
-
         private void SetScreen(object sender, EventArgs e)/* 分辨率设置 */
         {
             try
@@ -180,7 +74,6 @@ namespace Crape_Client.CrapeClientUI
                 return;
             }
         }
-
         private void SeletDetailLevel(object sender, EventArgs e)// 画质等级
         {
             if (cbDetailLevel.SelectedIndex < 3 && cbDetailLevel.SelectedIndex >= 0)
@@ -197,6 +90,7 @@ namespace Crape_Client.CrapeClientUI
             {
                 Ra2md.Video.Windowed(false);
                 cbNoFrame.IsEnabled = false;
+                cbNoFrame.IsChecked = false;
             }
             else return;
         }
@@ -232,7 +126,7 @@ namespace Crape_Client.CrapeClientUI
                 Ra2md.Options.UnitActionLines(false);
             else return;
         }
-        private void ShowHidden(object sender, RoutedEventArgs e)
+        private void ShowHidden(object sender, RoutedEventArgs e)// 提示隐藏对象
         {
             if (cbShowHidden.IsChecked == true)
                 Ra2md.Options.ShowHidden(true);
@@ -240,7 +134,7 @@ namespace Crape_Client.CrapeClientUI
                 Ra2md.Options.ShowHidden(false);
             else return;
         }
-        private void ScrollMethod(object sender, RoutedEventArgs e)
+        private void ScrollMethod(object sender, RoutedEventArgs e)// 惯性滚动
         {
             if (cbScrollMethod.IsChecked == true)
                 Ra2md.Options.ScrollMethod(true);
@@ -248,7 +142,7 @@ namespace Crape_Client.CrapeClientUI
                 Ra2md.Options.ScrollMethod(false);
             else return;
         }
-        private void ToolTips(object sender, RoutedEventArgs e)
+        private void ToolTips(object sender, RoutedEventArgs e)// 工具提示
         {
             if (cbToolTips.IsChecked == true)
                 Ra2md.Options.ToolTips(true);
@@ -256,11 +150,18 @@ namespace Crape_Client.CrapeClientUI
                 Ra2md.Options.ToolTips(false);
             else return;
         }
-        private void Handle(object sender, TextChangedEventArgs e)
+        private void Handle(object sender, TextChangedEventArgs e)// 游戏者名
         {
             Ra2md.MultiPlayer.Handle(tbHandle.Text);
         }
+
         #endregion
 
+        private void ScrollRate(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int Value = 6 - (int)sScrollRate.Value;
+            Ra2md.Options.ScrollRate(Value);
+            sScrollRate.Value = 6 - Value;
+        }
     }
 }
