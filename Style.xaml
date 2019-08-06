@@ -2,7 +2,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="CrapeClientUI/Style/Window.xaml" />
 
-
         <ResourceDictionary Source="CrapeClientUI/Style/ButtonEX.xaml" />
 
         <ResourceDictionary Source="CrapeClientUI/Style/MainMenuButton.xaml" />
@@ -12,5 +11,6 @@
         <ResourceDictionary Source="CrapeClientUI/Style/CheckBox.xaml" />
         <ResourceDictionary Source="CrapeClientUI/Style/Slider.xaml" />
         <ResourceDictionary Source="CrapeClientUI/Style/DataGrid.xaml" />
+        <ResourceDictionary Source="CrapeClientUI/Style/ScrollViewer.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

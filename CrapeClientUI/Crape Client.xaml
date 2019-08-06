@@ -11,11 +11,6 @@
         WindowStartupLocation="CenterScreen"
         Icon="/Crape Client;component/Resource/Crape.ico" 
         ResizeMode="NoResize" >
-    <!--dmskin:DMSkinWindow 
-    SystemButtonSize="40" Style="{DynamicResource AduWindowStyle}"
-    xmlns:attached="clr-namespace:DMSkin.Attached;assembly=DMSkin"
-                     xmlns:dmskin="clr-namespace:DMSkin;assembly=DMSkin"
-                     FitSystemWindow="True"-->
     <Border CornerRadius="4" Background="#302C3A" Name="mainback">
         <Grid>
             <!--#region 菜单列-->

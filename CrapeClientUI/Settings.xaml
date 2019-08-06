@@ -9,7 +9,7 @@
     <!--#region 设置-->
     <Border>
         <Grid>
-            <ScrollViewer Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10">
+            <ScrollViewer Style="{StaticResource ScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10">
                 <Grid>
                     <TextBlock Text="设置" FontSize="24" Height="32" Foreground="#fff" HorizontalAlignment="Left" VerticalAlignment="Top" ></TextBlock>
                     <Canvas Margin="0,40,0,0">
@@ -59,7 +59,7 @@
                                           Style="{StaticResource ComboBox}" IsReadOnly="True"/>
                                 <!--
                                 <Label Content="客户端分辨率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="235" Canvas.Top="10"/>
-                                <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="322" Canvas.Top="10" Style="{StaticResource AduComboBox}"/>
+                                <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="322" Canvas.Top="10" Style="{StaticResource ComboBox}"/>
                                 -->
                                 <CheckBox x:Name="cbNoFrame" Content="无边框" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="40" Canvas.Top="116" Checked="IsNoFrame" Unchecked="IsNoFrame" IsEnabled="False"/>
                                 <CheckBox x:Name="cbWindowed" Content="窗口化" Style="{StaticResource CheckBox}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="25" Canvas.Top="95" Checked="IsWindowed" Unchecked="IsWindowed"/>

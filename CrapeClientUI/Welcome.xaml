@@ -9,7 +9,7 @@
       Title="Welcome">
     <!--#region 欢迎界面-->
     <Border>
-        <Image Source="/Resource/Welcome.png" />
+        <Image x:Name="image" Source="/Resource/Welcome.png" />
     </Border>
     <!--#endregion-->
 </Page>

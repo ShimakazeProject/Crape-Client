@@ -32,9 +32,10 @@ namespace Crape_Client.CrapeClientUI
         public Skirmish()
         {
             InitializeComponent();
+            HostName.Text = Ra2md.MultiPlayer.Handle();
 
 
-            
+
 
             List<AIplayer> namelist = new List<AIplayer>{
                 new AIplayer{ Id=-1, Text = "无"}

@@ -10,10 +10,10 @@
       Title="LoadSaveGames">
     <!--#region 载入-->
     <Grid>
-        <ScrollViewer  Style="{StaticResource DMScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10">
+        <ScrollViewer  Style="{StaticResource ScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10">
             <Canvas>
                 <TextBlock Text="载入存档" FontSize="24" Foreground="#fff" Height="32" VerticalAlignment="Top"></TextBlock>
-                <DataGrid x:Name="dgLoadList" 
+                <DataGrid x:Name="dgLoadList"
                           Width="700"
                           Canvas.Left="10" Canvas.Top="32"
                           HorizontalAlignment="Left" Style="{StaticResource DataGrid}"
