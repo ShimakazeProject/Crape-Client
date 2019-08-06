@@ -7,11 +7,11 @@
         mc:Ignorable="d" Style="{StaticResource WindowStyle}"
         Title="Crape Client"
         Height="600" Width="1000"
-        Background="#2B2833"
+        Background="#502B2833"
         WindowStartupLocation="CenterScreen"
         Icon="/Crape Client;component/Resource/Crape.ico" 
         ResizeMode="NoResize" >
-    <Border CornerRadius="4" Background="#302C3A" Name="mainback">
+    <Border CornerRadius="4" Background="#00302C3A" Name="mainback">
         <Grid>
             <!--#region 菜单列-->
             <Canvas HorizontalAlignment="Left" Width="200" Height="600" VerticalAlignment="Top" Margin="0">

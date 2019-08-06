@@ -440,7 +440,7 @@
                                               />
                         </StackPanel>
                     </Canvas>
-                    <Canvas Canvas.Top="280" Width="390" Height="275" Background="#FF3E3939">
+                    <Canvas Canvas.Top="280" Width="390" Height="275" Background="#203E3939">
                         <Label Content="地图名" Foreground="#FFF" FontSize="20" Canvas.Left="125"/>
                         <GroupBox Header="地图预览" Foreground="#FFF"
                               Style="{StaticResource TitleBox_GroupBox}" Width="390" Height="275">
@@ -448,7 +448,7 @@
                         </GroupBox>
                     </Canvas>
                 </Canvas>
-                <Canvas Canvas.Left="580" Background="#FF3E3939" Width="200" Height="555">
+                <Canvas Canvas.Left="580" Background="#503E3939" Width="200" Height="555">
                     <GroupBox Header="初始资金" Foreground="#FFF" Width="100"
                               Style="{StaticResource smallTitleBox_GroupBox}">
                         <ComboBox x:Name="Credits" Style="{StaticResource ComboBox}" >
@@ -517,15 +517,15 @@
                     </Canvas>
 
                     <Button Content="开始游戏" Canvas.Left="10" Canvas.Bottom="10" Width="180" 
-                            Style="{StaticResource ButtonText}" Background="#FFA48686"/>
+                            Style="{StaticResource ButtonText}" Background="#50A48686"/>
                 </Canvas>
                 <DataGrid x:Name="dgMapList"
                           HorizontalAlignment="Left" Style="{StaticResource DataGrid}"
                           SelectionMode="Single" Height="555" VerticalAlignment="Top" 
-                          Width="180" Background="#FF3E3939" >
+                          Width="180" Background="#503E3939" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="#" Width="16" Binding="{Binding Ico}"/>
-                        <DataGridTextColumn Header="地图"  Foreground="#FFa6a6a6" Width="260"
+                        <DataGridTextColumn Header="地图"  Foreground="#50a6a6a6" Width="260"
                                             Binding="{Binding Name}"/>
                     </DataGrid.Columns>
                 </DataGrid>
