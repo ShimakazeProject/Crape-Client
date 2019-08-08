@@ -116,14 +116,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CrapeClentCore\Program\Analyze.cs" />
-    <Compile Include="CrapeClentCore\Program\Class1.cs" />
-    <Compile Include="CrapeClentCore\Program\Initialize.cs" />
-    <Compile Include="CrapeClentCore\Program\ScreenSettings.cs" />
-    <Compile Include="CrapeClentCore\Program\IniEdit.cs" />
+    <Compile Include="CrapeClentCore\Class1.cs" />
+    <Compile Include="CrapeClentCore\Initialize.cs" />
+    <Compile Include="CrapeClentCore\Global.cs" />
+    <Compile Include="CrapeClentCore\ScreenSettings.cs" />
+    <Compile Include="CrapeClentCore\IniEdit.cs" />
     <Compile Include="CrapeClentCore\Ra2md.cs" />
     <Compile Include="CrapeClentCore\Spawn.cs" />
-    <Compile Include="CrapeClentCore\Program\StringTools.cs" />
+    <Compile Include="CrapeClentCore\StringTools.cs" />
+    <Page Include="CrapeClientUI\LoadingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CrapeClientUI\LoadSaveGames.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,9 +136,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="CrapeClentCore\Crape_Client\GameSaveFile.cs" />
-    <Compile Include="CrapeClentCore\Program\Program.cs" />
-    <Compile Include="CrapeClentCore\Crape_Client\List.cs" />
+    <Compile Include="CrapeClentCore\GameSaveFile.cs" />
+    <Compile Include="CrapeClentCore\Program.cs" />
+    <Compile Include="CrapeClentCore\List.cs" />
     <Compile Include="CrapeClientUI\Crape Client.xaml.cs">
       <DependentUpon>Crape Client.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -205,7 +209,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrapeClentCore\Crape_Client\NLog.cs" />
+    <Compile Include="CrapeClentCore\NLog.cs" />
+    <Compile Include="CrapeClientUI\LoadingWindow.xaml.cs">
+      <DependentUpon>LoadingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrapeClientUI\LoadSaveGames.xaml.cs">
       <DependentUpon>LoadSaveGames.xaml</DependentUpon>
     </Compile>

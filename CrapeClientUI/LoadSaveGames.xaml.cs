@@ -13,8 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
-using Program;
-using RA2.Ini;
+using Crape_Client.CrapeClientCore;
 
 namespace Crape_Client.CrapeClientUI
 {
@@ -69,7 +68,7 @@ namespace Crape_Client.CrapeClientUI
                 spawn.Settings.Firestorm = false;
                 spawn.Settings.SidebarHack = false;
                 spawn.Write();
-                Program.Program.RunSyringe();
+                Program.RunSyringe();
 
                 //*/
             }

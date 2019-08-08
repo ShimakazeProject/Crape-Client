@@ -24,7 +24,7 @@ using System.Threading.Tasks;
  * (这次写的比之前写的好多了) ぜかまし です!
  */// Last edited at : 2019.7.6 19:01:31 SAT
 
-namespace RA2.Ini
+namespace Crape_Client.CrapeClientCore
 {
     /// <summary>
     /// SPAWN.INI class

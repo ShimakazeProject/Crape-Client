@@ -7,9 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="Welcome">
-    <!--#region 欢迎界面-->
     <Border>
         <Image x:Name="image" Source="/Resource/Welcome.png" />
     </Border>
-    <!--#endregion-->
 </Page>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 
-namespace Program
+namespace Crape_Client.CrapeClientCore
 {
     class InitConf
     {

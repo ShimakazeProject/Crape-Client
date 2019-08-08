@@ -8,7 +8,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using Crape_Client;
 
-namespace Program
+namespace Crape_Client.CrapeClientCore
 {
     public partial class Screen
     {

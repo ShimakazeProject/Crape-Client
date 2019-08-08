@@ -3,36 +3,66 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Program;
+using System.Runtime.InteropServices;
 
-namespace RA2.Ini
+namespace Crape_Client.CrapeClientCore
 {
     class IniIO
     {
-        static IniEdit ra2md = new IniEdit(AppDomain.CurrentDomain.BaseDirectory + "ra2md.ini");
+        [DllImport("kernel32")] private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        [DllImport("kernel32")] private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+
+        static void WriteValue(string Section, string Key, string Value)
+        {
+            WritePrivateProfileString(Section, Key, Value, Global.LocalPath + "ra2md.ini");
+        }
+        static string ReadValue(string Section, string Key)
+        {
+            StringBuilder temp = new StringBuilder(500);
+            try
+            {
+                int i = GetPrivateProfileString(Section, Key, "", temp, 500, Global.LocalPath + "ra2md.ini");
+                return temp.ToString();
+            }
+            catch (FormatException) { return ""; }
+        }
+        public static void WriteValue(string Section, string Key, string Value, string Path)
+        {
+            WritePrivateProfileString(Section, Key, Value, Path);
+        }
+        public static string ReadValue(string Section, string Key, string Path)
+        {
+            StringBuilder temp = new StringBuilder(500);
+            try
+            {
+                int i = GetPrivateProfileString(Section, Key, "", temp, 500, Path);
+                return temp.ToString();
+            }
+            catch (FormatException) { return ""; }
+        }
         public static void I(string Section, string Key, bool Value)
         {
             if (Value)
-                ra2md.IniWriteValue(Section, Key, "1");
-            else ra2md.IniWriteValue(Section, Key, "0");
+                WriteValue(Section, Key, "1");
+            else WriteValue(Section, Key, "0");
         }
         public static void I(string Section, string Key, Int64 Value)
         {
-            ra2md.IniWriteValue(Section, Key, Value.ToString());
+            WriteValue(Section, Key, Value.ToString());
         }
         public static void I(string Section, string Key, double Value)
         {
-            ra2md.IniWriteValue(Section, Key, Value.ToString());
+            WriteValue(Section, Key, Value.ToString());
         }
         public static void I(string Section, string Key, string Value)
         {
-            ra2md.IniWriteValue(Section, Key, Value);
+            WriteValue(Section, Key, Value);
         }
         public static bool Obool(string Section, string Key)
         {
             try
             {
-                string Value = ra2md.IniReadValue(Section, Key);
+                string Value = ReadValue(Section, Key);
                 return IniTools.BoolCheck(Value);
 
             }
@@ -42,7 +72,7 @@ namespace RA2.Ini
         {
             try
             {
-                return Convert.ToInt32(ra2md.IniReadValue(Section, Key));
+                return Convert.ToInt32(ReadValue(Section, Key));
             }
             catch (FormatException) { return -1; }
         }
@@ -50,14 +80,14 @@ namespace RA2.Ini
         {
             try
             {
-                return Convert.ToDouble(ra2md.IniReadValue(Section, Key));
+                return Convert.ToDouble(ReadValue(Section, Key));
             }
             catch (FormatException) { return -1; }
         }
         public static string Ostring(string Section, string Key)
         {
             try { 
-            return ra2md.IniReadValue(Section, Key);
+            return ReadValue(Section, Key);
             }
             catch (FormatException) { return ""; }
         }

@@ -13,8 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Program;
-using RA2.Ini;
+using Crape_Client.CrapeClientCore;
+using Crape_Client;
 
 namespace Crape_Client.CrapeClientUI
 {
@@ -25,79 +25,58 @@ namespace Crape_Client.CrapeClientUI
     {
         public Mission()
         {
-            IniAnalyze.MissionAnalyze();// 初始化列表
             InitializeComponent();
             sDifficulty.Value = Ra2md.Options.Difficulty();
-            #region 列表
-            string[] side;
-            string[] name;
-            side = IniAnalyze.MissionSideAnalyze.side0.ToArray();
-            name = IniAnalyze.MissionSideName.side0.ToArray();
-            Initialization(side, name,0);
-            side = IniAnalyze.MissionSideAnalyze.side1.ToArray();
-            name = IniAnalyze.MissionSideName.side1.ToArray();
-            Initialization(side, name, 1);
-            side = IniAnalyze.MissionSideAnalyze.side2.ToArray();
-            name = IniAnalyze.MissionSideName.side2.ToArray();
-            Initialization(side, name, 2);
-            side = IniAnalyze.MissionSideAnalyze.side3.ToArray();
-            name = IniAnalyze.MissionSideName.side3.ToArray();
-            Initialization(side, name, 3);
-            side = IniAnalyze.MissionSideAnalyze.side4.ToArray();
-            name = IniAnalyze.MissionSideName.side4.ToArray();
-            Initialization(side, name, 4);
-            side = IniAnalyze.MissionSideAnalyze.side5.ToArray();
-            name = IniAnalyze.MissionSideName.side5.ToArray();
-            Initialization(side, name, 5);
-            side = IniAnalyze.MissionSideAnalyze.side6.ToArray();
-            name = IniAnalyze.MissionSideName.side6.ToArray();
-            Initialization(side, name, 6);
-            side = IniAnalyze.MissionSideAnalyze.side7.ToArray();
-            name = IniAnalyze.MissionSideName.side7.ToArray();
-            Initialization(side, name, 7);
-            side = IniAnalyze.MissionSideAnalyze.side8.ToArray();
-            name = IniAnalyze.MissionSideName.side8.ToArray();
-            Initialization(side, name, 8);
-            side = IniAnalyze.MissionSideAnalyze.side9.ToArray();
-            name = IniAnalyze.MissionSideName.side9.ToArray();
-            Initialization(side, name, 9);
-            #endregion
+            DataGridInit(Initialization.NameList.Side0.ToArray(), Initialization.SectionNameList.Side0.ToArray(), 0);
+            DataGridInit(Initialization.NameList.Side1.ToArray(), Initialization.SectionNameList.Side1.ToArray(), 1);
+            DataGridInit(Initialization.NameList.Side2.ToArray(), Initialization.SectionNameList.Side2.ToArray(), 2);
+            DataGridInit(Initialization.NameList.Side3.ToArray(), Initialization.SectionNameList.Side3.ToArray(), 3);
+            DataGridInit(Initialization.NameList.Side4.ToArray(), Initialization.SectionNameList.Side4.ToArray(), 4);
+            DataGridInit(Initialization.NameList.Side5.ToArray(), Initialization.SectionNameList.Side5.ToArray(), 5);
+            DataGridInit(Initialization.NameList.Side6.ToArray(), Initialization.SectionNameList.Side6.ToArray(), 6);
+            DataGridInit(Initialization.NameList.Side7.ToArray(), Initialization.SectionNameList.Side7.ToArray(), 7);
+            DataGridInit(Initialization.NameList.Side8.ToArray(), Initialization.SectionNameList.Side8.ToArray(), 8);
+            DataGridInit(Initialization.NameList.Side9.ToArray(), Initialization.SectionNameList.Side9.ToArray(), 9);
 
         }
         #region 任务列表
-        void Initialization(string[] side, string[] name,int sidenum)// 加载任务列表
+        void DataGridInit(string[] MissionName, string[] IdName,int Side)// 加载任务列表
         {
-            for (uint i = 0; i < side.Length; i++)
+            for (uint i = 0; i < MissionName.Length; i++)
             {
                 try
                 {
                     dgMissionSeleted.Items.Add(new MissionList
                     {
-                        Ico = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Images\Side"+sidenum.ToString()+".png"),
-                        Name = side[i],
-                        OriginalName = name[i],
+                        Ico = File.ReadAllBytes(Global.LocalPath + Global.ImagesDir + "Side" + Side.ToString() + ".png"),
+                        Name = MissionName[i],
+                        OriginalName = IdName[i],
                     });
                 }
-                catch (FileNotFoundException)
+                catch (FileNotFoundException e)
                 {
+                    Nlog.logger.Info(e.ToString() +"\r\n\tCannot Found Side"+Side.ToString()+".png");
                     dgMissionSeleted.Items.Add(new MissionList
                     {
                         Ico = null,
-                        Name = side[i],
-                        OriginalName = name[i]
+                        Name = MissionName[i],
+                        OriginalName = IdName[i]
                     });
+                }
+                catch(Exception e)
+                {
+                    Nlog.logger.Error(e.ToString());
                 }
             }
         }
-        IniEdit Missions = new IniEdit(AppDomain.CurrentDomain.BaseDirectory + @"Resource\Configs\Missions.ini");
         private void MissionSeleted(object sender, SelectionChangedEventArgs e)
         {
             // MessageBox.Show(dgMissionSeleted.SelectedItem.ToString());
             MissionList mission = dgMissionSeleted.SelectedItem as MissionList;
             if (mission != null && mission is MissionList)
             {
-                string Summary = Missions.IniReadValue(mission.OriginalName, "Summary");
-                MissionSummary.Text = Program.Program.SummaryInit(Summary);
+                string Summary = Global.MissionConfig.ReadValue(mission.OriginalName, "Summary", null);
+                MissionSummary.Text = Program.SummaryInit(Summary);
             }
         }
         private void MissionRun(object sender, RoutedEventArgs e)
@@ -109,22 +88,22 @@ namespace Crape_Client.CrapeClientUI
                 spawn.Settings.Scenario = mission.Name;
                 spawn.Settings.GameSpeed = 2; // 任务速度恒等于4
                 spawn.Settings.IsSinglePlayer = true; // 这不废话嘛
-                spawn.Settings.Side = Convert.ToByte(Missions.IniReadValue(mission.OriginalName, "Side"));
-                spawn.Settings.Firestorm = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "Firestorm"));
-                spawn.Settings.SidebarHack = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "SidebarHack"));
-                spawn.Settings.BuildOffAlly = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "BuildOffAlly"));
+                spawn.Settings.Side = Convert.ToByte(Global.MissionConfig.ReadValue(mission.OriginalName, "Side", 0));
+                spawn.Settings.Firestorm = Global.MissionConfig.ReadValue(mission.OriginalName, "Firestorm", false);
+                spawn.Settings.SidebarHack = Global.MissionConfig.ReadValue(mission.OriginalName, "SidebarHack", false);
+                spawn.Settings.BuildOffAlly = Global.MissionConfig.ReadValue(mission.OriginalName, "BuildOffAlly", false);
                 // 反正我是留了..能不能用就不知道了
-                spawn.Settings.MultiEngineer = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "MultiEngineer"));
-                spawn.Settings.MCVRedeploy = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "MCVRedeploy"));
-                spawn.Settings.FogOfWar = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "FogOfWar"));
-                spawn.Settings.BridgeDestroy = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "BridgeDestroy"));
-                spawn.Settings.SkipScoreScreen = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "SkipScoreScreen"));
-                spawn.Settings.AttackNeutralUnits = IniTools.BoolCheck(Missions.IniReadValue(mission.OriginalName, "AttackNeutralUnits"));
+                spawn.Settings.MultiEngineer = Global.MissionConfig.ReadValue(mission.OriginalName, "MultiEngineer", false);
+                spawn.Settings.MCVRedeploy = Global.MissionConfig.ReadValue(mission.OriginalName, "MCVRedeploy", false);
+                spawn.Settings.FogOfWar = Global.MissionConfig.ReadValue(mission.OriginalName, "FogOfWar", false);
+                spawn.Settings.BridgeDestroy = Global.MissionConfig.ReadValue(mission.OriginalName, "BridgeDestroy", false);
+                spawn.Settings.SkipScoreScreen = Global.MissionConfig.ReadValue(mission.OriginalName, "SkipScoreScreen", false);
+                spawn.Settings.AttackNeutralUnits = Global.MissionConfig.ReadValue(mission.OriginalName, "AttackNeutralUnits", false);
 
                 spawn.Settings.DifficultyModeHuman = 0;
                 spawn.Settings.DifficultyModeComputer = 2;
                 spawn.Write();
-                Program.Program.RunSyringe();
+                Program.RunSyringe();
             }
         }
         #endregion

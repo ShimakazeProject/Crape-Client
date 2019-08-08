@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Program
+namespace Crape_Client.CrapeClientCore
 {
     class StringTools
     {
