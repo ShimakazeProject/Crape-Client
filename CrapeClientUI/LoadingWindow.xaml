@@ -7,7 +7,7 @@
         xmlns:sys="clr-namespace:System;assembly=System" Foreground="#FFF"
         mc:Ignorable="d" Style="{StaticResource WindowStyle}"
         Title="LoadingWindow" Height="400" Width="600" ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen" Activated="LoadingWindowInit" Closed="OpenMainWindow">
+        WindowStartupLocation="CenterScreen" Activated="LoadingWindowInit" Loaded="LoadingWindowInit">
     <Canvas>
         <!-- 背景渐变 -->
         <Path Stroke="Transparent" StrokeThickness="1">
@@ -42,8 +42,8 @@
         <!--Logo-->
         <Grid Canvas.Top="0" Width="200" Height="60">
             <TextBlock Text="Crape Client" FontWeight="Bold" 
-                               FontSize="26" HorizontalAlignment="Center" 
-                               VerticalAlignment="Center" Height="38" Margin="20,20,20,-25" RenderTransformOrigin="0.5,0.5" FontStyle="Italic" >
+                               FontSize="28" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" Height="38" Margin="17,35,11,-13" RenderTransformOrigin="0.5,0.5" FontStyle="Italic" >
                 <TextBlock.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Transparent" Offset="0.5"/>
@@ -57,13 +57,13 @@
                 </TextBlock.RenderTransform>
             </TextBlock>
             <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#50EAEAEA" 
-                               FontSize="26" HorizontalAlignment="Center" 
-                               VerticalAlignment="Center" Margin="15,13,10,10"/>
+                               FontSize="28" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" Margin="17,14,10,10"/>
             <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#FFEAEAEA" 
-                               FontSize="26" HorizontalAlignment="Center" 
+                               FontSize="28" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" />
         </Grid>
-        <TextBlock x:Name="tbStatus" Canvas.Left="20" Canvas.Top="60" Width="160"/>
+        <TextBlock x:Name="tbStatus" Canvas.Left="30" Canvas.Top="70" Width="140"/>
 
         <TextBlock Canvas.Left="20" Canvas.Top="315" Width="160" >
             <Run Text="Crape Client"/><LineBreak/>

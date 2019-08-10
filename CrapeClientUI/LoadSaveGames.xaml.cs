@@ -25,41 +25,29 @@ namespace Crape_Client.CrapeClientUI
         public LoadSaveGames()
         {
             InitializeComponent();
-            initialization();
+            try {
+                Cls_SaveFiles[] List = Global.SaveFilesList.ToArray();
+                for (int i = 0; i < List.Length; i++)
+                {
+                    dgLoadList.Items.Add(List[i]);
+                }
+            }catch(Exception e)
+            {
+                Nlog.logger.Fatal("Unknow Error:");
+                Nlog.logger.Debug("Message : " + e.Message);
+                Nlog.logger.Debug("Source : " + e.Source);
+                Nlog.logger.Debug("TargetSite : " + e.TargetSite);
+                Nlog.ErrorBoxShow(e);
+            }
+
+            
         }
         #region 存档列表
-        void initialization()// 加载存档列表
-        {
-            // AppDomain.CurrentDomain.BaseDirectory
-            DirectoryInfo folder = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "Saved Games");
-            try
-            {
-                foreach (FileInfo file in folder.GetFiles("*.sav"))
-                {
-                    //Console.WriteLine(file.FullName);
-                    dgLoadList.Items.Add(new Cls_SaveFiles
-                    {
-                        Name = GameSaveFile.LoadSaveName(File.ReadAllBytes(file.FullName)),
-                        Date = file.LastWriteTime.ToString(),
-                        FileN = file.Name
-                    });// FullName?
-                }
-            }
-            catch (DirectoryNotFoundException)
-            {
-                dgLoadList.Items.Add(new
-                {
-                    Name = "没有发现可用存档",
-                    Data = "Null",
-                    FileN = ""
-                });
-            }
-        }
+
         private void LoadSave(object sender, MouseButtonEventArgs e)// 双击列表项
         {
             Spawn spawn = new Spawn();
-            Cls_SaveFiles LoadSaveName = dgLoadList.SelectedItem as Cls_SaveFiles;
-            if (LoadSaveName != null && LoadSaveName is Cls_SaveFiles)
+            if (dgLoadList.SelectedItem is Cls_SaveFiles LoadSaveName && LoadSaveName is Cls_SaveFiles)
             {
                 //*
                 spawn.Settings.LoadSaveGame = true;

@@ -22,12 +22,17 @@ namespace Crape_Client.CrapeClientCore
                 }
                 catch (NullReferenceException e)
                 {
-                    Nlog.logger.Error(e.ToString());
+                    Nlog.logger.Error("Message : " + e.Message);
+                    Nlog.logger.Error("Source : " + e.Source);
+                    Nlog.logger.Error("TargetSite : " + e.TargetSite);
                     return Global.NoSummary;
                 }
                 catch (Exception e)
                 {
-                    Nlog.logger.Error(e.ToString());
+                    Nlog.logger.Error("Message : " + e.Message);
+                    Nlog.logger.Error("Source : " + e.Source);
+                    Nlog.logger.Error("TargetSite : " + e.TargetSite);
+                    Nlog.ErrorBoxShow(e);
                     return null;
                 }
             }

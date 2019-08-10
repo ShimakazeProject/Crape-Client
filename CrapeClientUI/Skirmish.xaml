@@ -14,6 +14,7 @@
                 <!--玩家选择框-->
                 <Canvas Height="555" Width="390" Canvas.Left="185">
                     <Canvas Height="275" Width="390" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <!--玩家名-->
                         <StackPanel Canvas.Left="0" Width="120">
                             <TextBlock FontSize="18"
                                        Height="25" TextWrapping="Wrap" 
@@ -97,6 +98,7 @@
                                       HorizontalAlignment="Right" Width="120"
                                               />
                         </StackPanel>
+                        <!--Side-->
                         <StackPanel Canvas.Left="125" Width="100">
                             <TextBlock FontSize="18"
                                        Height="25" TextWrapping="Wrap" 
@@ -186,6 +188,7 @@
                                       HorizontalAlignment="Right" Width="100"
                                               />
                         </StackPanel>
+                        <!--Color-->
                         <StackPanel Canvas.Left="230" Width="50">
                             <TextBlock FontSize="18"
                                              Height="25" TextWrapping="Wrap" 
@@ -193,16 +196,22 @@
                                              Text="Color"
                                              Margin="0,5,0,0"
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
+
+
                             <ComboBox x:Name="HostColor"
-                                      Height="25" Style="{StaticResource ComboBox}"
-                                              Margin="0,5,0,0" 
+                                      Height="25" Style="{StaticResource ColorComboBox}"
+
+                                      Margin="0,5,0,0" 
                                       SelectedValuePath="Id" 
                                       Text="{Binding Text}"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50">
+                                      VerticalAlignment="Top" Background="{x:Null}"
+                                      HorizontalAlignment="Right" Width="50" DropDownClosed="HostColorss">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Path=Text}" Foreground="{Binding Clr}"></TextBlock>
+                                            <TextBlock Text="{Binding Text}" 
+                                                       Foreground="{Binding Clr}"
+                                                       Tag="{Binding Id}"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
@@ -328,6 +337,7 @@
                                 </ComboBox.ItemTemplate>
                             </ComboBox>
                         </StackPanel>
+                        <!--Team-->
                         <StackPanel Canvas.Left="285" Width="50">
                             <TextBlock FontSize="18"
                                              Height="25" TextWrapping="Wrap" 
@@ -383,6 +393,7 @@
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                         </StackPanel>
+                        <!--Local-->
                         <StackPanel Canvas.Left="340" Width="50">
                             <TextBlock FontSize="18"
                                              Height="25" TextWrapping="Wrap" 
@@ -441,7 +452,8 @@
                         </StackPanel>
                     </Canvas>
                     <Canvas Canvas.Top="280" Width="390" Height="275" Background="#203E3939">
-                        <Label Content="地图名" Foreground="#FFF" FontSize="20" Canvas.Left="125"/>
+                        <Label x:Name="lMapName" Content="地图名" DataContext="x.map"
+                               Foreground="#FFF" FontSize="20" Canvas.Left="125"/>
                         <GroupBox Header="地图预览" Foreground="#FFF"
                               Style="{StaticResource TitleBox_GroupBox}" Width="390" Height="275">
                             <Image Source="/Crape Client;component/Resource/Crape.ico"/>
@@ -451,7 +463,7 @@
                 <Canvas Canvas.Left="580" Background="#503E3939" Width="200" Height="555">
                     <GroupBox Header="初始资金" Foreground="#FFF" Width="100"
                               Style="{StaticResource smallTitleBox_GroupBox}">
-                        <ComboBox x:Name="Credits" Style="{StaticResource ComboBox}" >
+                        <ComboBox x:Name="Credits" IsReadOnly="False" Style="{StaticResource ComboBox}" >
                             <ComboBoxItem Content="50000" FontSize="12"/>
                             <ComboBoxItem Content="40000" FontSize="12"/>
                             <ComboBoxItem Content="30000" FontSize="12"/>
@@ -463,7 +475,7 @@
                     </GroupBox>
                     <GroupBox Header="科技等级" Foreground="#FFF" Width="100"
                               Style="{StaticResource smallTitleBox_GroupBox}" Canvas.Left="100">
-                        <ComboBox x:Name="TechLevel" Style="{StaticResource ComboBox}" >
+                        <ComboBox x:Name="TechLevel" IsReadOnly="False" Style="{StaticResource ComboBox}" >
                             <ComboBoxItem Content="10" FontSize="12"/>
                             <ComboBoxItem Content="9" FontSize="12"/>
                             <ComboBoxItem Content="8" FontSize="12"/>
@@ -475,7 +487,7 @@
                     </GroupBox>
                     <GroupBox Header="初始部队" Foreground="#FFF" Width="100"
                               Style="{StaticResource smallTitleBox_GroupBox}" Canvas.Top="52">
-                        <ComboBox x:Name="UnitCount" Style="{StaticResource ComboBox}" >
+                        <ComboBox x:Name="UnitCount" Style="{StaticResource ComboBox}" IsReadOnly="False">
                             <ComboBoxItem Content="0" FontSize="12"/>
                             <ComboBoxItem Content="1" FontSize="12"/>
                             <ComboBoxItem Content="10" FontSize="12"/>
@@ -488,14 +500,14 @@
                     </GroupBox>
                     <GroupBox Header="游戏速度" Foreground="#FFF" Width="100"
                               Style="{StaticResource smallTitleBox_GroupBox}" Canvas.Left="100" Canvas.Top="52">
-                        <ComboBox x:Name="GameSpeed" Style="{StaticResource ComboBox}">
-                            <ComboBoxItem Content="6 - 最快" FontSize="12"/>
-                            <ComboBoxItem Content="5 - 较快" FontSize="12"/>
-                            <ComboBoxItem Content="4 - 快速" FontSize="12"/>
-                            <ComboBoxItem Content="3 - 中速" FontSize="12"/>
-                            <ComboBoxItem Content="2 - 慢速" FontSize="12"/>
-                            <ComboBoxItem Content="1 - 较慢" FontSize="12"/>
-                            <ComboBoxItem Content="0 - 最慢" FontSize="12"/>
+                        <ComboBox x:Name="GameSpeed" Style="{StaticResource ComboBox}" IsReadOnly="True">
+                            <ComboBoxItem Content="6 - 最快" Tag="0" FontSize="12"/>
+                            <ComboBoxItem Content="5 - 较快" Tag="1" FontSize="12"/>
+                            <ComboBoxItem Content="4 - 快速" Tag="2" FontSize="12"/>
+                            <ComboBoxItem Content="3 - 中速" Tag="3" FontSize="12"/>
+                            <ComboBoxItem Content="2 - 慢速" Tag="4" FontSize="12"/>
+                            <ComboBoxItem Content="1 - 较慢" Tag="5" FontSize="12"/>
+                            <ComboBoxItem Content="0 - 最慢" Tag="6" FontSize="12"/>
                         </ComboBox>
                     </GroupBox>
                     <Canvas Canvas.Left="10" Canvas.Top="110" Width="180" Height="395">
@@ -505,11 +517,11 @@
                         <CheckBox x:Name="Superweapons" Content="炒鸡武器" Style="{StaticResource CheckBox}" Canvas.Top="80"/>
                         <CheckBox x:Name="AlliesAllowed" Content="允许变更结萌" Style="{StaticResource CheckBox}" Canvas.Top="105"/>
                         <CheckBox x:Name="Creates" Content="升级工具箱" Style="{StaticResource CheckBox}" Canvas.Top="130"/>
-                        <CheckBox x:Name="StolenTechUnits" Content="Stolen Tech Units" Style="{StaticResource CheckBox}" Canvas.Top="155"/>
-                        <CheckBox x:Name="NoNavalCombat" Content="No Naval Combat" Style="{StaticResource CheckBox}" Canvas.Top="180"/>
-                        <CheckBox x:Name="MetalAIBoost" Content="Metal AI Boost" Style="{StaticResource CheckBox}" Canvas.Top="205"/>
-                        <CheckBox x:Name="ImmuneOilDerricks" Content="Immune Oil Derricks" Style="{StaticResource CheckBox}" Canvas.Top="230"/>
-                        <CheckBox x:Name="NoSpawnPreviews" Content="No Spawn Previews" Style="{StaticResource CheckBox}" Canvas.Top="255"/>
+                        <CheckBox x:Name="MultiEngineer" Content="多位工程师" Style="{StaticResource CheckBox}" Canvas.Top="155"/>
+                        <CheckBox x:Name="FogOfWar" Content="战争迷雾" Style="{StaticResource CheckBox}" Canvas.Top="180"/>
+                        <CheckBox x:Name="BridgeDestroy" Content="桥梁可被破坏" Style="{StaticResource CheckBox}" Canvas.Top="205"/>
+                        <CheckBox x:Name="SkipScoreScreen" Content="跳过评分屏" Style="{StaticResource CheckBox}" Canvas.Top="230"/>
+                        <CheckBox x:Name="AttackNeutralUnits" Content="攻击中立单位" Style="{StaticResource CheckBox}" Canvas.Top="255"/>
                         <CheckBox x:Name="LimitedMCV" Content="Limited MCV" Style="{StaticResource CheckBox}" Canvas.Top="280"/>
                         <CheckBox x:Name="PermanentRadar" Content="Permanent Radar" Style="{StaticResource CheckBox}" Canvas.Top="305"/>
                         <CheckBox x:Name="ConYardStart" Content="ConYard Start" Style="{StaticResource CheckBox}" Canvas.Top="330"/>
@@ -517,7 +529,7 @@
                     </Canvas>
 
                     <Button Content="开始游戏" Canvas.Left="10" Canvas.Bottom="10" Width="180" 
-                            Style="{StaticResource ButtonText}" Background="#50A48686"/>
+                            Style="{StaticResource ButtonText}" Background="#50A48686" Click="RunGame"/>
                 </Canvas>
                 <DataGrid x:Name="dgMapList"
                           HorizontalAlignment="Left" Style="{StaticResource DataGrid}"

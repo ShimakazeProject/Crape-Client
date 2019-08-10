@@ -116,14 +116,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CrapeClentCore\Class1.cs" />
-    <Compile Include="CrapeClentCore\Initialize.cs" />
-    <Compile Include="CrapeClentCore\Global.cs" />
-    <Compile Include="CrapeClentCore\ScreenSettings.cs" />
-    <Compile Include="CrapeClentCore\IniEdit.cs" />
-    <Compile Include="CrapeClentCore\Ra2md.cs" />
-    <Compile Include="CrapeClentCore\Spawn.cs" />
-    <Compile Include="CrapeClentCore\StringTools.cs" />
+    <Compile Include="CrapeClientCore\Class1.cs" />
+    <Compile Include="CrapeClientCore\ConfigLoad\Side.cs" />
+    <Compile Include="CrapeClientCore\Config\UIconfig.cs" />
+    <Compile Include="CrapeClientCore\Initialization.cs" />
+    <Compile Include="CrapeClientCore\Global.cs" />
+    <Compile Include="CrapeClientCore\ScreenSettings.cs" />
+    <Compile Include="CrapeClientCore\IniEdit.cs" />
+    <Compile Include="CrapeClientCore\Ra2md.cs" />
+    <Compile Include="CrapeClientCore\Spawn.cs" />
+    <Compile Include="CrapeClientCore\StringTools.cs" />
     <Page Include="CrapeClientUI\LoadingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,9 +138,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="CrapeClentCore\GameSaveFile.cs" />
-    <Compile Include="CrapeClentCore\Program.cs" />
-    <Compile Include="CrapeClentCore\List.cs" />
+    <Compile Include="CrapeClientCore\GameSaveFile.cs" />
+    <Compile Include="CrapeClientCore\Program.cs" />
+    <Compile Include="CrapeClientCore\List.cs" />
     <Compile Include="CrapeClientUI\Crape Client.xaml.cs">
       <DependentUpon>Crape Client.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -209,7 +211,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrapeClentCore\NLog.cs" />
+    <Compile Include="CrapeClientCore\NLog.cs" />
     <Compile Include="CrapeClientUI\LoadingWindow.xaml.cs">
       <DependentUpon>LoadingWindow.xaml</DependentUpon>
     </Compile>
@@ -269,16 +271,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="DMSkin.AduDesign\DMSkin.AduDesign.csproj">
-      <Project>{e55f4d48-0893-4db1-84dc-0844ce3f957b}</Project>
-      <Name>DMSkin.AduDesign</Name>
-    </ProjectReference>
-    <ProjectReference Include="DMSkin\DMSkin.csproj">
-      <Project>{84d6e067-2db0-4765-8f5c-5b5288a26f0a}</Project>
-      <Name>DMSkin</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\Welcome.png" />

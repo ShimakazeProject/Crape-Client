@@ -103,7 +103,14 @@ namespace Crape_Client.CrapeClientCore
         public bool ReadValue(string key, bool defaultv)
         {
             string rt = ReadValue(key, Convert.ToString(defaultv));
-            return Convert.ToBoolean(rt);
+            try
+            {
+                return Convert.ToBoolean(rt);
+            }
+            catch (FormatException)
+            {
+                return Convert.ToBoolean(Convert.ToInt32(rt));
+            }
         }
 
         public int ReadValue(string key, int defaultv)

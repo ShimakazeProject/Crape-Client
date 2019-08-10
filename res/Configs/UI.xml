@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UIconfig>
+  <MainWindow Height="600" Width="1000" 
+				      Title="Crape Client" Background="#502B2833">
+    <Menu Margin="0" Height="600" Width="200">
+      <Logo Left="0" Top="0" Width="200" Height="60" 
+            Text="Crape Client"/>
+			<Campaign Left="-32" Top="60" Width="210" Height="60" 
+                Content="战役" DataContext="Campaign"/>
+			<Skirmish Left="-32" Top="110" Width="210" Height="60" 
+                Content="遭遇战" DataContext="Skirmish"/>
+			<Loadings Left="-32" Top="160" Width="210" Height="60" 
+                Content="载入" DataContext="Loading"/>
+			<Settings Left="-32" Top="210" Width="210" Height="60" 
+                Content="设置" DataContext="Settings"/>
+			
+			<Exit Left="-32" Bottom="10" Width="210" Height="60" 
+            Content="退出" DataContext="Exit"/>
+		</Menu>
+		<Show Margin="200,5,5,5"/><!--Frame 位置-->
+		<Path><!--背景设置-->
+			<Brush StartPoint="0,0" EndPoint="1,0"><!--LinearGradientBrush-->
+				<GradientStop Color="#CC150738" Offset="0"/>
+                <GradientStop Color="#CC150738" Offset="0.2"/>
+                <GradientStop Color="#9929223A" Offset="0.5"/>
+                <GradientStop Color="#442B2833" Offset="1"/>
+			</Brush>
+		</Path>
+	</MainWindow>
+</UIconfig>
+<!-- 
+这是XML配置文件的错误示范
+XML并不是这样用的
+至于这样写XML以后会怎样..
+交给以后的我去头疼吧..
+-->

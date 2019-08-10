@@ -5,23 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crape_Client"
         mc:Ignorable="d" Style="{StaticResource WindowStyle}"
-        Title="Crape Client"
-        Height="600" Width="1000"
-        Background="#502B2833"
         WindowStartupLocation="CenterScreen"
         Icon="/Crape Client;component/Resource/Crape.ico" 
         ResizeMode="NoResize" >
     <Border CornerRadius="4" Background="#00302C3A" Name="mainback">
         <Grid>
-            <!--#region 菜单列-->
-            <Canvas HorizontalAlignment="Left" Width="200" Height="600" VerticalAlignment="Top" Margin="0">
-                <Path Stroke="Transparent" StrokeThickness="1">
+            <Path Stroke="Transparent" StrokeThickness="1">
                     <Path.Fill>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="#CC150738"  Offset="0"></GradientStop>
-                            <GradientStop Color="#CC150738"  Offset="0.2"></GradientStop>
-                            <GradientStop Color="#9929223A"  Offset="0.5"></GradientStop>
-                            <GradientStop Color="#442B2833"  Offset="1"></GradientStop>
+                            <GradientStop Color="#CC150738" Offset="0"/>
+                            <GradientStop Color="#CC150738" Offset="0.2"/>
+                            <GradientStop Color="#9929223A" Offset="0.5"/>
+                            <GradientStop Color="#442B2833" Offset="1"/>
                         </LinearGradientBrush>
                     </Path.Fill>
                     <Path.Data>
@@ -43,9 +38,12 @@
                     </Path.Data>
                 </Path>
 
+            <!--#region 菜单列-->
+            <Canvas Name="Menu" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <!-- Logo -->
-                <Grid Canvas.Top="0" Width="200" Height="60">
-                    <TextBlock Text="Crape Client" FontWeight="Bold" 
+                <Grid Name="Logo" Canvas.Top="0" Width="200" Height="60">
+                    <TextBlock Name="TlogoS" Text="TextLogo"
+                               FontWeight="Bold" 
                                FontSize="26" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" Height="38" Margin="20,20,20,-25" RenderTransformOrigin="0.5,0.5" FontStyle="Italic" >
                         <TextBlock.Foreground>
@@ -63,10 +61,12 @@
                             </TransformGroup>
                         </TextBlock.RenderTransform>
                     </TextBlock>
-                    <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#50EAEAEA" 
+                    <TextBlock Name="TlogoB" Text="TextLogo"
+                               FontWeight="Bold" Foreground="#50EAEAEA" 
                                FontSize="26" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" Margin="15,13,10,10"/>
-                    <TextBlock Text="Crape Client" FontWeight="Bold" Foreground="#FFEAEAEA" 
+                    <TextBlock Name="Tlogo" Text="TextLogo"
+                               FontWeight="Bold" Foreground="#FFEAEAEA" 
                                FontSize="26" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" />
                 </Grid>
@@ -116,23 +116,17 @@
                                     IsChecked="False" />
                     </StackPanel>
                 </Expander>-->
-                <RadioButton Canvas.Top="60" Canvas.Left="-32"
+                <RadioButton Name="bCampaign" Canvas.Top="60" Canvas.Left="-32"
                              Style="{StaticResource MainMenuBattleButton}"
-                             Content="战役" DataContext="Campaign"
-                             GroupName="Menu" 
-                             Checked="Combat" IsChecked="False"/>
-                <RadioButton Canvas.Top="110" Canvas.Left="-32"
+                             GroupName="Menu" Checked="Combat" IsChecked="False"/>
+                <RadioButton Name="bSkirmish" Canvas.Top="110" Canvas.Left="-32"
                              Style="{StaticResource MainMenuSkirmishButton}"
-                             Content="遭遇战" DataContext="Skirmish"
                              GroupName="Menu" Checked="Skirmish" IsChecked="False" />
-                <RadioButton Canvas.Top="160" Canvas.Left="-32"
+                <RadioButton Name="bLoadings" Canvas.Top="160" Canvas.Left="-32"
                              Style="{StaticResource MainMenuLoadButton}"
-                             Content="载入" DataContext="Loading"
                              GroupName="Menu" Checked="Loadings" IsChecked="False" />
-                <RadioButton x:Name="rbmSettings"
+                <RadioButton Name="bSettings" Canvas.Top="210" Canvas.Left="-32"
                              Style="{StaticResource MainMenuSettingsButton}"
-                             Content="设置"  DataContext="Settings"
-                             Canvas.Top="210" Canvas.Left="-32"
                              GroupName="Menu" Checked="Settings" IsChecked="False" />
                 <!--RadioButton 
                              Style="{StaticResource MainMenuExitButton}"
@@ -143,10 +137,9 @@
                              Content="关于我们" DataContext="About Us"
                              IsChecked="False" GroupName="Menu" 
                              Checked="Website" VerticalAlignment="Top" Canvas.Bottom="60" Canvas.Left="-32"/-->
-                <RadioButton Style="{StaticResource MainMenuExitButton}"
-                             Content="退出" DataContext="Exit"
-                             IsChecked="False" GroupName="Menu" 
-                             Checked="Exit" VerticalAlignment="Top" Canvas.Bottom="10" Canvas.Left="-32"/>
+                <RadioButton Name="bExit" Canvas.Bottom="10" Canvas.Left="-32"
+                             Style="{StaticResource MainMenuExitButton}"
+                             GroupName="Menu" Checked="Exit" IsChecked="False"/>
             </Canvas>
             <!--#endregion-->
             <Frame x:Name="ClientFrame" 

@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Crape_Client;
 using Crape_Client.CrapeClientCore;
+using Crape_Client.CrapeClientCore.Config;
 
 namespace Crape_Client
 {
@@ -25,8 +26,57 @@ namespace Crape_Client
     {
         public MainWindow()
         {
-            Nlog.NLogInit();
             InitializeComponent();
+            // 设置窗口
+            this.Height = UIconfig.MainWindow.Height;
+            this.Width = UIconfig.MainWindow.Width;
+            this.Title = UIconfig.MainWindow.Title;
+            this.Background = UIconfig.MainWindow.Background;
+            // 设置菜单框
+            Menu.Height = UIconfig.MainWindow.Menu.Height;
+            Menu.Width = UIconfig.MainWindow.Menu.Width;
+            Menu.Margin = UIconfig.MainWindow.Menu.Margin;
+            Canvas.SetTop(Logo, UIconfig.MainWindow.Menu.Logo.Top);
+            Canvas.SetLeft(Logo, UIconfig.MainWindow.Menu.Logo.Left);
+            Logo.Height = UIconfig.MainWindow.Menu.Logo.Height;
+            Logo.Width = UIconfig.MainWindow.Menu.Logo.Width;
+            TlogoS.Text = UIconfig.MainWindow.Menu.Logo.Text;
+            TlogoB.Text = UIconfig.MainWindow.Menu.Logo.Text;
+            Tlogo.Text = UIconfig.MainWindow.Menu.Logo.Text;
+            #region 按钮
+            Canvas.SetTop(bCampaign, UIconfig.MainWindow.Menu.Campaign.Top);
+            Canvas.SetLeft(bCampaign, UIconfig.MainWindow.Menu.Campaign.Left);
+            bCampaign.Width = UIconfig.MainWindow.Menu.Campaign.Width;
+            bCampaign.Height = UIconfig.MainWindow.Menu.Campaign.Height;
+            bCampaign.Content = UIconfig.MainWindow.Menu.Campaign.Content;
+            bCampaign.DataContext = UIconfig.MainWindow.Menu.Campaign.DataContext;
+            Canvas.SetTop(bSkirmish, UIconfig.MainWindow.Menu.Skirmish.Top);
+            Canvas.SetLeft(bSkirmish, UIconfig.MainWindow.Menu.Skirmish.Left);
+            bSkirmish.Width = UIconfig.MainWindow.Menu.Skirmish.Width;
+            bSkirmish.Height = UIconfig.MainWindow.Menu.Campaign.Height;
+            bSkirmish.Content = UIconfig.MainWindow.Menu.Skirmish.Content;
+            bSkirmish.DataContext = UIconfig.MainWindow.Menu.Skirmish.DataContext;
+            Canvas.SetTop(bLoadings, UIconfig.MainWindow.Menu.Loadings.Top);
+            Canvas.SetLeft(bLoadings, UIconfig.MainWindow.Menu.Loadings.Left);
+            bLoadings.Width = UIconfig.MainWindow.Menu.Loadings.Width;
+            bLoadings.Height = UIconfig.MainWindow.Menu.Loadings.Height;
+            bLoadings.Content = UIconfig.MainWindow.Menu.Loadings.Content;
+            bLoadings.DataContext = UIconfig.MainWindow.Menu.Loadings.DataContext;
+            Canvas.SetTop(bSettings, UIconfig.MainWindow.Menu.Settings.Top);
+            Canvas.SetLeft(bSettings, UIconfig.MainWindow.Menu.Settings.Left);
+            bSettings.Width = UIconfig.MainWindow.Menu.Settings.Width;
+            bSettings.Height = UIconfig.MainWindow.Menu.Settings.Height;
+            bSettings.Content = UIconfig.MainWindow.Menu.Settings.Content;
+            bSettings.DataContext = UIconfig.MainWindow.Menu.Settings.DataContext;
+            Canvas.SetBottom(bExit, UIconfig.MainWindow.Menu.Exit.Bottom);
+            Canvas.SetLeft(bExit, UIconfig.MainWindow.Menu.Exit.Left);
+            bExit.Width = UIconfig.MainWindow.Menu.Exit.Width;
+            bExit.Height = UIconfig.MainWindow.Menu.Exit.Height;
+            bExit.Content = UIconfig.MainWindow.Menu.Exit.Content;
+            bExit.DataContext = UIconfig.MainWindow.Menu.Exit.DataContext;
+            #endregion
+            ClientFrame.Margin = UIconfig.MainWindow.Show.Margin;
+            //*/
         }
 
 
