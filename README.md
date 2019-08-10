@@ -10,3 +10,7 @@ Crape Client是我没事闲的
 
 
 	啊..看人家写的xna-cncnet-client我都要自闭了...
+
+
+# 测试时请记得创建一个从res文件夹到测试目录的名为\Resource的链接
+`Mklink /H /J .\bin\Debug\Resource .\res`
