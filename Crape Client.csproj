@@ -112,13 +112,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    <Compile Include="App.cs" />
     <Compile Include="CrapeClientCore\Class1.cs" />
-    <Compile Include="CrapeClientCore\ConfigLoad\Side.cs" />
-    <Compile Include="CrapeClientCore\Config\UIconfig.cs" />
+    <Compile Include="Initialization\Config\UIconfig.cs" />
     <Compile Include="CrapeClientCore\Initialization.cs" />
     <Compile Include="CrapeClientCore\Global.cs" />
     <Compile Include="CrapeClientCore\ScreenSettings.cs" />
@@ -230,6 +226,8 @@
     <Compile Include="CrapeClientUI\Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Initialization\LoadingWindow.cs" />
+    <Compile Include="Initialization\Side.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

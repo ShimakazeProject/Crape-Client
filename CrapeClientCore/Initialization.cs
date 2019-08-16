@@ -14,7 +14,7 @@ using Crape_Client.CrapeClientCore.Config;
 
 namespace Crape_Client
 {
-    class Initialization
+    class Init
     {
         #region 存档
         public static void SavesListInit()

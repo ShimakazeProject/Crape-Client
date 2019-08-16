@@ -25,6 +25,8 @@ namespace Crape_Client.CrapeClientUI
         public LoadingWindow()
         {
             InitializeComponent();
+            Initialization.LoadingWindow loadingWindow = new Initialization.LoadingWindow();
+            loadingWindow.LoadWindowInit();
         }
 
         private void LoadingWindowInit(object sender, EventArgs e)
@@ -43,11 +45,11 @@ namespace Crape_Client.CrapeClientUI
             Global.MainConfig.LoadFromFile(Global.LocalPath + Global.ConfigsDir + "Config.conf");
             Global.Ra2mdConf.LoadFromFile(Global.LocalPath + "ra2md.ini");
             tbStatus.Text = "初始化存档列表";
-            Initialization.SavesListInit();
+            Init.SavesListInit();
             tbStatus.Text = "初始化任务列表";
-            Initialization.MissionConfigAnalyze();// 初始化列表
+            Init.MissionConfigAnalyze();// 初始化列表
             tbStatus.Text = "初始化GUI";
-            Initialization.MainWindowInit();
+            Init.MainWindowInit();
             tbStatus.Text = "初始化完成";
             MainWindow window = new MainWindow();
             window.Show();
@@ -55,7 +57,7 @@ namespace Crape_Client.CrapeClientUI
         }
         private void LoadingWindowInit(object sender, RoutedEventArgs e)
         {
-            InitWindows();
+            //InitWindows();
         }
     }
 }

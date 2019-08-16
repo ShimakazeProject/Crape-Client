@@ -27,16 +27,16 @@ namespace Crape_Client.CrapeClientUI
         {
             InitializeComponent();
             sDifficulty.Value = Ra2md.Options.Difficulty();
-            DataGridInit(Initialization.NameList.Side0.ToArray(), Initialization.SectionNameList.Side0.ToArray(), 0);
-            DataGridInit(Initialization.NameList.Side1.ToArray(), Initialization.SectionNameList.Side1.ToArray(), 1);
-            DataGridInit(Initialization.NameList.Side2.ToArray(), Initialization.SectionNameList.Side2.ToArray(), 2);
-            DataGridInit(Initialization.NameList.Side3.ToArray(), Initialization.SectionNameList.Side3.ToArray(), 3);
-            DataGridInit(Initialization.NameList.Side4.ToArray(), Initialization.SectionNameList.Side4.ToArray(), 4);
-            DataGridInit(Initialization.NameList.Side5.ToArray(), Initialization.SectionNameList.Side5.ToArray(), 5);
-            DataGridInit(Initialization.NameList.Side6.ToArray(), Initialization.SectionNameList.Side6.ToArray(), 6);
-            DataGridInit(Initialization.NameList.Side7.ToArray(), Initialization.SectionNameList.Side7.ToArray(), 7);
-            DataGridInit(Initialization.NameList.Side8.ToArray(), Initialization.SectionNameList.Side8.ToArray(), 8);
-            DataGridInit(Initialization.NameList.Side9.ToArray(), Initialization.SectionNameList.Side9.ToArray(), 9);
+            DataGridInit(Init.NameList.Side0.ToArray(), Init.SectionNameList.Side0.ToArray(), 0);
+            DataGridInit(Init.NameList.Side1.ToArray(), Init.SectionNameList.Side1.ToArray(), 1);
+            DataGridInit(Init.NameList.Side2.ToArray(), Init.SectionNameList.Side2.ToArray(), 2);
+            DataGridInit(Init.NameList.Side3.ToArray(), Init.SectionNameList.Side3.ToArray(), 3);
+            DataGridInit(Init.NameList.Side4.ToArray(), Init.SectionNameList.Side4.ToArray(), 4);
+            DataGridInit(Init.NameList.Side5.ToArray(), Init.SectionNameList.Side5.ToArray(), 5);
+            DataGridInit(Init.NameList.Side6.ToArray(), Init.SectionNameList.Side6.ToArray(), 6);
+            DataGridInit(Init.NameList.Side7.ToArray(), Init.SectionNameList.Side7.ToArray(), 7);
+            DataGridInit(Init.NameList.Side8.ToArray(), Init.SectionNameList.Side8.ToArray(), 8);
+            DataGridInit(Init.NameList.Side9.ToArray(), Init.SectionNameList.Side9.ToArray(), 9);
 
         }
         #region 任务列表

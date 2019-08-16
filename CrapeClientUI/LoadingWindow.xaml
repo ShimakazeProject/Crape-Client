@@ -43,7 +43,8 @@
         <Grid Canvas.Top="0" Width="200" Height="60">
             <TextBlock Text="Crape Client" FontWeight="Bold" 
                                FontSize="28" HorizontalAlignment="Center" 
-                               VerticalAlignment="Center" Height="38" Margin="17,35,11,-13" RenderTransformOrigin="0.5,0.5" FontStyle="Italic" >
+                               VerticalAlignment="Center" Height="38" Margin="17,35,11,-13" 
+                       RenderTransformOrigin="0.5,0.5" FontStyle="Italic" >
                 <TextBlock.Foreground>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Transparent" Offset="0.5"/>
@@ -69,7 +70,7 @@
             <Run Text="Crape Client"/><LineBreak/>
             <Run Text="Created By 清廉正洁的射命丸文" FontSize="10"/><LineBreak/>
             <!--Run Text="Powered By " FontSize="10"/><LineBreak/-->
-            <Run Text="Copyright © 2019 Crape Studio ," FontSize="9"/><LineBreak/>
+            <Run Text="Copyright © 2019 Crape STAFF ," FontSize="9"/><LineBreak/>
             <Run Text="                         All Rights Reserved." FontSize="9"/>
         </TextBlock>
     </Canvas>

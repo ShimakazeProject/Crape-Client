@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sides>
+  <Side Id="0" Name="第一阵营" Icon="Side0">
+    <Summary>这是一个第一阵营..在原版中这个位置是美国</Summary>
+  </Side>
+  <Side Id="1" Name="第二阵营" Icon="Side1">
+    <Summary>这是一个第二阵营..在原版中这个位置是韩国</Summary>
+  </Side>
+</Sides>
