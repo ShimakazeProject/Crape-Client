@@ -81,6 +81,10 @@
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>packages\NLog.4.6.6\lib\net45\NLog.dll</HintPath>
@@ -113,19 +117,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="CrapeClientCore\Class1.cs" />
     <Compile Include="Initialization\Config\UIconfig.cs" />
-    <Compile Include="CrapeClientCore\Initialization.cs" />
     <Compile Include="CrapeClientCore\Global.cs" />
     <Compile Include="CrapeClientCore\ScreenSettings.cs" />
     <Compile Include="CrapeClientCore\IniEdit.cs" />
     <Compile Include="CrapeClientCore\Ra2md.cs" />
     <Compile Include="CrapeClientCore\Spawn.cs" />
     <Compile Include="CrapeClientCore\StringTools.cs" />
-    <Page Include="CrapeClientUI\LoadingWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="CrapeClientUI\LoadSaveGames.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,9 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrapeClientCore\NLog.cs" />
-    <Compile Include="CrapeClientUI\LoadingWindow.xaml.cs">
-      <DependentUpon>LoadingWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CrapeClientUI\LoadSaveGames.xaml.cs">
       <DependentUpon>LoadSaveGames.xaml</DependentUpon>
     </Compile>
@@ -226,8 +221,12 @@
     <Compile Include="CrapeClientUI\Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Initialization\LoadingWindow.cs" />
+    <Compile Include="CrapeClientUI\LoadingWindow.cs" />
+    <Compile Include="Initialization\MainWindow.cs" />
+    <Compile Include="Initialization\Mission.cs" />
+    <Compile Include="Initialization\SavedList.cs" />
     <Compile Include="Initialization\Side.cs" />
+    <Compile Include="Initialization\Tools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -251,6 +250,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -269,9 +269,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resource\Welcome.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

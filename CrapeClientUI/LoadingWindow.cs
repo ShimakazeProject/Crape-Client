@@ -8,24 +8,21 @@ using System.Windows.Controls;
 using System.Windows.Shapes;
 using System.Windows.Media;
 //using System.Drawing;
+using Crape_Client.Initialization;
 
-
-namespace Crape_Client.Initialization
+namespace Crape_Client.CrapeClientUI
 {
     class LoadingWindow
     {
-        readonly Window Window = new Window();
+        public Window Window = new Window();
         readonly Canvas Canvas = new Canvas();
-        readonly TextBlock Status = new TextBlock
-        {
-            Name = "tbStatus"
-        };
 
         static readonly string LogoStr = "Crape Client";
         static readonly double Width = 600;
         static readonly double Height = 400;
         static readonly double Left = 200;
         static readonly double FontSize = 28;
+        [STAThread]
         public void LoadWindowInit()
         {
             // 主窗口创建
@@ -71,21 +68,25 @@ namespace Crape_Client.Initialization
             Canvas.SetTop(Logo, 0);
             Logo.Width = Left;
             Logo.Height = 60;
-            TextBlock text2 = new TextBlock();
-            text2.Text = LogoStr;
-            text2.FontWeight = FontWeights.Bold;
-            text2.FontSize = FontSize;
-            text2.HorizontalAlignment = HorizontalAlignment.Center;
-            text2.VerticalAlignment = VerticalAlignment.Center;
-            text2.Margin = new Thickness(17, 14, 10, 10);
-            text2.Foreground = Tools.String2Brush("#50EAEAEA");
-            TextBlock text1 = new TextBlock();
-            text1.Text = LogoStr;
-            text1.FontWeight = FontWeights.Bold;
-            text1.FontSize = FontSize;
-            text1.HorizontalAlignment = HorizontalAlignment.Center;
-            text1.VerticalAlignment = VerticalAlignment.Center;
-            text1.Foreground = Tools.String2Brush("#FFEAEAEA");
+            TextBlock text2 = new TextBlock
+            {
+                Text = LogoStr,
+                FontWeight = FontWeights.Bold,
+                FontSize = FontSize,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(17, 14, 10, 10),
+                Foreground = Tools.String2Brush("#50EAEAEA")
+            };
+            TextBlock text1 = new TextBlock
+            {
+                Text = LogoStr,
+                FontWeight = FontWeights.Bold,
+                FontSize = FontSize,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Foreground = Tools.String2Brush("#FFEAEAEA")
+            };
             Logo.Children.Add(text2);
             Logo.Children.Add(text1);
 
@@ -114,10 +115,17 @@ namespace Crape_Client.Initialization
                 FontSize = 9
             });
             // 状态信息文字块
+            TextBlock Status = new TextBlock
+            {
+                Name = "tbStatus"
+            };
             Canvas.SetLeft(Status, 30);
             Canvas.SetTop(Status, 70);
             Status.Width = Width - 60;
-
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = "正在初始化...\nIs Initializing",
+            });
             // ----
             Canvas.Children.Add(path);
             Canvas.Children.Add(image);
@@ -127,42 +135,27 @@ namespace Crape_Client.Initialization
             Window.Content = Canvas;// 用户区设置
             Window.Show();// 显示窗口
             // --------
-            System.Threading.Thread.Sleep(1000);
             Status.Text = "正在准备初始化";
-            System.Threading.Thread.Sleep(1000);
             Status.Text = "初始化日志系统";
             Nlog.NLogInit();
-            Status.Text = "初始化设置";
+            Status.Text = "初始化首选项";
             Global.MissionConfig.LoadFromFile(Global.LocalPath + Global.ConfigsDir + "Missions.ini");
             Global.MainConfig.LoadFromFile(Global.LocalPath + Global.ConfigsDir + "Config.conf");
             Global.Ra2mdConf.LoadFromFile(Global.LocalPath + "ra2md.ini");
             Status.Text = "初始化存档列表";
-            Init.SavesListInit();
+            SavedList.SavesListInit();
             Status.Text = "初始化任务列表";
-            Init.MissionConfigAnalyze();// 初始化列表
+            Initialization.Mission.MissionConfigAnalyze();// 初始化列表
             Status.Text = "初始化GUI";
-            Init.MainWindowInit();
+            Initialization.MainWindow.MainWindowInit();
             Status.Text = "初始化完成";
             System.Threading.Thread.Sleep(1000);
-            MainWindow window = new MainWindow();
-            window.Show();
+
+            //MainWindow MainWindow = new MainWindow();
+            //MainWindow.Show();
             Window.Close();
         }
 
     }
-    public class Tools {
-        public static Brush String2Brush(string color)
-        {
-            System.Drawing.Color clr = System.Drawing.ColorTranslator.FromHtml(color);
-            return
-                new SolidColorBrush(
-                    Color.FromArgb(
-                        clr.A,
-                        clr.R,
-                        clr.G,
-                        clr.B
-                        )
-                    );
-        }
-    }
+
 }

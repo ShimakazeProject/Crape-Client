@@ -335,10 +335,10 @@ namespace Crape_Client.CrapeClientUI
             else if (alliances.HouseAllySeven == null)
                 alliances.HouseAllySeven = p;
         }
-        static List<int> AllyA;
-        static List<int> AllyB;
-        static List<int> AllyC;
-        static List<int> AllyD;
+        static List<int> AllyA = new List<int>();
+        static List<int> AllyB = new List<int>();
+        static List<int> AllyC = new List<int>();
+        static List<int> AllyD = new List<int>();
 
 
     }

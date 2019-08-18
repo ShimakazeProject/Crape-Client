@@ -37,40 +37,40 @@
                         </PathGeometry>
                     </Path.Data>
                 </Path>
-
-            <!--#region 菜单列-->
-            <Canvas Name="Menu" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <!-- Logo -->
-                <Grid Name="Logo" Canvas.Top="0" Width="200" Height="60">
-                    <TextBlock Name="TlogoS" Text="TextLogo"
+            <Canvas>
+                <!--#region 菜单列-->
+                <Canvas Name="Menu" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <!-- Logo -->
+                    <Grid Name="Logo" Canvas.Top="0" Width="200" Height="60">
+                        <TextBlock Name="TlogoS" Text="TextLogo"
                                FontWeight="Bold" 
                                FontSize="26" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" Height="38" Margin="20,20,20,-25" RenderTransformOrigin="0.5,0.5" FontStyle="Italic" >
-                        <TextBlock.Foreground>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="Transparent" Offset="0.5"/>
-                                <GradientStop Color="#50000000" Offset="1"/>
-                            </LinearGradientBrush>
-                        </TextBlock.Foreground>
-                        <TextBlock.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform ScaleY="-1"/>
-                                <SkewTransform/>
-                                <RotateTransform />
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </TextBlock.RenderTransform>
-                    </TextBlock>
-                    <TextBlock Name="TlogoB" Text="TextLogo"
+                            <TextBlock.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Transparent" Offset="0.5"/>
+                                    <GradientStop Color="#50000000" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBlock.Foreground>
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform />
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <TextBlock Name="TlogoB" Text="TextLogo"
                                FontWeight="Bold" Foreground="#50EAEAEA" 
                                FontSize="26" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" Margin="15,13,10,10"/>
-                    <TextBlock Name="Tlogo" Text="TextLogo"
+                        <TextBlock Name="Tlogo" Text="TextLogo"
                                FontWeight="Bold" Foreground="#FFEAEAEA" 
                                FontSize="26" HorizontalAlignment="Center" 
                                VerticalAlignment="Center" />
-                </Grid>
-                <!-- 废弃
+                    </Grid>
+                    <!-- 废弃
                 <Expander Style="{StaticResource AduExpander}" Header="作战" Foreground="#FFF" Canvas.Top="60">
                     <StackPanel>
                         <RadioButton Foreground="#FFF"
@@ -116,36 +116,36 @@
                                     IsChecked="False" />
                     </StackPanel>
                 </Expander>-->
-                <RadioButton Name="bCampaign" Canvas.Top="60" Canvas.Left="-32"
+                    <RadioButton Name="bCampaign" Canvas.Top="60" Canvas.Left="-32"
                              Style="{StaticResource MainMenuBattleButton}"
                              GroupName="Menu" Checked="Combat" IsChecked="False"/>
-                <RadioButton Name="bSkirmish" Canvas.Top="110" Canvas.Left="-32"
+                    <RadioButton Name="bSkirmish" Canvas.Top="110" Canvas.Left="-32"
                              Style="{StaticResource MainMenuSkirmishButton}"
                              GroupName="Menu" Checked="Skirmish" IsChecked="False" />
-                <RadioButton Name="bLoadings" Canvas.Top="160" Canvas.Left="-32"
+                    <RadioButton Name="bLoadings" Canvas.Top="160" Canvas.Left="-32"
                              Style="{StaticResource MainMenuLoadButton}"
                              GroupName="Menu" Checked="Loadings" IsChecked="False" />
-                <RadioButton Name="bSettings" Canvas.Top="210" Canvas.Left="-32"
+                    <RadioButton Name="bSettings" Canvas.Top="210" Canvas.Left="-32"
                              Style="{StaticResource MainMenuSettingsButton}"
                              GroupName="Menu" Checked="Settings" IsChecked="False" />
-                <!--RadioButton 
+                    <!--RadioButton 
                              Style="{StaticResource MainMenuExitButton}"
                              Content="网络"  DataContext="Net"
                              Canvas.Top="260" Canvas.Left="-32"
                              GroupName="Menu" Checked="Website" IsChecked="False" /-->
-                <!--RadioButton Style="{StaticResource MainMenuExitButton}"
+                    <!--RadioButton Style="{StaticResource MainMenuExitButton}"
                              Content="关于我们" DataContext="About Us"
                              IsChecked="False" GroupName="Menu" 
                              Checked="Website" VerticalAlignment="Top" Canvas.Bottom="60" Canvas.Left="-32"/-->
-                <RadioButton Name="bExit" Canvas.Bottom="10" Canvas.Left="-32"
+                    <RadioButton Name="bExit" Canvas.Bottom="10" Canvas.Left="-32"
                              Style="{StaticResource MainMenuExitButton}"
                              GroupName="Menu" Checked="Exit" IsChecked="False"/>
-            </Canvas>
-            <!--#endregion-->
-            <Frame x:Name="ClientFrame" 
+                </Canvas>
+                <!--#endregion-->
+                <Frame x:Name="ClientFrame" 
                    NavigationUIVisibility="Hidden"
-                   Source="/Crape Client;component/CrapeClientUI/Welcome.xaml" Margin="200,5,5,5"/>
-
+                   Source="/Crape Client;component/CrapeClientUI/Welcome.xaml" />
+            </Canvas>
         </Grid>
     </Border>
 </Window>

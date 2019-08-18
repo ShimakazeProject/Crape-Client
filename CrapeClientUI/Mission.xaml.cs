@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Crape_Client.CrapeClientCore;
-using Crape_Client;
+using Init = Crape_Client.Initialization.Mission;
 
 namespace Crape_Client.CrapeClientUI
 {
@@ -77,8 +77,7 @@ namespace Crape_Client.CrapeClientUI
         private void MissionSeleted(object sender, SelectionChangedEventArgs e)
         {
             // MessageBox.Show(dgMissionSeleted.SelectedItem.ToString());
-            MissionList mission = dgMissionSeleted.SelectedItem as MissionList;
-            if (mission != null && mission is MissionList)
+            if (dgMissionSeleted.SelectedItem is MissionList mission && mission is MissionList)
             {
                 string Summary = Global.MissionConfig.ReadValue(mission.OriginalName, "Summary", null);
                 MissionSummary.Text = Program.SummaryInit(Summary);
@@ -86,8 +85,7 @@ namespace Crape_Client.CrapeClientUI
         }
         private void MissionRun(object sender, RoutedEventArgs e)
         {
-            MissionList mission = dgMissionSeleted.SelectedItem as MissionList;
-            if (mission != null && mission is MissionList)
+            if (dgMissionSeleted.SelectedItem is MissionList mission && mission is MissionList)
             {
                 Spawn spawn = new Spawn();
                 spawn.Settings.Scenario = mission.Name;

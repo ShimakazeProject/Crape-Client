@@ -26,6 +26,8 @@ namespace Crape_Client
     {
         public MainWindow()
         {
+            //Initialization.LoadingWindow loadingWindow = new Initialization.LoadingWindow();
+            //loadingWindow.LoadWindowInit();
             InitializeComponent();
             // 设置窗口
             this.Height = UIconfig.MainWindow.Height;
@@ -75,13 +77,20 @@ namespace Crape_Client
             bExit.Content = UIconfig.MainWindow.Menu.Exit.Content;
             bExit.DataContext = UIconfig.MainWindow.Menu.Exit.DataContext;
             #endregion
-            ClientFrame.Margin = UIconfig.MainWindow.Show.Margin;
+            Canvas.SetTop(ClientFrame, UIconfig.MainWindow.Show.Top);
+            Canvas.SetLeft(ClientFrame, UIconfig.MainWindow.Show.Left);
+            ClientFrame.Height = UIconfig.MainWindow.Show.Height;
+            ClientFrame.Width = UIconfig.MainWindow.Show.Width;
             //*/
         }
 
 
 
-        private void Exit(object sender, RoutedEventArgs e) /* 退出 */ { Environment.Exit(0); }
+        private void Exit(object sender, RoutedEventArgs e) /* 退出 */ {
+            App.application.Shutdown(0);
+            //Environment.Exit(0);
+            Close();
+        }
 
         private void Combat(object sender, RoutedEventArgs e) /* 战役 */{
             ClientFrame.Source = new Uri("/CrapeClientUI/Mission.xaml", UriKind.Relative); }

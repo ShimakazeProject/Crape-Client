@@ -53,7 +53,12 @@ namespace Crape_Client.CrapeClientCore.Config
                     public static string DataContext { set; get; }
                 }
             }
-            public class Show { public static Thickness Margin { set; get; } }
+            public class Show {
+                public static double Left { set; get; }
+                public static double Top { set; get; }
+                public static double Width { set; get; }
+                public static double Height { set; get; }
+            }
         }
     }
 }

@@ -158,7 +158,9 @@ namespace Crape_Client.CrapeClientCore
 
         public ArrayList SectionList { get { return List; } }
 
+#pragma warning disable IDE0051 // 删除未使用的私有成员
         private bool SectionExists(string SectionName)
+#pragma warning restore IDE0051 // 删除未使用的私有成员
         {
             foreach (IniSection ISec in List)
             {
