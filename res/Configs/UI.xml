@@ -18,14 +18,6 @@
             Content="退出" DataContext="Exit"/>
 		</Menu>
 		<Show Left="200" Top="5" Width="790" Height="590"/><!--Frame 位置-->
-		<Path><!--背景设置-->
-			<Brush StartPoint="0,0" EndPoint="1,0"><!--LinearGradientBrush-->
-				<GradientStop Color="#CC150738" Offset="0"/>
-                <GradientStop Color="#CC150738" Offset="0.2"/>
-                <GradientStop Color="#9929223A" Offset="0.5"/>
-                <GradientStop Color="#442B2833" Offset="1"/>
-			</Brush>
-		</Path>
 	</MainWindow>
 </UIconfig>
 <!-- 
