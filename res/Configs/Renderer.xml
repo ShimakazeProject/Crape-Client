@@ -14,4 +14,11 @@
   </Renderer>
   <Renderer Name="DDRAWCompat" Dll="ddrawcompat.dll"/>
   <Renderer Name="DDWrapper" Dll="ddwrapper.dll"/>
+  <!--以下内容是从 战网(RA2OL) 挖出来的..不保证可用-->
+  <Renderer Name="DDraw-Master" Dll="ddraw_mas.dll"/>
+  <Renderer Name="nazoul-DDRAW" Dll="nazoul_ddraw.dll"/>
+  <Renderer Name="TS-DDRAW-GDI" Dll="ts-ddraw_gdi.dll"/>
+  <Renderer Name="TS-DDRAW-OpenGL" Dll="ts-ddraw_opengl.dll"/>
+  <Renderer Name="DDRAWCompatTS" Dll="ddrawcompatTS.dll"/>
+  <Renderer Name="CNCDDRAW" Dll="cncddraw.dll"/>
 </Renderers>
