@@ -48,13 +48,17 @@ namespace Crape_Client.CrapeClientUI
 
         void Renderer()
         {
+            string renderer = Ra2md.Video.Renderer();
             cbRenderer.Items.Add(NoneName);
+            cbRenderer.SelectedIndex = 0;
             Initialization.Config.Renderer[] renderers = Global.RendererList.ToArray();
             int a = renderers.Length;
             for (int i = 0; i < a; i++)
             {
                 cbRenderer.Items.Add(renderers[i].Name);
+                if (renderer == renderers[i].Name) cbRenderer.SelectedIndex = i + 1;
             }
+
         }
 
 
@@ -183,7 +187,9 @@ namespace Crape_Client.CrapeClientUI
 
         private void CbRenderer_DropDownClosed(object sender, EventArgs e)
         {
-            if((string)cbRenderer.SelectionBoxItem == NoneName)
+            string Selet = (string)cbRenderer.SelectionBoxItem;
+            Ra2md.Video.Renderer(Selet);
+            if (Selet == NoneName)
             {
                 CrapeClientCore.Renderer.Clear();
                 return;
@@ -193,7 +199,7 @@ namespace Crape_Client.CrapeClientUI
             int a = renderers.Length;
             for (int i = 0; i < a; i++)
             {
-                if ((string)cbRenderer.SelectionBoxItem == renderers[i].Name)
+                if (Selet == renderers[i].Name)
                 {
                     CrapeClientCore.Renderer.RendererSet(renderers[i]);
                 }

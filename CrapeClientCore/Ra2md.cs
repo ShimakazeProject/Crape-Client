@@ -152,6 +152,14 @@ namespace Crape_Client.CrapeClientCore
             public static int ScreenHeight(){
                 return IniIO.Oint("Video", "ScreenHeight");
             }
+            public static void Renderer(string Value)
+            {
+                IniIO.I("Video", "Renderer", Value);
+            }
+            public static string Renderer()
+            {
+                return IniIO.Ostring("Video", "Renderer");
+            }
         }
         public class MultiPlayer // 多人游戏设置
         {
