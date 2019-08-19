@@ -10,13 +10,9 @@ namespace Crape_Client
     class App: Application
     {
         public static Application application = new Application();
-
-        [STAThread]
-        static void Main()
+        [STAThread] static void Main()
         {
-
             // 定义Application对象作为整个应用程序入口  
-
             application.Resources = new ResourceDictionary // 添加资源字典
             {
                 Source = new Uri("Style.xaml", UriKind.Relative)
@@ -28,19 +24,14 @@ namespace Crape_Client
             try
             {
                 application.Run();// 启动程序
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 Nlog.logger.Fatal(e.Message);
                 Nlog.logger.Fatal(e.Source);
                 Nlog.logger.Fatal(e.TargetSite);
                 Nlog.ErrorBoxShow(e);
             }
-            
-
-
         }
-
-
-
     }
 }

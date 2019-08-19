@@ -13,11 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Crape_Client;
 using Crape_Client.CrapeClientCore;
 using Crape_Client.CrapeClientCore.Config;
 
-namespace Crape_Client
+namespace Crape_Client.CrapeClientUI
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
