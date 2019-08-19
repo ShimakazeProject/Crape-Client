@@ -108,7 +108,7 @@ namespace Crape_Client.Initialization
                 }
             }
         }
-        public static void MissionConfigAnalyze()
+        public Mission()
         {
             IniSection[] SectionList = (IniSection[])Global.MissionConfig.SectionList.ToArray(typeof(IniSection));
             if (SectionList.Length < 1) return;

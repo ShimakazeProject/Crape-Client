@@ -14,7 +14,7 @@ namespace Crape_Client.Initialization
 {
     class MainWindow
     {
-        public static void MainWindowInit()
+        public MainWindow()
         {
             XmlDocument xml = new XmlDocument();
             try

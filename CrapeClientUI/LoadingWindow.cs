@@ -183,13 +183,13 @@ namespace Crape_Client.CrapeClientUI
             {
                 Text = "Over\nInitializing Mission List......",
             });
-            Initialization.Mission.MissionConfigAnalyze();// 初始化列表
+            new Mission();// 初始化列表
             //Status.Text = "初始化GUI";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
                 Text = "Over\nInitializing GUI...............",
             });
-            Initialization.MainWindow.MainWindowInit();
+            new MainWindow();
             //Status.Text = "初始化完成";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
