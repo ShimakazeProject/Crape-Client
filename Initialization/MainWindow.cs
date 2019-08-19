@@ -19,7 +19,7 @@ namespace Crape_Client.Initialization
             XmlDocument xml = new XmlDocument();
             try
             {
-                xml.Load(Global.LocalPath + Global.ConfigsDir + "UI.xml");
+                xml.Load(Global.ConfigsDir + "UI.xml");
             }
             catch (XmlException e)
             {
@@ -28,9 +28,6 @@ namespace Crape_Client.Initialization
                 Nlog.logger.Error("TargetSite : " + e.TargetSite);
                 Nlog.ErrorBoxShow(e);
             }
-            //XmlNode root = xml.SelectSingleNode("UIconfig");
-            // 获取节点列表
-            //XmlNodeList xnl = root.ChildNodes;
             #region 主菜单
             XmlElement mainwindow = (XmlElement)xml.SelectSingleNode("UIconfig/MainWindow");
             UIconfig.MainWindow.Height = Convert.ToDouble(mainwindow.GetAttribute("Height"));
@@ -90,16 +87,7 @@ namespace Crape_Client.Initialization
             UIconfig.MainWindow.Show.Top = Convert.ToDouble(show.GetAttribute("Top"));
             UIconfig.MainWindow.Show.Width = Convert.ToDouble(show.GetAttribute("Width"));
             UIconfig.MainWindow.Show.Height = Convert.ToDouble(show.GetAttribute("Height"));
-            /*
-            foreach (XmlNode xn in xnl)
-            {
-                UIconfig sc = new UIconfig();
-                XmlElement xe = (XmlElement)xn;
-                sc.Id = xe.GetAttribute("Id");
-                sc.Name = xe.GetAttribute("Name");
-                sc.Summary = xe.GetAttribute("Summary");
 
-            }//*/
         }
 
     }

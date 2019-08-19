@@ -169,8 +169,8 @@ namespace Crape_Client.CrapeClientUI
             });
             new Renderer();
 
-            Global.MissionConfig.LoadFromFile(Global.LocalPath + Global.ConfigsDir + "Missions.ini");
-            Global.MainConfig.LoadFromFile(Global.LocalPath + Global.ConfigsDir + "Config.conf");
+            Global.MissionConfig.LoadFromFile(Global.ConfigsDir + "Missions.ini");
+            Global.MainConfig.LoadFromFile(Global.ConfigsDir + "Config.conf");
             Global.Ra2mdConf.LoadFromFile(Global.LocalPath + "ra2md.ini");
             //Status.Text = "初始化存档列表";
             Status.Inlines.Add(new System.Windows.Documents.Run

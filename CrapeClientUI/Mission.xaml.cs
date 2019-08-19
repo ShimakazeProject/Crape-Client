@@ -26,7 +26,7 @@ namespace Crape_Client.CrapeClientUI
         public Mission()
         {
             InitializeComponent();
-            sDifficulty.Value = Ra2md.Options.Difficulty();
+            sDifficulty.Value = Ra2md.Options.Difficulty;
             DataGridInit(Init.NameList.Side0.ToArray(), Init.SectionNameList.Side0.ToArray(), 0);
             DataGridInit(Init.NameList.Side1.ToArray(), Init.SectionNameList.Side1.ToArray(), 1);
             DataGridInit(Init.NameList.Side2.ToArray(), Init.SectionNameList.Side2.ToArray(), 2);
@@ -48,7 +48,7 @@ namespace Crape_Client.CrapeClientUI
                 {
                     dgMissionSeleted.Items.Add(new MissionList
                     {
-                        Ico = File.ReadAllBytes(Global.LocalPath + Global.ImagesDir + "Side" + Side.ToString() + ".png"),
+                        Ico = File.ReadAllBytes(Global.ImagesDir + "Side" + Side.ToString() + ".png"),
                         Name = MissionName[i],
                         OriginalName = IdName[i],
                     });
@@ -114,7 +114,7 @@ namespace Crape_Client.CrapeClientUI
         private void Difficulty(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             int Value = (int)sDifficulty.Value;
-            Ra2md.Options.Difficulty(Value);
+            Ra2md.Options.Difficulty=Value;
             sDifficulty.Value = Value;
         }
     }

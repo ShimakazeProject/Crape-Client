@@ -118,19 +118,19 @@ namespace Crape_Client.Initialization
                 Global.MissionConfig.WriteValue(
                     SectionList[i].SectionName
                     , "Name"
-                    , IniIO.ReadValue(
+                    , IniIO.Readvalue(
                         SectionList[i].SectionName
                         , "Name"
-                        , Global.LocalPath + Global.ConfigsDir + "Missions.ini"
+                        , Global.ConfigsDir + "Missions.ini"
                         )
                     );
                 Global.MissionConfig.WriteValue(
                     SectionList[i].SectionName
                     , "Summary"
-                    , IniIO.ReadValue(
+                    , IniIO.Readvalue(
                         SectionList[i].SectionName
                         , "Summary"
-                        , Global.LocalPath + Global.ConfigsDir + "Missions.ini"
+                        , Global.ConfigsDir + "Missions.ini"
                         )
                     );
                 #endregion

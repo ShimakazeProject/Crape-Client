@@ -17,7 +17,7 @@ namespace Crape_Client.Initialization
         #region 存档
         public static void SavesListInit()
         {
-            DirectoryInfo folder = new DirectoryInfo(Global.LocalPath + Global.SavesDir);
+            DirectoryInfo folder = new DirectoryInfo(Global.SavesDir);
             try
             {
                 foreach (FileInfo file in folder.GetFiles("*.sav"))
