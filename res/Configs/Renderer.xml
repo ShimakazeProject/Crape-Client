@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Renderers>
+  <Renderer Name="IE-DDRAW" Dll="ie_ddraw.dll">
+    <File>wined3d.dll</File>
+    <File>libwine.dll</File>
+  </Renderer>
+  <Renderer Name="TS-DDRAW" Dll="ts_ddraw.dll"/>
+  <Renderer Name="TS-DDRAW-2" Dll="ddraw2.dll">
+    <File>ddraw2.ini</File>
+  </Renderer>
+  <Renderer Name="DXWND" Dll="ddraw_dxwnd.dll">
+    <File>dxwnd.dll</File>
+    <File>dxwnd.ini</File>
+  </Renderer>
+  <Renderer Name="DDRAWCompat" Dll="ddrawcompat.dll"/>
+  <Renderer Name="DDWrapper" Dll="ddwrapper.dll"/>
+</Renderers>

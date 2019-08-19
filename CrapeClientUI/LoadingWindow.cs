@@ -89,7 +89,7 @@ namespace Crape_Client.CrapeClientUI
             };
             Logo.Children.Add(text2);
             Logo.Children.Add(text1);
-
+            // 著作权信息
             TextBlock Copyright = new TextBlock();
             Canvas.SetLeft(Copyright, 20);
             Canvas.SetBottom(Copyright, 10);
@@ -106,12 +106,12 @@ namespace Crape_Client.CrapeClientUI
             });
             Copyright.Inlines.Add(new System.Windows.Documents.Run
             {
-                Text = "Copyright © 2019 Crape STAFF,\n",
+                Text = "Copyright © 2019 Crape Studio,\n",
                 FontSize = 9
             });
             Copyright.Inlines.Add(new System.Windows.Documents.Run
             {
-                Text = "\t\tAll Rights Reserved.\n",
+                Text = "\tAll Rights Reserved.\n",
                 FontSize = 9
             });
             // 状态信息文字块
@@ -122,10 +122,12 @@ namespace Crape_Client.CrapeClientUI
             Canvas.SetLeft(Status, 30);
             Canvas.SetTop(Status, 70);
             Status.Width = Width - 60;
+
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
-                Text = "正在初始化...\nIs Initializing",
+                Text = "Initialization Will Start.",//正在初始化...\n
             });
+
             // ----
             Canvas.Children.Add(path);
             Canvas.Children.Add(image);
@@ -134,21 +136,65 @@ namespace Crape_Client.CrapeClientUI
             Canvas.Children.Add(Status);
             Window.Content = Canvas;// 用户区设置
             Window.Show();// 显示窗口
-            // --------
-            Status.Text = "正在准备初始化";
-            Status.Text = "初始化日志系统";
+                          // --------
+            #region 
+            System.Threading.Thread.Sleep(300);
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = ".",
+            });
+            
+            System.Threading.Thread.Sleep(300);
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = ".",
+            });
+            System.Threading.Thread.Sleep(300);
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = ".",
+            });
+            System.Threading.Thread.Sleep(300);
+            #endregion
+            //Status.Text = "初始化日志系统";
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = "\nInitializing Logger System.....",
+            });
             Nlog.NLogInit();
-            Status.Text = "初始化首选项";
+            //Status.Text = "初始化首选项";
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = "Over\nInitializing Settings..........",
+            });
+            new Renderer();
+
             Global.MissionConfig.LoadFromFile(Global.LocalPath + Global.ConfigsDir + "Missions.ini");
             Global.MainConfig.LoadFromFile(Global.LocalPath + Global.ConfigsDir + "Config.conf");
             Global.Ra2mdConf.LoadFromFile(Global.LocalPath + "ra2md.ini");
-            Status.Text = "初始化存档列表";
+            //Status.Text = "初始化存档列表";
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = "Over\nInitializing Saved List........",
+            });
             SavedList.SavesListInit();
-            Status.Text = "初始化任务列表";
+            // Status.Text = "初始化任务列表";
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = "Over\nInitializing Mission List......",
+            });
             Initialization.Mission.MissionConfigAnalyze();// 初始化列表
-            Status.Text = "初始化GUI";
+            //Status.Text = "初始化GUI";
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = "Over\nInitializing GUI...............",
+            });
             Initialization.MainWindow.MainWindowInit();
-            Status.Text = "初始化完成";
+            //Status.Text = "初始化完成";
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = "Over\nInitialization Is Over.",
+            });
             System.Threading.Thread.Sleep(1000);
 
             //MainWindow MainWindow = new MainWindow();

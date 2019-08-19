@@ -21,6 +21,9 @@ namespace Crape_Client.CrapeClientUI
     /// </summary>
     public partial class Settings : Page
     {
+
+        string NoneName = "None";
+
         public Settings()
         {
             InitializeComponent();
@@ -40,7 +43,21 @@ namespace Crape_Client.CrapeClientUI
             cbToolTips.IsChecked = Ra2md.Options.ToolTips();
             tbHandle.Text = Ra2md.MultiPlayer.Handle();
             sScrollRate.Value = 6 - Ra2md.Options.ScrollRate();
+            Renderer();
         }
+
+        void Renderer()
+        {
+            cbRenderer.Items.Add(NoneName);
+            Initialization.Config.Renderer[] renderers = Global.RendererList.ToArray();
+            int a = renderers.Length;
+            for (int i = 0; i < a; i++)
+            {
+                cbRenderer.Items.Add(renderers[i].Name);
+            }
+        }
+
+
         #region 设置
         private void MusicSet(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -162,6 +179,26 @@ namespace Crape_Client.CrapeClientUI
             int Value = 6 - (int)sScrollRate.Value;
             Ra2md.Options.ScrollRate(Value);
             sScrollRate.Value = 6 - Value;
+        }
+
+        private void CbRenderer_DropDownClosed(object sender, EventArgs e)
+        {
+            if((string)cbRenderer.SelectionBoxItem == NoneName)
+            {
+                CrapeClientCore.Renderer.Clear();
+                return;
+            }
+
+            Initialization.Config.Renderer[] renderers = Global.RendererList.ToArray();
+            int a = renderers.Length;
+            for (int i = 0; i < a; i++)
+            {
+                if ((string)cbRenderer.SelectionBoxItem == renderers[i].Name)
+                {
+                    CrapeClientCore.Renderer.RendererSet(renderers[i]);
+                }
+            }
+
         }
     }
 }

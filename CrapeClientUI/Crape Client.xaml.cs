@@ -26,8 +26,6 @@ namespace Crape_Client
     {
         public MainWindow()
         {
-            //Initialization.LoadingWindow loadingWindow = new Initialization.LoadingWindow();
-            //loadingWindow.LoadWindowInit();
             InitializeComponent();
             // 设置窗口
             this.Height = UIconfig.MainWindow.Height;
@@ -81,7 +79,7 @@ namespace Crape_Client
             Canvas.SetLeft(ClientFrame, UIconfig.MainWindow.Show.Left);
             ClientFrame.Height = UIconfig.MainWindow.Show.Height;
             ClientFrame.Width = UIconfig.MainWindow.Show.Width;
-            //*/
+
         }
 
 

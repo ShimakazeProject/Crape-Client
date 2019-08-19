@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Icon="/Crape Client;component/Resource/Crape.ico" 
         ResizeMode="NoResize" >
-    <Border CornerRadius="4" Background="#00302C3A" Name="mainback">
+    <Border CornerRadius="4" Background="Transparent" Name="mainback">
         <Grid>
             <Path Stroke="Transparent" StrokeThickness="1">
                     <Path.Fill>

@@ -34,7 +34,7 @@ namespace Crape_Client.CrapeClientCore
         /// <summary>
         /// SPAWN.INI Path
         /// </summary>
-        public String SpawnPath;//= AppDomain.CurrentDomain.BaseDirectory+"spawn.ini";
+        public string SpawnPath { set; get; }//= AppDomain.CurrentDomain.BaseDirectory+"spawn.ini";
         // 
         public Other Other1 = new Other();
         public Other Other2 = new Other();
@@ -58,9 +58,15 @@ namespace Crape_Client.CrapeClientCore
         public HouseColorsA HouseColors = new HouseColorsA();
         public HouseHandicapsA HouseHandicaps = new HouseHandicapsA();
         public TunnelA Tunnel = new TunnelA();
-
+        /// <summary>
+        /// 自定义spawn.ini地址构造函数
+        /// </summary>
+        /// <param name="IniPath">spawn.ini地址</param>
         public Spawn(string IniPath) { SpawnPath = IniPath; }
-        public Spawn() { SpawnPath = AppDomain.CurrentDomain.BaseDirectory + "spawn.ini"; }
+        /// <summary>
+        /// 构造函数 SpawnPath = Global.LocalPath + "spawn.ini"
+        /// </summary>
+        public Spawn() { SpawnPath = Global.LocalPath + "spawn.ini"; }
         /// <summary>
         /// writer the spawn.ini
         /// </summary>
@@ -428,14 +434,10 @@ namespace Crape_Client.CrapeClientCore
             fs.Close();
         }
         /// <summary>
-        /// 库版本
+        /// 类版本
         /// </summary>
-        /// <returns>库版本信息</returns>
-        public static string Version()
-        {
-            return "1.0.0.80";//"20190715-19:30";
-        }
-
+        /// <returns>最后编辑日期</returns>
+        public static string Version { get { return "20190818"; } }//"20190818";
         #region Settings
 
         /// <summary>
@@ -443,47 +445,47 @@ namespace Crape_Client.CrapeClientCore
         /// </summary>
         public class SettingsA // locale settings
         {
-            public Byte? UnitCount;// 初始单位数量
-            public Byte? GameSpeed;// 游戏速度控制 0-6
-            public Byte? TechLevel;// 科技等级1-10
-            public Byte? AIPlayers;// AI玩家数量
-            public Byte? AIDifficulty;// AI难度
-            public Byte? Side;// 作战方-国家
-            public Byte? Color;// 作战方所属颜色
-            public Byte? DifficultyModeComputer;// 计算机难度模式
-            public Byte? DifficultyModeHuman;// 人类难度模式
-            public Byte? PlayerCount;// 游戏者数量
-            public Byte? GameMode;// 游戏模式
-            public UInt32? Credits;// 初始资金
-            public UInt64? GameID;// 游戏ID--?
-            public UInt64? Seed;// --?
-            public Int64? Port;// --?
-            public Boolean? ShortGame;// 快速游戏
-            public Boolean? Creates;// 升级工具箱
-            public Boolean? AlliesAllowed;// 允许游戏中结萌
-            public Boolean? MultiEngineer;// 多位攻城狮
-            public Boolean? MCVRedeploy;// MCV可重新部署
-            public Boolean? FogOfWar;// 启用战争迷雾 注:战争迷雾不同于黑幕..战争迷雾透光
-            public Boolean? BridgeDestroy;// 桥梁可被破坏
-            public Boolean? AutoDeployMCV;// 自动部署MCV--?
-            public Boolean? SkipScoreScreen;// 跳过评分屏
-            public Boolean? IsSinglePlayer;// 是单人游戏
-            public Boolean? Firestorm;// 火风暴--?
-            public Boolean? BuildOffAlly;// 可在萌友旁建造
-            public Boolean? IsSpectator;// 是T.E.O.T.S.Y.
-            public Boolean? Bases;// 基地--?
-            public Boolean? SidebarHack;// 边栏hack--?
-            public Boolean? Host;// 是主机
-            public Boolean? Superweapons;// 炒鸡武器
-            public Boolean? AttackNeutralUnits;// 攻击中立单位
-            public Boolean? LoadSaveGame;// 是否加载已储存游戏
-            public String Scenario;// 设置场景(游戏地图文件)
-            public String Name;// 游戏者名
-            public String CustomLoadScreen;// 加载自定义载入画面--?
-            public String UIGameMode;// 
-            public String UIMapName;//
-            public String MapHash;//
-            public String SaveGameName;// 要加载的以保存的存档名
+            public Byte? UnitCount{ set; get; }// 初始单位数量
+            public Byte? GameSpeed{ set; get; }// 游戏速度控制 0-6
+            public Byte? TechLevel{ set; get; }// 科技等级1-10
+            public Byte? AIPlayers{ set; get; }// AI玩家数量
+            public Byte? AIDifficulty{ set; get; }// AI难度
+            public Byte? Side{ set; get; }// 作战方-国家
+            public Byte? Color{ set; get; }// 作战方所属颜色
+            public Byte? DifficultyModeComputer{ set; get; }// 计算机难度模式
+            public Byte? DifficultyModeHuman{ set; get; }// 人类难度模式
+            public Byte? PlayerCount{ set; get; }// 游戏者数量
+            public Byte? GameMode{ set; get; }// 游戏模式
+            public UInt32? Credits{ set; get; }// 初始资金
+            public UInt64? GameID{ set; get; }// 游戏ID--?
+            public UInt64? Seed{ set; get; }// --?
+            public Int64? Port{ set; get; }// --?
+            public Boolean? ShortGame{ set; get; }// 快速游戏
+            public Boolean? Creates{ set; get; }// 升级工具箱
+            public Boolean? AlliesAllowed{ set; get; }// 允许游戏中结萌
+            public Boolean? MultiEngineer{ set; get; }// 多位攻城狮
+            public Boolean? MCVRedeploy{ set; get; }// MCV可重新部署
+            public Boolean? FogOfWar{ set; get; }// 启用战争迷雾 注:战争迷雾不同于黑幕..战争迷雾透光
+            public Boolean? BridgeDestroy{ set; get; }// 桥梁可被破坏
+            public Boolean? AutoDeployMCV{ set; get; }// 自动部署MCV--?
+            public Boolean? SkipScoreScreen{ set; get; }// 跳过评分屏
+            public Boolean? IsSinglePlayer{ set; get; }// 是单人游戏
+            public Boolean? Firestorm{ set; get; }// 火风暴--?
+            public Boolean? BuildOffAlly{ set; get; }// 可在萌友旁建造
+            public Boolean? IsSpectator{ set; get; }// 是T.E.O.T.S.Y.
+            public Boolean? Bases{ set; get; }// 基地--?
+            public Boolean? SidebarHack{ set; get; }// 边栏hack--?
+            public Boolean? Host{ set; get; }// 是主机
+            public Boolean? Superweapons{ set; get; }// 炒鸡武器
+            public Boolean? AttackNeutralUnits{ set; get; }// 攻击中立单位
+            public Boolean? LoadSaveGame{ set; get; }// 是否加载已储存游戏
+            public String Scenario{ set; get; }// 设置场景(游戏地图文件)
+            public String Name{ set; get; }// 游戏者名
+            public String CustomLoadScreen{ set; get; }// 加载自定义载入画面--?
+            public String UIGameMode{ set; get; }// 
+            public String UIMapName{ set; get; }//
+            public String MapHash{ set; get; }//
+            public String SaveGameName{ set; get; }// 要加载的以保存的存档名
 
         }
         /// <summary>
@@ -491,59 +493,59 @@ namespace Crape_Client.CrapeClientCore
         /// </summary>
         public class SpawnLocationsA // spawn set
         {
-            public Byte? Multi1;
-            public Byte? Multi2;
-            public Byte? Multi3;
-            public Byte? Multi4;
-            public Byte? Multi5;
-            public Byte? Multi6;
-            public Byte? Multi7;
-            public Byte? Multi8;
+            public Byte? Multi1{ set; get; }
+            public Byte? Multi2{ set; get; }
+            public Byte? Multi3{ set; get; }
+            public Byte? Multi4{ set; get; }
+            public Byte? Multi5{ set; get; }
+            public Byte? Multi6{ set; get; }
+            public Byte? Multi7{ set; get; }
+            public Byte? Multi8{ set; get; }
         }
         /// <summary>
         /// AI 国家设定
         /// </summary>
         public class HouseCountriesA // AI countrie set
         {
-            public Byte? Multi2;
-            public Byte? Multi3;
-            public Byte? Multi4;
-            public Byte? Multi5;
-            public Byte? Multi6;
-            public Byte? Multi7;
-            public Byte? Multi8;
+            public Byte? Multi2{ set; get; }
+            public Byte? Multi3{ set; get; }
+            public Byte? Multi4{ set; get; }
+            public Byte? Multi5{ set; get; }
+            public Byte? Multi6{ set; get; }
+            public Byte? Multi7{ set; get; }
+            public Byte? Multi8{ set; get; }
         }
         /// <summary>
         /// AI 颜色设置
         /// </summary>
         public class HouseColorsA // AI colour set
         {
-            public Byte? Multi2;
-            public Byte? Multi3;
-            public Byte? Multi4;
-            public Byte? Multi5;
-            public Byte? Multi6;
-            public Byte? Multi7;
-            public Byte? Multi8;
+            public Byte? Multi2{ set; get; }
+            public Byte? Multi3{ set; get; }
+            public Byte? Multi4{ set; get; }
+            public Byte? Multi5{ set; get; }
+            public Byte? Multi6{ set; get; }
+            public Byte? Multi7{ set; get; }
+            public Byte? Multi8{ set; get; }
         }
         /// <summary>
         /// AI 困难设置
         /// </summary>
         public class HouseHandicapsA // AI Handicaps
         {
-            public Byte? Multi2;
-            public Byte? Multi3;
-            public Byte? Multi4;
-            public Byte? Multi5;
-            public Byte? Multi6;
-            public Byte? Multi7;
-            public Byte? Multi8;
+            public Byte? Multi2{ set; get; }
+            public Byte? Multi3{ set; get; }
+            public Byte? Multi4{ set; get; }
+            public Byte? Multi5{ set; get; }
+            public Byte? Multi6{ set; get; }
+            public Byte? Multi7{ set; get; }
+            public Byte? Multi8{ set; get; }
         }
         public class TunnelA // servers config
         {
-            public Boolean HaveTunnel; 
-            public String Ip;
-            public UInt16 Port;
+            public Boolean HaveTunnel{ set; get; } 
+            public String Ip{ set; get; }
+            public UInt16 Port{ set; get; }
 
         }
         /// <summary>
@@ -551,27 +553,31 @@ namespace Crape_Client.CrapeClientCore
         /// </summary>
         public class Other // Other*
         {
-            public Boolean a; // is include
-            public String Name;
-            public Byte? Side;
-            public Boolean? IsSpectator;
-            public Byte? Color;
-            public String Ip = "0.0.0.0";
-            public Int64? Port;
+            public Boolean a{ set; get; } // is include
+            public String Name{ set; get; }
+            public Byte? Side{ set; get; }
+            public Boolean? IsSpectator{ set; get; }
+            public Byte? Color{ set; get; }
+            public String Ip{ set; get; }
+            public Int64? Port{ set; get; }
+            public Other() {
+                Ip = "0.0.0.0";
+            }
+            
         }
         /// <summary>
         /// 玩家结盟设置
         /// </summary>
         public class Alliances // Multi*_Alliances
         {
-            public Boolean a; // is include
-            public Byte? HouseAllyOne;
-            public Byte? HouseAllyTwe;
-            public Byte? HouseAllyThree;
-            public Byte? HouseAllyFour;
-            public Byte? HouseAllyFive;
-            public Byte? HouseAllySix;
-            public Byte? HouseAllySeven;
+            public Boolean a{ set; get; } // is include
+            public Byte? HouseAllyOne{ set; get; }
+            public Byte? HouseAllyTwe{ set; get; }
+            public Byte? HouseAllyThree{ set; get; }
+            public Byte? HouseAllyFour{ set; get; }
+            public Byte? HouseAllyFive{ set; get; }
+            public Byte? HouseAllySix{ set; get; }
+            public Byte? HouseAllySeven{ set; get; }
         }
         #endregion
 

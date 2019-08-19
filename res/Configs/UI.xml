@@ -14,7 +14,7 @@
 			<Settings Left="-32" Top="210" Width="210" Height="60" 
                 Content="设置" DataContext="Settings"/>
 			
-			<Exit Left="-32" Bottom="10" Width="210" Height="60" 
+			<Exit Left="-32" Bottom="5" Width="210" Height="60" 
             Content="退出" DataContext="Exit"/>
 		</Menu>
 		<Show Left="200" Top="5" Width="790" Height="590"/><!--Frame 位置-->

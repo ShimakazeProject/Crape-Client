@@ -52,11 +52,11 @@
                                     <ComboBoxItem Content="High" Tag="2"/>
                                 </ComboBox>
                                 <Label Content="渲染器" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="15" Canvas.Top="64"/>
-                                <ComboBox HorizontalAlignment="Left" 
+                                <ComboBox x:Name="cbRenderer" HorizontalAlignment="Left" 
                                           VerticalAlignment="Top" 
                                           Width="100" Height="24" 
                                           Canvas.Left="80" Canvas.Top="64" 
-                                          Style="{StaticResource ComboBox}" IsReadOnly="True"/>
+                                          Style="{StaticResource ComboBox}" IsReadOnly="True" DropDownClosed="CbRenderer_DropDownClosed"/>
                                 <!--
                                 <Label Content="客户端分辨率" HorizontalAlignment="Left" Foreground="#fff" VerticalAlignment="Top" Canvas.Left="235" Canvas.Top="10"/>
                                 <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="24" Canvas.Left="322" Canvas.Top="10" Style="{StaticResource ComboBox}"/>

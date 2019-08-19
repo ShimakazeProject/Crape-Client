@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Sides>
-  <Side Id="0" Name="第一阵营" Icon="Side0">
-    <Summary>这是一个第一阵营..在原版中这个位置是美国</Summary>
+  <Side Id="0" Name="美国" Icon="Side3">
+    <Summary>这是一个介绍</Summary>
   </Side>
-  <Side Id="1" Name="第二阵营" Icon="Side1">
-    <Summary>这是一个第二阵营..在原版中这个位置是韩国</Summary>
+  <Side Id="1" Name="韩国" Icon="Side3">
+    <Summary>这是一个介绍</Summary>
+  </Side>
+  <Side Id="2" Name="法国" Icon="Side3">
+    <Summary>这是一个介绍</Summary>
+  </Side>
+  <Side Id="3" Name="德国" Icon="Side3">
+    <Summary>这是一个介绍</Summary>
+  </Side>
+  <Side Id="4" Name="英国" Icon="Side3">
+    <Summary>这是一个介绍</Summary>
+  </Side>
+  <Side Id="5" Name="利比亚" Icon="Side3">
+    <Summary>这是一个介绍</Summary>
+  </Side>
+  <Side Id="6" Name="伊拉克" Icon="Side3">
+    <Summary>这是一个介绍</Summary>
+  </Side>
+  <Side Id="7" Name="古巴" Icon="Side3">
+      <Summary>这是一个介绍</Summary>
+  </Side>
+  <Side Id="8" Name="苏俄" Icon="Side3">
+      <Summary>这是一个介绍</Summary>
+  </Side>
+  <Side Id="9" Name="尤里" Icon="Side3">
+      <Summary>这是一个介绍</Summary>
   </Side>
 </Sides>
