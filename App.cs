@@ -10,6 +10,7 @@ namespace Crape_Client
     class App: Application
     {
         public static Application application = new Application();
+        
         [STAThread] static void Main()
         {
             // 定义Application对象作为整个应用程序入口  
@@ -21,17 +22,8 @@ namespace Crape_Client
             application.StartupUri = new Uri("/CrapeClientUI/Crape Client.xaml", UriKind.Relative);// 设定启动窗口URI
             CrapeClientUI.LoadingWindow loadingWindow = new CrapeClientUI.LoadingWindow();// 实例化初始化窗口
             loadingWindow.LoadWindowInit();// 激活初始化窗口实例
-            try
-            {
-                application.Run();// 启动程序
-            }
-            catch (Exception e)
-            {
-                Nlog.logger.Fatal(e.Message);
-                Nlog.logger.Fatal(e.Source);
-                Nlog.logger.Fatal(e.TargetSite);
-                Nlog.ErrorBoxShow(e);
-            }
+            application.Run();// 启动程序
+
         }
     }
 }

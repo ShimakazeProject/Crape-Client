@@ -33,11 +33,8 @@ namespace Crape_Client.CrapeClientUI
                 }
             }catch(Exception e)
             {
-                Nlog.logger.Fatal("Unknow Error:");
-                Nlog.logger.Debug("Message : " + e.Message);
-                Nlog.logger.Debug("Source : " + e.Source);
-                Nlog.logger.Debug("TargetSite : " + e.TargetSite);
-                Nlog.ErrorBoxShow(e);
+                Global.LogMGR.Error(e);
+                Global.LogMGR.ErrorBoxShow();
             }
 
             

@@ -32,7 +32,7 @@ namespace Crape_Client.CrapeClientUI
         public Skirmish()
         {
             InitializeComponent();
-            HostName.Text = Ra2md.MultiPlayer.Handle();
+            HostName.Text = Ra2md.MultiPlayer.Handle;
 
 
 

@@ -21,9 +21,9 @@ namespace Crape_Client.CrapeClientUI
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow
+    public partial class CrapeMain
     {
-        public MainWindow()
+        public CrapeMain()
         {
             InitializeComponent();
             // 设置窗口

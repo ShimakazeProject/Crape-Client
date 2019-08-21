@@ -19,7 +19,7 @@ namespace Crape_Client
         public static List<Initialization.Config.Renderer> RendererList { set; get; }// 存档列表读取
         #endregion
 
-
+        public static LogMGR LogMGR { set; get; }
 
         public static string NoSummary { get { return "这个任务没有简报"; } }
 
@@ -30,6 +30,8 @@ namespace Crape_Client
         public static string ConfigsDir { get { return ResourceDir + @"Configs\"; } }// 配置文件位置
         public static string ImagesDir { get { return ResourceDir + @"Images\"; } } // 图像资源位置
         public static string DdrawDir { get { return ResourceDir + @"Renderer\"; } }
+
+        public static string LogPath { get { return LocalPath + @"Debug\Crape Client.log"; } }
         static Global()
         {
             MissionConfig = new MemIniFile();

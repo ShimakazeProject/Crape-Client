@@ -21,7 +21,7 @@ namespace Crape_Client
                 return NameString;
             }catch(Exception e)
             {
-                Nlog.logger.Fatal(e.ToString());
+                Global.LogMGR.Error(e);
                 return null;
             }
         }

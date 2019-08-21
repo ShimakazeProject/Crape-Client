@@ -17,17 +17,12 @@ namespace Crape_Client.Initialization
         public MainWindow()
         {
             XmlDocument xml = new XmlDocument();
-            try
-            {
-                xml.Load(Global.ConfigsDir + "UI.xml");
-            }
-            catch (XmlException e)
-            {
-                Nlog.logger.Error("Message : " + e.Message);
-                Nlog.logger.Error("Source : " + e.Source);
-                Nlog.logger.Error("TargetSite : " + e.TargetSite);
-                Nlog.ErrorBoxShow(e);
-            }
+            //try{
+                xml.Load(Global.ConfigsDir + "MainWindow.xml");
+            /*}catch (XmlException e){
+                Global.LogMGR.Error(e);
+                Global.LogMGR.ErrorBoxShow();
+            }//*/
             #region 主菜单
             XmlElement mainwindow = (XmlElement)xml.SelectSingleNode("UIconfig/MainWindow");
             UIconfig.MainWindow.Height = Convert.ToDouble(mainwindow.GetAttribute("Height"));

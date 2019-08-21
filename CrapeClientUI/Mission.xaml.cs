@@ -55,8 +55,8 @@ namespace Crape_Client.CrapeClientUI
                 }
                 catch (FileNotFoundException e)// 找不到Ico文件抛出的异常
                 {
-                    Nlog.logger.Info(e.Message);
-                    // Nlog.logger.Debug("Cannot Found Side" + Side.ToString() + ".png");
+                    Global.LogMGR.Info(e.Message);
+                    // Global.LogMGR.Debug("Cannot Found Side" + Side.ToString() + ".png");
                     dgMissionSeleted.Items.Add(new MissionList
                     {
                         Ico = null,
@@ -66,11 +66,8 @@ namespace Crape_Client.CrapeClientUI
                 }
                 catch(Exception e)// 不知名异常
                 {
-                    Nlog.logger.Fatal("Unknow Error:");
-                    Nlog.logger.Debug("Message : " + e.Message);
-                    Nlog.logger.Debug("Source : " + e.Source);
-                    Nlog.logger.Debug("TargetSite : " + e.TargetSite);
-                    Nlog.ErrorBoxShow(e);
+                    Global.LogMGR.Error(e);
+                    Global.LogMGR.ErrorBoxShow();
                 }
             }
         }

@@ -21,9 +21,7 @@ namespace Crape_Client.CrapeClientCore
             File.Delete(Global.LocalPath + "libwine.dll");
             }
             catch (Exception e) {
-                Nlog.logger.Error(e.Message);
-                Nlog.logger.Error(e.Source);
-                Nlog.logger.Error(e.TargetSite);
+                Global.LogMGR.Error(e);
                 return; }
         }
         static void Copy(string a, string b)// 封装函数
@@ -34,18 +32,13 @@ namespace Crape_Client.CrapeClientCore
             }
             catch (FileNotFoundException e)
             {
-                Nlog.logger.Fatal(e.Message);
-                Nlog.logger.Fatal(e.Source);
-                Nlog.logger.Fatal(e.TargetSite);
-                Nlog.logger.Fatal(e.FileName);
-                Nlog.ErrorBoxShow(e);
+                Global.LogMGR.Fatal(e);
+
+
             }
             catch (Exception e)
             {
-                Nlog.logger.Fatal(e.Message);
-                Nlog.logger.Fatal(e.Source);
-                Nlog.logger.Fatal(e.TargetSite);
-                Nlog.ErrorBoxShow(e);
+                Global.LogMGR.Fatal(e);
             }
 
         }
@@ -70,42 +63,3 @@ namespace Crape_Client.CrapeClientCore
         }
     }
 }
-/*        #region
-
-        public static void TS_DDRAW_2()
-        {
-            Clear();
-            Copy("ddraw2.dll", "ddraw.dll");
-            Copy("ddraw2.ini", "ddraw2.ini");
-        }
-        public static void DXWND()
-        {
-            Clear();
-            Copy("dxwnd.dll", "dxwnd.dll");
-            Copy("dxwnd.ini", "dxwnd.ini");
-            Copy("ddraw_dxwnd.dll", "ddraw.dll");
-        }
-        public static void TS_DDRAW()
-        {
-            Clear();
-            Copy("ts_ddraw.dll", "ddraw.dll");
-        }
-        public static void DdrawCompat()
-        {
-            Clear();
-            Copy("ddrawcompat.dll", "ddraw.dll");
-        }
-        public static void DDWrapper()
-        {
-            Clear();
-            Copy("ddwrapper.dll", "ddraw.dll");
-        }
-        public static void IE_DDRAW()
-        {
-            Clear();
-            Copy("ie_ddraw.dll", "ddraw.dll");
-            Copy("wined3d.dll", "wined3d.dll");
-            Copy("libwine.dll", "libwine.dll");
-        }
-        #endregion
-*/

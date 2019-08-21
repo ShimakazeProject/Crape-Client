@@ -15,10 +15,8 @@ namespace Crape_Client.Initialization// 命名空间定义
             }
             catch (XmlException e)// 异常处理
             {
-                Nlog.logger.Error("Message : " + e.Message);
-                Nlog.logger.Error("Source : " + e.Source);
-                Nlog.logger.Error("TargetSite : " + e.TargetSite);
-                Nlog.ErrorBoxShow(e);
+                Global.LogMGR.Error(e);
+                Global.LogMGR.ErrorBoxShow();
             }
             XmlNode Root = RendererXml.SelectSingleNode("Renderers");// 获取 Root 节点
             XmlNodeList NodeList = Root.ChildNodes;// 获取节点列表

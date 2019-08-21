@@ -13,9 +13,9 @@ namespace Crape_Client.CrapeClientCore
     {
         #region screenInfo
         static Rectangle rect = System.Windows.Forms.Screen.PrimaryScreen.Bounds;//保存当前屏幕分辨率
-        static int j = rect.Width; //宽（像素）
-        static int i = rect.Height; //高（像素）
-        static int b = System.Windows.Forms.Screen.PrimaryScreen.BitsPerPixel;//BitsPerPixel
+        static readonly int j = rect.Width; //宽（像素）
+        static readonly int i = rect.Height; //高（像素）
+        static readonly int b = System.Windows.Forms.Screen.PrimaryScreen.BitsPerPixel;//BitsPerPixel
         #endregion
         #region dll
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]public struct DEVMODE
@@ -54,8 +54,10 @@ namespace Crape_Client.CrapeClientCore
         #endregion
         public static void ChangeRes()
         {
-            DEVMODE DevM = new DEVMODE();
-            DevM.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
+            DEVMODE DevM = new DEVMODE
+            {
+                dmSize = (short)Marshal.SizeOf(typeof(DEVMODE))
+            };
             EnumDisplaySettings(null, 0, ref DevM);
             DevM.dmPelsWidth = j;
             DevM.dmPelsHeight = i;
@@ -64,17 +66,19 @@ namespace Crape_Client.CrapeClientCore
             int result = ChangeDisplaySettings(ref DevM, 0);
             if (result != 0)
             {
-                Nlog.logger.Error("SetBitsPerPixel     ChangeDisplaySettings Returned:" + result.ToString() 
-                    + "\r\n\t Width:" + j.ToString() 
-                    + "\r\n\tHeight:" + i.ToString() 
-                    + "\r\n\t  Bits:" + b.ToString());
+                Global.LogMGR.Error("SetBitsPerPixel     ChangeDisplaySettings Returned:" + result.ToString());
+                Global.LogMGR.NoTimeMsg("\t Width: " + j.ToString());
+                Global.LogMGR.NoTimeMsg("\tHeight: " + i.ToString());
+                Global.LogMGR.NoTimeMsg("\t  Bits: " + b.ToString());
             }
             //long result = ChangeDisplaySettings(ref DevM, 0);
         }
         public static void DisChangeRes()
         {
-            DEVMODE DevM = new DEVMODE();
-            DevM.dmSize = (short)Marshal.SizeOf(typeof(DEVMODE));
+            DEVMODE DevM = new DEVMODE
+            {
+                dmSize = (short)Marshal.SizeOf(typeof(DEVMODE))
+            };
             EnumDisplaySettings(null, 0, ref DevM);
             DevM.dmPelsWidth = j;
             DevM.dmPelsHeight = i;
@@ -83,10 +87,10 @@ namespace Crape_Client.CrapeClientCore
             long result = ChangeDisplaySettings(ref DevM, 0);
             if (result != 0)
             {
-                Nlog.logger.Error("RestoreBitsPerPixel ChangeDisplaySettings Returned:" + result.ToString()
-                    + "\r\n\t Width:" + j.ToString()
-                    + "\r\n\tHeight:" + i.ToString()
-                    + "\r\n\t  Bits:" + b.ToString());
+                Global.LogMGR.Error("RestoreBitsPerPixel ChangeDisplaySettings Returned:" + result.ToString());
+                Global.LogMGR.NoTimeMsg("\t Width: " + j.ToString());
+                Global.LogMGR.NoTimeMsg("\tHeight: " + i.ToString());
+                Global.LogMGR.NoTimeMsg("\t  Bits: " + b.ToString());
             }
         }
     }

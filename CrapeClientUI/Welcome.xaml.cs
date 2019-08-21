@@ -23,6 +23,9 @@ namespace Crape_Client.CrapeClientUI
         public Welcome()
         {
             InitializeComponent();
+            image.Source = new System.Windows.Media.Imaging.BitmapImage(
+                new Uri(Global.ImagesDir + "Welcome.png",
+                UriKind.RelativeOrAbsolute));
         }
     }
 }

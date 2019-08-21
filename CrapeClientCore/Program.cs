@@ -22,17 +22,13 @@ namespace Crape_Client.CrapeClientCore
                 }
                 catch (NullReferenceException e)
                 {
-                    Nlog.logger.Error("Message : " + e.Message);
-                    Nlog.logger.Error("Source : " + e.Source);
-                    Nlog.logger.Error("TargetSite : " + e.TargetSite);
+                    Global.LogMGR.Error(e);
                     return Global.NoSummary;
                 }
                 catch (Exception e)
                 {
-                    Nlog.logger.Error("Message : " + e.Message);
-                    Nlog.logger.Error("Source : " + e.Source);
-                    Nlog.logger.Error("TargetSite : " + e.TargetSite);
-                    Nlog.ErrorBoxShow(e);
+                    Global.LogMGR.Error(e);
+                    Global.LogMGR.ErrorBoxShow();
                     return null;
                 }
             }
@@ -60,32 +56,33 @@ namespace Crape_Client.CrapeClientCore
             }
             catch(System.ComponentModel.Win32Exception E)
             {
-                Nlog.logger.Fatal(E.ToString());
-                Nlog.logger.Fatal("Cannot Start Syringe :" + Global.LocalPath + gamemd + command);
+                Global.LogMGR.Fatal(E);
+                Global.LogMGR.NoTimeMsg("Cannot Start Syringe :" + Global.LocalPath + gamemd + command);
                 System.IO.DirectoryInfo folder = new System.IO.DirectoryInfo(Global.LocalPath);
-                Nlog.logger.Info("---Search Executable Programs in RunDirectory---");
+                Global.LogMGR.NoTimeMsg("---Search Executable Programs in RunDirectory---");
                 try
                 {
                     foreach (System.IO.FileInfo file in folder.GetFiles("*.exe"))
                     {
-                        Nlog.logger.Info("Find " + file.Name);
+                        Global.LogMGR.NoTimeMsg("Find " + file.Name);
                     }
-                    Nlog.logger.Info("---End Search ---");
+                    Global.LogMGR.NoTimeMsg("---End Search ---");
                 }
                 catch(ArgumentNullException e)
                 {
-                    Nlog.logger.Error("Cannot Finded Any Executable Programs ! \r\n\tGame Install is NOT TRUE!");
-                    Nlog.logger.Error(e.ToString());
+                    Global.LogMGR.Error(e);
+                    Global.LogMGR.NoTimeMsg("Cannot Finded Any Executable Programs ! \r\n\tGame Install is NOT TRUE!");
                 }
                 catch(System.Security.SecurityException e)
                 {
-                    Nlog.logger.Error("Permission needs to be improved ! ");
-                    Nlog.logger.Error(e.ToString());
+                    Global.LogMGR.Error(e);
+                    Global.LogMGR.NoTimeMsg("Permission needs to be improved ! ");
+
                 }
             }
             catch (Exception e)
             {
-                Nlog.logger.Error(e.ToString());
+                Global.LogMGR.Error(e.ToString());
                 return;
             }
         }

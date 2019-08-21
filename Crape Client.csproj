@@ -86,9 +86,6 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>packages\NLog.4.6.6\lib\net45\NLog.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -117,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="CrapeClientCore\LogMGR.cs" />
     <Compile Include="CrapeClientCore\Renderer.cs" />
     <Compile Include="Initialization\Config\Renderer.cs" />
     <Compile Include="Initialization\Config\Side.cs" />
@@ -208,7 +206,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrapeClientCore\NLog.cs" />
     <Compile Include="CrapeClientUI\LoadSaveGames.xaml.cs">
       <DependentUpon>LoadSaveGames.xaml</DependentUpon>
     </Compile>
@@ -248,7 +245,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

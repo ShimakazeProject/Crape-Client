@@ -15,7 +15,7 @@ namespace Crape_Client.Initialization
     class SavedList
     {
         #region 存档
-        public static void SavesListInit()
+        public SavedList()
         {
             DirectoryInfo folder = new DirectoryInfo(Global.SavesDir);
             try
@@ -33,7 +33,7 @@ namespace Crape_Client.Initialization
             }
             catch (DirectoryNotFoundException e)
             {
-                Nlog.logger.Info(e.Message);
+                Global.LogMGR.Info(e.Message);
                 Global.SaveFilesList.Add(new Cls_SaveFiles
                 {
                     Name = "没有发现可用存档",

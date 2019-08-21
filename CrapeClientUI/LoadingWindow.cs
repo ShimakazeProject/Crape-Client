@@ -161,7 +161,8 @@ namespace Crape_Client.CrapeClientUI
             {
                 Text = "\nInitializing Logger System.....",
             });
-            Nlog.NLogInit();
+            Global.LogMGR = new CrapeClientCore.LogMGR();
+
             //Status.Text = "初始化首选项";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
@@ -177,7 +178,7 @@ namespace Crape_Client.CrapeClientUI
             {
                 Text = "Over\nInitializing Saved List........",
             });
-            SavedList.SavesListInit();
+            new SavedList();
             // Status.Text = "初始化任务列表";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
