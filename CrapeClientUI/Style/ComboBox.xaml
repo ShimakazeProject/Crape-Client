@@ -52,10 +52,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Back" Property="Background" Value="LightGray" />
+                            <Setter TargetName="Back" Property="Background" Value="#77777777" />
                         </Trigger>
                         <Trigger Property="IsHighlighted" Value="True">
-                            <Setter TargetName="Back" Property="Background" Value="LightGray" />
+                            <Setter TargetName="Back" Property="Background" Value="#77777777" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -73,7 +73,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
                     <Border
-                        Background="#20000000"
+                        Background="#50000000"
                         BorderBrush="Transparent"
                         CornerRadius="1">
                         <Grid>
@@ -128,7 +128,7 @@
                                         VerticalScrollBarVisibility="Auto">
                                         <!--  StackPanel 用于显示子级，方法是将 IsItemsHost 设置为 True  -->
                                         <StackPanel
-                                            Background="#30777777"
+                                            Background="#50777777"
                                             IsItemsHost="True"
                                             KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>
@@ -182,7 +182,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
                     <Border
-                        Background="#20000000"
+                        Background="#50000000"
                         BorderBrush="Transparent"
                         CornerRadius="1">
                         <Grid>
