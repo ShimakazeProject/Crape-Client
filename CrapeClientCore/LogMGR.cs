@@ -12,11 +12,12 @@ namespace Crape_Client.CrapeClientCore
     {
         private readonly TextWriter tw;
         const string ErrorMessage =
-            "        Crape Client has encountered an Internal Error\n" +
-            "             and is unable to continue normally.\n\n" +
+            "            Crape Client has encountered an Internal Error\n" +
+            "                  and is unable to continue normally.\n\n" +
             "Please Visit our website at https://github.com/frg2089/Crape-Client" + "\n" +
-            "               Or Mail To frg2089@foxmail.com\n" +
-            "             for the latest updates and technical.";
+            "                   Or Mail To frg2089@foxmail.com\n" +
+            "                for the latest updates and technical.";
+        const string ErrorTitle = "Internal Error!";
         public LogMGR(string LogPath)// 构造函数
         {
             tw = new StreamWriter(LogPath, true); //true在文件末尾添加数据
@@ -61,7 +62,7 @@ namespace Crape_Client.CrapeClientCore
                 "\nTargetSite\t: " + e.TargetSite +
                 "\nMessage\t: " + e.Message +
                 "\nSource\t: " + e.Source 
-                , "Fatal Error!");
+                , ErrorTitle);
             Environment.Exit(0);
         }
         public void Error(string Msg){// 错误
@@ -81,8 +82,8 @@ namespace Crape_Client.CrapeClientCore
         }
         public void ErrorBoxShow()
         {
-            System.Windows.MessageBox.Show(ErrorMessage, "Internal Error!");
-            App.application.Shutdown();
+            System.Windows.MessageBox.Show(ErrorMessage, ErrorTitle);
+            //App.application.Shutdown();
         }
 
         public void Warn(string Msg){// 警告

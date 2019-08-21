@@ -22,8 +22,7 @@ namespace Crape_Client.CrapeClientUI
         static readonly double Height = 400;
         static readonly double Left = 200;
         static readonly double FontSize = 28;
-        [STAThread]
-        public void LoadWindowInit()
+        [STAThread] public void LoadWindowInit()
         {
             // 主窗口创建
             Window.Title = "Crape Client 初始化";
@@ -125,7 +124,7 @@ namespace Crape_Client.CrapeClientUI
 
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
-                Text = "Initialization Will Start.",//正在初始化...\n
+                Text = "Initialization.",//正在初始化...\n
             });
 
             // ----
@@ -162,7 +161,6 @@ namespace Crape_Client.CrapeClientUI
                 Text = "\nInitializing Logger System.....",
             });
             Global.LogMGR = new CrapeClientCore.LogMGR();
-
             //Status.Text = "初始化首选项";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
@@ -179,6 +177,7 @@ namespace Crape_Client.CrapeClientUI
                 Text = "Over\nInitializing Saved List........",
             });
             new SavedList();
+            new ColorInit();
             // Status.Text = "初始化任务列表";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
@@ -197,9 +196,6 @@ namespace Crape_Client.CrapeClientUI
                 Text = "Over\nInitialization Is Over.",
             });
             System.Threading.Thread.Sleep(1000);
-
-            //MainWindow MainWindow = new MainWindow();
-            //MainWindow.Show();
             Window.Close();
         }
 

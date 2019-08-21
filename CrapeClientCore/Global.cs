@@ -15,6 +15,7 @@ namespace Crape_Client
         public static MemIniFile Ra2mdConf { set; get; }
         #region 初始化配置信息
         public static List<SideInit.SideModel> Sides { set; get; }// 阵营信息初始化
+        public static List<Initialization.Config.Color> Colors { set; get; }// 颜色信息初始化
         public static List<Cls_SaveFiles> SaveFilesList { set; get; }// 存档列表读取
         public static List<Initialization.Config.Renderer> RendererList { set; get; }// 存档列表读取
         #endregion
@@ -41,6 +42,7 @@ namespace Crape_Client
             RendererList = new List<Initialization.Config.Renderer>();
             SaveFilesList = new List<Cls_SaveFiles>();
             Sides = new List<SideInit.SideModel>();
+            Colors= new List<Initialization.Config.Color>();
         }
     }
 

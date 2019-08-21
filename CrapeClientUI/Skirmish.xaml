@@ -1,10 +1,9 @@
 ﻿<Page x:Class="Crape_Client.CrapeClientUI.Skirmish"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Crape_Client.CrapeClientUI"
-      mc:Ignorable="d"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" Initialized="Page_Initialized"
       Title="Skirmish" Height="600" Width="800" VerticalAlignment="Top" HorizontalAlignment="Left">
     <!--#region 遭遇战-->
     <Border x:Name="遭遇战">
@@ -23,13 +22,12 @@
                                        Margin="0,5,0,0"
                                        VerticalAlignment="Top" Background="{x:Null}" 
                                        HorizontalAlignment="Right" Width="120"/>
-                            <TextBox x:Name="HostName"
+                            <TextBox x:Name="HostName" IsReadOnly="True" Foreground="#FF4FFFFF"
                                      Height="25" Width="120" TextWrapping="Wrap" 
                                      Margin="0,5,0,0" VerticalAlignment="Top" 
                                      HorizontalAlignment="Right"/>
                             <ComboBox x:Name="O1n"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                      Foreground="#FFA6A6A6"
                                       Margin="0,5,0,0"
                                       VerticalAlignment="Top" Background="{x:Null}" 
                                       SelectedValuePath="Id" 
@@ -39,27 +37,23 @@
                             </ComboBox>
                             <ComboBox x:Name="O2n"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
                                       Text="{Binding AIplayer}"
-                                              VerticalAlignment="Top" Background="{x:Null}" 
-                                      HorizontalAlignment="Right" Width="120"
-                                              />
+                                      VerticalAlignment="Top" Background="{x:Null}" 
+                                      HorizontalAlignment="Right" Width="120"/>
                             <ComboBox x:Name="O3n"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
                                       Text="{Binding AIplayer}"
-                                              VerticalAlignment="Top" Background="{x:Null}"
+                                      VerticalAlignment="Top" Background="{x:Null}"
                                       HorizontalAlignment="Right" Width="120"
                                               />
                             <ComboBox x:Name="O4n"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFFFFFFF"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -69,7 +63,6 @@
                                               />
                             <ComboBox x:Name="O5n"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -79,7 +72,6 @@
                                               />
                             <ComboBox x:Name="O6n"
                                        Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -89,7 +81,6 @@
                                               />
                             <ComboBox x:Name="O7n"
                                        Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -109,8 +100,7 @@
                                        HorizontalAlignment="Right" Width="100"/>
                             <ComboBox x:Name="HostSide"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
                                       Text="{Binding Side}"
@@ -119,7 +109,6 @@
                                               />
                             <ComboBox x:Name="O1s"
                                        Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -129,7 +118,6 @@
                                               />
                             <ComboBox x:Name="O2s"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -139,7 +127,6 @@
                                               />
                             <ComboBox x:Name="O3s"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -149,7 +136,6 @@
                                               />
                             <ComboBox x:Name="O4s"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFFFFFFF"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -159,7 +145,6 @@
                                               />
                             <ComboBox x:Name="O5s"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -169,7 +154,6 @@
                                               />
                             <ComboBox x:Name="O6s"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -179,7 +163,6 @@
                                               />
                             <ComboBox x:Name="O7s"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
                                       DisplayMemberPath="Text"
@@ -191,151 +174,60 @@
                         <!--Color-->
                         <StackPanel Canvas.Left="230" Width="50">
                             <TextBlock FontSize="18"
-                                             Height="25" TextWrapping="Wrap" 
-                                             Foreground="#FFA6A6A6"
-                                             Text="Color"
-                                             Margin="0,5,0,0"
-                                             VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
-
-
+                                       Height="25" TextWrapping="Wrap" 
+                                       Foreground="#FFA6A6A6"
+                                       Text="Color"
+                                       Margin="0,5,0,0"
+                                       VerticalAlignment="Top" Background="{x:Null}" 
+                                       HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="HostColor"
-                                      Height="25" Style="{StaticResource ColorComboBox}"
-
+                                      Height="25" Style="{StaticResource ComboBox}"
                                       Margin="0,5,0,0" 
                                       SelectedValuePath="Id" 
-                                      Text="{Binding Text}"
                                       VerticalAlignment="Top" Background="{x:Null}"
-                                      HorizontalAlignment="Right" Width="50" DropDownClosed="HostColorss">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Text}" 
-                                                       Foreground="{Binding Clr}"
-                                                       Tag="{Binding Id}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
-
+                                      HorizontalAlignment="Right" Width="50" DropDownClosed="HostColorss"/>
                             <ComboBox x:Name="O1c"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="{Binding Clr}"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
-                                      Text="{Binding Color}"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
-                                              >
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Rectangle Fill="{Binding Clr}" Width="16" Height="10"></Rectangle>
-                                            <TextBlock Text="{Binding Text}" Foreground="{Binding Clr}"></TextBlock>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                      VerticalAlignment="Top" Background="{x:Null}" 
+                                      HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="O2c"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="{Binding Clr}"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
-                                      Text="{Binding Color}"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
-                                              >
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Rectangle Fill="{Binding Clr}" Width="16" Height="10"></Rectangle>
-                                            <TextBlock Text="{Binding Text}" Foreground="{Binding Clr}"></TextBlock>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                      VerticalAlignment="Top" Background="{x:Null}" 
+                                      HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="O3c"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="{Binding Clr}"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
-                                      Text="{Binding Color}"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
-                                              >
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Rectangle Fill="{Binding Clr}" Width="16" Height="10"/>
-                                            <TextBlock Text="{Binding Text}" Foreground="{Binding Clr}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                      VerticalAlignment="Top" Background="{x:Null}"
+                                      HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="O4c"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="{Binding Clr}"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
-                                      Text="{Binding Color}"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
-                                              >
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Rectangle Fill="{Binding Clr}" Width="16" Height="10"></Rectangle>
-                                            <TextBlock Text="{Binding Text}" Foreground="{Binding Clr}"></TextBlock>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                      VerticalAlignment="Top" Background="{x:Null}" 
+                                      HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="O5c"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="{Binding Clr}"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
-                                      Text="{Binding Color}"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
-                                              >
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Rectangle Fill="{Binding Clr}" Width="16" Height="10"></Rectangle>
-                                            <TextBlock Text="{Binding Text}" Foreground="{Binding Clr}"></TextBlock>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                      VerticalAlignment="Top" Background="{x:Null}" 
+                                      HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="O6c"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="{Binding Clr}"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
-                                      Text="{Binding Color}"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
-                                              >
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Rectangle Fill="{Binding Clr}" Width="16" Height="10"></Rectangle>
-                                            <TextBlock Text="{Binding Text}" Foreground="{Binding Clr}"></TextBlock>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                      VerticalAlignment="Top" Background="{x:Null}" 
+                                      HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="O7c"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="{Binding Clr}"
-                                              Margin="0,5,0,0"
+                                      Margin="0,5,0,0"
                                       SelectedValuePath="Id" 
-                                      Text="{Binding Color}"
-                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
-                                              >
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Rectangle Fill="{Binding Clr}" Width="16" Height="10"></Rectangle>
-                                            <TextBlock Text="{Binding Text}" Foreground="{Binding Clr}"></TextBlock>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
+                                      VerticalAlignment="Top" Background="{x:Null}" 
+                                      HorizontalAlignment="Right" Width="50"/>
                         </StackPanel>
                         <!--Team-->
                         <StackPanel Canvas.Left="285" Width="50">
@@ -347,48 +239,40 @@
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="HostTeam"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                      Foreground="#FFA6A6A6"
                                       Margin="0,5,0,0"
                                       VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="O1t"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O2t"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O3t"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O4t"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFFFFFFF"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O5t"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O6t"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O7t"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
@@ -403,49 +287,41 @@
                                              VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"/>
                             <ComboBox x:Name="HostLoc"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O1l"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O2l"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O3l"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O4l"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFFFFFFF"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O5l"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O6l"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />
                             <ComboBox x:Name="O7l"
                                       Height="25" Style="{StaticResource ComboBox}"
-                                              Foreground="#FFA6A6A6"
                                               Margin="0,5,0,0"
                                               VerticalAlignment="Top" Background="{x:Null}" HorizontalAlignment="Right" Width="50"
                                               />

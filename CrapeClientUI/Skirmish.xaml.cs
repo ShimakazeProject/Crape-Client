@@ -33,7 +33,7 @@ namespace Crape_Client.CrapeClientUI
         {
             InitializeComponent();
             HostName.Text = Ra2md.MultiPlayer.Handle;
-
+            ColorInit();
 
 
 
@@ -57,16 +57,6 @@ namespace Crape_Client.CrapeClientUI
                 new Side{ Id=7, Text = "古巴" },
                 new Side{ Id=8, Text = "俄罗斯" },
                 new Side{ Id=9, Text = "尤理" }
-            };
-            List<Color> colorlist = new List<Color>{
-                new Color { Id = 0, Text = "黄色", Clr="#FFFF00" },
-                new Color { Id = 1, Text = "红色", Clr="#ff0000" },
-                new Color { Id = 2, Text = "蓝色", Clr="#0000ff" },
-                new Color { Id = 3, Text = "绿色", Clr="#00ff00" },
-                new Color { Id = 4, Text = "橙色", Clr="#ff9900" },
-                new Color { Id = 5, Text = "青色", Clr="#00ffff" },
-                new Color { Id = 6, Text = "紫色", Clr="#9900ff" },
-                new Color { Id = 7, Text = "粉色", Clr="#ff00ff" }
             };
             List<string> teamlist = new List<string>{
                 "-"
@@ -95,13 +85,7 @@ namespace Crape_Client.CrapeClientUI
             O5n.ItemsSource = namelist;
             O6n.ItemsSource = namelist;
             O7n.ItemsSource = namelist;
-            O1n.SelectedIndex = 0;
-            O2n.SelectedIndex = 0;
-            O3n.SelectedIndex = 0;
-            O4n.SelectedIndex = 0;
-            O5n.SelectedIndex = 0;
-            O6n.SelectedIndex = 0;
-            O7n.SelectedIndex = 0;
+
 
             // 阵营
             HostSide.ItemsSource = sidelist;
@@ -112,15 +96,8 @@ namespace Crape_Client.CrapeClientUI
             O5s.ItemsSource = sidelist;
             O6s.ItemsSource = sidelist;
             O7s.ItemsSource = sidelist;
-            HostSide.SelectedIndex = 0;
-            O1s.SelectedIndex = 0;
-            O2s.SelectedIndex = 0;
-            O3s.SelectedIndex = 0;
-            O4s.SelectedIndex = 0;
-            O5s.SelectedIndex = 0;
-            O6s.SelectedIndex = 0;
-            O7s.SelectedIndex = 0;
 
+            /*
             HostColor.ItemsSource = colorlist;
             O1c.ItemsSource = colorlist;
             O2c.ItemsSource = colorlist;
@@ -129,7 +106,7 @@ namespace Crape_Client.CrapeClientUI
             O5c.ItemsSource = colorlist;
             O6c.ItemsSource = colorlist;
             O7c.ItemsSource = colorlist;
-
+            //*/
             HostLoc.ItemsSource = locallist;
             O1l.ItemsSource = locallist;
             O2l.ItemsSource = locallist;
@@ -148,6 +125,74 @@ namespace Crape_Client.CrapeClientUI
             O6t.ItemsSource = teamlist;
             O7t.ItemsSource = teamlist;
         }
+
+        void ColorInit()
+        {
+            //Global.Colors
+            Initialization.Config.Color[] colors = Global.Colors.ToArray();
+            for (int i=0;i< colors.Length; i++)
+            {
+                HostColor.Items.Add(new ComboBoxItem()
+                {
+                    Tag = colors[i].Id,
+                    Content = colors[i].Name,
+                    Foreground = colors[i].Value
+                });
+                O1c.Items.Add(new ComboBoxItem()
+                {
+                    Tag = colors[i].Id,
+                    Content = colors[i].Name,
+                    Foreground = colors[i].Value
+                });
+                O2c.Items.Add(new ComboBoxItem()
+                {
+                    Tag = colors[i].Id,
+                    Content = colors[i].Name,
+                    Foreground = colors[i].Value
+                });
+                O3c.Items.Add(new ComboBoxItem()
+                {
+                    Tag = colors[i].Id,
+                    Content = colors[i].Name,
+                    Foreground = colors[i].Value
+                });
+                O4c.Items.Add(new ComboBoxItem()
+                {
+                    Tag = colors[i].Id,
+                    Content = colors[i].Name,
+                    Foreground = colors[i].Value
+                });
+                O5c.Items.Add(new ComboBoxItem()
+                {
+                    Tag = colors[i].Id,
+                    Content = colors[i].Name,
+                    Foreground = colors[i].Value
+                });
+                O6c.Items.Add(new ComboBoxItem()
+                {
+                    Tag = colors[i].Id,
+                    Content = colors[i].Name,
+                    Foreground = colors[i].Value
+                });
+                O7c.Items.Add(new ComboBoxItem()
+                {
+                    Tag = colors[i].Id,
+                    Content = colors[i].Name,
+                    Foreground = colors[i].Value
+                });
+            }
+
+            /*
+        O1c.Items.Add(item);
+        O2c.Items.Add(item);
+        O3c.Items.Add(item);
+        O4c.Items.Add(item);
+        O5c.Items.Add(item);
+        O6c.Items.Add(item);
+        O7c.Items.Add(item);//*/
+        }
+
+
         class AIplayer
         {
             public int Id { get; set; }
@@ -159,13 +204,25 @@ namespace Crape_Client.CrapeClientUI
             public string Text { get; set; }
             public string Ico { get; set; }
         }
-        class Color
-        {
-            public int Id { get; set; }
-            public string Text { get; set; }
-            public string Clr { get; set; }
-        }
 
+        private void Page_Initialized(object sender, EventArgs e)
+        {
+            O1n.SelectedIndex = 0;
+            O2n.SelectedIndex = 0;
+            O3n.SelectedIndex = 0;
+            O4n.SelectedIndex = 0;
+            O5n.SelectedIndex = 0;
+            O6n.SelectedIndex = 0;
+            O7n.SelectedIndex = 0;
+            HostSide.SelectedIndex = 0;
+            O1s.SelectedIndex = 0;
+            O2s.SelectedIndex = 0;
+            O3s.SelectedIndex = 0;
+            O4s.SelectedIndex = 0;
+            O5s.SelectedIndex = 0;
+            O6s.SelectedIndex = 0;
+            O7s.SelectedIndex = 0;
+        }
 
 
 
@@ -179,13 +236,13 @@ namespace Crape_Client.CrapeClientUI
                 "Text：" + aIplayer.Text + "\n\n" +
                 "SelectedIndex: " + O1n.SelectedIndex.ToString());
         }
+
         private void HostColorss(object sender, EventArgs e)
         {
-            Color color = HostColor.SelectedItem as Color;
+            ComboBoxItem Item = HostColor.SelectedItem as ComboBoxItem;
             MessageBox.Show(
-                "Id：" + color.Id + "\n" +
-                "Text：" + color.Text + "\n" +
-                "Color：" + color.Clr + "\n" +
+                "Id：" + ((uint)Item.Tag).ToString() + "\n" +
+                "Text：" + Item.Content + "\n" +
                 "SelectedIndex: " + HostColor.SelectedIndex.ToString());
         }
         private void RunGame(object sender, RoutedEventArgs e)
@@ -211,39 +268,39 @@ namespace Crape_Client.CrapeClientUI
 
 
             spawn.Settings.Name = HostName.Text;
-            spawn.Settings.Color = Convert.ToByte(HostColor.Tag.ToString());
-            spawn.Settings.Side = Convert.ToByte(HostSide.Tag.ToString());
-            spawn.SpawnLocations.Multi1= Convert.ToByte(HostLoc.Tag.ToString());
+            spawn.Settings.Color = (byte)HostColor.Tag;
+            spawn.Settings.Side = (byte)HostSide.Tag;
+            spawn.SpawnLocations.Multi1= (byte)HostLoc.Tag;
 
             // 这是遭遇战全部AI的配置
-            spawn.HouseColors.Multi2 = Convert.ToByte(O1c.Tag.ToString());
-            spawn.HouseHandicaps.Multi2 = Convert.ToByte(O1n.Tag.ToString());
-            spawn.HouseCountries.Multi2 = Convert.ToByte(O1s.Tag.ToString());
-            spawn.SpawnLocations.Multi2 = Convert.ToByte(O1l.Tag.ToString());
-            spawn.HouseColors.Multi3 = Convert.ToByte(O2c.Tag.ToString());
-            spawn.HouseHandicaps.Multi3 = Convert.ToByte(O2n.Tag.ToString());
-            spawn.HouseCountries.Multi3 = Convert.ToByte(O2s.Tag.ToString());
-            spawn.SpawnLocations.Multi3 = Convert.ToByte(O2l.Tag.ToString());
-            spawn.HouseColors.Multi4 = Convert.ToByte(O3c.Tag.ToString());
-            spawn.HouseHandicaps.Multi4 = Convert.ToByte(O3n.Tag.ToString());
-            spawn.HouseCountries.Multi4 = Convert.ToByte(O3s.Tag.ToString());
-            spawn.SpawnLocations.Multi4 = Convert.ToByte(O3l.Tag.ToString());
-            spawn.HouseColors.Multi5 = Convert.ToByte(O4c.Tag.ToString());
-            spawn.HouseHandicaps.Multi5 = Convert.ToByte(O4n.Tag.ToString());
-            spawn.HouseCountries.Multi5 = Convert.ToByte(O4s.Tag.ToString());
-            spawn.SpawnLocations.Multi5 = Convert.ToByte(O4l.Tag.ToString());
-            spawn.HouseColors.Multi6 = Convert.ToByte(O5c.Tag.ToString());
-            spawn.HouseHandicaps.Multi6 = Convert.ToByte(O5n.Tag.ToString());
-            spawn.HouseCountries.Multi6 = Convert.ToByte(O5s.Tag.ToString());
-            spawn.SpawnLocations.Multi6 = Convert.ToByte(O5l.Tag.ToString());
-            spawn.HouseColors.Multi7 = Convert.ToByte(O6c.Tag.ToString());
-            spawn.HouseHandicaps.Multi7 = Convert.ToByte(O6n.Tag.ToString());
-            spawn.HouseCountries.Multi7 = Convert.ToByte(O6s.Tag.ToString());
-            spawn.SpawnLocations.Multi7 = Convert.ToByte(O6l.Tag.ToString());
-            spawn.HouseColors.Multi8 = Convert.ToByte(O7c.Tag.ToString());
-            spawn.HouseHandicaps.Multi8 = Convert.ToByte(O7n.Tag.ToString());
-            spawn.HouseCountries.Multi8 = Convert.ToByte(O7s.Tag.ToString());
-            spawn.SpawnLocations.Multi8 = Convert.ToByte(O7l.Tag.ToString());
+            spawn.HouseColors.Multi2 = (byte)O1c.Tag;
+            spawn.HouseHandicaps.Multi2 = (byte)O1n.Tag;
+            spawn.HouseCountries.Multi2 = (byte)O1s.Tag;
+            spawn.SpawnLocations.Multi2 = (byte)O1l.Tag;
+            spawn.HouseColors.Multi3 = (byte)O2c.Tag;
+            spawn.HouseHandicaps.Multi3 = (byte)O2n.Tag;
+            spawn.HouseCountries.Multi3 = (byte)O2s.Tag;
+            spawn.SpawnLocations.Multi3 = (byte)O2l.Tag;
+            spawn.HouseColors.Multi4 = (byte)O3c.Tag;
+            spawn.HouseHandicaps.Multi4 = (byte)O3n.Tag;
+            spawn.HouseCountries.Multi4 = (byte)O3s.Tag;
+            spawn.SpawnLocations.Multi4 = (byte)O3l.Tag;
+            spawn.HouseColors.Multi5 = (byte)O4c.Tag;
+            spawn.HouseHandicaps.Multi5 = (byte)O4n.Tag;
+            spawn.HouseCountries.Multi5 = (byte)O4s.Tag;
+            spawn.SpawnLocations.Multi5 = (byte)O4l.Tag;
+            spawn.HouseColors.Multi6 = (byte)O5c.Tag;
+            spawn.HouseHandicaps.Multi6 = (byte)O5n.Tag;
+            spawn.HouseCountries.Multi6 = (byte)O5s.Tag;
+            spawn.SpawnLocations.Multi6 = (byte)O5l.Tag;
+            spawn.HouseColors.Multi7 = (byte)O6c.Tag;
+            spawn.HouseHandicaps.Multi7 = (byte)O6n.Tag;
+            spawn.HouseCountries.Multi7 = (byte)O6s.Tag;
+            spawn.SpawnLocations.Multi7 = (byte)O6l.Tag;
+            spawn.HouseColors.Multi8 = (byte)O7c.Tag;
+            spawn.HouseHandicaps.Multi8 = (byte)O7n.Tag;
+            spawn.HouseCountries.Multi8 = (byte)O7s.Tag;
+            spawn.SpawnLocations.Multi8 = (byte)O7l.Tag;
             TeamSet(HostTeam, 1);
             TeamSet(O1t, 2);
             TeamSet(O2t, 3);

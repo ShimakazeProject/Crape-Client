@@ -116,6 +116,8 @@
     <Compile Include="App.cs" />
     <Compile Include="CrapeClientCore\LogMGR.cs" />
     <Compile Include="CrapeClientCore\Renderer.cs" />
+    <Compile Include="Initialization\ColorInit.cs" />
+    <Compile Include="Initialization\Config\Color.cs" />
     <Compile Include="Initialization\Config\Renderer.cs" />
     <Compile Include="Initialization\Config\Side.cs" />
     <Compile Include="Initialization\Config\UIconfig.cs" />
