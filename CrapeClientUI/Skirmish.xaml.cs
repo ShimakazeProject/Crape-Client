@@ -33,6 +33,7 @@ namespace Crape_Client.CrapeClientUI
         {
             InitializeComponent();
             HostName.Text = Ra2md.MultiPlayer.Handle;
+            SideInit();
             ColorInit();
 
 
@@ -43,21 +44,7 @@ namespace Crape_Client.CrapeClientUI
                 ,new AIplayer{ Id=1, Text = "中等"}
                 ,new AIplayer{ Id=0, Text = "困难"}
             };
-            List<Side> sidelist = new List<Side>{
-                new Side{ Id=-1, Text = "随机" },
-                new Side{ Id=-2, Text = "随机萌军" },
-                new Side{ Id=-3, Text = "随机酥联" },
-                new Side{ Id=0, Text = "美国" },
-                new Side{ Id=1, Text = "韩国" },
-                new Side{ Id=2, Text = "法国" },
-                new Side{ Id=3, Text = "德国" },
-                new Side{ Id=4, Text = "英国" },
-                new Side{ Id=5, Text = "伊拉克" },
-                new Side{ Id=6, Text = "利比亚" },
-                new Side{ Id=7, Text = "古巴" },
-                new Side{ Id=8, Text = "俄罗斯" },
-                new Side{ Id=9, Text = "尤理" }
-            };
+
             List<string> teamlist = new List<string>{
                 "-"
                 ,"A"
@@ -86,27 +73,6 @@ namespace Crape_Client.CrapeClientUI
             O6n.ItemsSource = namelist;
             O7n.ItemsSource = namelist;
 
-
-            // 阵营
-            HostSide.ItemsSource = sidelist;
-            O1s.ItemsSource = sidelist;
-            O2s.ItemsSource = sidelist;
-            O3s.ItemsSource = sidelist;
-            O4s.ItemsSource = sidelist;
-            O5s.ItemsSource = sidelist;
-            O6s.ItemsSource = sidelist;
-            O7s.ItemsSource = sidelist;
-
-            /*
-            HostColor.ItemsSource = colorlist;
-            O1c.ItemsSource = colorlist;
-            O2c.ItemsSource = colorlist;
-            O3c.ItemsSource = colorlist;
-            O4c.ItemsSource = colorlist;
-            O5c.ItemsSource = colorlist;
-            O6c.ItemsSource = colorlist;
-            O7c.ItemsSource = colorlist;
-            //*/
             HostLoc.ItemsSource = locallist;
             O1l.ItemsSource = locallist;
             O2l.ItemsSource = locallist;
@@ -181,28 +147,166 @@ namespace Crape_Client.CrapeClientUI
                     Foreground = colors[i].Value
                 });
             }
-
-            /*
-        O1c.Items.Add(item);
-        O2c.Items.Add(item);
-        O3c.Items.Add(item);
-        O4c.Items.Add(item);
-        O5c.Items.Add(item);
-        O6c.Items.Add(item);
-        O7c.Items.Add(item);//*/
         }
+        void SideInit()
+        {
 
+
+
+            List<Brush> Colors = new List<Brush>();
+
+            Initialization.Config.Side[] sides = Global.Sides.ToArray();
+            Initialization.Config.SideList[] list = Global.SidesPlus.ToArray();
+            HostSide.Items.Add(new ComboBoxItem()
+            {
+                Tag = -1,
+                Content = "随机"
+            });
+            O1s.Items.Add(new ComboBoxItem()
+            {
+                Tag =-1,
+                Content = "随机"
+            });
+            O2s.Items.Add(new ComboBoxItem()
+            {
+                Tag =-1,
+                Content = "随机"
+            });
+            O3s.Items.Add(new ComboBoxItem()
+            {
+                Tag =-1,
+                Content = "随机"
+            });
+            O4s.Items.Add(new ComboBoxItem()
+            {
+                Tag =-1,
+                Content = "随机"
+            });
+            O5s.Items.Add(new ComboBoxItem()
+            {
+                Tag =-1,
+                Content = "随机"
+            });
+            O6s.Items.Add(new ComboBoxItem()
+            {
+                Tag =-1,
+                Content = "随机"
+            });
+            O7s.Items.Add(new ComboBoxItem()
+            {
+                Tag =-1,
+                Content = "随机"
+            });
+            for (int i = 0; i < list.Length; i++)
+            {
+                Colors.Add(list[i].Color);
+                HostSide.Items.Add(new ComboBoxItem()
+                {
+                    Tag = -2 - list[i].Id,
+                    Content = list[i].Name,
+                    Foreground = list[i].Color
+                });
+                O1s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = -2 - list[i].Id,
+                    Content = list[i].Name,
+                    Foreground = list[i].Color
+                });
+                O2s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = -2 - list[i].Id,
+                    Content = list[i].Name,
+                    Foreground = list[i].Color
+                });
+                O3s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = -2 - list[i].Id,
+                    Content = list[i].Name,
+                    Foreground = list[i].Color
+                });
+                O4s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = -2 - list[i].Id,
+                    Content = list[i].Name,
+                    Foreground = list[i].Color
+                });
+                O5s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = -2 - list[i].Id,
+                    Content = list[i].Name,
+                    Foreground = list[i].Color
+                });
+                O6s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = -2 - list[i].Id,
+                    Content = list[i].Name,
+                    Foreground = list[i].Color
+                });
+                O7s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = -2 - list[i].Id,
+                    Content = list[i].Name,
+                    Foreground = list[i].Color
+                });
+            }
+            Brush[] Color = Colors.ToArray();
+            for (int i = 0; i < sides.Length; i++)
+            {
+                HostSide.Items.Add(new ComboBoxItem()
+                {
+                    Tag = sides[i].Id,
+                    Content = sides[i].Name,
+                    Foreground= Color[sides[i].Sides]
+                });
+                O1s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = sides[i].Id,
+                    Content = sides[i].Name,
+                    Foreground = Color[sides[i].Sides]
+                });
+                O2s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = sides[i].Id,
+                    Content = sides[i].Name,
+                    Foreground = Color[sides[i].Sides]
+                });
+                O3s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = sides[i].Id,
+                    Content = sides[i].Name,
+                    Foreground = Color[sides[i].Sides]
+                });
+                O4s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = sides[i].Id,
+                    Content = sides[i].Name,
+                    Foreground = Color[sides[i].Sides]
+                });
+                O5s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = sides[i].Id,
+                    Content = sides[i].Name,
+                    Foreground = Color[sides[i].Sides]
+                });
+                O6s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = sides[i].Id,
+                    Content = sides[i].Name,
+                    Foreground = Color[sides[i].Sides]
+                });
+                O7s.Items.Add(new ComboBoxItem()
+                {
+                    Tag = sides[i].Id,
+                    Content = sides[i].Name,
+                    Foreground = Color[sides[i].Sides]
+                });
+            }
+        }
 
         class AIplayer
         {
             public int Id { get; set; }
             public string Text { get; set; }
-        }
-        class Side
-        {
-            public int Id { get; set; }
-            public string Text { get; set; }
-            public string Ico { get; set; }
         }
 
         private void Page_Initialized(object sender, EventArgs e)
@@ -252,7 +356,7 @@ namespace Crape_Client.CrapeClientUI
             spawn.Settings.Credits = Convert.ToUInt32(Credits.Text);
             spawn.Settings.TechLevel = Convert.ToByte(TechLevel.Text);
             spawn.Settings.UnitCount = Convert.ToByte(UnitCount.Text);
-            spawn.Settings.GameSpeed = Convert.ToByte(GameSpeed.Tag);
+            spawn.Settings.GameSpeed = (byte)GameSpeed.Tag;
             spawn.Settings.ShortGame = ShortGame.IsChecked;
             spawn.Settings.MCVRedeploy = MCVRedeploy.IsChecked;
             spawn.Settings.BuildOffAlly = BuildOffAlly.IsChecked;

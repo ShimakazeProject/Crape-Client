@@ -228,7 +228,7 @@
     <Compile Include="Initialization\Mission.cs" />
     <Compile Include="Initialization\Renderer.cs" />
     <Compile Include="Initialization\SavedList.cs" />
-    <Compile Include="Initialization\Side.cs" />
+    <Compile Include="Initialization\SideInit.cs" />
     <Compile Include="Initialization\Tools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

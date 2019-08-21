@@ -178,6 +178,7 @@ namespace Crape_Client.CrapeClientUI
             });
             new SavedList();
             new ColorInit();
+            new SideInit();
             // Status.Text = "初始化任务列表";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
