@@ -24,9 +24,9 @@ namespace Crape_Client.CrapeClientCore
         }
         public LogMGR()// 构造函数
         {
-            File.WriteAllText(Global.LocalPath + @"\Debug\Crape Client.log",
+            File.WriteAllText(Crape_Client.Global.Globals.LocalPath + @"\Debug\Crape Client.log",
                 "*   -----"+ DateTime.Now.ToLongDateString() + DateTime.Now.ToLongTimeString() + "-----CC is Worked.-----\n");
-            tw = new StreamWriter(Global.LogPath, true); //true在文件末尾添加数据
+            tw = new StreamWriter(Crape_Client.Global.Globals.LogPath, true); //true在文件末尾添加数据
         }
         public void Fatal(string Msg){// 致命
             tw.WriteLine("---------+-------------------------------------------");

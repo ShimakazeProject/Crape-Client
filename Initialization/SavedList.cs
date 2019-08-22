@@ -8,7 +8,7 @@ using System.Xml;
 using System.Windows;
 using System.Drawing;
 using Crape_Client.CrapeClientCore;
-using Crape_Client.CrapeClientCore.Config;
+using Crape_Client.Global;
 
 namespace Crape_Client.Initialization
 {
@@ -17,13 +17,13 @@ namespace Crape_Client.Initialization
         #region 存档
         public SavedList()
         {
-            DirectoryInfo folder = new DirectoryInfo(Global.SavesDir);
+            DirectoryInfo folder = new DirectoryInfo(Globals.SavesDir);
             try
             {
                 foreach (FileInfo file in folder.GetFiles("*.sav"))
                 {
                     //Console.WriteLine(file.FullName);
-                    Global.SaveFilesList.Add(new Cls_SaveFiles
+                    Globals.SaveFilesList.Add(new Cls_SaveFiles
                     {
                         Name = GameSaveFile.LoadSaveName(File.ReadAllBytes(file.FullName)),
                         Date = file.LastWriteTime.ToString(),
@@ -33,8 +33,8 @@ namespace Crape_Client.Initialization
             }
             catch (DirectoryNotFoundException e)
             {
-                Global.LogMGR.Info(e.Message);
-                Global.SaveFilesList.Add(new Cls_SaveFiles
+                Globals.LogMGR.Info(e.Message);
+                Globals.SaveFilesList.Add(new Cls_SaveFiles
                 {
                     Name = "没有发现可用存档",
                     Date = "",

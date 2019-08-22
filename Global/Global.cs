@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Crape_Client.CrapeClientCore;
 using Crape_Client.Initialization;
 
-namespace Crape_Client
+namespace Crape_Client.Global
 {
-    class Global// 全局属性
+    class Globals// 全局属性
     {
         public static MemIniFile MissionConfig { set; get; }
         public static MemIniFile MainConfig { set; get; }
@@ -35,7 +35,7 @@ namespace Crape_Client
         public static string DdrawDir { get { return ResourceDir + @"Renderer\"; } }
 
         public static string LogPath { get { return LocalPath + @"Debug\Crape Client.log"; } }
-        static Global()
+        static Globals()
         {
             MissionConfig = new MemIniFile();
             MainConfig = new MemIniFile();

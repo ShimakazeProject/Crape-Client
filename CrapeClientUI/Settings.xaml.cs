@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using Crape_Client.Global;
 
 namespace Crape_Client.CrapeClientUI
 {
@@ -11,7 +12,7 @@ namespace Crape_Client.CrapeClientUI
     public partial class Settings : Page
     {
 
-        string NoneName = "None";
+        const string NoneName = "None";
 
         public Settings()
         {
@@ -40,7 +41,7 @@ namespace Crape_Client.CrapeClientUI
             string renderer = Ra2md.Video.Renderer;
             cbRenderer.Items.Add(NoneName);
             cbRenderer.SelectedIndex = 0;
-            Initialization.Config.Renderer[] renderers = Global.RendererList.ToArray();
+            Initialization.Config.Renderer[] renderers = Globals.RendererList.ToArray();
             int a = renderers.Length;
             for (int i = 0; i < a; i++)
             {
@@ -180,7 +181,7 @@ namespace Crape_Client.CrapeClientUI
                 return;
             }
 
-            Initialization.Config.Renderer[] renderers = Global.RendererList.ToArray();
+            Initialization.Config.Renderer[] renderers = Globals.RendererList.ToArray();
             int a = renderers.Length;
             for (int i = 0; i < a; i++)
             {

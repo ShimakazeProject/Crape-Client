@@ -10,14 +10,14 @@ namespace Crape_Client.CrapeClientCore
         [DllImport("kernel32")] private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
         static void Writevalue(string Section, string Key, string value)
         {
-            WritePrivateProfileString(Section, Key, value, Global.LocalPath + "ra2md.ini");
+            WritePrivateProfileString(Section, Key, value, Global.Globals.LocalPath + "ra2md.ini");
         }
         static string Readvalue(string Section, string Key)
         {
             StringBuilder temp = new StringBuilder(500);
             try
             {
-                int i = GetPrivateProfileString(Section, Key, "", temp, 500, Global.LocalPath + "ra2md.ini");
+                int i = GetPrivateProfileString(Section, Key, "", temp, 500, Global.Globals.LocalPath + "ra2md.ini");
                 return temp.ToString();
             }
             catch (FormatException) { return ""; }

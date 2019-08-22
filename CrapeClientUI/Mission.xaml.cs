@@ -48,15 +48,15 @@ namespace Crape_Client.CrapeClientUI
                 {
                     dgMissionSeleted.Items.Add(new MissionList
                     {
-                        Ico = File.ReadAllBytes(Global.ImagesDir + "Side" + Side.ToString() + ".png"),
+                        Ico = File.ReadAllBytes(Global.Globals.ImagesDir + "Side" + Side.ToString() + ".png"),
                         Name = MissionName[i],
                         OriginalName = IdName[i],
                     });
                 }
                 catch (FileNotFoundException e)// 找不到Ico文件抛出的异常
                 {
-                    Global.LogMGR.Info(e.Message);
-                    // Global.LogMGR.Debug("Cannot Found Side" + Side.ToString() + ".png");
+                    Global.Globals.LogMGR.Info(e.Message);
+                    // Global.Globals.LogMGR.Debug("Cannot Found Side" + Side.ToString() + ".png");
                     dgMissionSeleted.Items.Add(new MissionList
                     {
                         Ico = null,
@@ -66,8 +66,8 @@ namespace Crape_Client.CrapeClientUI
                 }
                 catch(Exception e)// 不知名异常
                 {
-                    Global.LogMGR.Error(e);
-                    Global.LogMGR.ErrorBoxShow();
+                    Global.Globals.LogMGR.Error(e);
+                    Global.Globals.LogMGR.ErrorBoxShow();
                 }
             }
         }
@@ -76,7 +76,7 @@ namespace Crape_Client.CrapeClientUI
             // MessageBox.Show(dgMissionSeleted.SelectedItem.ToString());
             if (dgMissionSeleted.SelectedItem is MissionList mission && mission is MissionList)
             {
-                string Summary = Global.MissionConfig.ReadValue(mission.OriginalName, "Summary", null);
+                string Summary = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "Summary", null);
                 MissionSummary.Text = Program.SummaryInit(Summary);
             }
         }
@@ -88,17 +88,17 @@ namespace Crape_Client.CrapeClientUI
                 spawn.Settings.Scenario = mission.Name;
                 spawn.Settings.GameSpeed = 2; // 任务速度恒等于4
                 spawn.Settings.IsSinglePlayer = true; // 这不废话嘛
-                spawn.Settings.Side = Convert.ToByte(Global.MissionConfig.ReadValue(mission.OriginalName, "Side", 0));
-                spawn.Settings.Firestorm = Global.MissionConfig.ReadValue(mission.OriginalName, "Firestorm", false);
-                spawn.Settings.SidebarHack = Global.MissionConfig.ReadValue(mission.OriginalName, "SidebarHack", false);
-                spawn.Settings.BuildOffAlly = Global.MissionConfig.ReadValue(mission.OriginalName, "BuildOffAlly", false);
+                spawn.Settings.Side = Convert.ToByte(Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "Side", 0));
+                spawn.Settings.Firestorm = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "Firestorm", false);
+                spawn.Settings.SidebarHack = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "SidebarHack", false);
+                spawn.Settings.BuildOffAlly = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "BuildOffAlly", false);
                 // 反正我是留了..能不能用就不知道了
-                spawn.Settings.MultiEngineer = Global.MissionConfig.ReadValue(mission.OriginalName, "MultiEngineer", false);
-                spawn.Settings.MCVRedeploy = Global.MissionConfig.ReadValue(mission.OriginalName, "MCVRedeploy", false);
-                spawn.Settings.FogOfWar = Global.MissionConfig.ReadValue(mission.OriginalName, "FogOfWar", false);
-                spawn.Settings.BridgeDestroy = Global.MissionConfig.ReadValue(mission.OriginalName, "BridgeDestroy", false);
-                spawn.Settings.SkipScoreScreen = Global.MissionConfig.ReadValue(mission.OriginalName, "SkipScoreScreen", false);
-                spawn.Settings.AttackNeutralUnits = Global.MissionConfig.ReadValue(mission.OriginalName, "AttackNeutralUnits", false);
+                spawn.Settings.MultiEngineer = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "MultiEngineer", false);
+                spawn.Settings.MCVRedeploy = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "MCVRedeploy", false);
+                spawn.Settings.FogOfWar = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "FogOfWar", false);
+                spawn.Settings.BridgeDestroy = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "BridgeDestroy", false);
+                spawn.Settings.SkipScoreScreen = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "SkipScoreScreen", false);
+                spawn.Settings.AttackNeutralUnits = Global.Globals.MissionConfig.ReadValue(mission.OriginalName, "AttackNeutralUnits", false);
 
                 spawn.Settings.DifficultyModeHuman = 0;
                 spawn.Settings.DifficultyModeComputer = 2;

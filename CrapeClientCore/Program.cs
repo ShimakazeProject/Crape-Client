@@ -22,24 +22,24 @@ namespace Crape_Client.CrapeClientCore
                 }
                 catch (NullReferenceException e)
                 {
-                    Global.LogMGR.Error(e);
-                    return Global.NoSummary;
+                    Global.Globals.LogMGR.Error(e);
+                    return Global.Globals.NoSummary;
                 }
                 catch (Exception e)
                 {
-                    Global.LogMGR.Error(e);
-                    Global.LogMGR.ErrorBoxShow();
+                    Global.Globals.LogMGR.Error(e);
+                    Global.Globals.LogMGR.ErrorBoxShow();
                     return null;
                 }
             }
-            else return Global.NoSummary;
+            else return Global.Globals.NoSummary;
         }
         public static void RunSyringe()// 运行游戏
         {
 
-            bool Windowed = Global.Ra2mdConf.ReadValue("Video", "Windowed", false);
-            string gamemd = Global.MainConfig.ReadValue("GameSettings", "GameName", "syringe.exe \"gamemd.exe\" ");
-            string command = Global.MainConfig.ReadValue("GameSettings", "Command", "");
+            bool Windowed = Global.Globals.Ra2mdConf.ReadValue("Video", "Windowed", false);
+            string gamemd = Global.Globals.MainConfig.ReadValue("GameSettings", "GameName", "syringe.exe \"gamemd.exe\" ");
+            string command = Global.Globals.MainConfig.ReadValue("GameSettings", "Command", "");
 
             if (Windowed)// 是否窗口化
                 Screen.ChangeRes();//设置色深为16
@@ -56,33 +56,33 @@ namespace Crape_Client.CrapeClientCore
             }
             catch(System.ComponentModel.Win32Exception E)
             {
-                Global.LogMGR.Fatal(E);
-                Global.LogMGR.NoTimeMsg("Cannot Start Syringe :" + Global.LocalPath + gamemd + command);
-                System.IO.DirectoryInfo folder = new System.IO.DirectoryInfo(Global.LocalPath);
-                Global.LogMGR.NoTimeMsg("---Search Executable Programs in RunDirectory---");
+                Global.Globals.LogMGR.Fatal(E);
+                Global.Globals.LogMGR.NoTimeMsg("Cannot Start Syringe :" + Global.Globals.LocalPath + gamemd + command);
+                System.IO.DirectoryInfo folder = new System.IO.DirectoryInfo(Global.Globals.LocalPath);
+                Global.Globals.LogMGR.NoTimeMsg("---Search Executable Programs in RunDirectory---");
                 try
                 {
                     foreach (System.IO.FileInfo file in folder.GetFiles("*.exe"))
                     {
-                        Global.LogMGR.NoTimeMsg("Find " + file.Name);
+                        Global.Globals.LogMGR.NoTimeMsg("Find " + file.Name);
                     }
-                    Global.LogMGR.NoTimeMsg("---End Search ---");
+                    Global.Globals.LogMGR.NoTimeMsg("---End Search ---");
                 }
                 catch(ArgumentNullException e)
                 {
-                    Global.LogMGR.Error(e);
-                    Global.LogMGR.NoTimeMsg("Cannot Finded Any Executable Programs ! \r\n\tGame Install is NOT TRUE!");
+                    Global.Globals.LogMGR.Error(e);
+                    Global.Globals.LogMGR.NoTimeMsg("Cannot Finded Any Executable Programs ! \r\n\tGame Install is NOT TRUE!");
                 }
                 catch(System.Security.SecurityException e)
                 {
-                    Global.LogMGR.Error(e);
-                    Global.LogMGR.NoTimeMsg("Permission needs to be improved ! ");
+                    Global.Globals.LogMGR.Error(e);
+                    Global.Globals.LogMGR.NoTimeMsg("Permission needs to be improved ! ");
 
                 }
             }
             catch (Exception e)
             {
-                Global.LogMGR.Error(e.ToString());
+                Global.Globals.LogMGR.Error(e.ToString());
                 return;
             }
         }

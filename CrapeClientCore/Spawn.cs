@@ -1,28 +1,5 @@
 ﻿using System;
 using System.IO;
-/* 这些用不上
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-*/
-
-/* おす! こにんちわ! こんばんわ! 这里是说明:
- * 这里嵌套命名空间是为了方便管理(大概).因为
- * 以后(并不)可能写其他的东西,所以先做个分类
- * 引用方法很简单..如果嫌麻烦可以用神奇using
- * 不仅嵌套命名空间我还嵌套了类.所以记得不要
- * 忘记Spawn.*** 其中RA2.Ini.Spawn.Write方法
- * 是将类储存的内容写出到指定的INI里..初始化
- * 方法为RA2.Ini.Spawn.SpawnPath = SpawnPath
- * 写入直接调用Write方法就行..其他的字段可空
- * 如果留空则不会写入到ini文件中..这里用的是
- * 流输出写入到ini,不同于之前的写INI键值以及
- * public bool a;的存在,这个是写入的开关..请
- * 在使用的时候记得设置为true.不然将会被忽略
- * 结尾依旧不明意义的键..依旧用的CNCNet5.dll
- * (这次写的比之前写的好多了) ぜかまし です!
- */// Last edited at : 2019.7.6 19:01:31 SAT
 
 namespace Crape_Client.CrapeClientCore
 {
@@ -64,9 +41,9 @@ namespace Crape_Client.CrapeClientCore
         /// <param name="IniPath">spawn.ini地址</param>
         public Spawn(string IniPath) { SpawnPath = IniPath; }
         /// <summary>
-        /// 构造函数 SpawnPath = Global.LocalPath + "spawn.ini"
+        /// 构造函数 SpawnPath = Global.Globals.LocalPath + "spawn.ini"
         /// </summary>
-        public Spawn() { SpawnPath = Global.LocalPath + "spawn.ini"; }
+        public Spawn() { SpawnPath = Global.Globals.LocalPath + "spawn.ini"; }
         /// <summary>
         /// writer the spawn.ini
         /// </summary>
@@ -433,11 +410,7 @@ namespace Crape_Client.CrapeClientCore
             sw.Close();
             fs.Close();
         }
-        /// <summary>
-        /// 类版本
-        /// </summary>
-        /// <returns>最后编辑日期</returns>
-        public static string Version { get { return "20190818"; } }//"20190818";
+
         #region Settings
 
         /// <summary>

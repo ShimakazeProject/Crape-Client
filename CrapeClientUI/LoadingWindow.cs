@@ -7,32 +7,28 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 using System.Windows.Media;
-//using System.Drawing;
+using Crape_Client.Global;
 using Crape_Client.Initialization;
 
 namespace Crape_Client.CrapeClientUI
 {
-    class LoadingWindow
+    class LoadingWindow: Window
     {
-        public Window Window = new Window();
         readonly Canvas Canvas = new Canvas();
-
-        static readonly string LogoStr = "Crape Client";
-        static readonly double Width = 600;
-        static readonly double Height = 400;
-        static readonly double Left = 200;
-        static readonly double FontSize = 28;
-        [STAThread] public void LoadWindowInit()
+        private TextBlock Status;
+        const string LogoStr = "Crape Client";
+        const double ALeft = 200;
+        const double LogoFontSize = 28;
+        public LoadingWindow()
         {
             // 主窗口创建
-            Window.Title = "Crape Client 初始化";
-            Window.Width = Width;
-            Window.Height = Height;
-            Window.Foreground = Tools.String2Brush("#FFF");
-            Window.ResizeMode = ResizeMode.NoResize;
-            Window.Style = (Style)Window.FindResource("WindowStyle");
-            Window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            Window.Name = "LoadWindow";
+            Title = "Crape Client 初始化";
+            Width = 600;
+            Height = 400;
+            Foreground = Tools.String2Brush("#FFF");
+            ResizeMode = ResizeMode.NoResize;
+            Style = (Style)FindResource("WindowStyle");
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             // 窗口组件创建
             // 创建Path
             Path path = new Path();
@@ -56,38 +52,62 @@ namespace Crape_Client.CrapeClientUI
             // Image
             Image image = new Image();
             #region image
-            image.Width = Width - Left;
+            image.Width = Width - ALeft;
             image.Height = Height;
-            Canvas.SetLeft(image, Left);
+            Canvas.SetLeft(image, ALeft);
             image.Source = new System.Windows.Media.Imaging.BitmapImage(
-                new Uri(Global.ImagesDir + "Welcome.png",
+                new Uri(Globals.ImagesDir + "Welcome.png",
                 UriKind.RelativeOrAbsolute));
             #endregion
             Grid Logo = new Grid();
             Canvas.SetTop(Logo, 0);
-            Logo.Width = Left;
+            Logo.Width = ALeft;
             Logo.Height = 60;
-            TextBlock text2 = new TextBlock
+            TextBlock Logo3 = new TextBlock// 倒影
             {
                 Text = LogoStr,
                 FontWeight = FontWeights.Bold,
-                FontSize = FontSize,
+                FontSize = LogoFontSize,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(20, 20, 20, -25),
+                Height = 38,
+                RenderTransformOrigin = new Point(0.5, 0.5),
+                FontStyle = FontStyles.Italic,
+            };
+            LinearGradientBrush Logo3FG = new LinearGradientBrush
+            {
+                StartPoint = new Point(0.5, 0),
+                EndPoint = new Point(0.5, 1)
+            };
+            Logo3FG.GradientStops.Add(new GradientStop(Colors.Transparent, 0.5));
+            Logo3FG.GradientStops.Add(new GradientStop(Tools.String2Color("#50000000"), 1));
+            Logo3.Foreground = Logo3FG;
+            TransformGroup Logo3TG = new TransformGroup();
+            Logo3TG.Children.Add(new ScaleTransform() { ScaleY = -1 });
+            Logo3.RenderTransform = Logo3TG;
+            TextBlock Logo2 = new TextBlock
+            {
+                Text = LogoStr,
+                FontWeight = FontWeights.Bold,
+                FontSize = LogoFontSize,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 Margin = new Thickness(17, 14, 10, 10),
                 Foreground = Tools.String2Brush("#50EAEAEA")
             };
-            TextBlock text1 = new TextBlock
+            TextBlock Logo1 = new TextBlock
             {
                 Text = LogoStr,
                 FontWeight = FontWeights.Bold,
-                FontSize = FontSize,
+                FontSize = LogoFontSize,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 Foreground = Tools.String2Brush("#FFEAEAEA")
             };
-            Logo.Children.Add(text2);
-            Logo.Children.Add(text1);
+            Logo.Children.Add(Logo3);
+            Logo.Children.Add(Logo2);
+            Logo.Children.Add(Logo1);
             // 著作权信息
             TextBlock Copyright = new TextBlock();
             Canvas.SetLeft(Copyright, 20);
@@ -114,14 +134,12 @@ namespace Crape_Client.CrapeClientUI
                 FontSize = 9
             });
             // 状态信息文字块
-            TextBlock Status = new TextBlock
+            Status = new TextBlock
             {
-                Name = "tbStatus"
+                Width = Width - 60
             };
-            Canvas.SetLeft(Status, 30);
+            Canvas.SetLeft(Status, 20);
             Canvas.SetTop(Status, 70);
-            Status.Width = Width - 60;
-
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
                 Text = "Initialization.",//正在初始化...\n
@@ -133,48 +151,54 @@ namespace Crape_Client.CrapeClientUI
             Canvas.Children.Add(Logo);
             Canvas.Children.Add(Copyright);
             Canvas.Children.Add(Status);
-            Window.Content = Canvas;// 用户区设置
-            Window.Show();// 显示窗口
-                          // --------
+            Content = Canvas;// 用户区设置
+            Activated += Init;
+            //Activated += Inita;
+
+
+        }
+        //public void Inita(object sender, EventArgs e) { }
+        public void Init(object sender, EventArgs e)
+        {
             #region 
-            System.Threading.Thread.Sleep(300);
+            System.Threading.Thread.Sleep(1000);
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
                 Text = ".",
             });
-            
-            System.Threading.Thread.Sleep(300);
+
+            System.Threading.Thread.Sleep(1000);
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
                 Text = ".",
             });
-            System.Threading.Thread.Sleep(300);
+            System.Threading.Thread.Sleep(1000);
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
                 Text = ".",
             });
-            System.Threading.Thread.Sleep(300);
+            System.Threading.Thread.Sleep(1000);
             #endregion
             //Status.Text = "初始化日志系统";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
-                Text = "\nInitializing Logger System.....",
+                Text = "\nInitializing LOG System\t",
             });
-            Global.LogMGR = new CrapeClientCore.LogMGR();
+            Globals.LogMGR = new CrapeClientCore.LogMGR();
             //Status.Text = "初始化首选项";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
-                Text = "Over\nInitializing Settings..........",
+                Text = "Over\nInitializing Settings\t",
             });
             new Renderer();
 
-            Global.MissionConfig.LoadFromFile(Global.ConfigsDir + "Missions.ini");
-            Global.MainConfig.LoadFromFile(Global.ConfigsDir + "Config.conf");
-            Global.Ra2mdConf.LoadFromFile(Global.LocalPath + "ra2md.ini");
+            Globals.MissionConfig.LoadFromFile(Globals.ConfigsDir + "Missions.ini");
+            Globals.MainConfig.LoadFromFile(Globals.ConfigsDir + "Config.conf");
+            Globals.Ra2mdConf.LoadFromFile(Globals.LocalPath + "ra2md.ini");
             //Status.Text = "初始化存档列表";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
-                Text = "Over\nInitializing Saved List........",
+                Text = "Over\nInitializing Saved List\t",
             });
             new SavedList();
             new ColorInit();
@@ -182,24 +206,25 @@ namespace Crape_Client.CrapeClientUI
             // Status.Text = "初始化任务列表";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
-                Text = "Over\nInitializing Mission List......",
+                Text = "Over\nInitializing Mission List\t",
             });
             new Mission();// 初始化列表
             //Status.Text = "初始化GUI";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
-                Text = "Over\nInitializing GUI...............",
+                Text = "Over\nInitializing GUI\t\t",
             });
-            new MainWindow();
+            new GUIconfigs();
             //Status.Text = "初始化完成";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
                 Text = "Over\nInitialization Is Over.",
             });
             System.Threading.Thread.Sleep(1000);
-            Window.Close();
+            MessageBox.Show("");
+            System.Diagnostics.Debug.WriteLine("载入窗口关闭");
+            Close();
         }
-
     }
 
 }

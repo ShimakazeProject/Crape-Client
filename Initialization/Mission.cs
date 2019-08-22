@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Crape_Client.CrapeClientCore;
+using Crape_Client.Global;
 
 namespace Crape_Client.Initialization
 {
@@ -110,32 +111,32 @@ namespace Crape_Client.Initialization
         }
         public Mission()
         {
-            IniSection[] SectionList = (IniSection[])Global.MissionConfig.SectionList.ToArray(typeof(IniSection));
+            IniSection[] SectionList = (IniSection[])Globals.MissionConfig.SectionList.ToArray(typeof(IniSection));
             if (SectionList.Length < 1) return;
             for (uint i = 0; i < SectionList.Length; i++)
             {
                 #region 消除中文乱码
-                Global.MissionConfig.WriteValue(
+                Globals.MissionConfig.WriteValue(
                     SectionList[i].SectionName
                     , "Name"
                     , IniIO.Readvalue(
                         SectionList[i].SectionName
                         , "Name"
-                        , Global.ConfigsDir + "Missions.ini"
+                        , Globals.ConfigsDir + "Missions.ini"
                         )
                     );
-                Global.MissionConfig.WriteValue(
+                Globals.MissionConfig.WriteValue(
                     SectionList[i].SectionName
                     , "Summary"
                     , IniIO.Readvalue(
                         SectionList[i].SectionName
                         , "Summary"
-                        , Global.ConfigsDir + "Missions.ini"
+                        , Globals.ConfigsDir + "Missions.ini"
                         )
                     );
                 #endregion
-                int side = Global.MissionConfig.ReadValue(SectionList[i].SectionName, "Side", 0);
-                NameList.Add(side, Global.MissionConfig.ReadValue(SectionList[i].SectionName, "Name", null));
+                int side = Globals.MissionConfig.ReadValue(SectionList[i].SectionName, "Side", 0);
+                NameList.Add(side, Globals.MissionConfig.ReadValue(SectionList[i].SectionName, "Name", null));
                 SectionNameList.Add(side, SectionList[i].SectionName);
             }
         }

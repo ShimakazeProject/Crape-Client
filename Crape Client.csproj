@@ -116,12 +116,13 @@
     <Compile Include="App.cs" />
     <Compile Include="CrapeClientCore\LogMGR.cs" />
     <Compile Include="CrapeClientCore\Renderer.cs" />
+    <Compile Include="CrapeClientUI\Crape Client.cs" />
     <Compile Include="Initialization\ColorInit.cs" />
     <Compile Include="Initialization\Config\Color.cs" />
     <Compile Include="Initialization\Config\Renderer.cs" />
     <Compile Include="Initialization\Config\Side.cs" />
-    <Compile Include="Initialization\Config\UIconfig.cs" />
-    <Compile Include="CrapeClientCore\Global.cs" />
+    <Compile Include="Global\UIconfig.cs" />
+    <Compile Include="Global\Global.cs" />
     <Compile Include="CrapeClientCore\ScreenSettings.cs" />
     <Compile Include="CrapeClientCore\IniEdit.cs" />
     <Compile Include="CrapeClientCore\Ra2md.cs" />
@@ -131,17 +132,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CrapeClientUI\Crape Client.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="CrapeClientCore\GameSaveFile.cs" />
     <Compile Include="CrapeClientCore\Program.cs" />
     <Compile Include="CrapeClientCore\List.cs" />
-    <Compile Include="CrapeClientUI\Crape Client.xaml.cs">
-      <DependentUpon>Crape Client.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="CrapeClientUI\Mission.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -224,7 +217,6 @@
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
     <Compile Include="CrapeClientUI\LoadingWindow.cs" />
-    <Compile Include="Initialization\MainWindow.cs" />
     <Compile Include="Initialization\Mission.cs" />
     <Compile Include="Initialization\Renderer.cs" />
     <Compile Include="Initialization\SavedList.cs" />

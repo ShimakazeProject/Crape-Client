@@ -12,33 +12,33 @@ namespace Crape_Client.CrapeClientCore
         public static void Clear()
         {
             try { 
-            File.Delete(Global.LocalPath + "ddraw.dll");
-            File.Delete(Global.LocalPath + "dxwnd.dll");
-            File.Delete(Global.LocalPath + "ddraw2.ini");
-            File.Delete(Global.LocalPath + "ddraw.ini");
-            File.Delete(Global.LocalPath + "dxwnd.ini");
-            File.Delete(Global.LocalPath + "wined3d.dll");
-            File.Delete(Global.LocalPath + "libwine.dll");
+            File.Delete(Global.Globals.LocalPath + "ddraw.dll");
+            File.Delete(Global.Globals.LocalPath + "dxwnd.dll");
+            File.Delete(Global.Globals.LocalPath + "ddraw2.ini");
+            File.Delete(Global.Globals.LocalPath + "ddraw.ini");
+            File.Delete(Global.Globals.LocalPath + "dxwnd.ini");
+            File.Delete(Global.Globals.LocalPath + "wined3d.dll");
+            File.Delete(Global.Globals.LocalPath + "libwine.dll");
             }
             catch (Exception e) {
-                Global.LogMGR.Error(e);
+                Global.Globals.LogMGR.Error(e);
                 return; }
         }
         static void Copy(string a, string b)// 封装函数
         {
             try
             {
-                File.Copy(Global.DdrawDir + a, Global.LocalPath + b, true);
+                File.Copy(Global.Globals.DdrawDir + a, Global.Globals.LocalPath + b, true);
             }
             catch (FileNotFoundException e)
             {
-                Global.LogMGR.Fatal(e);
+                Global.Globals.LogMGR.Fatal(e);
 
 
             }
             catch (Exception e)
             {
-                Global.LogMGR.Fatal(e);
+                Global.Globals.LogMGR.Fatal(e);
             }
 
         }

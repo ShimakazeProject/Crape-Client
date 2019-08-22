@@ -26,15 +26,15 @@ namespace Crape_Client.CrapeClientUI
         {
             InitializeComponent();
             try {
-                Cls_SaveFiles[] List = Global.SaveFilesList.ToArray();
+                Cls_SaveFiles[] List = Global.Globals.SaveFilesList.ToArray();
                 for (int i = 0; i < List.Length; i++)
                 {
                     dgLoadList.Items.Add(List[i]);
                 }
             }catch(Exception e)
             {
-                Global.LogMGR.Error(e);
-                Global.LogMGR.ErrorBoxShow();
+                Global.Globals.LogMGR.Error(e);
+                Global.Globals.LogMGR.ErrorBoxShow();
             }
 
             

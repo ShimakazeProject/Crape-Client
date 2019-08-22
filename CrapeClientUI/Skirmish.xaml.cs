@@ -94,8 +94,8 @@ namespace Crape_Client.CrapeClientUI
 
         void ColorInit()
         {
-            //Global.Colors
-            Initialization.Config.Color[] colors = Global.Colors.ToArray();
+            //Global.Globals.Colors
+            Initialization.Config.Color[] colors = Global.Globals.Colors.ToArray();
             for (int i=0;i< colors.Length; i++)
             {
                 HostColor.Items.Add(new ComboBoxItem()
@@ -155,8 +155,8 @@ namespace Crape_Client.CrapeClientUI
 
             List<Brush> Colors = new List<Brush>();
 
-            Initialization.Config.Side[] sides = Global.Sides.ToArray();
-            Initialization.Config.SideList[] list = Global.SidesPlus.ToArray();
+            Initialization.Config.Side[] sides = Global.Globals.Sides.ToArray();
+            Initialization.Config.SideList[] list = Global.Globals.SidesPlus.ToArray();
             HostSide.Items.Add(new ComboBoxItem()
             {
                 Tag = -1,

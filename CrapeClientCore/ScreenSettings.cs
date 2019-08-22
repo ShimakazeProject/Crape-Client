@@ -66,10 +66,10 @@ namespace Crape_Client.CrapeClientCore
             int result = ChangeDisplaySettings(ref DevM, 0);
             if (result != 0)
             {
-                Global.LogMGR.Error("SetBitsPerPixel     ChangeDisplaySettings Returned:" + result.ToString());
-                Global.LogMGR.NoTimeMsg("\t Width: " + j.ToString());
-                Global.LogMGR.NoTimeMsg("\tHeight: " + i.ToString());
-                Global.LogMGR.NoTimeMsg("\t  Bits: " + b.ToString());
+                Global.Globals.LogMGR.Error("SetBitsPerPixel     ChangeDisplaySettings Returned:" + result.ToString());
+                Global.Globals.LogMGR.NoTimeMsg("\t Width: " + j.ToString());
+                Global.Globals.LogMGR.NoTimeMsg("\tHeight: " + i.ToString());
+                Global.Globals.LogMGR.NoTimeMsg("\t  Bits: " + b.ToString());
             }
             //long result = ChangeDisplaySettings(ref DevM, 0);
         }
@@ -87,10 +87,10 @@ namespace Crape_Client.CrapeClientCore
             long result = ChangeDisplaySettings(ref DevM, 0);
             if (result != 0)
             {
-                Global.LogMGR.Error("RestoreBitsPerPixel ChangeDisplaySettings Returned:" + result.ToString());
-                Global.LogMGR.NoTimeMsg("\t Width: " + j.ToString());
-                Global.LogMGR.NoTimeMsg("\tHeight: " + i.ToString());
-                Global.LogMGR.NoTimeMsg("\t  Bits: " + b.ToString());
+                Global.Globals.LogMGR.Error("RestoreBitsPerPixel ChangeDisplaySettings Returned:" + result.ToString());
+                Global.Globals.LogMGR.NoTimeMsg("\t Width: " + j.ToString());
+                Global.Globals.LogMGR.NoTimeMsg("\tHeight: " + i.ToString());
+                Global.Globals.LogMGR.NoTimeMsg("\t  Bits: " + b.ToString());
             }
         }
     }

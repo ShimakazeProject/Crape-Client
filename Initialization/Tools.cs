@@ -23,6 +23,16 @@ namespace Crape_Client.Initialization
                         )
                     );
         }
+        public static Color String2Color(string color)
+        {
+            System.Drawing.Color clr = System.Drawing.ColorTranslator.FromHtml(color);
+            return Color.FromArgb(
+                        clr.A,
+                        clr.R,
+                        clr.G,
+                        clr.B
+                    );
+        }
         public static Thickness String2Thickness(string margin)
         {
             string[] a = margin.Split(',');
@@ -32,6 +42,16 @@ namespace Crape_Client.Initialization
                 b[i] = Convert.ToDouble(a[i]);
             }
             return new Thickness(b[0], b[1], b[2], b[3]);
+        }
+        public static Point String2Point(string Point)
+        {
+            string[] a = Point.Split(',');
+            double[] b = new double[] { 0, 0};
+            for (int i = 0; i < a.Length; i++)
+            {
+                b[i] = Convert.ToDouble(a[i]);
+            }
+            return new Point(b[0], b[1]);
         }
     }
 }

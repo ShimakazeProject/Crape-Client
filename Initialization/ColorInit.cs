@@ -14,12 +14,12 @@ namespace Crape_Client.Initialization
             XmlDocument ColorXml = new XmlDocument();// 实例化 XmlDocument 类
             try
             {
-                ColorXml.Load(Global.ConfigsDir + "Color.xml");// 读入XML文档
+                ColorXml.Load(Global.Globals.ConfigsDir + "Color.xml");// 读入XML文档
             }
             catch (XmlException e)// 异常处理
             {
-                Global.LogMGR.Error(e);
-                Global.LogMGR.ErrorBoxShow();
+                Global.Globals.LogMGR.Error(e);
+                Global.Globals.LogMGR.ErrorBoxShow();
             }
             XmlNode Root = ColorXml.SelectSingleNode("Colors");// 获取 Root 节点
             XmlNodeList NodeList = Root.ChildNodes;// 获取节点列表
@@ -30,7 +30,7 @@ namespace Crape_Client.Initialization
                 color.Id = Convert.ToUInt32(ne.GetAttribute("Id"));
                 color.Name = ne.GetAttribute("Name");// 获取Name属性
                 color.Value = Tools.String2Brush(ne.GetAttribute("Value"));
-                Global.Colors.Add(color);// 添加类到全局渲染器储存
+                Global.Globals.Colors.Add(color);// 添加类到全局渲染器储存
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;// 使用System.Xml命名空间
+using Crape_Client.Global;
 
 namespace Crape_Client.Initialization// 命名空间定义
 {
@@ -11,12 +12,12 @@ namespace Crape_Client.Initialization// 命名空间定义
             XmlDocument RendererXml = new XmlDocument();// 实例化 XmlDocument 类
             try
             {
-                RendererXml.Load(Global.ConfigsDir + "Renderer.xml");// 读入XML文档
+                RendererXml.Load(Globals.ConfigsDir + "Renderer.xml");// 读入XML文档
             }
             catch (XmlException e)// 异常处理
             {
-                Global.LogMGR.Error(e);
-                Global.LogMGR.ErrorBoxShow();
+                Globals.LogMGR.Error(e);
+                Globals.LogMGR.ErrorBoxShow();
             }
             XmlNode Root = RendererXml.SelectSingleNode("Renderers");// 获取 Root 节点
             XmlNodeList NodeList = Root.ChildNodes;// 获取节点列表
@@ -35,7 +36,7 @@ namespace Crape_Client.Initialization// 命名空间定义
                         rm.Files.Add(fe.InnerText.Trim());// 添加File元素内容
                     }
                 }
-                Global.RendererList.Add(rm);// 添加类到全局渲染器储存
+                Globals.RendererList.Add(rm);// 添加类到全局渲染器储存
             }
         }
     }

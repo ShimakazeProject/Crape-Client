@@ -14,12 +14,12 @@ namespace Crape_Client.Initialization
             XmlDocument Side = new XmlDocument();
             try
             {
-                Side.Load(Global.ConfigsDir + "Side.xml");// 读入XML文档
+                Side.Load(Global.Globals.ConfigsDir + "Side.xml");// 读入XML文档
             }
             catch (XmlException e)// 异常处理
             {
-                Global.LogMGR.Error(e);
-                Global.LogMGR.ErrorBoxShow();
+                Global.Globals.LogMGR.Error(e);
+                Global.Globals.LogMGR.ErrorBoxShow();
             }
             // 主
             XmlNodeList List = Side.SelectSingleNode("Sides/Master").ChildNodes;
@@ -35,7 +35,7 @@ namespace Crape_Client.Initialization
                 sm.To = Convert.ToUInt32(sn.GetAttribute("To"));
                 sm.Color = Tools.String2Brush(sn.GetAttribute("Color"));
                 // 
-                Global.SidesPlus.Add(sm);
+                Global.Globals.SidesPlus.Add(sm);
             }//*/
             // 分支
             XmlNodeList SideNodeList = Side.SelectSingleNode("Sides/Branch").ChildNodes;
@@ -50,7 +50,7 @@ namespace Crape_Client.Initialization
                 sm.Icon = sn.GetAttribute("Icon");
                 sm.Summary = sn.GetAttribute("Summary");
                 // 
-                Global.Sides.Add(sm);
+                Global.Globals.Sides.Add(sm);
             }//*/
         }
 
