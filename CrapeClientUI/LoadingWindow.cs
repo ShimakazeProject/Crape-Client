@@ -50,14 +50,16 @@ namespace Crape_Client.CrapeClientUI
             path.Data = new RectangleGeometry(new Rect(0,0, Width, Height));
             #endregion
             // Image
-            Image image = new Image();
             #region image
-            image.Width = Width - ALeft;
-            image.Height = Height;
-            Canvas.SetLeft(image, ALeft);
-            image.Source = new System.Windows.Media.Imaging.BitmapImage(
+            Image image = new Image()
+            {
+                Width = Width - ALeft,
+                Height = Height,
+                Source = new System.Windows.Media.Imaging.BitmapImage(
                 new Uri(Globals.ImagesDir + "Welcome.png",
-                UriKind.RelativeOrAbsolute));
+                UriKind.RelativeOrAbsolute))
+            };
+            Canvas.SetLeft(image, ALeft);
             #endregion
             Grid Logo = new Grid();
             Canvas.SetTop(Logo, 0);
@@ -158,7 +160,7 @@ namespace Crape_Client.CrapeClientUI
 
         }
         //public void Inita(object sender, EventArgs e) { }
-        public void Init(object sender, EventArgs e)
+        [STAThread] public void Init(object sender, EventArgs e)
         {
             #region 
             System.Threading.Thread.Sleep(1000);
@@ -195,12 +197,17 @@ namespace Crape_Client.CrapeClientUI
             Globals.MissionConfig.LoadFromFile(Globals.ConfigsDir + "Missions.ini");
             Globals.MainConfig.LoadFromFile(Globals.ConfigsDir + "Config.conf");
             Globals.Ra2mdConf.LoadFromFile(Globals.LocalPath + "ra2md.ini");
-            //Status.Text = "初始化存档列表";
+
+            Status.Inlines.Add(new System.Windows.Documents.Run
+            {
+                Text = "Over\nInitializing GUI\t\t",
+            });
+            new GUIconfigs();
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
                 Text = "Over\nInitializing Saved List\t",
             });
-            new SavedList();
+            new SaveLoadList();
             new ColorInit();
             new SideInit();
             // Status.Text = "初始化任务列表";
@@ -209,19 +216,13 @@ namespace Crape_Client.CrapeClientUI
                 Text = "Over\nInitializing Mission List\t",
             });
             new Mission();// 初始化列表
-            //Status.Text = "初始化GUI";
-            Status.Inlines.Add(new System.Windows.Documents.Run
-            {
-                Text = "Over\nInitializing GUI\t\t",
-            });
-            new GUIconfigs();
             //Status.Text = "初始化完成";
             Status.Inlines.Add(new System.Windows.Documents.Run
             {
                 Text = "Over\nInitialization Is Over.",
             });
             System.Threading.Thread.Sleep(1000);
-            MessageBox.Show("");
+            //MessageBox.Show("在这停顿");
             System.Diagnostics.Debug.WriteLine("载入窗口关闭");
             Close();
         }

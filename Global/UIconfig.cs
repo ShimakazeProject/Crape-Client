@@ -78,6 +78,29 @@ namespace Crape_Client.Global
                 public static Thickness Margin { set; get; }
             }
         }
+        public struct Global
+        {
+            public struct Title
+            {
+                public static double FontSize { set; get; }
+                public static double Height { set; get; }
+                public static Thickness Margin { set; get; }
+                public static Brush Foreground { set; get; }
+            }
+        }
+        public struct SaveLoader
+        {
+            public static string Title { set; get; }
+            public struct DGTC1
+            {
+                public static string Header { set; get; }
+                public static double Width { set; get; }
+            }
+            public struct DGTC2
+            {
+                public static string Header { set; get; }
+            }
+        }
         public GUIconfigs()
         {
             XmlDocument Xml = new XmlDocument();// 实例化 XmlDocument 类
@@ -91,115 +114,142 @@ namespace Crape_Client.Global
                 Globals.LogMGR.ErrorBoxShow();
             }
             XmlElement XE;
-            #region MainWindowConfig
+            try {
+                #region MainWindowConfig
 
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig");
-            MainWindowConfig.Width = Convert.ToDouble(XE.GetAttribute("Width"));
-            MainWindowConfig.Height = Convert.ToDouble(XE.GetAttribute("Height"));
-            MainWindowConfig.Foreground = Tools.String2Brush(XE.GetAttribute("Foreground"));
-            MainWindowConfig.Title = XE.GetAttribute("Title");
-            #region Background
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Background");
-            MainWindowConfig.Background = new LinearGradientBrush()
-            {
-                StartPoint = Tools.String2Point(XE.GetAttribute("StartPoint")),
-                EndPoint = Tools.String2Point(XE.GetAttribute("EndPoint")),
-                GradientStop = new List<GradientStop>()
-            };
-            foreach (XmlNode Node in 
-                Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Background").ChildNodes)
-            {
-                XE = (XmlElement)Node;
-                MainWindowConfig.Background.GradientStop.Add(
-                    new GradientStop(
-                        Tools.String2Color(XE.GetAttribute("Color")),
-                        Convert.ToDouble(XE.GetAttribute("Offset"))
-                    )
-                );
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig");
+                MainWindowConfig.Width = Convert.ToDouble(XE.GetAttribute("Width"));
+                MainWindowConfig.Height = Convert.ToDouble(XE.GetAttribute("Height"));
+                MainWindowConfig.Foreground = Tools.String2Brush(XE.GetAttribute("Foreground"));
+                MainWindowConfig.Title = XE.GetAttribute("Title");
+                #region Background
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Background");
+                MainWindowConfig.Background = new LinearGradientBrush()
+                {
+                    StartPoint = Tools.String2Point(XE.GetAttribute("StartPoint")),
+                    EndPoint = Tools.String2Point(XE.GetAttribute("EndPoint")),
+                    GradientStop = new List<GradientStop>()
+                };
+                foreach (XmlNode Node in
+                    Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Background").ChildNodes)
+                {
+                    XE = (XmlElement)Node;
+                    MainWindowConfig.Background.GradientStop.Add(
+                        new GradientStop(
+                            Tools.String2Color(XE.GetAttribute("Color")),
+                            Convert.ToDouble(XE.GetAttribute("Offset"))
+                        )
+                    );
+                }
+                #endregion Background
+                #region Logo
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo");
+                MainWindowConfig.Logo.Left = Convert.ToDouble(XE.GetAttribute("Left"));
+                MainWindowConfig.Logo.Top = Convert.ToDouble(XE.GetAttribute("Top"));
+                MainWindowConfig.Logo.Width = Convert.ToDouble(XE.GetAttribute("Width"));
+                MainWindowConfig.Logo.Height = Convert.ToDouble(XE.GetAttribute("Height"));
+                MainWindowConfig.Logo.Text = XE.GetAttribute("Text");
+                MainWindowConfig.Logo.FontSize = Convert.ToDouble(XE.GetAttribute("FontSize"));
+                MainWindowConfig.Logo.Foreground = Tools.String2Brush(XE.GetAttribute("Foreground"));
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo/Projection");
+                MainWindowConfig.Logo.Projection.Foreground = Tools.String2Brush(XE.GetAttribute("Foreground"));
+                MainWindowConfig.Logo.Projection.Margin = Tools.String2Thickness(XE.GetAttribute("Margin"));
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo/Reflection");
+                MainWindowConfig.Logo.Reflection.Margin = Tools.String2Thickness(XE.GetAttribute("Margin"));
+                MainWindowConfig.Logo.Reflection.RenderTransformOrigin =
+                    Tools.String2Point(XE.GetAttribute("RenderTransformOrigin"));
+                MainWindowConfig.Logo.Reflection.ScaleTransformY = Convert.ToDouble(XE.GetAttribute("ScaleTransformY"));
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo/Reflection/LinearGradientBrush");
+                MainWindowConfig.Logo.Reflection.LinearGradientBrush = new LinearGradientBrush()
+                {
+                    StartPoint = Tools.String2Point(XE.GetAttribute("StartPoint")),
+                    EndPoint = Tools.String2Point(XE.GetAttribute("EndPoint")),
+                    GradientStop = new List<GradientStop>()
+                };
+                foreach (XmlNode Node in
+                    Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo/Reflection/LinearGradientBrush").ChildNodes)
+                {
+                    XE = (XmlElement)Node;
+                    MainWindowConfig.Logo.Reflection.LinearGradientBrush.GradientStop.Add(
+                        new GradientStop(
+                            Tools.String2Color(XE.GetAttribute("Color")),
+                            Convert.ToDouble(XE.GetAttribute("Offset"))
+                        )
+                    );
+                }
+                #endregion Logo
+                #region MenuButton
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton");
+                MainWindowConfig.MenuButton.Left = Convert.ToDouble(XE.GetAttribute("Left"));
+                MainWindowConfig.MenuButton.Width = Convert.ToDouble(XE.GetAttribute("Width"));
+                MainWindowConfig.MenuButton.Height = Convert.ToDouble(XE.GetAttribute("Height"));
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton/Campaign");
+                MainWindowConfig.MenuButton.Campaign = new MainWindowConfig.MenuButton.Button()
+                {
+                    Top = Convert.ToDouble(XE.GetAttribute("Top")),
+                    Content = XE.GetAttribute("Content"),
+                    DataContext = XE.GetAttribute("DataContext")
+                };
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton/Skirmish");
+                MainWindowConfig.MenuButton.Skirmish = new MainWindowConfig.MenuButton.Button()
+                {
+                    Top = Convert.ToDouble(XE.GetAttribute("Top")),
+                    Content = XE.GetAttribute("Content"),
+                    DataContext = XE.GetAttribute("DataContext")
+                };
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton/Loadings");
+                MainWindowConfig.MenuButton.Loadings = new MainWindowConfig.MenuButton.Button()
+                {
+                    Top = Convert.ToDouble(XE.GetAttribute("Top")),
+                    Content = XE.GetAttribute("Content"),
+                    DataContext = XE.GetAttribute("DataContext")
+                };
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton/Settings");
+                MainWindowConfig.MenuButton.Settings = new MainWindowConfig.MenuButton.Button()
+                {
+                    Top = Convert.ToDouble(XE.GetAttribute("Top")),
+                    Content = XE.GetAttribute("Content"),
+                    DataContext = XE.GetAttribute("DataContext")
+                };
+                #endregion MenuButton
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Exit");
+                MainWindowConfig.Exit.Left = Convert.ToDouble(XE.GetAttribute("Left"));
+                MainWindowConfig.Exit.Bottom = Convert.ToDouble(XE.GetAttribute("Bottom"));
+                MainWindowConfig.Exit.Width = Convert.ToDouble(XE.GetAttribute("Width"));
+                MainWindowConfig.Exit.Height = Convert.ToDouble(XE.GetAttribute("Height"));
+                MainWindowConfig.Exit.Content = XE.GetAttribute("Content");
+                MainWindowConfig.Exit.DataContext = XE.GetAttribute("DataContext");
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Frame");
+                MainWindowConfig.Frame.Margin = Tools.String2Thickness(XE.GetAttribute("Margin"));
+                #endregion MainWindowConfig
+                System.Diagnostics.Debug.WriteLine("Global");
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/Global/Title");
+                System.Diagnostics.Debug.WriteLine("Global/FontSize");
+
+                Global.Title.FontSize = Convert.ToDouble(XE.GetAttribute("FontSize"));
+                System.Diagnostics.Debug.WriteLine("Global/Height");
+                Global.Title.Height = Convert.ToDouble(XE.GetAttribute("Height"));
+                System.Diagnostics.Debug.WriteLine("Global/Foreground");
+                Global.Title.Foreground = Tools.String2Brush(XE.GetAttribute("Foreground"));
+                System.Diagnostics.Debug.WriteLine("Global/FontSize");
+                Global.Title.Margin = Tools.String2Thickness(XE.GetAttribute("FontSize"));
+
+                #region SaveLoader
+                System.Diagnostics.Debug.WriteLine("SaveLoader");
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/SaveLoader");
+                SaveLoader.Title = XE.GetAttribute("Title");
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/SaveLoader/DataGridTextColumn1");
+                SaveLoader.DGTC1.Header = XE.GetAttribute("Header");
+                SaveLoader.DGTC1.Width = Convert.ToDouble(XE.GetAttribute("Width"));
+                XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/SaveLoader/DataGridTextColumn2");
+                SaveLoader.DGTC2.Header = XE.GetAttribute("Header");
+
+                #endregion
+            }catch (FormatException e){
+                Globals.LogMGR.Error("GUI Error!");
+                Globals.LogMGR.Error(e);
+                Global.Title.FontSize = 24;
             }
-            #endregion Background
-            #region Logo
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo");
-            MainWindowConfig.Logo.Left = Convert.ToDouble(XE.GetAttribute("Left"));
-            MainWindowConfig.Logo.Top = Convert.ToDouble(XE.GetAttribute("Top"));
-            MainWindowConfig.Logo.Width = Convert.ToDouble(XE.GetAttribute("Width"));
-            MainWindowConfig.Logo.Height = Convert.ToDouble(XE.GetAttribute("Height"));
-            MainWindowConfig.Logo.Text = XE.GetAttribute("Text");
-            MainWindowConfig.Logo.FontSize = Convert.ToDouble(XE.GetAttribute("FontSize"));
-            MainWindowConfig.Logo.Foreground = Tools.String2Brush(XE.GetAttribute("Foreground"));
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo/Projection");
-            MainWindowConfig.Logo.Projection.Foreground = Tools.String2Brush(XE.GetAttribute("Foreground"));
-            MainWindowConfig.Logo.Projection.Margin = Tools.String2Thickness(XE.GetAttribute("Margin"));
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo/Reflection");
-            MainWindowConfig.Logo.Reflection.Margin = Tools.String2Thickness(XE.GetAttribute("Margin"));
-            MainWindowConfig.Logo.Reflection.RenderTransformOrigin =
-                Tools.String2Point(XE.GetAttribute("RenderTransformOrigin"));
-            MainWindowConfig.Logo.Reflection.ScaleTransformY= Convert.ToDouble(XE.GetAttribute("ScaleTransformY"));
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo/Reflection/LinearGradientBrush");
-            MainWindowConfig.Logo.Reflection.LinearGradientBrush = new LinearGradientBrush()
-            {
-                StartPoint = Tools.String2Point(XE.GetAttribute("StartPoint")),
-                EndPoint = Tools.String2Point(XE.GetAttribute("EndPoint")),
-                GradientStop = new List<GradientStop>()
-            };
-            foreach (XmlNode Node in 
-                Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Logo/Reflection/LinearGradientBrush").ChildNodes)
-            {
-                XE = (XmlElement)Node;
-                MainWindowConfig.Logo.Reflection.LinearGradientBrush.GradientStop.Add(
-                    new GradientStop(
-                        Tools.String2Color(XE.GetAttribute("Color")),
-                        Convert.ToDouble(XE.GetAttribute("Offset"))
-                    )
-                );
-            }
-            #endregion Logo
-            #region MenuButton
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton");
-            MainWindowConfig.MenuButton.Left = Convert.ToDouble(XE.GetAttribute("Left"));
-            MainWindowConfig.MenuButton.Width = Convert.ToDouble(XE.GetAttribute("Width"));
-            MainWindowConfig.MenuButton.Height = Convert.ToDouble(XE.GetAttribute("Height"));
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton/Campaign");
-            MainWindowConfig.MenuButton.Campaign = new MainWindowConfig.MenuButton.Button()
-            {
-                Top = Convert.ToDouble(XE.GetAttribute("Top")),
-                Content = XE.GetAttribute("Content"),
-                DataContext = XE.GetAttribute("DataContext")
-            };
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton/Skirmish");
-            MainWindowConfig.MenuButton.Skirmish = new MainWindowConfig.MenuButton.Button()
-            {
-                Top = Convert.ToDouble(XE.GetAttribute("Top")),
-                Content = XE.GetAttribute("Content"),
-                DataContext = XE.GetAttribute("DataContext")
-            };
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton/Loadings");
-            MainWindowConfig.MenuButton.Loadings = new MainWindowConfig.MenuButton.Button()
-            {
-                Top = Convert.ToDouble(XE.GetAttribute("Top")),
-                Content = XE.GetAttribute("Content"),
-                DataContext = XE.GetAttribute("DataContext")
-            };
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/MenuButton/Settings");
-            MainWindowConfig.MenuButton.Settings = new MainWindowConfig.MenuButton.Button()
-            {
-                Top = Convert.ToDouble(XE.GetAttribute("Top")),
-                Content = XE.GetAttribute("Content"),
-                DataContext = XE.GetAttribute("DataContext")
-            };
-            #endregion MenuButton
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Exit");
-            MainWindowConfig.Exit.Left = Convert.ToDouble(XE.GetAttribute("Left"));
-            MainWindowConfig.Exit.Bottom = Convert.ToDouble(XE.GetAttribute("Bottom"));
-            MainWindowConfig.Exit.Width = Convert.ToDouble(XE.GetAttribute("Width"));
-            MainWindowConfig.Exit.Height = Convert.ToDouble(XE.GetAttribute("Height"));
-            MainWindowConfig.Exit.Content = XE.GetAttribute("Content");
-            MainWindowConfig.Exit.DataContext = XE.GetAttribute("DataContext");
-            XE = (XmlElement)Xml.SelectSingleNode("GUIconfigs/MainWindowConfig/Frame");
-            MainWindowConfig.Frame.Margin = Tools.String2Thickness(XE.GetAttribute("Margin"));
-            #endregion MainWindowConfig
-
-
         }
     }
 }

@@ -1,34 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Xml;
-using System.Windows;
-using System.Drawing;
-using Crape_Client.CrapeClientCore;
-using Crape_Client.Global;
+﻿using System.IO;
 
-namespace Crape_Client.Initialization
+namespace Crape_Client.Global
 {
-    class SavedList
+    class SaveLoadList
     {
-        #region 存档
-        public SavedList()
+        public SaveLoadList()
         {
             DirectoryInfo folder = new DirectoryInfo(Globals.SavesDir);
             try
             {
                 foreach (FileInfo file in folder.GetFiles("*.sav"))
                 {
-                    //Console.WriteLine(file.FullName);
                     Globals.SaveFilesList.Add(new Cls_SaveFiles
                     {
                         Name = GameSaveFile.LoadSaveName(File.ReadAllBytes(file.FullName)),
                         Date = file.LastWriteTime.ToString(),
-                        FileN = file.Name
-                    });// FullName?
+                        File = file.Name
+                    });
                 }
             }
             catch (DirectoryNotFoundException e)
@@ -38,11 +26,15 @@ namespace Crape_Client.Initialization
                 {
                     Name = "没有发现可用存档",
                     Date = "",
-                    FileN = ""
+                    File = ""
                 });
             }
         }
-        #endregion
-
+    }
+    public struct Cls_SaveFiles// 存档列表用
+    {
+        public string Name { get; set; }
+        public string Date { get; set; }
+        public string File { get; set; }
     }
 }

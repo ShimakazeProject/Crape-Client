@@ -10,9 +10,11 @@
       Title="LoadSaveGames">
     <!--#region 载入-->
     <Grid>
-        <ScrollViewer  Style="{StaticResource ScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10">
-            <Canvas>
-                <TextBlock Text="载入存档" FontSize="24" Foreground="#fff" Height="32" VerticalAlignment="Top"></TextBlock>
+        <TextBlock Text="载入存档" FontSize="24" 
+                           Foreground="#fff" Height="32" 
+                           Margin="5,5,5,0"
+                           VerticalAlignment="Top"/>
+        <ScrollViewer Style="{StaticResource ScrollViewer}" HorizontalScrollBarVisibility="Disabled" Padding="10">
                 <DataGrid x:Name="dgLoadList"
                           Width="700"
                           Canvas.Left="10" Canvas.Top="32"
@@ -24,7 +26,6 @@
                         <DataGridTextColumn Binding="{Binding Path=FileN}" Header="文件名" Visibility="Collapsed"/>
                     </DataGrid.Columns>
                 </DataGrid>
-            </Canvas>
         </ScrollViewer>
     </Grid>
     <!--#endregion-->

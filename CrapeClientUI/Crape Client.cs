@@ -15,7 +15,7 @@ namespace Crape_Client.CrapeClientUI
     class CrapeClient: Window
     {
 
-        private Frame Frame;
+        private ContentControl Frame;
         public CrapeClient()
         {
             // 固定不可变
@@ -182,10 +182,9 @@ namespace Crape_Client.CrapeClientUI
             #endregion 按钮
             Grid.Children.Add(Menu);
             #endregion Menu(Canvas)
-            Frame = new Frame()// Frame初始化
+            Frame = new ContentControl()// Frame初始化
             {
-                NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden,
-                Source = new Uri("/Crape Client;component/CrapeClientUI/Welcome.xaml", UriKind.Relative)
+                Content = new Welcome()
             };
             Frame.Margin = GUIconfigs.MainWindowConfig.Frame.Margin;
             Grid.Children.Add(Frame);
@@ -193,13 +192,18 @@ namespace Crape_Client.CrapeClientUI
             Content = Grid;
         }
         private void Combat(object sender, RoutedEventArgs e) /* 战役 */{
-            Frame.Source = new Uri("/CrapeClientUI/Mission.xaml", UriKind.Relative); }
+            //Frame.Source = new Uri("/CrapeClientUI/Mission.xaml", UriKind.Relative); 
+        }
         private void Skirmish(object sender, RoutedEventArgs e) /* 遭遇战 */{
-            Frame.Source = new Uri("/Crape Client;component/CrapeClientUI/Skirmish.xaml", UriKind.Relative); }
+            //Frame.Source = new Uri("/Crape Client;component/CrapeClientUI/Skirmish.xaml", UriKind.Relative); 
+        }
         private void Loadings(object sender, RoutedEventArgs e)/* 载入 LoadSaveGames */{
-            Frame.Source = new Uri("/Crape Client;component/CrapeClientUI/LoadSaveGames.xaml", UriKind.Relative); }
+            Frame.Content = new SaveLoader();
+            //Frame.Source = new Uri("/Crape Client;component/CrapeClientUI/LoadSaveGames.xaml", UriKind.Relative); 
+        }
         private void Settings(object sender, RoutedEventArgs e)/* 设置 */{
-            Frame.Source = new Uri("/Crape Client;component/CrapeClientUI/Settings.xaml", UriKind.Relative); }
+            //Frame.Source = new Uri("/Crape Client;component/CrapeClientUI/Settings.xaml", UriKind.Relative); 
+        }
         private void Exit(object sender, RoutedEventArgs e) /* 退出 */{
             //Environment.Exit(0);
             Close();

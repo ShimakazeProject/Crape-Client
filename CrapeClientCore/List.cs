@@ -21,10 +21,5 @@ namespace Crape_Client
         public string Summary { get; set; }
 
     }
-    public class Cls_SaveFiles// 存档列表用
-    {
-        public string Name { get; set; }
-        public string Date { get; set; }
-        public string FileN { get; set; }
-    }
+
 }
