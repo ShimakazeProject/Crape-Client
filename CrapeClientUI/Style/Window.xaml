@@ -15,19 +15,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Window">
-                    <Border>
-                        <Border Background="{TemplateBinding Background}"
+                    <Border Background="{TemplateBinding Background}"
                                 BorderBrush="Transparent"
                                 BorderThickness="0"
                                 CornerRadius="0"
                                 SnapsToDevicePixels="True">
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius="10"
-                                                  Direction="0"
-                                                  ShadowDepth="0" />
-                            </Border.Effect>
-                            <ContentPresenter />
-                        </Border>
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="10"
+                                              Direction="0"
+                                              ShadowDepth="0" />
+                        </Border.Effect>
+                        <ContentPresenter />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

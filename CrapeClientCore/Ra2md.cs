@@ -298,8 +298,14 @@ namespace Crape_Client.CrapeClientCore
             }// 语音音量
             public static double ScoreVolume
             {
-                set { IniIO.I("Audio", "ScoreVolume", value); }
-                get { return IniIO.Odouble("Audio", "ScoreVolume"); }
+                set
+                {
+                    IniIO.I("Audio", "ScoreVolume", value);
+                }
+                get
+                {
+                    return IniIO.Odouble("Audio", "VoiceVolume");
+                }
             }// 音效音量
             public static int SoundLatency
             {

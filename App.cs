@@ -21,6 +21,11 @@ namespace Crape_Client
                 ShutdownMode = ShutdownMode.OnExplicitShutdown// 不自动退出程序
             };
             //app.StartupUri = new Uri("/CrapeClientUI/Crape Client.xaml", UriKind.Relative);
+            /*
+            CrapeClientUI.L2d l2dw = new CrapeClientUI.L2d();
+            l2dw.ShowDialog();
+            app.Shutdown();
+            //*/
             // 设定启动窗口URI
             CrapeClientUI.LoadingWindow loading = new CrapeClientUI.LoadingWindow();
             loading.ShowDialog();

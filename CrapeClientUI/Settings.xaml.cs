@@ -71,20 +71,7 @@ namespace Crape_Client.CrapeClientUI
             Ra2md.Audio.VoiceVolume = Value;
             sVoiceSetting.Value = Value;
         }
-        private void SetScreen(object sender, EventArgs e)/* 分辨率设置 */
-        {
-            try
-            {
-                string[] scr = cbScreen.SelectedItem.ToString().Split(':');
-                scr = scr[1].Split('x');
-                Ra2md.Video.ScreenWidth = Convert.ToInt32(scr[0]);
-                Ra2md.Video.ScreenHeight = Convert.ToInt32(scr[1]);
-            }
-            catch (NullReferenceException)
-            {
-                return;
-            }
-        }
+
         private void SeletDetailLevel(object sender, EventArgs e)// 画质等级
         {
             if (cbDetailLevel.SelectedIndex < 3 && cbDetailLevel.SelectedIndex >= 0)

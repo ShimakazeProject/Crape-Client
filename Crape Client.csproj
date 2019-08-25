@@ -86,6 +86,10 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\C#Lib库\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -117,7 +121,13 @@
     <Compile Include="CrapeClientCore\LogMGR.cs" />
     <Compile Include="CrapeClientCore\Renderer.cs" />
     <Compile Include="CrapeClientUI\Crape Client.cs" />
+    <Compile Include="CrapeClientUI\L2d.xaml.cs">
+      <DependentUpon>L2d.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CrapeClientUI\Live2DWindow.cs" />
+    <Compile Include="Live2DCore\Live2DView.cs" />
     <Compile Include="CrapeClientUI\SaveLoader.cs" />
+    <Compile Include="CrapeClientUI\SettingMgr.cs" />
     <Compile Include="CrapeClientUI\Welcome.cs" />
     <Compile Include="Global\SaveLoadList.cs" />
     <Compile Include="Initialization\ColorInit.cs" />
@@ -134,11 +144,11 @@
     <Compile Include="CrapeClientCore\GameSaveFile.cs" />
     <Compile Include="CrapeClientCore\Program.cs" />
     <Compile Include="CrapeClientCore\List.cs" />
-    <Page Include="CrapeClientUI\Mission.xaml">
+    <Page Include="CrapeClientUI\L2d.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CrapeClientUI\Settings.xaml">
+    <Page Include="CrapeClientUI\Mission.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,9 +209,6 @@
     <Compile Include="CrapeClientUI\Mission.xaml.cs">
       <DependentUpon>Mission.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CrapeClientUI\Settings.xaml.cs">
-      <DependentUpon>Settings.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CrapeClientUI\Skirmish.xaml.cs">
       <DependentUpon>Skirmish.xaml</DependentUpon>
     </Compile>
@@ -210,6 +217,23 @@
     <Compile Include="Initialization\Renderer.cs" />
     <Compile Include="Initialization\SideInit.cs" />
     <Compile Include="CrapeClientCore\Tools.cs" />
+    <Compile Include="Live2DCore\Core\HRESULT.cs" />
+    <Compile Include="Live2DCore\Core\NativeMethods.cs" />
+    <Compile Include="Live2DCore\Core\NativeStructure.cs" />
+    <Compile Include="Live2DCore\Framework\L2DBase.cs" />
+    <Compile Include="Live2DCore\Framework\L2DExpression.cs" />
+    <Compile Include="Live2DCore\Framework\L2DModel.cs" />
+    <Compile Include="Live2DCore\Framework\L2DMotion.cs" />
+    <Compile Include="Live2DCore\Framework\L2DParts.cs" />
+    <Compile Include="Live2DCore\Framework\L2DPhysics.cs" />
+    <Compile Include="Live2DCore\Framework\L2DPose.cs" />
+    <Compile Include="Live2DCore\Framework\L2DRender.cs" />
+    <Compile Include="Live2DCore\Framework\L2DSound.cs" />
+    <Compile Include="Live2DCore\Framework\L2DView.cs" />
+    <Compile Include="Live2DCore\Interface\IL2DRenderer.cs" />
+    <Compile Include="Live2DCore\Utility\L2DFunctions.cs" />
+    <Compile Include="Live2DCore\Utility\L2DFunctionsException.cs" />
+    <Compile Include="Live2DCore\Utility\L2DUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

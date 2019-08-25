@@ -202,6 +202,7 @@ namespace Crape_Client.CrapeClientUI
             //Frame.Source = new Uri("/Crape Client;component/CrapeClientUI/LoadSaveGames.xaml", UriKind.Relative); 
         }
         private void Settings(object sender, RoutedEventArgs e)/* 设置 */{
+            Frame.Content = new SettingMgr();
             //Frame.Source = new Uri("/Crape Client;component/CrapeClientUI/Settings.xaml", UriKind.Relative); 
         }
         private void Exit(object sender, RoutedEventArgs e) /* 退出 */{

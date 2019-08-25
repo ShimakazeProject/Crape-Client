@@ -32,14 +32,18 @@
     <Frame Margin="200, 5, 5, 5"/>
   </MainWindowConfig>
   <Global>
-    <Title FontSize="24.0" Foreground="#FFF" Height="32" Margin="5,5,5,0"/>
+    <Title FontSize="24" Foreground="#FFF" Height="32" Margin="5,5,5,0"/>
     
   </Global>
   <SaveLoader Title="载入">
     <DataGridTextColumn1 Header="存档名" Width="600"/>
     <DataGridTextColumn2 Header="日期"/>
   </SaveLoader>
-  
+  <Settings Title="设置">
+    <Screen Title="显示设置">
+      <Resolution Title="分辨率"/>
+    </Screen>
+  </Settings>
   
   
 
