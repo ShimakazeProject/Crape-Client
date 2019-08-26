@@ -125,6 +125,10 @@
       <DependentUpon>L2d.xaml</DependentUpon>
     </Compile>
     <Compile Include="CrapeClientUI\Live2DWindow.cs" />
+    <Compile Include="CrapeClientUI\MenuButton.cs" />
+    <Compile Include="MenuButtonA.xaml.cs">
+      <DependentUpon>MenuButtonA.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Live2DCore\Live2DView.cs" />
     <Compile Include="CrapeClientUI\SaveLoader.cs" />
     <Compile Include="CrapeClientUI\SettingMgr.cs" />
@@ -145,6 +149,10 @@
     <Compile Include="CrapeClientCore\Program.cs" />
     <Compile Include="CrapeClientCore\List.cs" />
     <Page Include="CrapeClientUI\L2d.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuButtonA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

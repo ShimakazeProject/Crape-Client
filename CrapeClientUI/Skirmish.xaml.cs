@@ -19,7 +19,7 @@ namespace Crape_Client.CrapeClientUI
     /// <summary>
     /// Page1.xaml 的交互逻辑
     /// </summary>
-    public partial class Skirmish : Page
+    public partial class Skirmish : UserControl
     {
 
         static Spawn spawn = new Spawn();

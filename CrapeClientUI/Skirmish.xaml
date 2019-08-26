@@ -1,10 +1,10 @@
-﻿<Page x:Class="Crape_Client.CrapeClientUI.Skirmish"
+﻿<UserControl x:Class="Crape_Client.CrapeClientUI.Skirmish"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d" Initialized="Page_Initialized"
-      Title="Skirmish" Height="600" Width="800" VerticalAlignment="Top" HorizontalAlignment="Left">
+      Height="600" Width="800" VerticalAlignment="Top" HorizontalAlignment="Left">
     <!--#region 遭遇战-->
     <Border x:Name="遭遇战">
         <Canvas>
@@ -381,4 +381,4 @@
         </Canvas>
     </Border>
     <!--#endregion-->
-</Page>
+</UserControl>

@@ -21,7 +21,7 @@ namespace Crape_Client.CrapeClientUI
     /// <summary>
     /// Mission.xaml 的交互逻辑
     /// </summary>
-    public partial class Mission : Page
+    public partial class Mission : UserControl
     {
         public Mission()
         {

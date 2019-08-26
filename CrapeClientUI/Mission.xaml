@@ -1,11 +1,11 @@
-﻿<Page x:Class="Crape_Client.CrapeClientUI.Mission"
+﻿<UserControl x:Class="Crape_Client.CrapeClientUI.Mission"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Crape_Client.CrapeClientUI"
       mc:Ignorable="d"
-      Title="Mission" HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Height="600">
+      HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Height="600">
     <!--#region 战役-->
     <Border>
         <Canvas>
@@ -49,4 +49,4 @@
         </Canvas>
     </Border>
     <!--#endregion-->
-</Page>
+</UserControl>

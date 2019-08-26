@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="Crape_Client.CrapeClientUI.MenuButtonA"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Crape_Client.CrapeClientUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="45" d:DesignWidth="195">
+    <Grid>
+        <!--阴影-->
+        <Path x:Name="pShadowPath" Stroke="Transparent" StrokeThickness="1">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#3F6E6E6E"  Offset="0"></GradientStop>
+                    <GradientStop Color="#106E6E6E"  Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure IsClosed="True" StartPoint="5,40">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="170,40" />
+                                    <LineSegment Point="187.5,5" />
+                                    <LineSegment Point="192.5,5" />
+                                    <LineSegment Point="172.5,45"/>
+                                    <LineSegment Point="5,45"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <!--背景-->
+        <Path x:Name="pBackPath" Stroke="Transparent" StrokeThickness="1">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2.4">
+                    <GradientStop Color="#995F5F5F"  Offset="0.25"></GradientStop>
+                    <GradientStop Color="#99080808" Offset="0.4"></GradientStop>
+                    <GradientStop Color="#99080808" Offset="0.6"></GradientStop>
+                    <GradientStop Color="#992C2C2C" Offset="0.7"></GradientStop>
+                    <GradientStop Color="#99424242" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure IsClosed="True" StartPoint="0,0">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="170,0" />
+                                    <LineSegment Point="150,40"/>
+                                    <LineSegment Point="0,40"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                            <PathFigure IsClosed="True" StartPoint="180,0">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="190,0" />
+                                    <LineSegment Point="170,40"/>
+                                    <LineSegment Point="160,40"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <!--色块-->
+        <Path x:Name="pColorBlock" Stroke="Transparent" StrokeThickness="1">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,0">
+                    <GradientStop x:Name="gsColorBlock" Color="#FF700000"  Offset="0"></GradientStop>
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.Data>
+                <PathGeometry>
+                    <!--定义PathGeometry的Figuress-->
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure IsClosed="True" StartPoint="170,0">
+                                <PathFigure.Segments>
+                                    <LineSegment Point="180,0" />
+                                    <LineSegment Point="160,40"/>
+                                    <LineSegment Point="150,40"/>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <!--文字-->
+        <Grid Height="40" VerticalAlignment="Top">
+            <!--阴影-->
+            <TextBlock x:Name="tbShadow" Text="Main"
+                       Foreground="#7F636363" 
+                       FontWeight="Bold" FontStyle="Italic"
+                       Margin="10,7,0,0"
+                       VerticalAlignment="Top" 
+                       HorizontalAlignment="Center"/>
+            <TextBlock x:Name="tbSubShadow" Text="Sub"
+                       Foreground="#7F636363" FontStyle="Italic"
+                       Margin="60,0,0,0"
+                       VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Center"/>
+            <!--正文-->
+            <TextBlock x:Name="tbMain" Text="Main"
+                       Foreground="#FFE4E4E4" 
+                       FontWeight="Bold" FontStyle="Italic"
+                       Margin="0,5,0,0"
+                       VerticalAlignment="Top" 
+                       HorizontalAlignment="Center"/>
+            <TextBlock x:Name="tbSub" Text="Sub"
+                       Foreground="#FFE4E4E4" 
+                       FontSize="12" FontStyle="Italic"
+                       Margin="50,0,0,3"
+                       VerticalAlignment="Bottom" 
+                       HorizontalAlignment="Center"/>
+        </Grid>
+    </Grid>
+
+</UserControl>

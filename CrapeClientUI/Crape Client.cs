@@ -192,9 +192,11 @@ namespace Crape_Client.CrapeClientUI
             Content = Grid;
         }
         private void Combat(object sender, RoutedEventArgs e) /* 战役 */{
+            Frame.Content = new Mission();
             //Frame.Source = new Uri("/CrapeClientUI/Mission.xaml", UriKind.Relative); 
         }
         private void Skirmish(object sender, RoutedEventArgs e) /* 遭遇战 */{
+            Frame.Content = new Skirmish();
             //Frame.Source = new Uri("/Crape Client;component/CrapeClientUI/Skirmish.xaml", UriKind.Relative); 
         }
         private void Loadings(object sender, RoutedEventArgs e)/* 载入 LoadSaveGames */{
