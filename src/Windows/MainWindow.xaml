@@ -1,0 +1,71 @@
+﻿<Window x:Class="Crape_Client.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Crape_Client.Windows"
+        xmlns:ctrls="clr-namespace:Crape_Client.Controls"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d" Style="{StaticResource WindowStyle}"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="Crape Client" Height="600" Width="1000" Foreground="White">
+    <Window.Resources>
+        <sys:Double x:Key="LogoFontSize">28</sys:Double>
+        <sys:String x:Key="LogoText">Crape Client</sys:String>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">
+            <GradientStop Color="#CC150738" Offset="0"/>
+            <GradientStop Color="#CC150738" Offset="0.2"/>
+            <GradientStop Color="#9929223A" Offset="0.6"/>
+            <GradientStop Color="#442B2833" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Height="60" Width="200" 
+                  HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock Text="{StaticResource LogoText}" FontSize="{StaticResource LogoFontSize}"
+                       FontWeight="Bold" FontStyle="Italic"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Margin="20,20,20,-25" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="Transparent" Offset="0.5"/>
+                            <GradientStop Color="#50000000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+                <TextBlock Text="{StaticResource LogoText}" FontSize="{StaticResource LogoFontSize}" 
+                       FontWeight="Bold" Margin="17,14,10,10" Foreground="#50EAEAEA"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Text="{StaticResource LogoText}" FontSize="{StaticResource LogoFontSize}"
+                       FontWeight="Bold" Foreground="#FFEAEAEA"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <StackPanel Grid.Row="1">
+
+            </StackPanel>
+            <ctrls:MenuButton Grid.Row="1" VerticalAlignment="Bottom" Margin="0,10"
+                              MainText="退出" SubText="Exit" BlockColor="#FFF" 
+                              />
+        </Grid>
+        <ctrls:Live2DShow Grid.Column="1" x:Name="L2DS" Background="{x:Null}"
+                          Mouse="True" OffsetX="200" OffsetY="-200"
+                          MouseLeftButtonUp="L2DS_MouseLeftButtonUp"/>
+
+    </Grid>
+</Window>

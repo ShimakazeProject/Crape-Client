@@ -1,24 +1,5 @@
-# **重写警告**
-
 # Crape Client
-Crape Client是我没事闲的
+一个<<命令与征服:红色警戒2>>用的客户端  
+就像DTA Client那样的, 不过功能并不完善
 
-有[xna-cncnet-client](https://github.com/CnCNet/xna-cncnet-client "xna-cncnet-client")不拿来改
-
-非要**自己写**的**半成品**
-
-说是Client其实连网络功能都没做, 局域网都不能用
-
-
-
-	啊..看人家写的xna-cncnet-client我都要自闭了...
-
-
-# 测试时请记得创建一个从res文件夹到测试目录的名为\Resource的链接
-
-符号链接
-`Mklink /D .\bin\Debug\Resource .\res`
-
-硬链接
-`Mklink /H /J .\bin\Debug\Resource .\res`
-(文件夹可以硬链接嘛?)
+旧的项目存放在old文件夹下(旧项目功能比新项目更完善..大概)
