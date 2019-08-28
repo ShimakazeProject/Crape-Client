@@ -102,7 +102,7 @@ namespace Crape_Client.CrapeClientUI
 
                 spawn.Settings.DifficultyModeHuman = 0;
                 spawn.Settings.DifficultyModeComputer = 2;
-                spawn.Write();
+                spawn.Make();
                 Program.RunSyringe();
             }
         }

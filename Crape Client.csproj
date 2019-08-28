@@ -117,15 +117,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CrapeClientCore\LogMGR.cs" />
     <Compile Include="CrapeClientCore\Renderer.cs" />
+    <Compile Include="CrapeClientCore\Spawn.cs" />
     <Compile Include="CrapeClientUI\Crape Client.cs" />
-    <Compile Include="CrapeClientUI\L2d.xaml.cs">
-      <DependentUpon>L2d.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CrapeClientUI\Live2DWindow.cs" />
     <Compile Include="CrapeClientUI\MenuButton.cs" />
+    <Compile Include="CrapeClientUI\SettingsManager.xaml.cs">
+      <DependentUpon>SettingsManager.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuButtonA.xaml.cs">
       <DependentUpon>MenuButtonA.xaml</DependentUpon>
     </Compile>
@@ -143,12 +145,15 @@
     <Compile Include="CrapeClientCore\ScreenSettings.cs" />
     <Compile Include="CrapeClientCore\IniEdit.cs" />
     <Compile Include="CrapeClientCore\Ra2md.cs" />
-    <Compile Include="CrapeClientCore\Spawn.cs" />
     <Compile Include="CrapeClientCore\StringTools.cs" />
     <Compile Include="CrapeClientCore\GameSaveFile.cs" />
     <Compile Include="CrapeClientCore\Program.cs" />
     <Compile Include="CrapeClientCore\List.cs" />
-    <Page Include="CrapeClientUI\L2d.xaml">
+    <Page Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CrapeClientUI\SettingsManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

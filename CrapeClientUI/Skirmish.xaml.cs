@@ -22,21 +22,38 @@ namespace Crape_Client.CrapeClientUI
     public partial class Skirmish : UserControl
     {
 
-        static Spawn spawn = new Spawn();
+        private Spawn spawn = new Spawn();
 
+        // Team ComboBox列表
+        private List<ComboBox> TeamCBs = new List<ComboBox>();
+        // 玩家结盟列表
+        private List<int> TeamA = new List<int>();
+        private List<int> TeamB = new List<int>();
+        private List<int> TeamC = new List<int>();
+        private List<int> TeamD = new List<int>();
 
 
 
         // int MaxPlayerNum = 7;
-
         public Skirmish()
         {
             InitializeComponent();
             HostName.Text = Ra2md.MultiPlayer.Handle;
             SideInit();
             ColorInit();
+            TeamInit();
 
-
+            TeamCBs = new List<ComboBox>(){
+                // 初始化Team ComboBox列表(应该放到构造函数里)
+                HostTeam,
+                O1t,
+                O2t,
+                O3t,
+                O4t,
+                O5t,
+                O6t,
+                O7t,
+            };
 
             List<AIplayer> namelist = new List<AIplayer>{
                 new AIplayer{ Id=-1, Text = "无"}
@@ -45,13 +62,7 @@ namespace Crape_Client.CrapeClientUI
                 ,new AIplayer{ Id=0, Text = "困难"}
             };
 
-            List<string> teamlist = new List<string>{
-                "-"
-                ,"A"
-                ,"B"
-                ,"C"
-                ,"D"
-            };
+
             List<string> locallist = new List<string>{
                 "?"
                 ,"1"
@@ -81,15 +92,6 @@ namespace Crape_Client.CrapeClientUI
             O5l.ItemsSource = locallist;
             O6l.ItemsSource = locallist;
             O7l.ItemsSource = locallist;
-
-            HostTeam.ItemsSource = teamlist;
-            O1t.ItemsSource = teamlist;
-            O2t.ItemsSource = teamlist;
-            O3t.ItemsSource = teamlist;
-            O4t.ItemsSource = teamlist;
-            O5t.ItemsSource = teamlist;
-            O6t.ItemsSource = teamlist;
-            O7t.ItemsSource = teamlist;
         }
 
         void ColorInit()
@@ -150,9 +152,6 @@ namespace Crape_Client.CrapeClientUI
         }
         void SideInit()
         {
-
-
-
             List<Brush> Colors = new List<Brush>();
 
             Initialization.Config.Side[] sides = Global.Globals.Sides.ToArray();
@@ -302,7 +301,48 @@ namespace Crape_Client.CrapeClientUI
                 });
             }
         }
-
+        void TeamInit()
+        {
+            ComboBox cb = new ComboBox();
+            int i = 0;
+            while (true)
+            {
+                if (i >= 8) return;
+                else switch (i)
+                    {
+                        case 0:
+                            cb = HostTeam;
+                            break;
+                        case 1:
+                            cb = O1t;
+                            break;
+                        case 2:
+                            cb = O2t;
+                            break;
+                        case 3:
+                            cb = O3t;
+                            break;
+                        case 4:
+                            cb = O4t;
+                            break;
+                        case 5:
+                            cb = O5t;
+                            break;
+                        case 6:
+                            cb = O6t;
+                            break;
+                        case 7:
+                            cb = O7t;
+                            break;
+                    }
+                cb.Items.Add(new ComboBoxItem() { Content = "-", DataContext = "-" });
+                cb.Items.Add(new ComboBoxItem() { Content = "A", DataContext = "A" });
+                cb.Items.Add(new ComboBoxItem() { Content = "B", DataContext = "B" });
+                cb.Items.Add(new ComboBoxItem() { Content = "C", DataContext = "C" });
+                cb.Items.Add(new ComboBoxItem() { Content = "D", DataContext = "D" });
+                i++;
+            }
+        }
         class AIplayer
         {
             public int Id { get; set; }
@@ -341,6 +381,7 @@ namespace Crape_Client.CrapeClientUI
                 "SelectedIndex: " + O1n.SelectedIndex.ToString());
         }
 
+
         private void HostColorss(object sender, EventArgs e)
         {
             ComboBoxItem Item = HostColor.SelectedItem as ComboBoxItem;
@@ -351,7 +392,7 @@ namespace Crape_Client.CrapeClientUI
         }
         private void RunGame(object sender, RoutedEventArgs e)
         {
-            
+            /*
             spawn.Settings.Scenario = lMapName.DataContext.ToString();
             spawn.Settings.Credits = Convert.ToUInt32(Credits.Text);
             spawn.Settings.TechLevel = Convert.ToByte(TechLevel.Text);
@@ -405,103 +446,131 @@ namespace Crape_Client.CrapeClientUI
             spawn.HouseHandicaps.Multi8 = (byte)O7n.Tag;
             spawn.HouseCountries.Multi8 = (byte)O7s.Tag;
             spawn.SpawnLocations.Multi8 = (byte)O7l.Tag;
-            TeamSet(HostTeam, 1);
-            TeamSet(O1t, 2);
-            TeamSet(O2t, 3);
-            TeamSet(O3t, 4);
-            TeamSet(O4t, 5);
-            TeamSet(O5t, 6);
-            TeamSet(O6t, 7);
-            TeamSet(O7t, 8);
-            spawn.Write();
+            //*/
+            //SpawnTeam();
+
+            spawn.Make();
         }
-        void TeamSet(ComboBox comboBox,int Player)
+
+
+        private void SpawnTeam()// 添加玩家结盟列表
         {
-            string value = comboBox.Text;
-            switch (value)
+            // 遍历TeamCBs
             {
-                case "A":
-                    AllyA.Add(Player);
-                    break;
-                case "B":
-                    AllyB.Add(Player);
-                    break;
-                case "C":
-                    AllyC.Add(Player);
-                    break;
-                case "D":
-                    AllyD.Add(Player);
-                    break;
-                default:
-                    return;
-            }
-        }
-        void Team(List<int> Ally)
-        {
-            int[] a = Ally.ToArray();
-            for (int i = 0; i < a.Length; i++)
-            {
-                byte p = (byte)a[i];
-                Spawn.Alliances alliances = new Spawn.Alliances();
-                for (int i2 = 0; i2 < a.Length; i2++)
+                int i = 0;
+                foreach (ComboBox cb in TeamCBs)
                 {
-                    if (p != a[i2])
+                    string value = (string)((ComboBoxItem)cb.SelectedItem).DataContext;
+                    switch (value)
                     {
-                        CheckTeam(alliances, p);
-                    }
-                    switch (p)
-                    {
-                        case 0:
-                            spawn.Multi1_Alliances = alliances;
+                        case "A":
+                            TeamA.Add(i);
                             break;
+                        case "B":
+                            TeamB.Add(i);
+                            break;
+                        case "C":
+                            TeamC.Add(i);
+                            break;
+                        case "D":
+                            TeamD.Add(i);
+                            break;
+                    }
+                    i++;
+                }
+            }
+
+            // 创建临时变量
+            List<int> Team = new List<int>();
+
+            foreach (int player in Team)
+            {
+                switch (player)
+                {
+                    case 1:
+                        spawn.Multi1_Alliances.Add(player);
+                        break;
+                    case 2:
+                        spawn.Multi2_Alliances.Add(player);
+                        break;
+                    case 3:
+                        spawn.Multi3_Alliances.Add(player);
+                        break;
+                    case 4:
+                        spawn.Multi4_Alliances.Add(player);
+                        break;
+                    case 5:
+                        spawn.Multi5_Alliances.Add(player);
+                        break;
+                    case 6:
+                        spawn.Multi6_Alliances.Add(player);
+                        break;
+                    case 7:
+                        spawn.Multi7_Alliances.Add(player);
+                        break;
+                    case 8:
+                        spawn.Multi8_Alliances.Add(player);
+                        break;
+                }
+
+            }
+            for (int i_ = 0; i_ < 4; i_++)
+            {
+                switch (i_)
+                {
+                    case 0:
+                        Team = TeamA;
+                        break;
+                    case 1:
+                        Team = TeamB;
+                        break;
+                    case 2:
+                        Team = TeamC;
+                        break;
+                    case 3:
+                        Team = TeamD;
+                        break;
+                }
+                for (int i = 0; i < Team.Count; i++)
+                {
+                    switch (Team[i])
+                    {
                         case 1:
-                            spawn.Multi2_Alliances = alliances;
+                            foreach (int player in Team)
+                                if (player != 1) spawn.Multi1_Alliances.Add(player);
                             break;
                         case 2:
-                            spawn.Multi3_Alliances = alliances;
+                            foreach (int player in Team)
+                                if (player != 2) spawn.Multi2_Alliances.Add(player);
                             break;
                         case 3:
-                            spawn.Multi4_Alliances = alliances;
+                            foreach (int player in Team)
+                                if (player != 3) spawn.Multi3_Alliances.Add(player);
                             break;
                         case 4:
-                            spawn.Multi5_Alliances = alliances;
+                            foreach (int player in Team)
+                                if (player != 4) spawn.Multi4_Alliances.Add(player);
                             break;
                         case 5:
-                            spawn.Multi6_Alliances = alliances;
+                            foreach (int player in Team)
+                                if (player != 5) spawn.Multi5_Alliances.Add(player);
                             break;
                         case 6:
-                            spawn.Multi7_Alliances = alliances;
+                            foreach (int player in Team)
+                                if (player != 6) spawn.Multi6_Alliances.Add(player);
                             break;
                         case 7:
-                            spawn.Multi8_Alliances = alliances;
+                            foreach (int player in Team)
+                                if (player != 7) spawn.Multi7_Alliances.Add(player);
+                            break;
+                        case 8:
+                            foreach (int player in Team)
+                                if (player != 8) spawn.Multi8_Alliances.Add(player);
                             break;
                     }
                 }
             }
         }
-        void CheckTeam(Spawn.Alliances alliances, byte p)
-        {
-            if (alliances.HouseAllyOne == null)
-                alliances.HouseAllyOne = p;
-            else if (alliances.HouseAllyTwe == null)
-                alliances.HouseAllyTwe = p;
-            else if (alliances.HouseAllyThree == null)
-                alliances.HouseAllyThree = p;
-            else if (alliances.HouseAllyFour == null)
-                alliances.HouseAllyFour = p;
-            else if (alliances.HouseAllyFive == null)
-                alliances.HouseAllyFive = p;
-            else if (alliances.HouseAllySix == null)
-                alliances.HouseAllySix = p;
-            else if (alliances.HouseAllySeven == null)
-                alliances.HouseAllySeven = p;
-        }
-        static List<int> AllyA = new List<int>();
-        static List<int> AllyB = new List<int>();
-        static List<int> AllyC = new List<int>();
-        static List<int> AllyD = new List<int>();
-
-
     }
 
 }

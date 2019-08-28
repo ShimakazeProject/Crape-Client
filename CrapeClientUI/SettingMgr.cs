@@ -60,7 +60,7 @@ namespace Crape_Client.CrapeClientUI
                 HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
                 Padding = new Thickness(10),
                 Style = (Style)FindResource("ScrollViewer"),
-                Margin = new Thickness(0, title.Height, 0, 0),
+                Margin = new Thickness(0, title.Height+10, 0, 0),
                 Content = SP
             };
             Grid.Children.Add(SV);

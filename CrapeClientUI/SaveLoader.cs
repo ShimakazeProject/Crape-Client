@@ -98,7 +98,7 @@ namespace Crape_Client.CrapeClientUI
                 spawn.Settings.GameSpeed = 1;
                 spawn.Settings.Firestorm = false;
                 spawn.Settings.SidebarHack = false;
-                spawn.Write();
+                spawn.Make();
                 Program.RunSyringe();
 
                 //*/
