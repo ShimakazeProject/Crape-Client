@@ -22,17 +22,10 @@ namespace Crape_Client.Windows
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-
-
-
         #region 对象
 
         Random rnd = new Random();
         #endregion
-
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -94,5 +87,10 @@ namespace Crape_Client.Windows
         }
 
         #endregion Live2DShow相关
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -59,13 +59,12 @@
             <StackPanel Grid.Row="1">
 
             </StackPanel>
-            <ctrls:MenuButton Grid.Row="1" VerticalAlignment="Bottom" Margin="0,10"
-                              MainText="退出" SubText="Exit" BlockColor="#FFF" 
-                              />
+            <!--<ctrls:MenuButton Grid.Row="1" VerticalAlignment="Bottom" Margin="0,10"
+                              MainText="退出" SubText="Exit" BlockColor="#FFF"/>-->
+            <Button Content="退出" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,10" Click="Exit_Click"/>
         </Grid>
         <ctrls:Live2DShow Grid.Column="1" x:Name="L2DS" Background="{x:Null}"
                           Mouse="True" OffsetX="200" OffsetY="-200"
                           MouseLeftButtonUp="L2DS_MouseLeftButtonUp"/>
-
     </Grid>
 </Window>
