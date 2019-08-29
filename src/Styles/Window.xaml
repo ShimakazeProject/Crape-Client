@@ -10,7 +10,7 @@
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CaptionHeight="32" 
-                              ResizeBorderThickness="20" />
+                              ResizeBorderThickness="0" />
             </Setter.Value>
         </Setter>
         <Setter Property="Template">

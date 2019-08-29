@@ -35,7 +35,7 @@
             <TextBlock x:Name="_Title" FontSize="12" Foreground="White" Margin="0,0" HorizontalAlignment="Center"/>
         </Grid>
         <DockPanel Grid.Row="1">
-            <Image x:Name="Icon"/>
+            <Image x:Name="icon"/>
             <TextBlock Margin="0" x:Name="MessageBlock" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </DockPanel>
         <Grid Grid.Row="2">

@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Crape_Client.CrapeClientUI">
+    <Style x:Key="Slider_Thumb" TargetType="Thumb">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Rectangle Fill="{TemplateBinding Foreground}" Width="15" Height="24"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Slider_CustomStyle" TargetType="Slider" >
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="Background" Value="#99111111"/>
+        <Setter Property="Foreground" Value="#FF12DFFF"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Grid Height="30" Background="{TemplateBinding Background}" >
+                        
+                        <!--<Grid.Effect>
+                                <DropShadowEffect BlurRadius="0" ShadowDepth="0" />
+                            </Grid.Effect>-->
+
+                        <Track Grid.Column="1" Name="PART_Track">
+                            <Track.Thumb>
+                                <Thumb Style="{StaticResource Slider_Thumb}" 
+                                       Foreground="{TemplateBinding Foreground}"/>
+                            </Track.Thumb>
+                        </Track>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DifficultySlider_Thumb" TargetType="Thumb">
+        <Setter Property="Focusable" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Rectangle Fill="{TemplateBinding Foreground}" Width="100" Height="24"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DifficultySlider" BasedOn="{StaticResource Slider_CustomStyle}" TargetType="Slider">
+        <Setter Property="Foreground" Value="#7F12DFFF"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Grid Height="30" Background="{TemplateBinding Background}" >
+
+                        <!--<Grid.Effect>
+                                <DropShadowEffect BlurRadius="0" ShadowDepth="0" />
+                            </Grid.Effect>-->
+
+                        <Track Grid.Column="1" Name="PART_Track">
+                            <Track.Thumb>
+                                <Thumb Style="{StaticResource DifficultySlider_Thumb}" 
+                                       Foreground="{TemplateBinding Foreground}"/>
+                            </Track.Thumb>
+                        </Track>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

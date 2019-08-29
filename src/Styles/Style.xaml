@@ -4,6 +4,11 @@
     <ResourceDictionary.MergedDictionaries>
 
         <ResourceDictionary Source="Window.xaml"/>
+        <ResourceDictionary Source="Button.xaml"/>
+        <ResourceDictionary Source="MenuButton1.xaml"/>
 
+        <ResourceDictionary Source="DataGrid.xaml"/>
+        <ResourceDictionary Source="Slider.xaml"/>
+        <ResourceDictionary Source="ScrollViewer.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -12,7 +12,7 @@ namespace Crape_Client.Controls
     class Live2DShow : L2DView
     {
         // 获取窗口的属性
-        public Window window { set; get; }
+        public Window window;
 
         /// <summary>
         /// 控件捕捉鼠标位置
@@ -58,6 +58,7 @@ namespace Crape_Client.Controls
         public Live2DShow()
         {
             CaptureMouse();
+            //window = Window.GetWindow(this);
         }
         /// <summary>
         /// 渲染
