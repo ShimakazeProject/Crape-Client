@@ -20,11 +20,10 @@ namespace Crape_Client.Windows.MainMenu
     /// <summary>
     /// MainMenu.xaml 的交互逻辑
     /// </summary>
-    public partial class MainMenu : UserControl
+    public partial class MainMenu : Page
     {
         #region 对象
-
-        Random rnd = new Random();
+        private Random rnd = new Random();
         #endregion
         public MainMenu()
         {
@@ -33,8 +32,9 @@ namespace Crape_Client.Windows.MainMenu
         }
         private void MainWindow_Activated(object sender, EventArgs e)
         {
+            //MainWindow = Window.GetWindow(this);
             // 初始化Live2DShow
-            L2DS.window = Window.GetWindow(this);
+            L2DS.window = MainWindow.mainWindow;
             LoadModelJson();
         }
         #region Live2DShow相关
@@ -94,7 +94,7 @@ namespace Crape_Client.Windows.MainMenu
 
         private void Campaign_Click(object sender, RoutedEventArgs e)
         {
-            Content = ContentShow.Campaign;
+            MainWindow.mainWindow.Content = new Campaign.Campaign();
         }
     }
 }

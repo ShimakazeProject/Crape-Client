@@ -22,15 +22,12 @@ namespace Crape_Client.Windows
         public InitializationWindow()
         {
             InitializeComponent();
-            //Activated += Init;
-            MainWindow MainWindow = new MainWindow();
-            Close();
-            MainWindow.ShowDialog();
+            Activated += Init;
         }
-        /*
         [STAThread]
         public void Init(object sender, EventArgs e)
         {
+            /*
             #region 
             System.Threading.Thread.Sleep(1000);
             tbStatus.Inlines.Add(new System.Windows.Documents.Run
@@ -93,8 +90,9 @@ namespace Crape_Client.Windows
             System.Threading.Thread.Sleep(1000);
             //MessageBox.Show("在这停顿");
             System.Diagnostics.Debug.WriteLine("载入窗口关闭");
+            //*/
             Close();
         }
-        //*/
+
     }
 }

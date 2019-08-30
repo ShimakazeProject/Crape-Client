@@ -18,13 +18,14 @@ namespace Crape_Client.Windows.Campaign
     /// <summary>
     /// Campaign.xaml 的交互逻辑
     /// </summary>
-    public partial class Campaign : UserControl
+    public partial class Campaign : Page
     {
         private bool _Difficult;
         public Campaign()
         {
             InitializeComponent();
-            _Difficult = false;
+            _Difficult = true;
+            ccSummary.Content = new Summary();
         }
 
         private void Difficult_Click(object sender, RoutedEventArgs e)
@@ -34,11 +35,17 @@ namespace Crape_Client.Windows.Campaign
                 _Difficult = !_Difficult;
                 ccSummary.Content = new Difficult();
             }
+            else
+            {
+                _Difficult = !_Difficult;
+                ccSummary.Content = new Summary();
+            }
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            Content = ContentShow.MainMenu;
+            //MainWindow.uiFrame.Content = new MainMenu.MainMenu();
+            MainWindow.mainWindow.GoBack();
         }
     }
 }

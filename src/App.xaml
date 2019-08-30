@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Crape_Client"
              xmlns:Windows="clr-namespace:Crape_Client.Windows" x:Class="Crape_Client.App"
-             StartupUri="Windows/InitializationWindow.xaml" ShutdownMode="OnLastWindowClose">
+             StartupUri="Windows/MainWindow.xaml" ShutdownMode="OnLastWindowClose">
     <!--StartupUri="Windows/InitializationWindow.xaml"-->
     <Application.Resources>
         <ResourceDictionary Source="Styles/Style.xaml"/>

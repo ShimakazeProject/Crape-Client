@@ -24,5 +24,7 @@ namespace Crape_Client.Windows.Campaign
         {
             InitializeComponent();
         }
+
+
     }
 }
